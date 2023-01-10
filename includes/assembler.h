@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/09 17:17:31 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/10 16:43:30 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "op.h"
 # include <stdint.h>
 # include <fcntl.h>
+# include <stdbool.h>
 
 
 /*
@@ -24,9 +25,10 @@
 
 typedef struct s_asm
 {
-	header_t	head[MAX_PLAYERS];
+	header_t	head;
 	int			n_players;
 	bool		debug;
+	char		buf[CHAMP_MAX_SIZE + 1];
 }	t_asm;
 
 /*
