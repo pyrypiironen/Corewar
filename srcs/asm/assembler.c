@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:05:42 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/09 17:18:35 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/10 16:45:46 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,7 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		exit_asm(NULL, "ERROR: too few arguments.");
 	init_asm(&d, ac, av);
-	read_file(&d, av[i]);
+	read_file(&d, ac, av);
+	//write_file(&d);
+	return (0);
 }
