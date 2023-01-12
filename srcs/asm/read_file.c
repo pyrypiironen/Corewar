@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 16:31:28 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/10 16:46:43 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/12 16:47:45 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static void	init_head(t_asm *d, int fd)
 {
 	d->head.prog_size = (unsigned int) lseek(fd, 0, SEEK_END);
 	// return offset to start?
-	if (d->head.prog_size == -1 || d->head.prog_name > CHAMP_MAX_SIZE)
-		exit_asm(d, "ERROR: invalid program size");
+	//CHECK LATER< IF AT ALL -- if (d->head.prog_size == -1 || d->head.prog_name > CHAMP_MAX_SIZE)
+	//	exit_asm(d, "ERROR: invalid program size");
 	d->head.magic = COREWAR_EXEC_MAGIC; // change to BIG ENDIAN
 	ft_bzero(d->head.prog_name, PROG_NAME_LENGTH + 1);
 	ft_bzero(d->head.comment, COMMENT_LENGTH + 1);
@@ -25,11 +25,15 @@ static void	init_head(t_asm *d, int fd)
 
 static void	get_prog_name(t_asm *d)
 {
+	if (!d)
+		return ;
 	//use buffer or fd?
 }
 
 static void	get_comment(t_asm *d)
 {
+	if (!d)
+		return ;
 	// use buffer or fd?
 }
 
