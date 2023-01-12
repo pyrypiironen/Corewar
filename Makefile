@@ -2,32 +2,58 @@
 
 ASSEMBLER = asm
 COREWAR = corewar
+CC = gcc
 FLAGS = -Wall -Wextra -Werror
-LIBFT = libft/libft.a
+LIBFT = ./libft/libft.a
+#INCL = -I./includes
 
 
+INCL = -I./includes/
+# SHARED_SRC_FILES = 
 
-.PHONY: all
+ASM_SRC_FILES = assembler.c read_file.c
+ASM_H = ./includes/assembler.h
+ASM_SRC_DIR = ./srcs/asm/
+ASM_SRC = $(addprefix $(ASM_SRC_DIR), $(ASM_ARC_FILES))
+ASM_OBJ_DIR = ./srcs/objs/asm/
+ASM_OBJ_FILES = $(ASM_SRC_FILES:.c=.o)
+ASM_OBJ = $(addprefix $(ASM_OBJ_DIR), $(ASM_OBJ_FILES))
+
+VM_SRC_FILES = error.c
+VM_H = ./includes/corewar.h
+VM_SRC_DIR = ./srcs/vm/
+VM_SRC = $(addprefix $(VM_SRC_DIR), $(VM_SRC_FILES))
+VM_OBJ_DIR = ./srcs/objs/vm/
+VM_OBJ_FILES = $(VM_SRC_FILES:.c=.o)
+VM_OBJ = $(addprefix $(VM_OBJ_DIR), $(VM_OBJ_FILES))
 
 all: $(ASSEMBLER) $(COREWAR)
 
-$(ASSEMBLER):
+$(ASSEMBLER): $(LIBFT) $(ASM_OBJ) $(ASM_H)
+	$(CC) -o $@ $(FLAGS) $(INCL) $(ASM_OBJ) $(LIBFT)
 
+$(ASM_OBJ_DIR)%.o: $(ASM_SRC_DIR)%.c
+	@mkdir -p $(ASM_OBJ_DIR)
+	$(CC) $(FLAGS) -c $< -o $@ $(INCL)
 
+$(COREWAR): $(LIBFT) $(VM_OBJ) $(VM_H)
+	$(CC) -o $@ $(FLAGS) $(INCL) $(VM_SRC) $(LIBFT)
 
-$(COREWAR):
-
-
+$(VM_OBJ_DIR)%.o: $(VM_SRC_DIR)%.c
+	@mkdir -p $(VM_OBJ_DIR)
+	$(CC) $(FLAGS) -c $< -o $@ $(INCL)
 
 $(LIBFT):
-			@$(MAKE) -C libft
+	@$(MAKE) -C ./libft/
 
 clean:
+	@/bin/rm -rf ./srcs/objs
+	@$(MAKE) -C ./libft/ clean
 
-fclean:
-
-
-
+fclean: clean
+	@$(MAKE) -C ./libft/ fclean
+	@/bin/rm $(ASSEMBLER)
+	@/bin/rm $(COREWAR)
 
 re: fclean all
 
