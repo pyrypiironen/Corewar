@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/10 16:48:03 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/12 12:36:51 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdint.h>
 # include <fcntl.h>
 # include <stdbool.h>
-
 
 /*
 ** Structs
@@ -30,6 +29,35 @@ typedef struct s_asm
 	bool		debug;
 	char		buf[CHAMP_MAX_SIZE + 1];
 }	t_asm;
+
+typedef struct s_op
+{
+	const char	*instruction;
+	int			op_code;
+	int			arg_type[3];
+	int			direct_size;
+	int			arg_type_code;
+	int			expected_arg_count;
+}	t_op;
+
+static const t_op	g_op_tab[] = {
+{"live", 1, {T_DIR}, 4, 0, 1},
+{"ld", 2, {T_DIR | T_IND, T_REG}, 4, 1, 2},
+{"st", 3, {T_REG, T_IND | T_REG}, 4, 1, 2},
+{"add", 4, {T_REG, T_REG, T_REG}, 4, 1, 3},
+{"sub", 5, {T_REG, T_REG, T_REG}, 4, 1, 3},
+{"and", 6, {T_REG | T_DIR | T_IND, T_REG | T_IND | T_DIR, T_REG}, 4, 1, 3},
+{"or", 7, {T_REG | T_IND | T_DIR, T_REG | T_IND | T_DIR, T_REG}, 4, 1, 3},
+{"xor", 8, {T_REG | T_IND | T_DIR, T_REG | T_IND | T_DIR, T_REG}, 4, 1, 3},
+{"zjmp", 9, {T_DIR}, 2, 0, 1},
+{"ldi", 10, {T_REG | T_DIR | T_IND, T_DIR | T_REG, T_REG}, 2, 1, 3},
+{"sti", 11, {T_REG, T_REG | T_DIR | T_IND, T_DIR | T_REG}, 2, 1, 3},
+{"fork", 12, {T_DIR}, 2, 0, 1},
+{"lld", 13, {T_DIR | T_IND, T_REG}, 4, 1, 2},
+{"lldi", 14, {T_REG | T_DIR | T_IND, T_DIR | T_REG, T_REG}, 2, 1, 3},
+{"lfork", 15, {T_DIR}, 2, 0, 1},
+{"aff", 16, {T_REG}, 4, 1, 1},
+{NULL, 0, {0}, 0, 0, 0}};
 
 /*
 ** Functions
