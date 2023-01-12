@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/12 12:36:51 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/12 15:26:56 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 typedef struct s_asm
 {
-	header_t	head;
+	t_header	head;
 	int			n_players;
 	bool		debug;
 	char		buf[CHAMP_MAX_SIZE + 1];
