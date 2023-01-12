@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:05:42 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/12 16:51:55 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/12 18:39:01 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,12 @@ void	init_asm(t_asm *d, int ac, char **av)
 
 	i = 0;
 	d->n_players = 0;
+	d->fd = 0;
 	d->debug = false;
+	d->head.magic = COREWAR_EXEC_MAGIC;
+	d->head.prog_size = 0;
+	ft_bzero(d->head.prog_name, PROG_NAME_LENGTH + 1);
+	ft_bzero(d->head.comment, COMMENT_LENGTH + 1);
 	while (++i < (ac - 1))
 		parse_flags(d, av[i]);
 }
@@ -53,6 +58,7 @@ int	main(int ac, char **av)
 		exit_asm(NULL, "ERROR: too few arguments.");
 	init_asm(&d, ac, av);
 	read_file(&d, ac, av);
+	close(d.fd);
 	//write_file(&d);
 	return (0);
 }
