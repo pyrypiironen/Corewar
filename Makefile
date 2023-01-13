@@ -19,7 +19,7 @@ ASM_OBJ_DIR = ./srcs/objs/asm/
 ASM_OBJ_FILES = $(ASM_SRC_FILES:.c=.o)
 ASM_OBJ = $(addprefix $(ASM_OBJ_DIR), $(ASM_OBJ_FILES))
 
-VM_SRC_FILES = error.c
+VM_SRC_FILES = helpers/*.c prerequites/*.c
 VM_H = ./includes/corewar.h
 VM_SRC_DIR = ./srcs/vm/
 VM_SRC = $(addprefix $(VM_SRC_DIR), $(VM_SRC_FILES))

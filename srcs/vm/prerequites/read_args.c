@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../includes/vm.h"
+#include "../../../includes/vm.h"
 
 static int	is_flag(char *argv);
 static void	read_flag(t_vm_data *d, char *value);
-static int	core_atoi(char *str);
+static int	core_atoi(t_vm_data *d, char *str);
 
-void	read_champs(int	argc, char **argv, t_vm_data *d)
+void	read_champs(int argc, char **argv, t_vm_data *d)
 {
 	int	i;
 
@@ -24,8 +24,8 @@ void	read_champs(int	argc, char **argv, t_vm_data *d)
 	while (i < argc)
 	{
 		if (is_flag(d, *argv[i]) && i + 1 < argc)
-				read_flag(d, argv[++i]);
-		else if (is_champ[i] == 1)
+			read_flag(d, argv[++i]);
+		else if (is_champ(argv[i]) == 1)
 			;
 		else
 			print_error("Wrong usage. Invalid input.", 1);
@@ -35,30 +35,46 @@ void	read_champs(int	argc, char **argv, t_vm_data *d)
 
 static int	is_flag(t_vm_data *d, char *argv)
 {
-	if (ft_strcmp(argv, "-n") == 0)
+	if (ft_strcmp(argv, "-n") == 0 && d->n_flag == 0)
 	{
 		d->n_flag = 42;
 		return (1);
 	}
-	else if (ft_strcmp(argv, "-d") == 0)
+	else if (ft_strcmp(argv, "-dump") == 0)
 	{
+		if (d->d_flag != 0)
+			print_error("Wrong usage. Only one -dump flag is allowed.", 1);
 		d->d_flag = 42;
 		return (1);
 	}
 	return (0);
-	
 }
 
 static void	read_flag(t_vm_data *d, char *value)
 {
 	if (d->n_flag == 42)
-		d->n_flag = core_atoi(value); // error check inside here
+		d->n_flag = core_atoi(d, value);
 	else
-		d->d_flag = //core_atoi
+		d->d_flag = core_atoi(d, value);
 }
 
-static int	core_atoi(char *str)
+static int	core_atoi(t_vm_data *d, char *str)
 {
+	unsigned long int	res;
 
-	
+	while (*str && *str >= '0' && *str <= '9')
+	{
+		res = res * 10 + (unsigned long int)*str - '0';
+		if (res > 2147483647)
+			print_error("Wrong usage. Flag value is limited to max int.", 1);
+		str++;
+	}
+	if (!str)
+		print_error("Wrong usage. Invalid argument after flag.", 1);
+	if (res < 1 && d->n_flag == 42)
+		print_error("Wrong usage. Player number can't be smaller than 1.", 1);
+	else if (res > d->player_amount && d->n_flag == 42)
+		print_error("Wrong usage. Player number can't be bigger than amount of \
+		players.", 1);
+	return ((int)res);
 }

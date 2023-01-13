@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../includes/vm.h"
+#include "../../../includes/vm.h"
 
 static void	init_arena(unsigned char arena[MEM_SIZE]);
 static void	init_data_vm(t_vm_data *d);
@@ -23,7 +23,7 @@ void	init_core(int argc, char **argv, t_vm_data *d)
 
 }
 
-static void init_arena(unsigned char arena[MEM_SIZE])
+static void	init_arena(unsigned char arena[MEM_SIZE])
 {
 	int	i;
 
@@ -35,7 +35,7 @@ static void init_arena(unsigned char arena[MEM_SIZE])
 	}
 }
 
-static void init_data_vm(t_vm_data *d)
+static void	init_data_vm(t_vm_data *d)
 {
 	init_arena(d->arena);
 	d->player_amount = 0;
@@ -43,5 +43,4 @@ static void init_data_vm(t_vm_data *d)
 	d->cycles_to_die = CYCLE_TO_DIE;
 	d->live_statements = 0;
 	d->n_flag = 0;
-
 }

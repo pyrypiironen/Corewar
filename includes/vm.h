@@ -26,6 +26,7 @@ typedef struct		s_vm_data
 	int				live_statements;
 	int				n_flag;
 	int				d_flag;
+	
 
 
 }					t_vm_data;
@@ -58,6 +59,7 @@ void	print_error(char *str, int usage);
 
 void	init_core(t_vm_data *d);
 void	read_champs(int	argc, char **argv, t_vm_data *d);
+int		is_champ(t_vm_data *d, char *argv);
 
 
 
