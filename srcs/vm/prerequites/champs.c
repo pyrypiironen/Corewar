@@ -15,19 +15,20 @@
 // static void	init_champ(t_vm_data *d, t_player *champ);
 
 // Test function with short (< 4) names
-int	is_champ(t_vm_data *d, char *argv)
+int	is_champ(char *argv, t_vm_data *d)
 {
 	int			len;
 	t_player	*champ;	
 
 	len = ft_strlen(argv);
-	if(ft_strcmp(*(argv + (len - 4), ".cor")) != 0)
+	if(ft_strcmp(&(argv[len - 4]), ".cor") != 0)
 		return (0); // no champ
 	//Create champ:
-	champ = (t_player)malloc(sizeof(t_player));
+	champ = (t_player *)malloc(sizeof(t_player));
 	if (champ == NULL)
 		print_error("Malloc failed.", 0);
-	init_champ(d, champ);
+	//init_champ(d, champ);
+	
 	
 
 

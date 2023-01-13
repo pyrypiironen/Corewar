@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_listadd.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/20 18:38:15 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/20 18:38:19 by ppiirone         ###   ########.fr       */
+/*   Created: 2023/01/12 16:20:25 by ppiirone          #+#    #+#             */
+/*   Updated: 2023/01/12 16:20:27 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../../../includes/vm.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+int	main(int argc, char **argv)
 {
-	if (!alst || !new)
-		return ;
-	new->next = *alst;
-	*alst = new;
+	t_vm_data	*d;
+	
+	d = (t_vm_data *)malloc(sizeof(t_vm_data));
+	if (d == NULL)
+		print_error("Malloc failed.", 0);
+	if (argc < 2)
+		print_error("Wrong usage. Invalid amount of arguments.", 1);
+	init_core(argc, argv, d);
+
+
+	ft_printf("{green}success!\n");
+
+
+
+
+
+	exit (0);
 }

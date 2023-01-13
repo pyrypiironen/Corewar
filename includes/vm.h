@@ -57,9 +57,9 @@ typedef struct		s_player
 
 void	print_error(char *str, int usage);
 
-void	init_core(t_vm_data *d);
+void	init_core(int argc, char **argv, t_vm_data *d);
 void	read_champs(int	argc, char **argv, t_vm_data *d);
-int		is_champ(t_vm_data *d, char *argv);
+int		is_champ( char *argv, t_vm_data *d);
 
 
 

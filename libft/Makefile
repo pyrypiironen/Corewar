@@ -19,8 +19,7 @@ FILES = ft_atoi.c \
 		ft_wordlen.c \
 		get_next_line.c
 
-LIST_FILES = ft_lstadd.c \
-		ft_lstdel.c \
+LIST_FILES = ft_lstdel.c \
 		ft_lstdelone.c \
 		ft_lstiter.c \
 		ft_lstmap.c \

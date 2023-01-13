@@ -12,7 +12,7 @@
 
 #include "../../../includes/vm.h"
 
-static int	is_flag(char *argv);
+static int	is_flag(t_vm_data *d, char *argv);
 static void	read_flag(t_vm_data *d, char *value);
 static int	core_atoi(t_vm_data *d, char *str);
 
@@ -23,9 +23,9 @@ void	read_champs(int argc, char **argv, t_vm_data *d)
 	i = 1;
 	while (i < argc)
 	{
-		if (is_flag(d, *argv[i]) && i + 1 < argc)
+		if (is_flag(d, argv[i]) && i + 1 < argc)
 			read_flag(d, argv[++i]);
-		else if (is_champ(argv[i]) == 1)
+		else if (is_champ(argv[i], d) == 1)
 			;
 		else
 			print_error("Wrong usage. Invalid input.", 1);
@@ -62,6 +62,7 @@ static int	core_atoi(t_vm_data *d, char *str)
 {
 	unsigned long int	res;
 
+	res = 0;
 	while (*str && *str >= '0' && *str <= '9')
 	{
 		res = res * 10 + (unsigned long int)*str - '0';
@@ -69,12 +70,12 @@ static int	core_atoi(t_vm_data *d, char *str)
 			print_error("Wrong usage. Flag value is limited to max int.", 1);
 		str++;
 	}
-	if (!str)
+	if (*str != '\0')
 		print_error("Wrong usage. Invalid argument after flag.", 1);
 	if (res < 1 && d->n_flag == 42)
 		print_error("Wrong usage. Player number can't be smaller than 1.", 1);
 	else if (res > d->player_amount && d->n_flag == 42)
 		print_error("Wrong usage. Player number can't be bigger than amount of \
-		players.", 1);
+players.", 1);
 	return ((int)res);
 }
