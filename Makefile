@@ -1,17 +1,11 @@
-# Add header
-
 ASSEMBLER = asm
 COREWAR = corewar
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 LIBFT = ./libft/libft.a
-#INCL = -I./includes
-
-
 INCL = -I./includes/
-# SHARED_SRC_FILES = 
 
-ASM_SRC_FILES = assembler.c read_file.c
+ASM_SRC_FILES = assembler.c validate_file.c read_file.c
 ASM_H = ./includes/assembler.h
 ASM_SRC_DIR = ./srcs/asm/
 ASM_SRC = $(addprefix $(ASM_SRC_DIR), $(ASM_ARC_FILES))
@@ -20,16 +14,12 @@ ASM_OBJ_FILES = $(ASM_SRC_FILES:.c=.o)
 ASM_OBJ = $(addprefix $(ASM_OBJ_DIR), $(ASM_OBJ_FILES))
 
 
-# VM_H = ./includes/corewar.h
-#VM_SRC_DIR = ./srcs/vm/
-# VM_SRC = $(addprefix $(VM_SRC_DIR), $(VM_SRC_FILES))
-
 MAIN =		main.c
 
 PREREQUITES =	champs.c \
 				init.c \
 				read_args.c \
-				read_cor.C
+				read_cor.c
 
 HELPERS =		error.c
 
@@ -46,9 +36,10 @@ VM_OBJ = $(VM_OBJ_FILES)
 # $(addprefix $(VM_OBJ_DIR), 
 
 all: $(ASSEMBLER) $(COREWAR)
-
-$(ASSEMBLER): $(LIBFT) $(ASM_OBJ) $(ASM_H)
+# Add Makefile as prerequisite for $(Corewar), change syntax which would compile with Makefile
+$(ASSEMBLER): $(LIBFT) $(ASM_OBJ) $(ASM_H) Makefile
 	$(CC) -o $@ $(FLAGS) $(INCL) $(ASM_OBJ) $(LIBFT)
+	@echo "Assembler done."
 
 $(ASM_OBJ_DIR)%.o: $(ASM_SRC_DIR)%.c
 	@mkdir -p $(ASM_OBJ_DIR)
