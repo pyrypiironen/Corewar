@@ -14,5 +14,7 @@ l1:	st	r2, 1
 
 # A huge file (many labels which point to the same thing)
 # Invalid label
+# huge label name
+# no label name, only label char
 # empty name (within "")
 # empty comment
