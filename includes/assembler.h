@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/18 17:28:32 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:47:52 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,25 @@
 /*
 ** Structs
 */
+typedef struct s_lab
+{
+	char	*name;
+	int		line;
+	size_t	bytes;
+}	t_lab;
 
 typedef struct s_asm
 {
 	t_header	head;
 	int			fd;
 	int			n_players;
+	int			n_lines;
+	int			n_labels;
 	bool		debug;
-	char		*buf;
+	char		**buf;
+	t_lab		*labels;
 }	t_asm;
 
-typedef struct s_lab
-{
-	char	*name;
-	int		line;
-	size_t	bytes;
-}
 typedef struct s_op
 {
 	const char	*instruction;
