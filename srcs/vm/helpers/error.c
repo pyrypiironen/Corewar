@@ -18,6 +18,6 @@ void	print_error(char *str, int usage)
 	write(2, str, ft_strlen(str));
 	write(2, "\n", 1);
 	if (usage == 1)
-		ft_printf("Usage: ./corewar diid diidididid\n"); // write correct message
+		ft_printf("Usage: ./corewar [-dump nbr] [-n nbr] champ1.cor ...\n");
 	exit(1);
 }
