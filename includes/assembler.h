@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   assembler.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/13 17:36:42 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:28:32 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ typedef struct s_asm
 	char		*buf;
 }	t_asm;
 
+typedef struct s_lab
+{
+	char	*name;
+	int		line;
+	size_t	bytes;
+}
 typedef struct s_op
 {
 	const char	*instruction;
