@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:05:42 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/18 17:03:34 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:43:38 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,16 @@ void	parse_flags(t_asm *d, char *str)
 		exit_asm(d, "ERROR: invalid flag.");
 }
 
-void	init_asm(t_asm *d, int ac, char **av)
-{
-	int	i;
-
-	i = 0;
-	d->n_players = 0;
-	d->fd = 0;
-	d->debug = false;
-	d->head.magic = COREWAR_EXEC_MAGIC;
-	d->head.prog_size = 0;
-	ft_bzero(d->head.prog_name, PROG_NAME_LENGTH + 1);
-	ft_bzero(d->head.comment, COMMENT_LENGTH + 1);
-	while (++i < (ac - 1))
-		parse_flags(d, av[i]);
-}
-
 int	main(int ac, char **av)
 {
 	t_asm	d;
+	int		i;
 
+	i = 0;
 	if (ac == 1)
 		exit_asm(NULL, "ERROR: too few arguments.");
+	while (++i < (ac - 1))
+		parse_flags(&d, av[i]);
 	init_asm(&d, ac, av);
 	validate_file(&d, ac, av);
 	read_file(&d);
