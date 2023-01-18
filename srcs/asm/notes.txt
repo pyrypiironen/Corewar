@@ -1,0 +1,20 @@
+labels: can be on the same line, next, or whitespace in between
+- several labels in a row, all point to the line after the labels.
+- If no statements are given, it will indicate to the place immediately
+after the champion's executable code, but if no '\n' is found and EOF is reached 
+= ERROR (beware of several labels in a row where the last one does not have a newline)
+- label LABEL_CHARS
+
+statements:
+- valid argument, argument types, separator char, label char, (alt)comment
+
+Need to handle:
+- calculate the result of the labels
+
+No need to handle:
+- the contents of registries
+- the memory
+
+VM:
+- replicate bug of lld? read size of 2 instead of 4
+- use of % MEM_SIZE to prevent overruns
