@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	init_core(argc, argv, d);
 
 
-	ft_printf("{green}success!\n");
+	ft_printf("{green}Success! Main exit (exit code 0).\n");
 
 
 

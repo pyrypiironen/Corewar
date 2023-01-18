@@ -16,6 +16,7 @@
 
 # include "../libft/libft.h"
 # include "op.h"
+# include <fcntl.h>
 
 typedef struct		s_vm_data
 {
@@ -47,8 +48,8 @@ typedef struct			s_carriage
 typedef struct		s_player
 {
 	int				id;
-	char			*name;
-	char			*comment;
+	char			name[PROG_NAME_LENGTH];
+	char			comment[COMMENT_LENGTH];
 	int				code_size;
 	char			*ex_code;
 	int				position;
@@ -60,6 +61,8 @@ void	print_error(char *str, int usage);
 void	init_core(int argc, char **argv, t_vm_data *d);
 void	read_champs(int	argc, char **argv, t_vm_data *d);
 int		is_champ( char *argv, t_vm_data *d);
+
+void	read_magic(int fd);
 
 
 

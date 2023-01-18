@@ -33,6 +33,7 @@ void	read_champs(int argc, char **argv, t_vm_data *d)
 	}
 }
 
+// Return the information if there is the flag on command line input.
 static int	is_flag(t_vm_data *d, char *argv)
 {
 	if (ft_strcmp(argv, "-n") == 0 && d->n_flag == 0)
@@ -50,6 +51,7 @@ static int	is_flag(t_vm_data *d, char *argv)
 	return (0);
 }
 
+// Read flag value to data_struct. Will be used only when is_flag returns 1.
 static void	read_flag(t_vm_data *d, char *value)
 {
 	if (d->n_flag == 42)
@@ -58,6 +60,8 @@ static void	read_flag(t_vm_data *d, char *value)
 		d->d_flag = core_atoi(d, value);
 }
 
+// Simple version of ft_atoi modified to this project. Also include error
+// handling against wrong usage of flags.
 static int	core_atoi(t_vm_data *d, char *str)
 {
 	unsigned long int	res;
