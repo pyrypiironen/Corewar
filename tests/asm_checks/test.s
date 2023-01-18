@@ -11,3 +11,8 @@ run:	xor	r0, r0, r0
 l1:	st	r2, 1
 	live	%1
 	zjmp	%:l1
+
+# A huge file (many labels which point to the same thing)
+# Invalid label
+# empty name (within "")
+# empty comment
