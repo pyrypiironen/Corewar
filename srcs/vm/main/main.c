@@ -24,11 +24,20 @@ int	main(int argc, char **argv)
 	init_core(argc, argv, d);
 
 
+
+
+	// Testing
+	ft_printf("{blue}Player amount: %i\n", d->player_amount);
+	while (d->player_head != NULL)
+	{
+		ft_printf("{blue}%s\n", d->player_head->name);
+		ft_printf("{red}id: %i\n", d->player_head->id);
+		d->player_head = d->player_head->next;
+	}
+
+
+
+	//
 	ft_printf("{green}Success! Main exit (exit code 0).\n");
-
-
-
-
-
 	exit (0);
 }

@@ -38,7 +38,8 @@ static void	init_arena(unsigned char arena[MEM_SIZE])
 static void	init_data_vm(t_vm_data *d)
 {
 	init_arena(d->arena);
-	d->player_amount = 4; //FIX
+	d->player_head = NULL;
+	d->player_amount = 0;
 	d->last_live = 0;
 	d->cycles_to_die = CYCLE_TO_DIE;
 	d->live_statements = 0;

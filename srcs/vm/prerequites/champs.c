@@ -12,8 +12,6 @@
 
 # include "../../../includes/vm.h"
 
-static void	init_champ(t_vm_data *d, t_player *champ, char *file);
-
 // Test function with short (< 4) names
 int	is_champ(char *argv, t_vm_data *d)
 {
@@ -28,16 +26,12 @@ int	is_champ(char *argv, t_vm_data *d)
 	if (champ == NULL)
 		print_error("Malloc failed.", 0);
 	init_champ(d, champ, argv);
-	
-	
-
 
 
 	return (1);
 }
 
-
-static void	init_champ(t_vm_data *d, t_player *champ, char *file)
+void	init_champ(t_vm_data *d, t_player *champ, char *file)
 {
 	int	fd;
 	
@@ -47,27 +41,79 @@ static void	init_champ(t_vm_data *d, t_player *champ, char *file)
 	if (fd < 0)
 		print_error("Invalid file.", 0);
 	read_magic(fd);
-		// Followed functions do not exist yet
-	// read_name(d, champ);
-	// // skip nulls
-	// read_exec_size(d, champ);
-	// read_comment(d, champ);
-	// // skip nulls
-	// read_exec(d, champ);
-	// if (close(fd) == -1)
-	// 	print_error("Closing file description failed.", 0);
+	read_name(champ, fd);
+	skip_nulls(fd);
+	read_excode_size(champ, fd);
+	read_comment(champ, fd);
+	skip_nulls(fd);
+	read_excode(champ, fd);
+	if (close(fd) == -1)
+		print_error("Closing file description failed.", 0);
+	champ->next = d->player_head;
+	d->player_head = champ;
+	d->player_amount += 1;
+	if (d->player_amount == 5)
+		print_error("Too many players. Max 4 players allowed.", 0);
 }
 
-void	read_magic(int fd)
+void	init_ids(t_vm_data *d)
 {
-	unsigned char	buf[4];
-	int				total;
+	int	id;
 
-	if (read(fd, &buf, 4) != 4)
-		print_error("Invalid file.", 0);
-	total = (buf[0] << 24) + (buf[1] << 16) + (buf[2] << 8) + buf[3];
-	if (total != COREWAR_EXEC_MAGIC)
-		print_error("Invalid file.", 0);
+	id = d->player_amount;
+	d->players = d->player_head;
+	while (id > 0)
+	{
+		while (d->players && d->players->id != 0)
+			d->players = d->players->next;
+		if (d->players == NULL)
+			break ;
+		if (!check_id(d->player_head, id))
+		{
+			d->players->id = id;
+			d->players = d->players->next;
+		}
+		id--;
+	}
+}
+
+int	check_id(t_player *champ, int id)
+{
+	while (champ != NULL)
+	{
+		if (champ->id == id)
+			return (1);
+		champ = champ->next;
+	}
+	return (0);
+}
+
+void	id_error_check(t_vm_data *d)
+{
+	t_player *tmp;
+
+	if (d->player_amount > MAX_PLAYERS)
+		print_error("Wrong usage. Player number can't be bigger than \
+MAX_PLAYERS.", 1);
+	d->players = d->player_head;
+	while (d->players)
+	{
+		tmp = d->players->next;
+		while (tmp)
+		{
+			if (d->players->id == tmp->id)
+				print_error("Wrong usage. Duplicate player numbers.", 1);
+			tmp = tmp->next;
+		}
+		if (d->players->id > d->player_amount)
+		{
+			ft_printf("{red}id: %d || amount: %d\n", d->players->id, d->player_amount);
+			print_error("Wrong usage. Player number can't be bigger than \
+player amount.", 1);
+		}
+		d->players = d->players->next;
+	}
+
 }
 
 

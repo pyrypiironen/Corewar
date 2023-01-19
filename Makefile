@@ -19,7 +19,8 @@ MAIN =		main.c
 PREREQUITES =	champs.c \
 				init.c \
 				read_args.c \
-				read_cor.c
+				read_cor.c \
+				read_cor_2.c
 
 HELPERS =		error.c
 

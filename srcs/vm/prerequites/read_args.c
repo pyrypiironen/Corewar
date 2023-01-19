@@ -31,6 +31,8 @@ void	read_champs(int argc, char **argv, t_vm_data *d)
 			print_error("Wrong usage. Invalid input.", 1);
 		i++;
 	}
+	init_ids(d);
+	id_error_check(d);
 }
 
 // Return the information if there is the flag on command line input.
@@ -38,14 +40,14 @@ static int	is_flag(t_vm_data *d, char *argv)
 {
 	if (ft_strcmp(argv, "-n") == 0 && d->n_flag == 0)
 	{
-		d->n_flag = 42;
+		d->n_flag = -1;
 		return (1);
 	}
 	else if (ft_strcmp(argv, "-dump") == 0)
 	{
 		if (d->d_flag != 0)
 			print_error("Wrong usage. Only one -dump flag is allowed.", 1);
-		d->d_flag = 42;
+		d->d_flag = -1;
 		return (1);
 	}
 	return (0);
@@ -54,7 +56,7 @@ static int	is_flag(t_vm_data *d, char *argv)
 // Read flag value to data_struct. Will be used only when is_flag returns 1.
 static void	read_flag(t_vm_data *d, char *value)
 {
-	if (d->n_flag == 42)
+	if (d->n_flag == -1)
 		d->n_flag = core_atoi(d, value);
 	else
 		d->d_flag = core_atoi(d, value);
@@ -76,10 +78,10 @@ static int	core_atoi(t_vm_data *d, char *str)
 	}
 	if (*str != '\0')
 		print_error("Wrong usage. Invalid argument after flag.", 1);
-	if (res < 1 && d->n_flag == 42)
+	if (res < 1 && d->n_flag == -1)
 		print_error("Wrong usage. Player number can't be smaller than 1.", 1);
-	else if (res > d->player_amount && d->n_flag == 42)
-		print_error("Wrong usage. Player number can't be bigger than amount of \
-players.", 1);
+	else if (res > MAX_PLAYERS && d->n_flag == -1)
+		print_error("Wrong usage. Player number can't be bigger than \
+MAX_PLAYERS.", 1);
 	return ((int)res);
 }
