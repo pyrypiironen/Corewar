@@ -16,6 +16,9 @@ static int	is_flag(t_vm_data *d, char *argv);
 static void	read_flag(t_vm_data *d, char *value);
 static int	core_atoi(t_vm_data *d, char *str);
 
+
+// Main function of reading command line input and .cor files.
+// Will iniatilize champions data structures and flag data.
 void	read_champs(int argc, char **argv, t_vm_data *d)
 {
 	int	i;

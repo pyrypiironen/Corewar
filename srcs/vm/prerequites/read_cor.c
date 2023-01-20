@@ -31,8 +31,6 @@ void	read_name(t_player *champ, int fd)
 	if (read(fd, champ->name, PROG_NAME_LENGTH) != PROG_NAME_LENGTH)
 		print_error("Invalid file.", 0);
 	champ->name[PROG_NAME_LENGTH] = '\0';
-	
-	ft_printf("{yellow}Name is %s\n", champ->name); // Just for testing
 }
 
 // Skip null part of champions .cor file.
@@ -52,6 +50,7 @@ void	skip_nulls(int fd)
 	}
 }
 
+// Read execution code size of champion from .cor file and check the validity.
 void	read_excode_size(t_player *champ, int fd)
 {
 	unsigned char	buf[4];
@@ -60,14 +59,13 @@ void	read_excode_size(t_player *champ, int fd)
 		print_error("Invalid file.", 0);
 	champ->code_size = (buf[0] << 24) + (buf[1] << 16) + (buf[2] << 8) + buf[3];
 
-	ft_printf("{yellow}Total: %i\n", champ->code_size); // Just for testing
 }
 
+// Read comment of champion from .cor file and check the validity.
 void	read_comment(t_player *champ, int fd)
 {
 	if (read(fd, champ->comment, COMMENT_LENGTH) != COMMENT_LENGTH)
 		print_error("Invalid file.", 0);
 	champ->comment[COMMENT_LENGTH] = '\0';
 
-	ft_printf("{yellow}Comment: %s\n", champ->comment);	// Just for testing
 }
