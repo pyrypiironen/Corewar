@@ -3,25 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   assembler.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:05:42 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/18 17:43:38 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/20 15:39:40 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
 
-void	free_asm(t_asm	*d)
-{
-	if (d == NULL)
-		return ;
-}
-
 void	exit_asm(t_asm *d, char *str)
 {
-	if (d)
-		free_asm(d);
+	free_asm(d);
 	ft_printf(str);
 	exit(1);
 }
@@ -45,7 +38,7 @@ int	main(int ac, char **av)
 	while (++i < (ac - 1))
 		parse_flags(&d, av[i]);
 	init_asm(&d, ac, av);
-	validate_file(&d, ac, av);
+	validate(&d, ac, av);
 	read_file(&d);
 	close(d.fd);
 	//write_file(&d);
