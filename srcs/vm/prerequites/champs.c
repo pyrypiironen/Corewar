@@ -12,7 +12,6 @@
 
 # include "../../../includes/vm.h"
 
-// Test function with short (< 4) names
 int	is_champ(char *argv, t_vm_data *d)
 {
 	int			len;
@@ -20,14 +19,11 @@ int	is_champ(char *argv, t_vm_data *d)
 
 	len = ft_strlen(argv);
 	if(ft_strcmp(&(argv[len - 4]), ".cor") != 0)
-		return (0); // no champ
-	//Create champ:
+		return (0);
 	champ = (t_player *)malloc(sizeof(t_player));
 	if (champ == NULL)
 		print_error("Malloc failed.", 0);
 	init_champ(d, champ, argv);
-
-
 	return (1);
 }
 
@@ -35,7 +31,7 @@ void	init_champ(t_vm_data *d, t_player *champ, char *file)
 {
 	int	fd;
 	
-	champ->id = d->n_flag; //if this is 0, change after to first available number
+	champ->id = d->n_flag;
 	d->n_flag = 0;
 	fd = open(file, O_RDONLY);
 	if (fd < 0)

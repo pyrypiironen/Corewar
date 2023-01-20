@@ -18,21 +18,25 @@
 # include "op.h"
 # include <fcntl.h>
 
-typedef struct		s_vm_data
+static const char *color_tab[] = {
+	"", "\x1B[32m", "\x1B[33m", "\x1B[31m", "\x1B[35m"
+};
+
+typedef struct			s_vm_data
 {
-	unsigned char	arena[MEM_SIZE];
-	struct s_player	*players;
-	struct s_player	*player_head;
-	int				player_amount;
-	int				last_live;			// or pointer to players struct
-	int				cycles_to_die;
-	int				live_statements;
-	int				n_flag;
-	int				d_flag;
-	
-
-
-}					t_vm_data;
+	unsigned char		arena[MEM_SIZE];
+	int					arena_color[MEM_SIZE];
+	struct s_player		*players;
+	struct s_player		*player_head;
+	struct s_carriage	*carriages;
+	struct s_carriage	*carriage_head;
+	int					player_amount;
+	int					last_live;			// or pointer to players struct
+	int					cycles_to_die;
+	int					live_statements;
+	int					n_flag;
+	int					d_flag;
+}						t_vm_data;
 
 typedef struct			s_carriage
 {
@@ -40,7 +44,7 @@ typedef struct			s_carriage
 	int					carry;
 	int			 		cursor;
 	int					last_live;
-	unsigned char		ex_code;
+	unsigned char		statement;
 	int					to_execute;
 	int					jump_size;
 	int					registrys[REG_NUMBER];
@@ -54,7 +58,7 @@ typedef struct		s_player
 	char			comment[COMMENT_LENGTH + 1];
 	int				code_size;
 	unsigned char	*excode;
-	int				position;
+	int				location;
 	struct s_player		*next;
 }					t_player;
 
@@ -65,8 +69,14 @@ void	init_core(int argc, char **argv, t_vm_data *d);
 void	read_champs(int	argc, char **argv, t_vm_data *d);
 
 
+//		* * * * * * * * CARRIAGES * * * * * * * *
+//		init.c
+void	init_carriages(t_vm_data *d);
 
 //		* * * * * * * * PREREQUITES * * * * * * * *
+//		arena.c
+void	fill_arena(t_vm_data *d);
+
 //		champs.c
 int		is_champ( char *argv, t_vm_data *d);
 void	init_champ(t_vm_data *d, t_player *champ, char *file);
@@ -84,6 +94,11 @@ void	read_comment(t_player *champ, int fd);
 //		read_cor_2.c
 void	read_excode(t_player *champ, int fd);
 
+//		* * * * * * * * TESTS * * * * * * * *
+//		prerequite_tests.c
+void	print_champs(t_vm_data *d);
+void	print_arena(t_vm_data *d);				// Move to somewhere
+void	print_carriages(t_vm_data *d);
 
 
 
