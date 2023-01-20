@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   assembler.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/18 17:47:52 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/20 15:39:03 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,6 @@
 /*
 ** Structs
 */
-typedef struct s_lab
-{
-	char	*name;
-	int		line;
-	size_t	bytes;
-}	t_lab;
-
-typedef struct s_asm
-{
-	t_header	head;
-	int			fd;
-	int			n_players;
-	int			n_lines;
-	int			n_labels;
-	bool		debug;
-	char		**buf;
-	t_lab		*labels;
-}	t_asm;
 
 typedef struct s_op
 {
@@ -69,15 +51,44 @@ static const t_op	g_op_tab[] = {
 {"aff", 16, {T_REG}, 4, 1, 1},
 {NULL, 0, {0}, 0, 0, 0}};
 
+typedef struct s_lab
+{
+	struct s_lab	*next;
+	t_op			op;
+	char			*name;
+	size_t			line;
+	size_t			bytes;
+}	t_lab;
+
+typedef struct s_asm
+{
+	t_header	head;
+	int			fd;
+	int			n_players;
+	int			n_lines;
+	int			n_labels;
+	bool		debug;
+	char		**buf;
+	t_lab		**labels;
+}	t_asm;
+
+
 /*
 ** Functions
 */
 
 void	exit_asm(t_asm *d, char *str);
-void	free_asm(t_asm	*d);
+void	free_asm(t_asm *d);
 void	parse_flags(t_asm *d, char *str);
 void	init_asm(t_asm *d, int ac, char **av);
 void	validate(t_asm *d, int ac, char **av);
 void	read_file(t_asm *d);
+
+/*
+** Label functions
+*/
+
+t_lab	*get_label(t_asm *d, char *name);
+void	add_label_to_table(t_asm *d, t_lab *new);
 
 #endif
