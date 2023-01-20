@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_asm.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:20:07 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/18 17:52:29 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/20 13:12:48 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,16 @@ static void	count_lines_labels(t_asm *d)
 {
 	off_t	start;
 	off_t	end;
+	char	tmp[20];
 
+	start = 0;
+	end = 0;
 	start = lseek(d->fd, 0, SEEK_SET);
-	end = lseek(d->fd, end, SEEK_END);
+	end = lseek(d->fd, start, SEEK_END);
+	lseek(d->fd, start, SEEK_SET);
+	if (start == -1 || end == -1 || start == end)
+		exit_asm(d, "ERROR: invalid file");
+	ft_printf("start: %u, end: %u\n", start, end);
 }
 
 void	init_asm(t_asm *d, int ac, char **av)

@@ -4,6 +4,8 @@ labels: can be on the same line, next, or whitespace in between
 after the champion's executable code, but if no '\n' is found and EOF is reached 
 = ERROR (beware of several labels in a row where the last one does not have a newline)
 - label LABEL_CHARS
+- COUNT LABELS, malloc array of structs, create hash functionality
+- hash function % d->n_labels
 
 statements:
 - valid argument, argument types, separator char, label char, (alt)comment
@@ -18,3 +20,17 @@ No need to handle:
 VM:
 - replicate bug of lld? read size of 2 instead of 4
 - use of % MEM_SIZE to prevent overruns
+
+1. Save name
+2. Save comment
+3. Save label names, and line it points to
+4. Parse, save data in structs:
+	- label: t_lab
+	- statement: t_stat
+5. Validate:
+Statement:
+- name
+- opcode
+- arg_count
+- arg_type
+- characters 
