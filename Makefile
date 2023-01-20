@@ -5,7 +5,8 @@ FLAGS = -Wall -Wextra -Werror
 LIBFT = ./libft/libft.a
 INCL = -I./includes/
 
-ASM_SRC_FILES = assembler.c validate_file.c read_file.c
+ASM_SRC_FILES = assembler.c validate_file.c read_file.c init_asm.c \
+hash_labels.c free_asm.c
 ASM_H = ./includes/assembler.h
 ASM_SRC_DIR = ./srcs/asm/
 ASM_SRC = $(addprefix $(ASM_SRC_DIR), $(ASM_ARC_FILES))
