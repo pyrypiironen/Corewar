@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:20:07 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/23 16:22:36 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:24:55 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static void	count_lines_labels(t_asm *d)
 
 		i++;
 	}
-	ft_printf("lines: %u\nlabels: %u", d->n_lines, d->n_labels);
+	//ft_printf("lines: %u\nlabels: %u", d->n_lines, d->n_labels);
 }
 
 void	init_asm(t_asm *d, int ac, char **av)
