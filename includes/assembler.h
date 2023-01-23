@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/23 16:20:12 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/23 19:08:08 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ typedef struct s_lab
 	t_op			op;
 	char			*name;
 	size_t			line;
-	size_t			bytes;
 	size_t			start;
+	size_t			bytes;
 }	t_lab;
 
 typedef struct s_asm
@@ -70,6 +70,8 @@ typedef struct s_asm
 	t_header	head;
 	int			fd;
 	int			n_players;
+	int			row;
+	int			col;
 	size_t		n_lines;
 	size_t		n_labels;
 	char		*buf;
@@ -82,6 +84,7 @@ typedef struct s_asm
 */
 
 void	exit_asm(t_asm *d, char *str);
+void	memdel_exit_asm(t_asm *d, void *mem, char *str);
 void	free_asm(t_asm *d);
 void	parse_flags(t_asm *d, char *str);
 void	init_asm(t_asm *d, int ac, char **av);
@@ -93,6 +96,7 @@ void	read_file(t_asm *d);
 */
 
 t_lab	*get_label(t_asm *d, char *name);
+void	init_label_table(t_asm *d);
 void	add_label_to_table(t_asm *d, t_lab *new);
 
 #endif
