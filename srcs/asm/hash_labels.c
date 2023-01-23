@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 14:59:55 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/23 14:00:12 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/23 18:52:51 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,15 @@ void	add_label_to_table(t_asm *d, t_lab *new)
 
 void	init_label_table(t_asm *d)
 {
-	t_lab	**labels;
 	size_t	i;
 
-	labels = (t_lab **)malloc(d->n_labels * sizeof(t_lab *));
-	if (!labels)
+	d->labels = (t_lab **)malloc(d->n_labels * sizeof(t_lab *));
+	if (!d->labels)
 		exit_asm(d, MALLOC_ERR);
 	i = 0;
 	while (i < d->n_labels)
 		d->labels[i++] = NULL;
+	//ft_printf("Label table initialized! %p\n", d->labels);
 }
 
 t_lab	*get_label(t_asm *d, char *name)

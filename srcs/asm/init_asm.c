@@ -6,15 +6,12 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:20:07 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/23 16:24:55 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/23 18:03:21 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
 
-// count lines, malloc double pointer char arr, read into it.
-// count labels
-// simultaneously check validity?
 // in t_asm: keep a track of which line we are at
 // functions: islabel(char *str) isstatement(char *str)
 
@@ -61,7 +58,7 @@ static void	count_lines_labels(t_asm *d)
 
 		i++;
 	}
-	//ft_printf("lines: %u\nlabels: %u", d->n_lines, d->n_labels);
+	//ft_printf("lines: %u\nlabels: %u\n", d->n_lines, d->n_labels);
 }
 
 void	init_asm(t_asm *d, int ac, char **av)
@@ -70,13 +67,15 @@ void	init_asm(t_asm *d, int ac, char **av)
 	d->fd = 0;
 	d->n_lines = 1;
 	d->n_labels = 0;
-	d->debug = false;
 	d->head.magic = COREWAR_EXEC_MAGIC;
 	d->head.prog_size = 0;
 	d->buf = NULL;
 	d->labels = NULL;
+	d->row = 0;
+	d->col = 0;
 	ft_bzero(d->head.prog_name, PROG_NAME_LENGTH + 1);
 	ft_bzero(d->head.comment, COMMENT_LENGTH + 1);
 	validate(d, ac, av);
 	count_lines_labels(d);
+	init_label_table(d);
 }
