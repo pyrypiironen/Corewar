@@ -25,12 +25,12 @@ arriere_live:	live %42
 		and	r6, %0, r6
 		zjmp	%:arriere_live
 
-fork_arriere:	live	%42
+fork_arriere:	live %2
 		fork	%:arriere
 		zjmp	%:fork_arriere
 
 # On commence les lives en serie
-live_live:	live	%42	
+live_live:	live %2	
 		sti	r1, %:live100, r9	
 		sti	r1, %:live102, r9	
 		sti	r1, %:live104, r9	
@@ -63,77 +63,77 @@ live_live:	live	%42
 		zjmp	%:live_live	
 		
 init:		fork	%:kmissile
-		live	%42
+		live %2
 		sti	r1, %:arriere_live, %1	
 		fork	%:fork_arriere
-		live	%42
+		live %2
 		sti	r1, %:avant_live, %1
 		fork	%:fork_avant
-		live	%42
+		live %2
 		ld	%1,r9
 		and	r6,%0,r6
 		zjmp	%:live_live
 	
-fork_live:	live	%42
+fork_live:	live %2
 		fork	%:live100
-		live	%42	
+		live %2	
 		fork	%:fork_live
-		live	%42
+		live %2
 		zjmp	%:fork_live
 	
-live100:	live	%42
-live101:	live	%42	
-live102:	live	%42
-live103:	live	%42
-live104:	live	%42
-live105:	live	%42
-live106:	live	%42
-live107:	live	%42
-live108:	live	%42
-live109:	live	%42
-live110:	live	%42
-live111:	live	%42
-live112:	live	%42
-live113:	live	%42
-live114:	live	%42
-live115:	live	%42
-live116:	live	%42
-live117:	live	%42
-live118:	live	%42
-live119:	live	%42
-live120:	live	%42
-live121:	live	%42
-live122:	live	%42
-live123:	live	%42
-live124:	live	%42
-live125:	live	%42
-live126:	live	%42
-live127:	live	%42
-live128:	live	%42
-live129:	live	%42
-live130:	live	%42
-live131:	live	%42
-live132:	live	%42
-live133:	live	%42
-live134:	live	%42
-live135:	live	%42
-live136:	live	%42
-live137:	live	%42
-live138:	live	%42
-live139:	live	%42
-live140:	live	%42
-live141:	live	%42
-live142:	live	%42
-live143:	live	%42
-live144:	live	%42
-live145:	live	%42
-live146:	live	%42
-live147:	live	%42
-live148:	live	%42
-live149:	live	%42
+live100:	live %2
+live101:	live %2	
+live102:	live %2
+live103:	live %2
+live104:	live %2
+live105:	live %2
+live106:	live %2
+live107:	live %2
+live108:	live %2
+live109:	live %2
+live110:	live %2
+live111:	live %2
+live112:	live %2
+live113:	live %2
+live114:	live %2
+live115:	live %2
+live116:	live %2
+live117:	live %2
+live118:	live %2
+live119:	live %2
+live120:	live %2
+live121:	live %2
+live122:	live %2
+live123:	live %2
+live124:	live %2
+live125:	live %2
+live126:	live %2
+live127:	live %2
+live128:	live %2
+live129:	live %2
+live130:	live %2
+live131:	live %2
+live132:	live %2
+live133:	live %2
+live134:	live %2
+live135:	live %2
+live136:	live %2
+live137:	live %2
+live138:	live %2
+live139:	live %2
+live140:	live %2
+live141:	live %2
+live142:	live %2
+live143:	live %2
+live144:	live %2
+live145:	live %2
+live146:	live %2
+live147:	live %2
+live148:	live %2
+live149:	live %2
 		zjmp	%:live101
 
-fork_avant:	live	%42
+fork_avant:	live	%2
 		fork	%:avant
 		zjmp	%:fork_avant
 	
@@ -156,35 +156,35 @@ avant_live:	live %1
 		and	r6, %0, r6
 		zjmp	%:avant_live
 fin:		zjmp	%:avant_live
-kmissile:	live	%42
+kmissile:	live %2
 		fork	%:kfork1
-		live	%42
+		live %2
 		fork	%:kfork2
-		live	%42
+		live %2
 		fork	%:kfork4
 		ld	%12,r2
 		ld	%192,r5
 		and	r6,%0,r6
 		zjmp	%:kdebut
 		
-kfork1:		live	%42
+kfork1:		live %2
 		fork	%:kfork3
-		live	%42
+		live %2
 		fork	%:kfork6
 		ld	%0,r2
 		ld	%180,r5
 		and	r6,%0,r6
 		zjmp	%:kdebut
 	
-kfork2:		live	%42
+kfork2:		live %2
 		fork	%:kfork5
-		live	%42
+		live %2
 		ld	%8,r2
 		ld	%188,r5
 		and	r6,%0,r6
 		zjmp	%:kdebut
 	
-kfork3:		live	%42
+kfork3:		live %2
 		fork	%:live100
 		ld	%4,r2
 		ld	%184,r5
@@ -208,7 +208,7 @@ kfork6:		ld	%24,r2
 
 kdebut:		ldi	%:kdebut,r2,r3 
 		sti	r3,r5,%:kfin   
-		live	%42
+		live %2
 		and	r6,%0,r6
 kfin:		zjmp	%180
 

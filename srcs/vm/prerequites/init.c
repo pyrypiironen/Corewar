@@ -15,6 +15,8 @@
 static void	init_arena(t_vm_data *d);
 static void	init_data_vm(t_vm_data *d);
 
+// Initialize all necessary data before the game starst.
+// This function is used by main.
 void	init_core(int argc, char **argv, t_vm_data *d)
 {
 	init_data_vm(d);
@@ -25,6 +27,8 @@ void	init_core(int argc, char **argv, t_vm_data *d)
 
 }
 
+// Initialize the arena and array which points the color of every memory
+// location when print the arena.
 static void	init_arena(t_vm_data *d)
 {
 	int	i;
@@ -38,6 +42,7 @@ static void	init_arena(t_vm_data *d)
 	}
 }
 
+// Initialize data struct.
 static void	init_data_vm(t_vm_data *d)
 {
 	init_arena(d);
