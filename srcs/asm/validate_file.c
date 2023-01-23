@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 16:31:28 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/23 14:52:23 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/23 17:41:17 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ static void	validate_file(t_asm *d, char *name)
 	if (d->buf == NULL)
 		exit_asm(d, MALLOC_ERR);
 	read(d->fd, d->buf, end);
-	ft_printf("\n[%s]\n", d->buf);
+	lseek(d->fd, start, SEEK_SET);
+	//ft_printf("\n[%s]\n", d->buf);
 }
 
 void	validate(t_asm *d, int ac, char **av)
