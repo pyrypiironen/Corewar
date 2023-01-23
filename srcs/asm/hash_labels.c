@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_labels.c                                    :+:      :+:    :+:   */
+/*   hash_labels.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 14:59:55 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/20 15:35:09 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/23 14:00:12 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void	init_label_table(t_asm *d)
 
 	labels = (t_lab **)malloc(d->n_labels * sizeof(t_lab *));
 	if (!labels)
-		exit_asm(d, "ERROR: could not allocate sufficient memory.");
+		exit_asm(d, MALLOC_ERR);
 	i = 0;
-	while (i < d->n_labels);
+	while (i < d->n_labels)
 		d->labels[i++] = NULL;
 }
 
