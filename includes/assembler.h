@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/20 15:39:03 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:20:12 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <stdint.h>
 # include <fcntl.h>
 # include <stdbool.h>
+
+# define MALLOC_ERR "ERROR: malloc failure.\n"
+# define FILE_ERR "ERROR: invalid file.\n"
 
 /*
 ** Structs
@@ -58,18 +61,19 @@ typedef struct s_lab
 	char			*name;
 	size_t			line;
 	size_t			bytes;
+	size_t			start;
 }	t_lab;
 
 typedef struct s_asm
 {
+	t_lab		**labels;
 	t_header	head;
 	int			fd;
 	int			n_players;
-	int			n_lines;
-	int			n_labels;
+	size_t		n_lines;
+	size_t		n_labels;
+	char		*buf;
 	bool		debug;
-	char		**buf;
-	t_lab		**labels;
 }	t_asm;
 
 
