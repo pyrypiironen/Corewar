@@ -1,9 +1,21 @@
-// Header
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/23 14:39:35 by ppiirone          #+#    #+#             */
+/*   Updated: 2023/01/23 14:39:37 by ppiirone         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../../../includes/vm.h"
 
 static void	fill_carriage(t_vm_data *d);
 
+// Allocate memory and initialize carriages for all players before
+// the game will start.
 void	init_carriages(t_vm_data *d)
 {
 	int			i;
@@ -25,6 +37,7 @@ void	init_carriages(t_vm_data *d)
 	}
 }
 
+// Initialize one carriage.
 static void	fill_carriage(t_vm_data *d)
 {
 	int	i;
@@ -35,8 +48,8 @@ static void	fill_carriage(t_vm_data *d)
 	d->carriage_head->cursor = d->players->location;
 	d->carriage_head->last_live = 0;
 	d->carriage_head->statement = d->arena[d->players->location];
-	d->carriage_head->to_execute = -1;	// Before first statement
-	d->carriage_head->jump_size = -1;	// Check this
+	d->carriage_head->to_execute = -1;			// Before first statement
+	d->carriage_head->jump_size = -1;			// Check this
 	d->carriage_head->registrys[0] = d->players->id * -1;
 	while (i < REG_NUMBER)
 		d->carriage_head->registrys[i++] = 0;

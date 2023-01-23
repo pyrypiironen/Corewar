@@ -12,6 +12,8 @@
 
 # include "../../../includes/vm.h"
 
+// Check if the given argument (*argv) is valid champion and initialize it
+// if true. 
 int	is_champ(char *argv, t_vm_data *d)
 {
 	int			len;
@@ -27,6 +29,7 @@ int	is_champ(char *argv, t_vm_data *d)
 	return (1);
 }
 
+// Read .cor file, check the validity and initialize champion.
 void	init_champ(t_vm_data *d, t_player *champ, char *file)
 {
 	int	fd;
@@ -73,6 +76,7 @@ void	init_ids(t_vm_data *d)
 	}
 }
 
+
 int	check_id(t_player *champ, int id)
 {
 	while (champ != NULL)
@@ -83,6 +87,7 @@ int	check_id(t_player *champ, int id)
 	}
 	return (0);
 }
+
 
 void	id_error_check(t_vm_data *d)
 {
@@ -111,7 +116,3 @@ player amount.", 1);
 	}
 
 }
-
-
-// Examble of champions code
-// https://raw.githubusercontent.com/VBrazhnik/Corewar/master/wiki_resources/bytecode.svg

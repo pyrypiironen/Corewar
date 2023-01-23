@@ -18,7 +18,7 @@ static int	core_atoi(t_vm_data *d, char *str);
 
 
 // Main function of reading command line input and .cor files.
-// Will iniatilize champions data structures and flag data.
+// Will initialize champions data structures and flag data.
 void	read_champs(int argc, char **argv, t_vm_data *d)
 {
 	int	i;
