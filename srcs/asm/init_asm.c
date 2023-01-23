@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:20:07 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/20 13:12:48 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:22:36 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,57 @@
 // in t_asm: keep a track of which line we are at
 // functions: islabel(char *str) isstatement(char *str)
 
+static int	check_label(t_asm *d, char *buf)
+{
+	size_t	i;
+
+	i = 0;
+	while (buf[i] && buf[i] != '\n')
+	{
+		if (buf[i] == '#')
+			break ;
+		while (buf[i] && buf[i] == ' ')
+			i++;
+		while (buf[i] && ft_strchr(LABEL_CHARS, (int)buf[i]))
+			i++;
+		if (i && ft_strchr(LABEL_CHARS, (int)buf[i-1]) && \
+		buf[i] && buf[i] == ':')
+		{
+			d->n_labels++;
+			break ;
+		}
+		else
+			i++;
+	}
+	while (buf[i] && buf[i] != '\n')
+		i++;
+	return (i - (i > 0));
+}
+
 static void	count_lines_labels(t_asm *d)
 {
-	off_t	start;
-	off_t	end;
-	char	tmp[20];
+	size_t	i;
 
-	start = 0;
-	end = 0;
-	start = lseek(d->fd, 0, SEEK_SET);
-	end = lseek(d->fd, start, SEEK_END);
-	lseek(d->fd, start, SEEK_SET);
-	if (start == -1 || end == -1 || start == end)
-		exit_asm(d, "ERROR: invalid file");
-	ft_printf("start: %u, end: %u\n", start, end);
+	i = 0;
+	while (d->buf[i])
+	{
+		while (d->buf[i] && d->buf[i] == ' ')
+			i++;
+		if (d->buf[i] && d->buf[i] == '\n')
+			d->n_lines++;
+		else if (d->buf[i])
+			i += check_label(d, &d->buf[i]);
+
+		i++;
+	}
+	ft_printf("lines: %u\nlabels: %u", d->n_lines, d->n_labels);
 }
 
 void	init_asm(t_asm *d, int ac, char **av)
 {
 	d->n_players = 0;
 	d->fd = 0;
-	d->n_lines = 0;
+	d->n_lines = 1;
 	d->n_labels = 0;
 	d->debug = false;
 	d->head.magic = COREWAR_EXEC_MAGIC;

@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 17:34:41 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/13 17:43:00 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:02:54 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	read_file(t_asm *d)
 	line = NULL;
 	get_prog_name(d);
 	get_comment(d);
-	while (get_next_line(d->fd, &line))
+	/* while (get_next_line(d->fd, &line))
 	{
 		ft_strdel(&line);
-	}
+	} */
 }
