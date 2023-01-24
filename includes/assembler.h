@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/23 19:08:08 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/24 16:18:31 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 
 # define MALLOC_ERR "ERROR: malloc failure.\n"
 # define FILE_ERR "ERROR: invalid file.\n"
+# define LEX_ERR -42
+# define STX_ERR -43
+# define EOF_ERR -44
 
 /*
 ** Structs
@@ -54,6 +57,17 @@ static const t_op	g_op_tab[] = {
 {"aff", 16, {T_REG}, 4, 1, 1},
 {NULL, 0, {0}, 0, 0, 0}};
 
+typedef struct s_stat
+{
+	struct s_stat	*next;
+	t_op			op;
+	char			*label;
+	uint8_t			argtypes;
+	size_t			size;
+	size_t			loc;
+	char			*statement;
+}	t_stat;
+
 typedef struct s_lab
 {
 	struct s_lab	*next;
@@ -75,6 +89,7 @@ typedef struct s_asm
 	size_t		n_lines;
 	size_t		n_labels;
 	char		*buf;
+	char		**linebuf;
 	bool		debug;
 }	t_asm;
 
@@ -83,6 +98,7 @@ typedef struct s_asm
 ** Functions
 */
 
+void	error_asm(t_asm *d, char *line, int status);
 void	exit_asm(t_asm *d, char *str);
 void	memdel_exit_asm(t_asm *d, void *mem, char *str);
 void	free_asm(t_asm *d);
@@ -92,11 +108,23 @@ void	validate(t_asm *d, int ac, char **av);
 void	read_file(t_asm *d);
 
 /*
+** Lexer functions
+*/
+void	lex_champ_code(t_asm *d);
+
+/*
 ** Label functions
 */
 
 t_lab	*get_label(t_asm *d, char *name);
 void	init_label_table(t_asm *d);
 void	add_label_to_table(t_asm *d, t_lab *new);
+
+/*
+** Utility functions
+*/
+
+void	clean_end(t_asm *d, char *line);
+int		save_next_line(t_asm *d);
 
 #endif
