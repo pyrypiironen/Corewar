@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/24 16:18:31 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/24 18:23:00 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,13 @@
 
 # define MALLOC_ERR "ERROR: malloc failure.\n"
 # define FILE_ERR "ERROR: invalid file.\n"
+# define NAME_ERR "Champion name too long (Max length 128)\n"
+# define COMMENT_ERR "Champion comment too long (Max length 2048)\n"
 # define LEX_ERR -42
 # define STX_ERR -43
 # define EOF_ERR -44
+# define COM_ERR -45
+# define NAM_ERR -46
 
 /*
 ** Structs
@@ -57,6 +61,21 @@ static const t_op	g_op_tab[] = {
 {"aff", 16, {T_REG}, 4, 1, 1},
 {NULL, 0, {0}, 0, 0, 0}};
 
+/* enum e_type
+{
+	NAME,
+	COMMENT
+}	t_type;
+ */
+typedef struct s_oken
+{
+	struct s_oken	*next;
+	char			*str;
+	//t_type			type;
+	size_t			row;
+	size_t			col;
+}	t_oken;
+
 typedef struct s_stat
 {
 	struct s_stat	*next;
@@ -86,6 +105,7 @@ typedef struct s_asm
 	int			n_players;
 	int			row;
 	int			col;
+	int			i;
 	size_t		n_lines;
 	size_t		n_labels;
 	char		*buf;
@@ -126,5 +146,6 @@ void	add_label_to_table(t_asm *d, t_lab *new);
 
 void	clean_end(t_asm *d, char *line);
 int		save_next_line(t_asm *d);
+void	clean_end(t_asm *d, char *line);
 
 #endif
