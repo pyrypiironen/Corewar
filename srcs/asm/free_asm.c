@@ -6,22 +6,23 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:26:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/23 14:52:29 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/24 16:20:14 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
 
-static void	free_buffer(char *buf)
+static void	free_buffers(t_asm *d)
 {
-	//size_t	i;
+	size_t	i;
 
-	//i = 0;
-	//while (buf[i])
-	//	ft_strdel(&(buf[i++]));
-	ft_printf("d->buf: %p\n", &buf);
-	ft_strdel(&buf);
-	buf = NULL;
+	i = 0;
+	while (d->linebuf[i])
+		ft_strdel(&(d->linebuf[i++]));
+	ft_printf("d->buf: %p\n", &d->linebuf);
+	free(d->linebuf);
+	d->linebuf = NULL;
+	ft_strdel(&d->buf);
 }
 
 static void	free_labels(t_lab **labels, size_t size)
@@ -49,7 +50,7 @@ static void	free_labels(t_lab **labels, size_t size)
 void	free_asm(t_asm *d)
 {
 	if (d->buf != NULL)
-		free_buffer(d->buf);
+		free_buffers(d->buf);
 	if (d->labels)
 		free_labels(d->labels, d->n_labels);
 	if (d->fd)

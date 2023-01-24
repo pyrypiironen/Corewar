@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:20:07 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/23 18:03:21 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/24 18:01:18 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,13 @@ void	init_asm(t_asm *d, int ac, char **av)
 	d->labels = NULL;
 	d->row = 0;
 	d->col = 0;
+	d->i = 0;
 	ft_bzero(d->head.prog_name, PROG_NAME_LENGTH + 1);
 	ft_bzero(d->head.comment, COMMENT_LENGTH + 1);
 	validate(d, ac, av);
 	count_lines_labels(d);
 	init_label_table(d);
+	d->linebuf = (char **)malloc(d->n_lines + 1 * sizeof(char *));
+	if (!d->linebuf)
+		exit_asm(d, MALLOC_ERR);
 }

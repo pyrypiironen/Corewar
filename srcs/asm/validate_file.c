@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 16:31:28 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/23 17:41:17 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/24 11:26:38 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static void	validate_file_name(t_asm *d, char *name)
 
 	extension = ft_strrchr(name, '.');
 	if (!extension)
-		exit_asm(d, "ERROR: invalid file name.");
+		exit_asm(d, "ERROR: invalid file name.\n");
 	if (ft_strcmp(extension, ".s"))
-		exit_asm(d, "ERROR: invalid file extension.");
+		exit_asm(d, "ERROR: invalid file extension.\n");
 	/* if (!ft_strcmp(name, extension))
 		exit_asm(d, "ERROR: invalid file name."); */
 }
@@ -36,7 +36,7 @@ static void	validate_file(t_asm *d, char *name)
 		exit_asm(d, FILE_ERR);
 	d->fd = open(name, O_RDONLY);
 	if (d->fd < 1)
-		exit_asm(d, "ERROR: could not open file.");
+		exit_asm(d, "ERROR: could not open file for reading.\n");
 	validate_file_name(d, name);
 	start = lseek(d->fd, 0, SEEK_SET);
 	end = lseek(d->fd, start, SEEK_END);
