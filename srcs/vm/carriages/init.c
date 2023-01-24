@@ -52,5 +52,5 @@ static void	fill_carriage(t_vm_data *d)
 	d->carriage_head->jump_size = -1;			// Check this
 	d->carriage_head->registrys[0] = d->players->id * -1;
 	while (i < REG_NUMBER)
-		d->carriage_head->registrys[i++] = 0;
+		d->carriage_head->registrys[i++] = 1; // FOR TESTING
 }

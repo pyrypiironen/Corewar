@@ -73,6 +73,7 @@ void	read_champs(int	argc, char **argv, t_vm_data *d);
 //		init.c
 void	init_carriages(t_vm_data *d);
 
+
 //		* * * * * * * * PREREQUITES * * * * * * * *
 //		arena.c
 void	fill_arena(t_vm_data *d);
@@ -93,6 +94,15 @@ void	read_comment(t_player *champ, int fd);
 
 //		read_cor_2.c
 void	read_excode(t_player *champ, int fd);
+
+//		* * * * * * * * STATEMENTS * * * * * * * *
+//		op_add.c
+void	op_add(t_carriage *carriage, t_vm_data *d);
+
+//		op_helpers.c
+int		is_valid_statement(t_carriage *carriage, t_vm_data *d);
+int		is_valid_reg(int position, t_vm_data *d);
+
 
 //		* * * * * * * * TESTS * * * * * * * *
 //		prerequite_tests.c

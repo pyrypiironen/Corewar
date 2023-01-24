@@ -29,7 +29,10 @@ PREREQUITES =	arena.c \
 HELPERS =		error.c
 
 #Delete when project is ready
-TESTS =		prerequite_tests.c
+TESTS =			prerequite_tests.c
+
+STATEMENTS =	op_add.c \
+				op_helpers.c
 
 
 MAIN_SRCS = $(addprefix srcs/vm/main/, $(MAIN))
@@ -37,10 +40,12 @@ CARRIAGES_SRCS = $(addprefix srcs/vm/carriages/, $(CARRIAGES))
 PREREQUITES_SRCS = $(addprefix srcs/vm/prerequites/, $(PREREQUITES))
 HELPERS_SRCS = $(addprefix srcs/vm/helpers/, $(HELPERS))
 TESTS_SRCS = $(addprefix srcs/vm/tests/, $(TESTS))
+STATEMENT_SRCS = $(addprefix srcs/vm/statements/, $(STATEMENTS))
+
 
 
 VM_SRC_FILES =	$(MAIN_SRCS) $(CARRIAGES_SRCS) $(HELPERS_SRCS) \
-				$(PREREQUITES_SRCS) $(TESTS_SRCS)
+				$(PREREQUITES_SRCS) $(TESTS_SRCS) $(STATEMENT_SRCS)
 
 VM_OBJ_DIR = ./srcs/objs/vm/
 VM_OBJ_FILES = $(VM_SRC_FILES:.c=.o)

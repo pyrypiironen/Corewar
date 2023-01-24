@@ -91,7 +91,7 @@ void	print_carriages(t_vm_data *d)
 		ft_printf("{yellow}%i\n", carriage->jump_size);
 		while (i < 16)
 		{
-			ft_printf("Registry %i: %i\n", i, carriage->registrys[i]);
+			ft_printf("Registry %i: %i\n", i + 1, carriage->registrys[i]);
 			i++;
 		}
 		carriage = carriage->next;

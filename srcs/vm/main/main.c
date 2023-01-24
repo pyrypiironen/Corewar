@@ -26,10 +26,26 @@ int	main(int argc, char **argv)
 
 
 
+
 	
 	// print_champs(d);
 	// print_carriages(d);
-	// print_arena(d);
+	// d->arena[4094] = 0x04;
+	// d->arena[4095] = 0x54;
+	// d->arena[0] = 0x01;
+	// d->arena[1] = 0x03;
+	// d->arena[2] = 0x10;
+	// d->carriage_head->cursor = 4094;
+
+
+
+
+	print_carriages(d);
+	print_arena(d);
+	op_add(d->carriage_head, d);
+	ft_printf("**********\n");
+	print_arena(d);
+	print_carriages(d);
 
 	ft_printf("{green}Success! Main exit (exit code 0).\n");
 	exit (0);
