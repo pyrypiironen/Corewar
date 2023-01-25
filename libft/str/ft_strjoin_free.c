@@ -14,12 +14,8 @@
 
 char	*ft_strjoin_free(char *s1, char *s2)
 {
-	size_t	i;
-	size_t	y;
 	char	*res;
 
-	i = 0;
-	y = 0;
 	if (s1 == NULL && s2 == NULL)
 		return (NULL);
 	if (s1 == NULL && s2 != NULL)

@@ -16,9 +16,7 @@ void	convert_double(va_list ap, t_struct *d)
 {
 	char		*input;
 	char		*print;
-	int			i;
 
-	i = 0;
 	if (d->padding == -1)
 		d->padding = 6;
 	read_arg_double(d, ap);

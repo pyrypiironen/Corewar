@@ -98,6 +98,10 @@ void	read_excode(t_player *champ, int fd);
 //		* * * * * * * * STATEMENTS * * * * * * * *
 //		op_add.c
 void	op_add(t_carriage *carriage, t_vm_data *d);
+void	op_sub(t_carriage *carriage, t_vm_data *d);
+
+//		op_jump.c
+void	op_jump(t_carriage *carriage, t_vm_data *d);
 
 //		op_helpers.c
 int		is_valid_statement(t_carriage *carriage, t_vm_data *d);
