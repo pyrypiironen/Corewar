@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_file.c                                       :+:      :+:    :+:   */
+/*   lexer.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 17:34:41 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/24 16:25:56 by abackman         ###   ########.fr       */
+/*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
+/*   Updated: 2023/01/25 12:08:15 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
 
 /*
-** 1. get labels into label hashtable: each time a label is found, go forward 
-** until you found the line/statement it points to, then go back.
-** 2. get statements, save in linked list. Save only name of label.
+** Goes through the input, cleans it up (removes whitespace and comments) and
+** saves the separated words as tokens. Will only check for syntax errors.
 */
 
-void	parse_file(t_asm *d)
+void	lexer(t_asm *d)
 {
-	
-	get_header(d);
-	// get_statements(d)
-	// get_
-	/* while (get_next_line(d->fd, &line))
-	{
-		ft_strdel(&line);
-	} */
+	tokenize(d);
+	//parse(d);
 }
