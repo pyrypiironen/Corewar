@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/24 18:23:00 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/25 17:24:35 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,15 @@
 # define FILE_ERR "ERROR: invalid file.\n"
 # define NAME_ERR "Champion name too long (Max length 128)\n"
 # define COMMENT_ERR "Champion comment too long (Max length 2048)\n"
+
+/* Error codes */
 # define LEX_ERR -42
 # define STX_ERR -43
 # define EOF_ERR -44
 # define COM_ERR -45
 # define NAM_ERR -46
+# define MAL_ERR -47
+# define TYP_ERR -48
 
 /*
 ** Structs
@@ -61,19 +65,27 @@ static const t_op	g_op_tab[] = {
 {"aff", 16, {T_REG}, 4, 1, 1},
 {NULL, 0, {0}, 0, 0, 0}};
 
-/* enum e_type
+typedef enum e_type
 {
 	NAME,
-	COMMENT
+	COMMENT,
+	SEPARATOR,
+	NEWLINE,
+	LABEL,
+	OP,
+	REG,
+	DIR,
+	IND,
+	VOID
 }	t_type;
- */
+
 typedef struct s_oken
 {
 	struct s_oken	*next;
+	t_type			type;
 	char			*str;
-	//t_type			type;
-	size_t			row;
-	size_t			col;
+	int				row;
+	int				col;
 }	t_oken;
 
 typedef struct s_stat
@@ -101,6 +113,7 @@ typedef struct s_asm
 {
 	t_lab		**labels;
 	t_header	head;
+	t_oken		*tokens;
 	int			fd;
 	int			n_players;
 	int			row;
@@ -109,10 +122,8 @@ typedef struct s_asm
 	size_t		n_lines;
 	size_t		n_labels;
 	char		*buf;
-	char		**linebuf;
 	bool		debug;
 }	t_asm;
-
 
 /*
 ** Functions
@@ -125,12 +136,19 @@ void	free_asm(t_asm *d);
 void	parse_flags(t_asm *d, char *str);
 void	init_asm(t_asm *d, int ac, char **av);
 void	validate(t_asm *d, int ac, char **av);
-void	read_file(t_asm *d);
 
 /*
 ** Lexer functions
 */
+
+void	lexer(t_asm *d);
+void	tokenize(t_asm *d);
 void	lex_champ_code(t_asm *d);
+int		is_op(char *str, int *len);
+int		is_label(char *str, int *len);
+int		is_arg(char *str, int *len, t_type *type);
+int		add_token(t_asm *d, char *str, int len, t_type type);
+int		is_command(t_asm *d, char *str, int *len, t_type *type);
 
 /*
 ** Label functions
@@ -144,8 +162,6 @@ void	add_label_to_table(t_asm *d, t_lab *new);
 ** Utility functions
 */
 
-void	clean_end(t_asm *d, char *line);
-int		save_next_line(t_asm *d);
-void	clean_end(t_asm *d, char *line);
+int	set_error_pos(t_asm *d, int	pos, int status);
 
 #endif
