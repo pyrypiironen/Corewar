@@ -6,14 +6,11 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:20:07 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/24 18:01:18 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/25 12:06:32 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
-
-// in t_asm: keep a track of which line we are at
-// functions: islabel(char *str) isstatement(char *str)
 
 static int	check_label(t_asm *d, char *buf)
 {
@@ -24,7 +21,7 @@ static int	check_label(t_asm *d, char *buf)
 	{
 		if (buf[i] == '#')
 			break ;
-		while (buf[i] && buf[i] == ' ')
+		while (ft_iswhitespace((int)buf[i]))
 			i++;
 		while (buf[i] && ft_strchr(LABEL_CHARS, (int)buf[i]))
 			i++;
@@ -49,7 +46,7 @@ static void	count_lines_labels(t_asm *d)
 	i = 0;
 	while (d->buf[i])
 	{
-		while (d->buf[i] && d->buf[i] == ' ')
+		while (ft_iswhitespace((int)d->buf[i]))
 			i++;
 		if (d->buf[i] && d->buf[i] == '\n')
 			d->n_lines++;
@@ -79,7 +76,4 @@ void	init_asm(t_asm *d, int ac, char **av)
 	validate(d, ac, av);
 	count_lines_labels(d);
 	init_label_table(d);
-	d->linebuf = (char **)malloc(d->n_lines + 1 * sizeof(char *));
-	if (!d->linebuf)
-		exit_asm(d, MALLOC_ERR);
 }
