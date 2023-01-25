@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:05:42 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/25 11:30:22 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/25 15:59:41 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	main(int ac, char **av)
 	while (++i < (ac - 1))
 		parse_flags(&d, av[i]);
 	init_asm(&d, ac, av);
-	read_file(&d);
+	tokenize(&d);
 	close(d.fd);
 	//write_file(&d);
 	return (0);
