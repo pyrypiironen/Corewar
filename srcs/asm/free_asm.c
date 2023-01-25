@@ -6,23 +6,26 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:26:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/24 16:20:14 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/25 12:00:10 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
 
-static void	free_buffers(t_asm *d)
+static void	free_tokens(t_oken *tokens)
 {
-	size_t	i;
+	t_oken	*next;
+	t_oken	*cur;
 
-	i = 0;
-	while (d->linebuf[i])
-		ft_strdel(&(d->linebuf[i++]));
-	ft_printf("d->buf: %p\n", &d->linebuf);
-	free(d->linebuf);
-	d->linebuf = NULL;
-	ft_strdel(&d->buf);
+	cur = tokens;
+	while (cur)
+	{
+		next = cur->next;
+		ft_strdel(&cur->str);
+		free(cur);
+		cur = NULL;
+		cur = next;
+	}
 }
 
 static void	free_labels(t_lab **labels, size_t size)
@@ -50,9 +53,11 @@ static void	free_labels(t_lab **labels, size_t size)
 void	free_asm(t_asm *d)
 {
 	if (d->buf != NULL)
-		free_buffers(d->buf);
+		ft_strdel(&d->buf);
 	if (d->labels)
 		free_labels(d->labels, d->n_labels);
+	if (d->tokens)
+		free_tokens(d->tokens);
 	if (d->fd)
 		close(d->fd);
 }
