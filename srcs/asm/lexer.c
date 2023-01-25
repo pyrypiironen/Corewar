@@ -1,39 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_utils.c                                      :+:      :+:    :+:   */
+/*   lexer.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 18:53:40 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/25 15:57:58 by abackman         ###   ########.fr       */
+/*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
+/*   Updated: 2023/01/25 12:08:15 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
 
-int	set_error_pos(t_asm *d, int	pos, int status)
-{
-	int	x;
-	int	y;
-	int	i;
+/*
+** Goes through the input, cleans it up (removes whitespace and comments) and
+** saves the separated words as tokens. Will only check for syntax errors.
+*/
 
-	x = 1;
-	y = 1;
-	i = 0;
-	while (i < pos)
-	{
-		if (d->buf[i] == '\n')
-		{
-			y++;
-			x = 0;
-		}
-		i++;
-		x++;
-	}
-	d->row = y;
-	d->col = x;
-	if (status < 0)
-		error_asm(d, NULL, status);
-	return (status);
+void	lexer(t_asm *d)
+{
+	tokenize(d);
+	//parse(d);
 }
