@@ -33,6 +33,7 @@ HELPERS =		error.c
 TESTS =			prerequite_tests.c
 
 STATEMENTS =	op_add.c \
+				op_fork.c \
 				op_helpers.c \
 				op_jump.c
 

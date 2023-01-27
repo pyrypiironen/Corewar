@@ -26,8 +26,6 @@ void	op_jump(t_carriage *carriage, t_vm_data *d)
 		carriage->cursor = (carriage->cursor + (arg % IDX_MOD)) % MEM_SIZE;
 	}
 	else
-	{
-		; // How does cursor move here??
-	}
+		// If the carry value is zero, no movement is performed.
+		carriage->cursor = (carriage->cursor + 4) % MEM_SIZE;
 }
-
