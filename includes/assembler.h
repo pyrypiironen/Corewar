@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/25 17:24:35 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/27 18:10:57 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ typedef enum e_type
 	REG,
 	DIR,
 	IND,
+	DIRLAB,
 	VOID
 }	t_type;
 
@@ -146,7 +147,7 @@ void	tokenize(t_asm *d);
 void	lex_champ_code(t_asm *d);
 int		is_op(char *str, int *len);
 int		is_label(char *str, int *len);
-int		is_arg(char *str, int *len, t_type *type);
+int		is_arg(t_asm *d, char *str, int *len, t_type *type);
 int		add_token(t_asm *d, char *str, int len, t_type type);
 int		is_command(t_asm *d, char *str, int *len, t_type *type);
 
