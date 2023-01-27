@@ -34,7 +34,7 @@ TESTS =			prerequite_tests.c
 
 STATEMENTS =	op_add.c \
 				op_helpers.c \
-				jump.c
+				op_jump.c
 
 
 MAIN_SRCS = $(addprefix srcs/vm/main/, $(MAIN))
