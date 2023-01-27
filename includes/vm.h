@@ -100,12 +100,21 @@ void	read_excode(t_player *champ, int fd);
 void	op_add(t_carriage *carriage, t_vm_data *d);
 void	op_sub(t_carriage *carriage, t_vm_data *d);
 
-//		op_jump.c
-void	op_jump(t_carriage *carriage, t_vm_data *d);
+//		op_aff.c
+void	op_aff(t_carriage *carriage, t_vm_data *d);
+
+//		op_fork.c
+void	op_fork(t_carriage *carriage, t_vm_data *d);
+void	op_lfork(t_carriage *carriage, t_vm_data *d);
+void	copy_carriage(t_carriage *carriage, t_vm_data *d);
 
 //		op_helpers.c
 int		is_valid_statement(t_carriage *carriage, t_vm_data *d);
 int		is_valid_reg(int position, t_vm_data *d);
+
+//		op_jump.c
+void	op_jump(t_carriage *carriage, t_vm_data *d);
+
 
 
 //		* * * * * * * * TESTS * * * * * * * *
