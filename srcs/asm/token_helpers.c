@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/25 17:29:43 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/27 17:43:41 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	search_quote(t_asm *d, char *str, int *len, t_type *type)
 	}
 	//ft_printf(">>[%s]\n>>len %d\n", str, i);
 	*len += i;
-	ft_printf(" command >>");
+	ft_printf(" command >> %u ", *type);
 	add_token(d, str, *len, *type);
 	*len += 1;
 	return (1);
@@ -69,15 +69,15 @@ int	is_op(char *str, int *len)
 	i = 0;
 	while (i < 16)
 	{
-		*len = ft_strlen(g_op_tab[i].instruction);
-		if (!ft_strncmp(g_op_tab[i].instruction, str, (size_t)*len) && \
-		str[*len + 1] && str[*len + 1] == ' ')
+		*len = (int)ft_strlen(g_op_tab[i].instruction);
+		if (!ft_strncmp(g_op_tab[i].instruction, str, (size_t)*len))
 		{
-			ft_printf(" OP >>");
+			ft_printf(" OP >> ");
 			return (*len);
 		}
 		i++;
 	}
+	ft_printf(" NOT OP >> ");
 	*len = 0;
 	return (*len);
 }
@@ -88,43 +88,17 @@ int	is_label(char *str, int *len)
 	{
 		if (!ft_strchr(LABEL_CHARS, (int)str[*len]) && str[*len] != ':')
 		{
+			ft_printf(" NOT label >> ");
 			*len = 0;
 			return (*len);
 		}
 		else if (str[*len] == LABEL_CHAR)
 		{
 			ft_printf(" label >> ");
+			*len += 1;
 			return (*len);
 		}
 		*len += 1;
-	}
-	*len = 0;
-	return (*len);
-}
-
-int	is_arg(char *str, int *len, t_type *type)
-{
-	*type = IND;
-	if (str[*len] == DIRECT_CHAR)
-	{
-		*len += 1;
-		*type = DIR;
-	}
-	if (str[*len] && str[*len] == LABEL_CHAR)
-		*len += 1;
-	else if (str[*len] && str[*len] == 'r')
-	{
-		*len += 1;
-		*type = REG;
-	}
-	if (str[*len] && str[*len] == '-')
-		*len += 1;
-	while (str[*len] && !ft_strchr(" #,\n", (int)str[*len]))
-		*len += 1;
-	if (*len && str[*len])
-	{
-		ft_printf(" arg >>");
-		return (*len);
 	}
 	*len = 0;
 	return (*len);

@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/25 17:26:49 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/27 18:11:29 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static int	check_type(t_asm *d, char *str)
 		return (add_token(d, str, len, LABEL));
 	else if (is_command(d, str, &len, &type))
 		return (len);
-	else if (is_arg(str, &len, &type))
+	else if (is_arg(d, str, &len, &type))
 		return (add_token(d, str, len, type));
 	else
 		return (set_error_pos(d, d->i, STX_ERR));
