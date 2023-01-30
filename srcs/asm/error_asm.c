@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:26:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/25 11:46:25 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/30 13:19:21 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 static void	asm_syntax_error(t_asm *d, int status)
 {
 	if (status == EOF_ERR)
-		ft_printf("Syntax error at [%d:%d] EOF", d->row, d->col);
+		ft_printf("Syntax error at [%d:%d] EOF\n", d->row, d->col);
+	else
+		ft_printf("Syntax error at [%d:%d]\n", d->row, d->col);
 }
 
 void	error_asm(t_asm *d, char *line, int status)
@@ -26,4 +28,6 @@ void	error_asm(t_asm *d, char *line, int status)
 		asm_syntax_error(d, status);
 	if (line)
 		ft_strdel(&line);
+	free_asm(d);
+	exit(EXIT_FAILURE);
 }
