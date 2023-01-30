@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/30 18:19:09 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/30 19:18:57 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static bool	is_reg(char *str, int *len)
 	i = 0;
 	if (str[*len + i] && str[*len + i] == 'r')
 		i += 1;
+	else
+		return (false);
 	while (str[*len + i] && !ft_strchr(" #;,\n", (int)str[*len + i]))
 	{
 		if (!ft_isdigit((int)str[*len + i]))
