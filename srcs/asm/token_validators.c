@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   token_helpers.c                                    :+:      :+:    :+:   */
+/*   token_validators.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/27 17:43:41 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/30 13:21:41 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,10 @@ int	is_command(t_asm *d, char *str, int *len, t_type *type)
 		*type = COMMENT;
 	}
 	else
+	{
+		ft_printf(" NOT COMMAND >> ");
 		return (0);
+	}
 	while (str[i] && ft_iswhitespace((int)str[i]))
 		i++;
 	d->i += i;
