@@ -29,10 +29,7 @@ void	op_add(t_carriage *carriage, t_vm_data *d)
 	{
 		carriage->registrys[third] = carriage->registrys[first] +\
 		carriage->registrys[second];
-		if (carriage->registrys[third] == 0)
-			carriage->carry = 1;
-		else
-			carriage->carry = 0;
+		carriage->carry = update_carry(carriage->registrys[third]);
 	}
 	carriage->cursor = (carriage->cursor + carriage->jump_size) % MEM_SIZE;
 	carriage->jump_size = 0;			// is needed?
@@ -53,10 +50,7 @@ void	op_sub(t_carriage *carriage, t_vm_data *d)
 	{
 		carriage->registrys[third] = carriage->registrys[first] -\
 		carriage->registrys[second];
-		if (carriage->registrys[third] == 0)
-			carriage->carry = 1;
-		else
-			carriage->carry = 0;
+		carriage->carry = update_carry(carriage->registrys[third]);
 	}
 	carriage->cursor = (carriage->cursor + carriage->jump_size) % MEM_SIZE;
 	carriage->jump_size = 0;			// is needed?

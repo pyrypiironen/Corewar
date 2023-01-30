@@ -119,6 +119,7 @@ void	op_jump(t_carriage *carriage, t_vm_data *d);
 
 //		op_ld.c
 void	op_ld(t_carriage *carriage, t_vm_data *d);
+void	op_lld(t_carriage *carriage, t_vm_data *d);
 
 //		op_live.c
 void	op_live(t_carriage *carriage, t_vm_data *d);
