@@ -5,7 +5,7 @@ FLAGS = -Wall -Wextra -Werror
 LIBFT = ./libft/libft.a
 INCL = -I./includes/
 
-ASM_SRC_FILES = assembler.c validate_file.c lexer.c token_helpers.c \
+ASM_SRC_FILES = assembler.c validate_file.c lexer.c token_validators.c \
 init_asm.c hash_labels.c free_asm.c error_asm.c parse_utils.c tokenize.c \
 is_arg.c 
 
