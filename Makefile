@@ -37,7 +37,9 @@ STATEMENTS =	op_add.c \
 				op_aff.c \
 				op_fork.c \
 				op_helpers.c \
-				op_jump.c
+				op_jump.c \
+				op_ld.c \
+				op_live.c
 
 
 MAIN_SRCS = $(addprefix srcs/vm/main/, $(MAIN))

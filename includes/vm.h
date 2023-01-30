@@ -109,12 +109,19 @@ void	op_lfork(t_carriage *carriage, t_vm_data *d);
 void	copy_carriage(t_carriage *carriage, t_vm_data *d);
 
 //		op_helpers.c
-int		is_valid_statement(t_carriage *carriage, t_vm_data *d);
 int		is_valid_reg(int position, t_vm_data *d);
+int		update_carry(int value);
+int		get_4_byte_value(t_vm_data *d, int position);
+int		get_2_byte_value(t_vm_data *d, int position, int idx);
 
 //		op_jump.c
 void	op_jump(t_carriage *carriage, t_vm_data *d);
 
+//		op_ld.c
+void	op_ld(t_carriage *carriage, t_vm_data *d);
+
+//		op_live.c
+void	op_live(t_carriage *carriage, t_vm_data *d);
 
 
 //		* * * * * * * * TESTS * * * * * * * *

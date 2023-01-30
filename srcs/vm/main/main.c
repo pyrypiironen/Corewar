@@ -29,20 +29,28 @@ int	main(int argc, char **argv)
 
 	
 
-	d->arena[4094] = 0x0d;
-	d->arena[4095] = 0x10;
-	d->arena[0] = 0x40;
-	d->carriage_head->registrys[2] = 322;
-	d->arena[1] = 0x03;
-	d->arena[2] = 0x10;
-	d->carriage_head->cursor = 4095;
+	d->arena[4084] = 0xd0; // argument value code
+	d->arena[4085] = 0x01;
+	d->arena[4086] = 0xC8;
+
+	d->arena[4087] = 5;
+
+	d->arena[187] = 0x7f; // + 200
+	d->arena[188] = 0xff;
+	d->arena[189] = 0xff;
+	d->arena[190] = 0xff;
+
+
+	d->carriage_head->cursor = 4083; // 187
 	d->carriage_head->carry = 1;
+
+	d->carriage_head->registrys[2] = 322;
 
 
 	
 
 	print_carriages(d);
-	op_aff(d->carriage_head, d);
+	op_ld(d->carriage_head, d);
 	//op_jump(d->carriage_head, d);
 	//print_arena(d);
 	//op_add(d->carriage_head, d);
