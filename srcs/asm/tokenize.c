@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/30 14:03:45 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/30 18:21:29 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ int	add_token(t_asm *d, char *str, int len, t_type type)
 	new->row = d->row;
 	new->col = d->col;
 	new->str = ft_strnew((size_t)len);
-	//if (str[0] == '\n')
-	//	ft_printf(" IS NEWLINE >> ");
+	/* if (str[0] == '\n')
+		ft_printf(" IS NEWLINE >> "); */
 	if (!new->str)
 		error_asm(d, NULL, MAL_ERR);
 	ft_strncpy(new->str, str, (size_t)len);
-	//ft_printf(" %10s \n", new->str);
+	//ft_printf("[%s] [type: %d]\n", new->str, new->type);
 	if (d->tokens == NULL)
 	{
 		d->tokens = new;
@@ -56,7 +56,12 @@ static int	check_type(t_asm *d, char *str)
 	len = 0;
 	type = VOID;
 	if (str[len] == '\n')
-		return (add_token(d, str, 1, NEWLINE));
+	{
+		add_token(d, str, 1, NEWLINE);
+		d->row++;
+		d->col = 1;
+		return (1);
+	}
 	else if (str[len] == SEPARATOR_CHAR)
 		return (add_token(d, str, 1, SEPARATOR));
 	else if (is_op(str, &len))
@@ -68,7 +73,10 @@ static int	check_type(t_asm *d, char *str)
 	else if (is_arg(d, str, &len, &type))
 		return (add_token(d, str, len, type));
 	else
+	{
+		ft_printf("Did not find token type\n");
 		return (set_error_pos(d, d->i, LEX_ERR));
+	}
 }
 
 static int	skip_to_next_line(t_asm *d, char *str)
@@ -77,16 +85,16 @@ static int	skip_to_next_line(t_asm *d, char *str)
 
 	len = 0;
 	while (str[len] && str[len] != '\n')
+	{
+		d->col++;
 		len++;
-	//ft_printf("\n>>>SKIP_TO_NEXT: %d\n", str[len]);
+	}
 	if (!str[len])
 		return (EOF_ERR);
-	else
-		add_token(d, &str[len], 1, NEWLINE);
-	len++;
-	//*i += len;
+	add_token(d, &str[len], 1, NEWLINE);
 	d->row++;
-	d->col = 0;
+	d->col = 1;
+	len++;
 	return (len);
 }
 
@@ -103,7 +111,6 @@ void	tokenize(t_asm *d)
 			d->i++;
 			d->col++;
 		}
-		//ft_printf("[%c]\n", d->buf[d->i]);
 		if (d->buf[d->i] == COMMENT_CHAR || d->buf[d->i] == ALT_COMMENT_CHAR)
 			ret = skip_to_next_line(d, &d->buf[d->i]);
 		else
@@ -111,7 +118,17 @@ void	tokenize(t_asm *d)
 		if (ret == EOF_ERR)
 			return ;
 		d->i += ret;
-		d->col += ret;
-		//ft_printf("[%c]\n", d->buf[d->i]);
+		if (d->i && d->buf[d->i - 1] != '\n')
+			d->col += ret;
 	}
+/* 	t_oken	*tmp;
+
+	tmp = d->tokens;
+	while (tmp)
+	{
+		ft_printf("TYPE: %u\n", tmp->type);
+		ft_printf("[%s]\n", tmp->str);
+		ft_printf("%d %d\n\n", tmp->row, tmp->col);
+		tmp = tmp->next;
+	} */
 }

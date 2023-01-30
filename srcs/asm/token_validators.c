@@ -6,35 +6,58 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/30 14:05:00 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/30 18:19:24 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
 
-static int	search_quote(t_asm *d, char *str, int *len, t_type *type)
+static int	found_quote(t_asm *d, char *str, int *len)
 {
-	int	i;
-
-	i = 0;
-	//ft_printf("\n\tYES, should be quote: [%c]\n", str[i]);
-	d->i++;
-	while (str[i] != '"')
+	int	tmplen;
+	
+	//ft_printf("\n\tYES, should be quote: [%c]\n", str[0]);
+	tmplen = 1;
+	//d->i++;
+	while (str[tmplen] != '"')
 	{
-		if (str[i] == 0)
+		if (str[tmplen] == 0)
 		{
-			d->i += i;
+			d->i += tmplen;
 			set_error_pos(d, d->i, STX_ERR);
 		}
-		i++;
+		tmplen += 1;
 	}
-	//ft_printf(">>[%s]\n>>len %d\n", str, i);
-	*len += i;
-	//ft_printf(" command >> %u ", *type);
-	add_token(d, str, *len, *type);
+	//ft_printf(">>[%s]\n>>len %d\n", str, *i);
+	*len += tmplen;
+	//ft_printf(" command >> ");
 	*len += 1;
-	//ft_printf("[%c]\n", str[*len]);
+	//d->i += tmplen;
+	//ft_printf("[%s]\n", ft_strsub(str, 0, *len));
 	return (1);
+}
+
+static bool	is_valid_command_str(char *str, int *i, t_type *type)
+{
+	size_t	len;
+
+	len = ft_strlen(str);
+	if (len > 5 && !ft_strncmp(NAME_CMD_STRING, str, 5) && \
+	(str[5] == '"' || str[5] == ' '))
+	{
+		*i += 5;
+		*type = NAME;
+		return (true);
+	}
+	if (len > 8 && !ft_strncmp(COMMENT_CMD_STRING, str, 8) && \
+	(str[8] == '"' || str[8] == ' '))
+	{
+		*i += 8;
+		*type = COMMENT;
+		return (true);
+	}
+	//ft_printf("NOT A VALID COMMAND STR\n");
+	return (false);
 }
 
 int	is_command(t_asm *d, char *str, int *len, t_type *type)
@@ -43,23 +66,18 @@ int	is_command(t_asm *d, char *str, int *len, t_type *type)
 
 	i = 0;
 	//check the return values, so it skips to the right part..
-	if (!ft_strncmp(".name", str, 5))
-	{
-		i += 5;
-		*type = NAME;
-	}
-	else if (!ft_strncmp(".comment", str, 8))
-	{
-		i += 8;
-		*type = COMMENT;
-	}
-	else
+	if (!is_valid_command_str(str, &i, type))
 		return (0);
+	//ft_printf(" i: [%i]\n", i);
 	while (str[i] && ft_iswhitespace((int)str[i]))
 		i++;
+	if (str[i] == '"' && found_quote(d, &str[i], len))
+	{
+		d->i += i;
+		return (add_token(d, &str[i], *len, *type));
+	}
 	d->i += i;
-	if (str[i] == '"')
-		return (search_quote(d, &str[i + 1], len, type));
+	//ft_printf("NOT A VALID COMMAND [%c%c%c]\n", str[i - 2], str[i - 1], str[i]);
 	return (0);
 }
 

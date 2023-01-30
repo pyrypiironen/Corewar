@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/30 14:03:17 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/30 18:19:09 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static bool	is_reg(char *str, int *len)
 			return (false);
 		i++;
 	}
-	ft_printf(" IS_REG >> ");
+	//ft_printf(" IS_REG >> ");
 	*len = *len + i;
 	return (true);
 }
@@ -41,7 +41,7 @@ static bool	is_direct_label(t_asm *d, char *str, int *len)
 		return (false);
 	if (str[*len + i] == '\0')
 		set_error_pos(d, *len + i, EOF_ERR);
-	ft_printf("IS DIR LAB %i\n", *len);
+	//ft_printf("IS DIR LAB %i\n", *len);
 	while(str[*len + i] && str[*len + i] == ' ')
 		i++;
 	while (str[*len + i] && !ft_strchr("#;,\n", (int)str[*len + i]))
@@ -51,7 +51,7 @@ static bool	is_direct_label(t_asm *d, char *str, int *len)
 		i++;
 	}
 	*len = *len + i;
-	ft_printf(" IS DIRECT LABEL >> ");
+	//ft_printf(" IS DIRECT LABEL >> ");
 	return (true);
 }
 
@@ -72,7 +72,7 @@ static bool	is_direct(t_asm *d, char *str, int *len)
 			set_error_pos(d, *len + i, LEX_ERR);
 		i++;
 	}
-	ft_printf(" IS DIR >> ");
+	//ft_printf(" IS DIR >> ");
 	*len = *len + i;
 	return (true);
 }
@@ -103,7 +103,7 @@ static bool is_indirect(t_asm *d, char *str, int *len)
 			set_error_pos(d, *len + i, LEX_ERR);
 		i++;
 	}
-	ft_printf(" IS DIR >> ");
+	//ft_printf(" IS INDIR >> ");
 	*len = *len + i;
 	return (true);
 }

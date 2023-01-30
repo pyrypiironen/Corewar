@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:20:07 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/25 15:36:26 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:29:54 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ void	init_asm(t_asm *d, int ac, char **av)
 	d->n_labels = 0;
 	d->head.magic = COREWAR_EXEC_MAGIC;
 	d->head.prog_size = 0;
-	d->row = 0;
-	d->col = 0;
+	d->row = 1;
+	d->col = 1;
 	d->i = 0;
 	ft_bzero(d->head.prog_name, PROG_NAME_LENGTH + 1);
 	ft_bzero(d->head.comment, COMMENT_LENGTH + 1);
