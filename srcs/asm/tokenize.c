@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/27 18:11:29 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/30 14:03:45 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,12 @@ int	add_token(t_asm *d, char *str, int len, t_type type)
 	new->row = d->row;
 	new->col = d->col;
 	new->str = ft_strnew((size_t)len);
+	//if (str[0] == '\n')
+	//	ft_printf(" IS NEWLINE >> ");
 	if (!new->str)
 		error_asm(d, NULL, MAL_ERR);
 	ft_strncpy(new->str, str, (size_t)len);
-	ft_printf(" [%s]\n", new->str);
+	//ft_printf(" %10s \n", new->str);
 	if (d->tokens == NULL)
 	{
 		d->tokens = new;
@@ -66,7 +68,7 @@ static int	check_type(t_asm *d, char *str)
 	else if (is_arg(d, str, &len, &type))
 		return (add_token(d, str, len, type));
 	else
-		return (set_error_pos(d, d->i, STX_ERR));
+		return (set_error_pos(d, d->i, LEX_ERR));
 }
 
 static int	skip_to_next_line(t_asm *d, char *str)
@@ -96,11 +98,12 @@ void	tokenize(t_asm *d)
 	while (d->buf[d->i])
 	{
 		ret = 0;
-		while (ft_iswhitespace((int)d->buf[d->i]))
+		while (ft_strchr(" \t\r\v", (int)d->buf[d->i]))
 		{
 			d->i++;
 			d->col++;
 		}
+		//ft_printf("[%c]\n", d->buf[d->i]);
 		if (d->buf[d->i] == COMMENT_CHAR || d->buf[d->i] == ALT_COMMENT_CHAR)
 			ret = skip_to_next_line(d, &d->buf[d->i]);
 		else
@@ -109,5 +112,6 @@ void	tokenize(t_asm *d)
 			return ;
 		d->i += ret;
 		d->col += ret;
+		//ft_printf("[%c]\n", d->buf[d->i]);
 	}
 }

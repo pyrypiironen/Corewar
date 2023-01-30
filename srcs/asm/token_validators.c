@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/30 13:21:41 by abackman         ###   ########.fr       */
+/*   Updated: 2023/01/30 14:05:00 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,10 @@ static int	search_quote(t_asm *d, char *str, int *len, t_type *type)
 	}
 	//ft_printf(">>[%s]\n>>len %d\n", str, i);
 	*len += i;
-	ft_printf(" command >> %u ", *type);
+	//ft_printf(" command >> %u ", *type);
 	add_token(d, str, *len, *type);
 	*len += 1;
+	//ft_printf("[%c]\n", str[*len]);
 	return (1);
 }
 
@@ -53,10 +54,7 @@ int	is_command(t_asm *d, char *str, int *len, t_type *type)
 		*type = COMMENT;
 	}
 	else
-	{
-		ft_printf(" NOT COMMAND >> ");
 		return (0);
-	}
 	while (str[i] && ft_iswhitespace((int)str[i]))
 		i++;
 	d->i += i;
@@ -75,12 +73,12 @@ int	is_op(char *str, int *len)
 		*len = (int)ft_strlen(g_op_tab[i].instruction);
 		if (!ft_strncmp(g_op_tab[i].instruction, str, (size_t)*len))
 		{
-			ft_printf(" OP >> ");
+			//ft_printf(" OP >> ");
 			return (*len);
 		}
 		i++;
 	}
-	ft_printf(" NOT OP >> ");
+	//ft_printf(" NOT OP >> ");
 	*len = 0;
 	return (*len);
 }
@@ -91,13 +89,13 @@ int	is_label(char *str, int *len)
 	{
 		if (!ft_strchr(LABEL_CHARS, (int)str[*len]) && str[*len] != ':')
 		{
-			ft_printf(" NOT label >> ");
+			//ft_printf(" NOT label >> ");
 			*len = 0;
 			return (*len);
 		}
 		else if (str[*len] == LABEL_CHAR)
 		{
-			ft_printf(" label >> ");
+			//ft_printf(" label >> ");
 			*len += 1;
 			return (*len);
 		}
