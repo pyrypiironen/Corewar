@@ -29,27 +29,35 @@ int	main(int argc, char **argv)
 
 	
 
-	d->arena[4094] = 0x0d;
-	d->arena[4095] = 0x10;
-	d->arena[0] = 0x40;
-	d->carriage_head->registrys[2] = 322;
-	d->arena[1] = 0x03;
-	d->arena[2] = 0x10;
-	d->carriage_head->cursor = 4095;
+	d->arena[4084] = 0x70;	 // argument value code
+	d->arena[4085] = 0xff ; 	// reg from
+	d->arena[4086] = 0x00; 	// location 1/2
+	d->arena[4087] = 0x0a; 	// locatonn 2/2
+
+	d->arena[187] = 0x7f;
+	d->arena[188] = 0xff;
+	d->arena[189] = 0xff;
+	d->arena[190] = 0xff;
+
+
+	d->carriage_head->cursor = 4083;
 	d->carriage_head->carry = 1;
+
+	d->carriage_head->registrys[2] = 2147483647;
+	d->carriage_head->registrys[3] = 44;
 
 
 	
 
 	print_carriages(d);
-	op_aff(d->carriage_head, d);
+	op_st(d->carriage_head, d);
 	//op_jump(d->carriage_head, d);
-	//print_arena(d);
 	//op_add(d->carriage_head, d);
 
 	ft_printf("{red} *	*	*	*	*	*	*	*	*	*	\n");
 	//print_arena(d);
 	print_carriages(d);
+	print_arena(d);
 
 	ft_printf("{green}Success! Main exit (exit code 0).\n");
 	exit (0);
