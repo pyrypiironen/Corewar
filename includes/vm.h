@@ -113,6 +113,7 @@ int		is_valid_reg(int position, t_vm_data *d);
 int		update_carry(int value);
 int		get_4_byte_value(t_vm_data *d, int position);
 int		get_2_byte_value(t_vm_data *d, int position, int idx);
+void	int_to_arena(t_vm_data *d, int position, int value);
 
 //		op_jump.c
 void	op_jump(t_carriage *carriage, t_vm_data *d);
@@ -123,6 +124,9 @@ void	op_lld(t_carriage *carriage, t_vm_data *d);
 
 //		op_live.c
 void	op_live(t_carriage *carriage, t_vm_data *d);
+
+//		op_st.c
+void	op_st(t_carriage *carriage, t_vm_data *d);
 
 
 //		* * * * * * * * TESTS * * * * * * * *

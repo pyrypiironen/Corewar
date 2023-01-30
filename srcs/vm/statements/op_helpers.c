@@ -58,3 +58,11 @@ int	get_2_byte_value(t_vm_data *d, int position, int idx)
 		value = value % IDX_MOD;
 	return ((int)value);
 }
+
+void	int_to_arena(t_vm_data *d, int position, int value)
+{
+	d->arena[position] = (value & 0xff000000) >> 24;
+	d->arena[(position + 1) % MEM_SIZE] = (value & 0x00ff0000) >> 16;
+	d->arena[(position + 2) % MEM_SIZE] = (value & 0x0000ff00) >> 8;
+	d->arena[(position + 3) % MEM_SIZE] = (value & 0x000000ff);
+}
