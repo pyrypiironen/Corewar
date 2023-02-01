@@ -43,6 +43,7 @@ typedef struct			s_carriage
 	int					id;
 	int					carry;
 	int			 		cursor;
+	int					cursor_copy;
 	int					last_live;
 	unsigned char		statement;
 	int					to_execute;
@@ -115,6 +116,9 @@ int		get_4_byte_value(t_vm_data *d, int position);
 int		get_2_byte_value(t_vm_data *d, int position, int idx);
 void	int_to_arena(t_vm_data *d, int position, int value);
 
+//		op_helpers_2.c
+
+
 //		op_jump.c
 void	op_jump(t_carriage *carriage, t_vm_data *d);
 
@@ -127,6 +131,11 @@ void	op_live(t_carriage *carriage, t_vm_data *d);
 
 //		op_st.c
 void	op_st(t_carriage *carriage, t_vm_data *d);
+
+//		op_bitwise.c
+void	op_and(t_carriage *carriage, t_vm_data *d);
+void	op_or(t_carriage *carriage, t_vm_data *d);
+void	op_xor(t_carriage *carriage, t_vm_data *d);
 
 
 //		* * * * * * * * TESTS * * * * * * * *

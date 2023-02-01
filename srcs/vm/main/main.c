@@ -50,9 +50,11 @@ int	main(int argc, char **argv)
 	
 
 	print_carriages(d);
-	op_st(d->carriage_head, d);
+	//op_st(d->carriage_head, d);
 	//op_jump(d->carriage_head, d);
 	//op_add(d->carriage_head, d);
+	op_and(d->carriage_head, d);
+
 
 	ft_printf("{red} *	*	*	*	*	*	*	*	*	*	\n");
 	//print_arena(d);

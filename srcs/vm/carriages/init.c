@@ -46,6 +46,7 @@ static void	fill_carriage(t_vm_data *d)
 	d->carriage_head->id = d->players->id;
 	d->carriage_head->carry = 0;
 	d->carriage_head->cursor = d->players->location;
+	d->carriage_head->cursor_copy = 0;
 	d->carriage_head->last_live = 0;
 	d->carriage_head->statement = d->arena[d->players->location];
 	d->carriage_head->to_execute = -1;			// Before first statement
