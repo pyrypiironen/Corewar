@@ -23,6 +23,9 @@ VM:
 	- no other types other than NEWLINE between
 	- file has to start with name and comment before statements, labels..
 	- only declared once
+ 1.5. Validate NEWLINE, remove from token list.
+	OR 
+ make token list double-linked, go back to the previous that was not newline, validate
 2. Save header
 3. Save label names, and index it points to
 4. Parse, save data in structs:
