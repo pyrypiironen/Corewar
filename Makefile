@@ -64,7 +64,7 @@ VM_OBJ = $(VM_OBJ_FILES)
 
 all: $(ASSEMBLER) $(COREWAR)
 # Add Makefile as prerequisite for $(Corewar), change syntax which would compile with Makefile
-$(ASSEMBLER): $(LIBFT) $(ASM_OBJ) $(ASM_H) Makefile
+$(ASSEMBLER): $(ASM_OBJ) $(ASM_H) $(LIBFT) Makefile
 	$(CC) -o $@ $(FLAGS) $(INCL) $(ASM_OBJ) $(LIBFT)
 	@echo "Assembler done."
 
