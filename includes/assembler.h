@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   assembler.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/27 18:10:57 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/06 17:41:27 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,10 +145,10 @@ void	validate(t_asm *d, int ac, char **av);
 void	lexer(t_asm *d);
 void	tokenize(t_asm *d);
 void	lex_champ_code(t_asm *d);
+int		add_token(t_asm *d, char *str, int len, t_type type);
 int		is_op(char *str, int *len);
 int		is_label(char *str, int *len);
 int		is_arg(t_asm *d, char *str, int *len, t_type *type);
-int		add_token(t_asm *d, char *str, int len, t_type type);
 int		is_command(t_asm *d, char *str, int *len, t_type *type);
 
 /*
@@ -163,6 +163,7 @@ void	add_label_to_table(t_asm *d, t_lab *new);
 ** Utility functions
 */
 
-int	set_error_pos(t_asm *d, int	pos, int status);
+int		set_error_pos(t_asm *d, int	pos, int status);
+void	asm_token_error(t_asm *d, t_oken *cur);
 
 #endif
