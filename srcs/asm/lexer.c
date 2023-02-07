@@ -3,29 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   lexer.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/06 18:15:41 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/07 17:02:52 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
-
-/* static void	save_argument(t_asm *d, t_oken *cur, t_oken *prev)
-{
-
-}
-
-static void	save_statement(t_asm *d, t_oken *cur, t_oken *prev)
-{
-
-}
-
-static void	save_label(t_asm *d, t_oken *cur, t_oken *prev)
-{
-
-} */
 
 static void	save_comment(t_asm *d, t_oken *cur)
 {
@@ -33,10 +18,9 @@ static void	save_comment(t_asm *d, t_oken *cur)
 
 	i = 1;
 	if (d->head.comment[0])
-		asm_token_error(d, cur);
+		asm_token_error(d, cur, STX_ERR);
 	else if (ft_strlen(cur->str) > COMMENT_LENGTH + 2)
-		asm_token_error(d, cur);
-	//double check the length
+		asm_token_error(d, cur, COMMLEN_ERR);
 	if (!ft_strcmp(cur->str, "\"\""))
 			d->head.comment[0] = 1;
 	else
@@ -56,10 +40,9 @@ static void	save_name(t_asm *d, t_oken *cur)
 
 	i = 1;
 	if (d->head.prog_name[0])
-		asm_token_error(d, cur);
+		asm_token_error(d, cur, STX_ERR);
 	else if (ft_strlen(cur->str) > PROG_NAME_LENGTH + 2)
-		asm_token_error(d, cur);
-	//double check the length
+		asm_token_error(d, cur, NAMELEN_ERR);
 	if (!ft_strcmp(cur->str, "\"\""))
 		d->head.prog_name[0] = 1;
 	else
@@ -75,10 +58,9 @@ static void	save_name(t_asm *d, t_oken *cur)
 
 static void	save_header(t_asm *d, t_oken *cur, t_oken *prev)
 {
-	// validate NEWLINES, remove them.
 	if (prev && prev->type != NEWLINE && prev->type != NAME \
 	&& prev->type != COMMENT)
-		asm_token_error(d, cur);
+		asm_token_error(d, cur, STX_ERR);
 	if (cur->type == NAME)
 		save_name(d, cur);
 	else
@@ -93,17 +75,16 @@ static void	syntax_checker(t_asm *d)
 	tmp = d->tokens;
 	prev = NULL;
 	// check one token at a time, add to linked list of statements, hash table of labels..
+	// indirect label?
 	while (tmp)
 	{
 		if (tmp->type == NAME || tmp->type == COMMENT)
 			save_header(d, tmp, prev);
-		/* else if (tmp->type == OP)
-			save_statement(d, tmp, prev);
-		else if (tmp->type == LABEL)
-			save_label(d, tmp, prev);
 		else if (tmp->type == DIR || tmp->type == IND || tmp->type == REG || \
 		tmp->type == DIRLAB)
-			save_argument(d, tmp, prev); */
+			save_argument(d, tmp, prev);
+		else if (tmp->type != SEPARATOR && tmp->type != NEWLINE)
+			token_to_statement(d, tmp, prev);
 		// validate separator && newline
 		prev = tmp;
 		tmp = tmp->next;
@@ -118,6 +99,7 @@ static void	syntax_checker(t_asm *d)
 void	lexer(t_asm *d)
 {
 	tokenize(d);
+	init_label_table(d);
 	syntax_checker(d);
 	ft_printf("Name: [%s]\nComm: [%s]\n", d->head.prog_name, d->head.comment);
 	//parse(d);
