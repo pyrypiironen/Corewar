@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:20:07 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/30 15:29:54 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/07 17:26:00 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	init_asm(t_asm *d, int ac, char **av)
 	d->row = 1;
 	d->col = 1;
 	d->i = 0;
+	d->unref_labels = false;
 	ft_bzero(d->head.prog_name, PROG_NAME_LENGTH + 1);
 	ft_bzero(d->head.comment, COMMENT_LENGTH + 1);
 	validate(d, ac, av);

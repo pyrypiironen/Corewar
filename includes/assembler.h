@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/07 17:13:48 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/07 17:28:03 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ typedef struct s_stat
 typedef struct s_lab
 {
 	struct s_lab	*next;
-	t_op			op;
+	t_stat			*statement;
 	char			*name;
 	size_t			line;
 	size_t			start;
@@ -130,6 +130,7 @@ typedef struct s_asm
 	size_t		n_labels;
 	char		*buf;
 	bool		debug;
+	bool		unref_labels;
 }	t_asm;
 
 /*
