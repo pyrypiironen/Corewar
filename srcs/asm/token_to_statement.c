@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/07 17:12:58 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/07 17:29:26 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,18 @@ void	save_argument(t_asm *d, t_oken *cur, t_oken *prev)
 {
 	if (!cur && !prev)
 		error_asm(d, NULL, -1);
+	if (!d->head.prog_name[0] || !d->head.comment[0])
+		asm_token_error(d, cur, STX_ERR);
 }
 
 void	save_statement(t_asm *d, t_oken *cur, t_oken *prev)
 {
 	if (!cur && !prev)
 		error_asm(d, NULL, -1);
-}
+	//if (d->unref_labels)
+	//	add_statement_to_labels
+	//else
+}	//	add_to_statements
 
 void	save_label(t_asm *d, t_oken *cur, t_oken *prev)
 {
@@ -50,6 +55,9 @@ void	save_label(t_asm *d, t_oken *cur, t_oken *prev)
 		new->line = cur->next->next->row;
 		new->pos = cur->next->next->col;
 	}
+	else
+		d->unref_labels = true;
+	add_label_to_table(d, new);
 	if (!cur && !prev)
 		error_asm(d, NULL, -1);
 }
