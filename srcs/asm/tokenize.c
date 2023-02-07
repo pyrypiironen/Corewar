@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/30 19:21:37 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/07 16:44:21 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,11 @@ int	add_token(t_asm *d, char *str, int len, t_type type)
 	new->row = d->row;
 	new->col = d->col;
 	new->str = ft_strnew((size_t)len);
-	/* if (str[0] == '\n')
-		ft_printf(" IS NEWLINE >> "); */
+	/* if (type == LABEL)
+		ft_printf("->LABEL\n"); */
 	if (!new->str)
 		error_asm(d, NULL, MAL_ERR);
 	ft_strncpy(new->str, str, (size_t)len);
-	//ft_printf("[%s] [type: %d]\n", new->str, new->type);
 	if (d->tokens == NULL)
 	{
 		d->tokens = new;
