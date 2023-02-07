@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   assembler.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/06 17:41:27 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/07 17:13:48 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <fcntl.h>
 # include <stdbool.h>
 
+/* Error messages */
 # define MALLOC_ERR "ERROR: malloc failure.\n"
 # define FILE_ERR "ERROR: invalid file.\n"
 # define NAME_ERR "Champion name too long (Max length 128)\n"
@@ -31,6 +32,9 @@
 # define NAM_ERR -46
 # define MAL_ERR -47
 # define TYP_ERR -48
+
+# define NAMELEN_ERR -49
+# define COMMLEN_ERR -50
 
 /*
 ** Structs
@@ -115,6 +119,8 @@ typedef struct s_asm
 	t_lab		**labels;
 	t_header	head;
 	t_oken		*tokens;
+	t_stat		*statements;
+	t_stat		*tail_stat;
 	int			fd;
 	int			n_players;
 	int			row;
@@ -150,6 +156,10 @@ int		is_op(char *str, int *len);
 int		is_label(char *str, int *len);
 int		is_arg(t_asm *d, char *str, int *len, t_type *type);
 int		is_command(t_asm *d, char *str, int *len, t_type *type);
+void	token_to_statement(t_asm *d, t_oken *cur, t_oken *prev);
+void	save_label(t_asm *d, t_oken *cur, t_oken *prev);
+void	save_argument(t_asm *d, t_oken *cur, t_oken *prev);
+void	save_statement(t_asm *d, t_oken *cur, t_oken *prev);
 
 /*
 ** Label functions
@@ -164,6 +174,6 @@ void	add_label_to_table(t_asm *d, t_lab *new);
 */
 
 int		set_error_pos(t_asm *d, int	pos, int status);
-void	asm_token_error(t_asm *d, t_oken *cur);
+void	asm_token_error(t_asm *d, t_oken *cur, int status);
 
 #endif
