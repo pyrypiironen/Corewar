@@ -9,6 +9,7 @@ statements:
 
 Need to handle:
 - calculate the result of the labels
+- error: duplicate label, undefined label
 
 No need to handle:
 - the contents of registries
@@ -19,18 +20,19 @@ VM:
 - use of % MEM_SIZE to prevent overruns
 
 1. Tokenize V
-	- Handle .name and .comment
-	- no other types other than NEWLINE between
+	- no other types other than NEWLINE between NAME and COMMENT
 	- file has to start with name and comment before statements, labels..
 	- only declared once
- 1.5. Validate NEWLINE, remove from token list.
-	OR 
- make token list double-linked, go back to the previous that was not newline, validate
+ __Validate:
 2. Save header
-3. Save label names, and index it points to
+3. Save label names, and index it points to. Save in t_lab, not as statement.
 4. Parse, save data in structs:
 	- label: t_lab
 	- statement: t_stat
+
+-- Only need to find the label address and calculate at time of translation.
+	- save to hash table before?
+
 5. Validate:
 Statement:
 - name
