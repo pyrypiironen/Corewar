@@ -24,7 +24,14 @@ int	main(int argc, char **argv)
 	init_core(argc, argv, d);
 
 
-
+	// TEST OP_STI!!!!
+	// TEST OP_STI!!!!
+	// TEST OP_STI!!!!
+	// TEST OP_STI!!!!
+	// TEST OP_STI!!!!
+	// TEST OP_STI!!!!
+	// TEST OP_STI!!!!
+	// TEST OP_STI!!!!
 
 
 	

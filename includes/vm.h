@@ -135,6 +135,7 @@ void	op_live(t_carriage *carriage, t_vm_data *d);
 
 //		op_st.c
 void	op_st(t_carriage *carriage, t_vm_data *d);
+void	op_sti(t_carriage *carriage, t_vm_data *d);
 
 //		op_bitwise.c
 void	op_and(t_carriage *carriage, t_vm_data *d);

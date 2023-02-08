@@ -59,6 +59,7 @@ void	op_lldi(t_carriage *carriage, t_vm_data *d)
 
 static long long	get_first_arg(t_carriage *carriage, t_vm_data *d)
 {
+	// Cleanup the reg validations when not needed
 	int			res;
 	int			pos;
 
