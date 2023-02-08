@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/07 17:28:03 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/08 13:35:10 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,10 @@ typedef struct s_stat
 	struct s_stat	*next;
 	t_op			op;
 	char			*label;
-	uint8_t			argtypes;
-	size_t			size;
-	size_t			loc;
-	char			*statement;
+	int				args[3];
+	uint8_t			argtypes[3];
+	uint8_t			cur_arg;
+	bool			valid;
 }	t_stat;
 
 typedef struct s_lab
@@ -120,7 +120,7 @@ typedef struct s_asm
 	t_header	head;
 	t_oken		*tokens;
 	t_stat		*statements;
-	t_stat		*tail_stat;
+	t_stat		*tail_statement;
 	int			fd;
 	int			n_players;
 	int			row;
