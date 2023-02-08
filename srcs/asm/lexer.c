@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/07 17:02:52 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/08 11:42:58 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ static void	syntax_checker(t_asm *d)
 		prev = tmp;
 		tmp = tmp->next;
 	}
+	// if end reached and d->unref_labels == true
+	//		point those unreferenced to the place after the champ code
 }
 
 /*

@@ -41,6 +41,9 @@ Statement:
 - arg_type
 - characters 
 
+CHECK ORIG:
+- same label name, different statements
+
 TEST:
 file starts with number, comment, label, op
 file stops with -||-
