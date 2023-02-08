@@ -126,11 +126,16 @@ void	op_jump(t_carriage *carriage, t_vm_data *d);
 void	op_ld(t_carriage *carriage, t_vm_data *d);
 void	op_lld(t_carriage *carriage, t_vm_data *d);
 
+//		op_ldi.c
+void	op_ldi(t_carriage *carriage, t_vm_data *d);
+void	op_lldi(t_carriage *carriage, t_vm_data *d);
+
 //		op_live.c
 void	op_live(t_carriage *carriage, t_vm_data *d);
 
 //		op_st.c
 void	op_st(t_carriage *carriage, t_vm_data *d);
+void	op_sti(t_carriage *carriage, t_vm_data *d);
 
 //		op_bitwise.c
 void	op_and(t_carriage *carriage, t_vm_data *d);

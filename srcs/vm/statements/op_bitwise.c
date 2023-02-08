@@ -12,8 +12,8 @@
 
 # include "../../../includes/vm.h"
 
-static long long get_first_arg(t_carriage *carriage, t_vm_data *d);
-static long long get_second_arg(t_carriage *carriage, t_vm_data *d);
+static long long	get_first_arg(t_carriage *carriage, t_vm_data *d);
+static long long	get_second_arg(t_carriage *carriage, t_vm_data *d);
 
 void	op_and(t_carriage *carriage, t_vm_data *d)
 {
@@ -87,7 +87,7 @@ void	op_xor(t_carriage *carriage, t_vm_data *d)
 */
 
 
-static long long get_first_arg(t_carriage *carriage, t_vm_data *d)
+static long long	get_first_arg(t_carriage *carriage, t_vm_data *d)
 {
 	int			res;
 	int			pos;
@@ -101,15 +101,15 @@ static long long get_first_arg(t_carriage *carriage, t_vm_data *d)
 		return (carriage->registrys[d->arena[pos] - 1]);
 	}
 		
-	else if (((res == 0x94 && is_valid_reg((pos + 4) % MEM_SIZE, d)) \
-		|| res == 0xa4 || res == 0xb4))
+	else if ((res == 0x94 && is_valid_reg((pos + 4) % MEM_SIZE, d)) \
+		|| res == 0xa4 || res == 0xb4)
 	{
 		carriage->cursor_copy = (carriage->cursor + 6) % MEM_SIZE;
 		return (get_4_byte_value(d, pos));
 	}
 		
-	else if (((res == 0xd4 && is_valid_reg((pos + 2) % MEM_SIZE, d)) \
-		|| res == 0xe4 || res == 0xf4))
+	else if ((res == 0xd4 && is_valid_reg((pos + 2) % MEM_SIZE, d)) \
+		|| res == 0xe4 || res == 0xf4)
 	{
 		carriage->cursor_copy = (carriage->cursor + 4) % MEM_SIZE;
 		return (get_4_byte_value(d, carriage->cursor + \
@@ -118,7 +118,7 @@ static long long get_first_arg(t_carriage *carriage, t_vm_data *d)
 	return (2147483648);
 }
 
-static long long get_second_arg(t_carriage *carriage, t_vm_data *d)
+static long long	get_second_arg(t_carriage *carriage, t_vm_data *d)
 {
 	int			res;
 	int			pos;
@@ -140,8 +140,6 @@ static long long get_second_arg(t_carriage *carriage, t_vm_data *d)
 	else if (res == 0x74 || res == 0xb4 || res == 0xf4)
 	{
 		carriage->cursor_copy = (carriage->cursor_copy + 2) % MEM_SIZE;
-		ft_printf("value: %d \n", (carriage->cursor + get_2_byte_value(d, pos, 1)) % 4096);
-		ft_printf("cursor: %d \n", carriage->cursor);
 		return (get_4_byte_value(d, carriage->cursor + \
 			get_2_byte_value(d, pos, 1)));
 	}
