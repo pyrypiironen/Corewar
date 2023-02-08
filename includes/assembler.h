@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   assembler.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/08 15:20:08 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/08 16:47:17 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ typedef struct s_stat
 	int				args[3];
 	uint8_t			argtypes[3];
 	uint8_t			cur_arg;
+	uint8_t			opcode;
 	bool			valid;
 }	t_stat;
 
