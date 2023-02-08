@@ -41,6 +41,7 @@ STATEMENTS =	op_add.c \
 				op_helpers_2.c \
 				op_jump.c \
 				op_ld.c \
+				op_ldi.c \
 				op_live.c \
 				op_st.c 
 
