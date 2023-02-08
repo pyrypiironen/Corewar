@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_to_statement.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/08 15:48:34 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/08 16:49:23 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,30 @@
 static t_stat	*init_statement(t_asm *d, t_oken *cur)
 {
 	t_stat	*new;
-	int		i;
+	uint8_t	i;
 
-	i = -1;
+	i = 0;
 	new = (t_stat *)malloc(sizeof(t_stat *));
 	if (!new)
 		error_asm(d, NULL, MAL_ERR);
 	new->next = NULL;
 	new->label = NULL;
-	ft_bzero(new->args, 3);
-	ft_bzero(new->args, 3);
+	new->opcode = 0;
+	ft_bzero(new->args, 3 * sizeof(int));
+	ft_bzero(new->argtypes, 3 * sizeof(uint8_t));
 	new->cur_arg = 0;
 	new->valid = false;
-	while (++i < 16)
+	while (i < 16)
 	{
 		if (!ft_strcmp(cur->str, g_op_tab[i].instruction))
 			break ;
+		i++;
 	}
-	new->op = g_op_tab[i];
-	if (!new->op.instruction)
-		memdel_exit_asm(d, new, NULL);
+	new->opcode = i;
+	ft_printf("INIT_STATEMENT i: %i, %p\n", i, new);
+	/* new->op = g_op_tab[i];
+	if (new->op.instruction)
+		memdel_exit_asm(d, new, NULL); */
 	return (new);
 }
 
@@ -65,19 +69,19 @@ void	save_statement(t_asm *d, t_oken *cur, t_oken *prev)
 		error_asm(d, NULL, -1);
 	tmp = d->statements;
 	new = init_statement(d, cur);
+	ft_printf("Save_statement__\n");
 	if (d->unref_labels)
 	{
 		add_statement_to_labels(d, new);
 		return ;
 	}
-	ft_printf("Save_statement__\n");
 	d->tail_statement = new;
 	if (!tmp)
 	{
 		d->statements = new;
 		return ;
 	}
-	while (tmp->next != NULL)
+	while (tmp->next)
 		tmp = tmp->next;
 	tmp->next = new;
 }
