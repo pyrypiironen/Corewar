@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_to_statement.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/08 13:35:42 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/08 15:48:34 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,24 @@ static t_stat	*init_statement(t_asm *d, t_oken *cur)
 	return (new);
 }
 
+static void	add_statement_to_labels(t_asm *d, t_stat *new)
+{
+	int		i;
+	t_lab	*tmp;
+
+	i = -1;
+	while (++i < (int)d->n_labels)
+	{
+		tmp = d->labels[i];
+		while (tmp)
+		{
+			if (!tmp->statement)
+				tmp->statement = new;
+			tmp = tmp->next;
+		}
+	}
+}
+
 void	save_statement(t_asm *d, t_oken *cur, t_oken *prev)
 {
 	t_stat	*new;
@@ -47,19 +65,21 @@ void	save_statement(t_asm *d, t_oken *cur, t_oken *prev)
 		error_asm(d, NULL, -1);
 	tmp = d->statements;
 	new = init_statement(d, cur);
+	if (d->unref_labels)
+	{
+		add_statement_to_labels(d, new);
+		return ;
+	}
+	ft_printf("Save_statement__\n");
 	d->tail_statement = new;
 	if (!tmp)
 	{
 		d->statements = new;
 		return ;
 	}
-	while (tmp->next)
+	while (tmp->next != NULL)
 		tmp = tmp->next;
 	tmp->next = new;
-	//if (d->unref_labels)
-	//	add_statement_to_labels
-	//else
-	//	add_to_statements
 }
 
 void	save_label(t_asm *d, t_oken *cur, t_oken *prev)
@@ -71,12 +91,12 @@ void	save_label(t_asm *d, t_oken *cur, t_oken *prev)
 		error_asm(d, NULL, MAL_ERR);
 	new->next = NULL;
 	new->name = cur->str;
-	if (cur->next && cur->next == OP)
+	if (cur->next && cur->next->type == OP)
 	{
 		new->line = cur->next->row;
 		new->start = cur->next->col;
 	}
-	else if (cur->next && cur->next->next && cur->next->next == OP)
+	else if (cur->next && cur->next->next && cur->next->next->type == OP)
 	{
 		new->line = cur->next->next->row;
 		new->start = cur->next->next->col;
@@ -90,10 +110,12 @@ void	save_label(t_asm *d, t_oken *cur, t_oken *prev)
 
 void	token_to_statement(t_asm *d, t_oken *cur, t_oken *prev)
 {
+	ft_printf("Save statement/label__\n");
 	if (!d->head.prog_name[0] || !d->head.comment[0])
 		asm_token_error(d, cur, STX_ERR);
 	if (cur->type == OP)
 		save_statement(d, cur, prev);
 	else if (cur->type == LABEL)
 		save_label(d, cur, prev);
+	//ft_printf("Save statement/label__\n");
 }

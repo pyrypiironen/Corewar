@@ -24,6 +24,8 @@ VM:
 	- file has to start with name and comment before statements, labels..
 	- only declared once
  __Validate:
+	- indirect labels as arguments??
+
 2. Save header
 3. Save label names, and index it points to. Save in t_lab, not as statement.
 4. Parse, save data in structs:
