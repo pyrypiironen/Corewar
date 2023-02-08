@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   assembler.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/08 13:35:10 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/08 15:20:08 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 
 # define NAMELEN_ERR -49
 # define COMMLEN_ERR -50
+# define ARGCOUNT_ERR -51
 
 /*
 ** Structs
@@ -71,17 +72,18 @@ static const t_op	g_op_tab[] = {
 
 typedef enum e_type
 {
+	VOID,
+	REG,
+	DIR,
+	IND,
 	NAME,
 	COMMENT,
 	SEPARATOR,
 	NEWLINE,
 	LABEL,
 	OP,
-	REG,
-	DIR,
-	IND,
 	DIRLAB,
-	VOID
+	INDIRLAB
 }	t_type;
 
 typedef struct s_oken
