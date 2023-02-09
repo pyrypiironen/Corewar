@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:26:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/25 12:00:10 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/09 12:02:12 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,26 +34,29 @@ static void	free_labels(t_lab **labels, size_t size)
 	t_lab	*tmp;
 	t_lab	*next;
 
+	//return ;
 	i = 0;
 	while (i < size)
 	{
 		tmp = labels[i];
-		while (tmp)
+		while (tmp != NULL)
 		{
 			next = tmp->next;
-			ft_strdel(&tmp->name);
-			ft_memdel((void **)&tmp);
+			//ft_strdel(&tmp->name);
+			//ft_memdel((void **)&tmp);
+			free(tmp);
+			tmp = NULL;
 			tmp = next;
 		}
 		i++;
 	}
-	ft_memdel((void **)labels);
+	free(labels);
+	labels = NULL;
 }
 
 void	free_asm(t_asm *d)
 {
-	if (d->buf != NULL)
-		ft_strdel(&d->buf);
+	ft_strdel(&d->buf);
 	if (d->labels)
 		free_labels(d->labels, d->n_labels);
 	if (d->tokens)
