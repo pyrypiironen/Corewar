@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/08 16:49:23 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/09 18:03:30 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ static t_stat	*init_statement(t_asm *d, t_oken *cur)
 	new->next = NULL;
 	new->label = NULL;
 	new->opcode = 0;
-	ft_bzero(new->args, 3 * sizeof(int));
-	ft_bzero(new->argtypes, 3 * sizeof(uint8_t));
+	ft_bzero((void *)new->args, 3);
+	ft_bzero((void *)new->argtypes, 3);
 	new->cur_arg = 0;
+	new->location = -1;
 	new->valid = false;
 	while (i < 16)
 	{
@@ -69,7 +70,7 @@ void	save_statement(t_asm *d, t_oken *cur, t_oken *prev)
 		error_asm(d, NULL, -1);
 	tmp = d->statements;
 	new = init_statement(d, cur);
-	ft_printf("Save_statement__\n");
+	ft_printf("\t*statement*\n");
 	if (d->unref_labels)
 	{
 		add_statement_to_labels(d, new);
@@ -94,7 +95,10 @@ void	save_label(t_asm *d, t_oken *cur, t_oken *prev)
 	if (!new)
 		error_asm(d, NULL, MAL_ERR);
 	new->next = NULL;
-	new->name = cur->str;
+	new->name = ft_strdup(cur->str);
+	if (!new->name)
+		memdel_exit_asm(d, new, MALLOC_ERR);
+	ft_printf("label str: %s\n", new->name);
 	if (cur->next && cur->next->type == OP)
 	{
 		new->line = cur->next->row;
@@ -107,6 +111,7 @@ void	save_label(t_asm *d, t_oken *cur, t_oken *prev)
 	}
 	else
 		d->unref_labels = true;
+	ft_printf("\t*label* %p\n", new);
 	add_label_to_table(d, new);
 	if (!cur && !prev)
 		error_asm(d, NULL, -1);
@@ -114,12 +119,12 @@ void	save_label(t_asm *d, t_oken *cur, t_oken *prev)
 
 void	token_to_statement(t_asm *d, t_oken *cur, t_oken *prev)
 {
-	ft_printf("Save statement/label__\n");
+	ft_printf("Save statement/label__[%s]\n", cur->str);
 	if (!d->head.prog_name[0] || !d->head.comment[0])
 		asm_token_error(d, cur, STX_ERR);
 	if (cur->type == OP)
 		save_statement(d, cur, prev);
 	else if (cur->type == LABEL)
 		save_label(d, cur, prev);
-	//ft_printf("Save statement/label__\n");
+	//ft_printf(">> Save statement/label__\n");
 }

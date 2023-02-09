@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 14:59:55 by abackman          #+#    #+#             */
-/*   Updated: 2023/01/23 18:52:51 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/09 18:02:23 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static unsigned long	label_hash(char *name, int size)
 
 	hash = 5381;
 	i = 0;
+	//ft_printf("\tlabel_hash [%s]\n", name);
 	while (name[i])
 		hash = ((hash << 5) + hash) + name[i++];
 	return (hash % size);
@@ -29,15 +30,20 @@ void	add_label_to_table(t_asm *d, t_lab *new)
 	t_lab			*tmp;
 	unsigned long	index;
 
+	ft_printf("LABEL INDEX: %p\n", new->name);
 	index = label_hash(new->name, d->n_labels);
-	tmp = d->labels[index];
-	if (!tmp)
+	if (d->labels[index] == NULL)
 	{
+		ft_printf("add label [%p]\n", new);
 		d->labels[index] = new;
 		return ;
 	}
-	while (tmp->next)
+	tmp = d->labels[index];
+	while (tmp->next != NULL)
+	{
+		ft_printf("add label [%p]\n", tmp->next);
 		tmp = tmp->next;
+	}
 	tmp->next = new;
 }
 
@@ -49,9 +55,12 @@ void	init_label_table(t_asm *d)
 	if (!d->labels)
 		exit_asm(d, MALLOC_ERR);
 	i = 0;
-	while (i < d->n_labels)
-		d->labels[i++] = NULL;
-	//ft_printf("Label table initialized! %p\n", d->labels);
+	while (i <= d->n_labels)
+	{
+		d->labels[i] = NULL;
+		i++;
+	}
+	ft_printf("Label table initialized! %u [%p]\n", d->n_labels, d->labels);
 }
 
 t_lab	*get_label(t_asm *d, char *name)

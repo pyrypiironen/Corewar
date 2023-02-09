@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 12:07:05 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/08 17:10:20 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/09 15:59:21 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static uint8_t	validate_type(t_asm *d, t_oken *cur, t_stat *dst)
 		else
 			return (T_IND);
 	}
+	return (0);
 }
 
 static void	add_arg_to_statement(t_asm *d, t_oken *cur, t_stat *dst)
@@ -57,9 +58,9 @@ static void	add_arg_to_statement(t_asm *d, t_oken *cur, t_stat *dst)
 
 void	save_argument(t_asm *d, t_oken *cur, t_oken *prev)
 {
-	ft_printf("Save argument__\n");
 	if (!cur && !prev)
 		error_asm(d, NULL, -1);
+	ft_printf("Save argument__ [%s]\n", cur->str);
 	if (!d->head.prog_name[0] || !d->head.comment[0] || !d->tail_statement)
 		asm_token_error(d, cur, STX_ERR);
 	if (d->tail_statement->valid)
