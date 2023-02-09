@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/07 16:44:21 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/09 15:51:56 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,17 @@ static int	check_type(t_asm *d, char *str)
 	}
 	else if (str[len] == SEPARATOR_CHAR)
 		return (add_token(d, str, 1, SEPARATOR));
-	else if (is_op(str, &len))
-		return (add_token(d, str, len, OP));
 	else if (is_label(str, &len))
 		return (add_token(d, str, len, LABEL));
-	else if (is_command(d, str, &len, &type))
-		return (len);
+	else if (is_op(str, &len))
+		return (add_token(d, str, len, OP));
 	else if (is_arg(d, str, &len, &type))
 		return (add_token(d, str, len, type));
+	else if (is_command(d, str, &len, &type))
+		return (len);
 	else
 	{
-		ft_printf("Did not find token type\n");
+		ft_printf("Did not find token type [%s]\n", str);
 		return (set_error_pos(d, d->i, STX_ERR));
 	}
 }
