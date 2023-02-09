@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/07 16:39:02 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/09 15:54:31 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ int	is_op(char *str, int *len)
 {
 	int	i;
 
-	i = 0;
-	while (i < 16)
+	i = 16;
+	while (--i > -1)
 	{
 		*len = (int)ft_strlen(g_op_tab[i].instruction);
 		if (!ft_strncmp(g_op_tab[i].instruction, str, (size_t)*len))
@@ -94,7 +94,6 @@ int	is_op(char *str, int *len)
 			//ft_printf(" OP >> ");
 			return (*len);
 		}
-		i++;
 	}
 	//ft_printf(" NOT OP >> ");
 	*len = 0;
@@ -103,6 +102,8 @@ int	is_op(char *str, int *len)
 
 int	is_label(char *str, int *len)
 {
+	if (str[*len] == LABEL_CHAR)
+		return (0);
 	while (str[*len])
 	{
 		if (!ft_strchr(LABEL_CHARS, (int)str[*len]) && str[*len] != ':')
