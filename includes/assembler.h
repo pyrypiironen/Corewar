@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/09 17:42:18 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/10 12:43:40 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,16 @@
 # include <fcntl.h>
 # include <stdbool.h>
 
+////////////////////////?REMOVE REMOVE REMOVE
+#include <stdio.h>
+//////////////////////////////REMOVE REMOVE REMOVE
+
 /* Error messages */
 # define MALLOC_ERR "ERROR: malloc failure.\n"
 # define FILE_ERR "ERROR: invalid file.\n"
 # define NAME_ERR "Champion name too long (Max length 128)\n"
 # define COMMENT_ERR "Champion comment too long (Max length 2048)\n"
+# define ARGCOUNT_ERR_STR "Too many arguments for operation."
 
 /* Error codes */
 # define LEX_ERR -42
@@ -165,7 +170,7 @@ int		is_command(t_asm *d, char *str, int *len, t_type *type);
 void	token_to_statement(t_asm *d, t_oken *cur, t_oken *prev);
 void	save_label(t_asm *d, t_oken *cur, t_oken *prev);
 void	save_argument(t_asm *d, t_oken *cur, t_oken *prev);
-void	save_statement(t_asm *d, t_oken *cur, t_oken *prev);
+void	save_statement(t_asm **d, t_oken *cur, t_oken *prev);
 
 /*
 ** Label functions
