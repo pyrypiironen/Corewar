@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/10 13:59:54 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/10 14:49:19 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,19 @@ static t_stat	*init_statement(t_asm *d, t_oken *cur)
 		i++;
 	}
 	new->opcode = i;
-	ft_printf("INIT_STATEMENT i: %i, %p\n", i, new);
+	//ft_printf("INIT_STATEMENT i: %i, %p\n", i, new);
 	/* new->op = g_op_tab[i];
 	if (new->op.instruction)
 		memdel_exit_asm(d, new, NULL); */
 	return (new);
 }
 
-static void	add_statement_to_labels(t_asm *d, t_stat *new)
+void	add_statement_to_labels(t_asm *d, t_stat *new)
 {
 	int		i;
 	t_lab	*tmp;
 
 	i = -1;
-	ft_printf("ADD_STAT_TO_LAB\n");
 	while (++i < (int)d->n_labels)
 	{
 		tmp = d->labels[i];
@@ -60,6 +59,7 @@ static void	add_statement_to_labels(t_asm *d, t_stat *new)
 			tmp = tmp->next;
 		}
 	}
+	d->unref_labels = false;
 }
 
 void	save_statement(t_asm **d, t_oken *cur, t_oken *prev)
@@ -71,13 +71,13 @@ void	save_statement(t_asm **d, t_oken *cur, t_oken *prev)
 		error_asm(*d, NULL, -1);
 	tmp = (*d)->statements;
 	new = init_statement(*d, cur);
+	(*d)->tail_statement = new;
+	//ft_printf("\n\t*save_statement*\n %p\nvalid: %u\n", (*d)->tail_statement, (*d)->tail_statement->valid);
 	if ((*d)->unref_labels)
 	{
 		add_statement_to_labels(*d, new);
 		return ;
 	}
-	(*d)->tail_statement = new;
-	ft_printf("\t*statement*\n %p\nvalid: %u\n", (*d)->tail_statement, (*d)->tail_statement->valid);
 	if (!tmp)
 	{
 		(*d)->statements = new;
@@ -95,7 +95,7 @@ void	save_label(t_asm *d, t_oken *cur, t_oken *prev)
 	new = (t_lab *)malloc(sizeof(t_lab));
 	if (!new)
 		error_asm(d, NULL, MAL_ERR);
-	ft_printf("label str: %p\n", new);
+	//ft_printf("label str: %p\n", new);
 	new->next = NULL;
 	new->statement = NULL;
 	new->line = 0;
@@ -113,7 +113,7 @@ void	save_label(t_asm *d, t_oken *cur, t_oken *prev)
 
 void	token_to_statement(t_asm *d, t_oken *cur, t_oken *prev)
 {
-	printf("Save statement/label__[%s]\n", cur->str);
+	//printf("Save statement/label__[%s]\n", cur->str);
 	if (!d->head.prog_name[0] || !d->head.comment[0])
 		asm_token_error(d, cur, STX_ERR);
 	if (cur->type == OP)

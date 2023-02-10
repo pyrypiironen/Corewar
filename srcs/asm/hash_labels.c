@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 14:59:55 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/10 13:58:33 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/10 14:37:41 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,18 @@ void	add_label_to_table(t_asm *d, t_lab *new)
 	t_lab			*tmp;
 	unsigned long	index;
 
-	printf("\t*label* %p\n", new->name);
+	//printf("\t*label* %p\n", new->name);
 	index = label_hash(new->name, d->n_labels);
 	if (d->labels[index] == NULL)
 	{
-		printf("add label [%p]\n", new);
+		//printf("add label [%p]\n", new);
 		d->labels[index] = new;
 		return ;
 	}
 	tmp = d->labels[index];
 	while (tmp->next != NULL)
 	{
-		printf("add label [%p]\n", tmp->next);
+		//printf("add label [%p]\n", tmp->next);
 		tmp = tmp->next;
 	}
 	tmp->next = new;
