@@ -46,9 +46,9 @@ void	op_st(t_carriage *carriage, t_vm_data *d)
 
 void	op_sti(t_carriage *carriage, t_vm_data *d)
 {
-	long long	arg_1; // Actually index for reg, name this better
+	int			arg_1; // Actually index for reg, name this better
 	long long	arg_2;
-	int			arg_3;  
+	long long	arg_3;
 	int			pos;
 
 	arg_1 = d->arena[(carriage->cursor + 2) % MEM_SIZE] - 1;
@@ -115,10 +115,10 @@ static long long	get_third_arg(t_carriage *carriage, t_vm_data *d)
 }
 
 /*
-01 01 01 00 REG REG REG == 0x54 == 1 + 1 + 1
-01 10 01 00 REG DIR REG == 0x64 == 1 + 2 + 1
-01 11 01 00 REG IND REG == 0x74 == 1 + 2 + 1
-01 01 10 00 REG REG DIR == 0x58 == 1 + 1 + 2
-01 10 10 00 REG DIR DIR == 0x68 == 1 + 2 + 2
-01 11 10 00 REG IND DIR == 0x78 == 1 + 2 + 2
+01 01 01 00 REG REG REG == 0x54 == 1 + 1 + 1 - tested
+01 10 01 00 REG DIR REG == 0x64 == 1 + 2 + 1 - tested
+01 11 01 00 REG IND REG == 0x74 == 1 + 2 + 1 - tested
+01 01 10 00 REG REG DIR == 0x58 == 1 + 1 + 2 - tested
+01 10 10 00 REG DIR DIR == 0x68 == 1 + 2 + 2 - tested
+01 11 10 00 REG IND DIR == 0x78 == 1 + 2 + 2 - tested
 */
