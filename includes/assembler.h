@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/10 12:43:40 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/10 14:48:28 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,7 +169,7 @@ int		is_arg(t_asm *d, char *str, int *len, t_type *type);
 int		is_command(t_asm *d, char *str, int *len, t_type *type);
 void	token_to_statement(t_asm *d, t_oken *cur, t_oken *prev);
 void	save_label(t_asm *d, t_oken *cur, t_oken *prev);
-void	save_argument(t_asm *d, t_oken *cur, t_oken *prev);
+void	save_argument(t_asm *d, t_oken *cur, t_oken *prev, t_stat *dst);
 void	save_statement(t_asm **d, t_oken *cur, t_oken *prev);
 
 /*
@@ -179,6 +179,7 @@ void	save_statement(t_asm **d, t_oken *cur, t_oken *prev);
 t_lab	*get_label(t_asm *d, char *name);
 void	init_label_table(t_asm *d);
 void	add_label_to_table(t_asm *d, t_lab *new);
+void	add_statement_to_labels(t_asm *d, t_stat *new);
 
 /*
 ** Utility functions
