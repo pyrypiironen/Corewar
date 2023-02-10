@@ -6,7 +6,7 @@ LIBFT = ./libft/libft.a
 INCL = -I./includes/
 
 ASM_SRC_FILES = assembler.c validate_file.c lexer.c token_validators.c \
-init_asm.c hash_labels.c free_asm.c error_asm.c parse_utils.c tokenize.c \
+asm_init.c hash_labels.c free_asm.c error_asm.c parse_utils.c tokenize.c \
 is_arg.c token_to_statement.c token_to_arg.c
 
 ASM_H = ./includes/assembler.h
