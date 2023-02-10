@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:26:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/07 16:22:31 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/10 12:21:37 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	asm_token_error(t_asm *d, t_oken *cur, int status)
 		ft_putstr_fd(NAME_ERR, STDERR_FILENO);
 	else if (status == COMMLEN_ERR)
 		ft_putstr_fd(COMMENT_ERR, STDERR_FILENO);
+	else if (status == ARGCOUNT_ERR)
+		ft_putstr_fd(ARGCOUNT_ERR_STR, STDERR_FILENO);
 	else
 		asm_syntax_error(d, cur, status);
 	free_asm(d);

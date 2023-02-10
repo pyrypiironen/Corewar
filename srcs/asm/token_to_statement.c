@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/09 18:03:30 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/10 13:59:54 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static t_stat	*init_statement(t_asm *d, t_oken *cur)
 	uint8_t	i;
 
 	i = 0;
-	new = (t_stat *)malloc(sizeof(t_stat *));
+	new = (t_stat *)malloc(sizeof(t_stat));
 	if (!new)
 		error_asm(d, NULL, MAL_ERR);
 	new->next = NULL;
@@ -49,6 +49,7 @@ static void	add_statement_to_labels(t_asm *d, t_stat *new)
 	t_lab	*tmp;
 
 	i = -1;
+	ft_printf("ADD_STAT_TO_LAB\n");
 	while (++i < (int)d->n_labels)
 	{
 		tmp = d->labels[i];
@@ -61,25 +62,25 @@ static void	add_statement_to_labels(t_asm *d, t_stat *new)
 	}
 }
 
-void	save_statement(t_asm *d, t_oken *cur, t_oken *prev)
+void	save_statement(t_asm **d, t_oken *cur, t_oken *prev)
 {
 	t_stat	*new;
 	t_stat	*tmp;
 
 	if (!cur && !prev)
-		error_asm(d, NULL, -1);
-	tmp = d->statements;
-	new = init_statement(d, cur);
-	ft_printf("\t*statement*\n");
-	if (d->unref_labels)
+		error_asm(*d, NULL, -1);
+	tmp = (*d)->statements;
+	new = init_statement(*d, cur);
+	if ((*d)->unref_labels)
 	{
-		add_statement_to_labels(d, new);
+		add_statement_to_labels(*d, new);
 		return ;
 	}
-	d->tail_statement = new;
+	(*d)->tail_statement = new;
+	ft_printf("\t*statement*\n %p\nvalid: %u\n", (*d)->tail_statement, (*d)->tail_statement->valid);
 	if (!tmp)
 	{
-		d->statements = new;
+		(*d)->statements = new;
 		return ;
 	}
 	while (tmp->next)
@@ -91,27 +92,20 @@ void	save_label(t_asm *d, t_oken *cur, t_oken *prev)
 {
 	t_lab	*new;
 
-	new = (t_lab *)malloc(sizeof(t_lab *));
+	new = (t_lab *)malloc(sizeof(t_lab));
 	if (!new)
 		error_asm(d, NULL, MAL_ERR);
+	ft_printf("label str: %p\n", new);
 	new->next = NULL;
-	new->name = ft_strdup(cur->str);
+	new->statement = NULL;
+	new->line = 0;
+	new->start = 0;
+	new->bytes = 0;
+	new->name = cur->str;
 	if (!new->name)
 		memdel_exit_asm(d, new, MALLOC_ERR);
-	ft_printf("label str: %s\n", new->name);
-	if (cur->next && cur->next->type == OP)
-	{
-		new->line = cur->next->row;
-		new->start = cur->next->col;
-	}
-	else if (cur->next && cur->next->next && cur->next->next->type == OP)
-	{
-		new->line = cur->next->next->row;
-		new->start = cur->next->next->col;
-	}
-	else
-		d->unref_labels = true;
-	ft_printf("\t*label* %p\n", new);
+	d->unref_labels = true;
+	//printf("\t*label* %p\n", new->name);
 	add_label_to_table(d, new);
 	if (!cur && !prev)
 		error_asm(d, NULL, -1);
@@ -119,11 +113,11 @@ void	save_label(t_asm *d, t_oken *cur, t_oken *prev)
 
 void	token_to_statement(t_asm *d, t_oken *cur, t_oken *prev)
 {
-	ft_printf("Save statement/label__[%s]\n", cur->str);
+	printf("Save statement/label__[%s]\n", cur->str);
 	if (!d->head.prog_name[0] || !d->head.comment[0])
 		asm_token_error(d, cur, STX_ERR);
 	if (cur->type == OP)
-		save_statement(d, cur, prev);
+		save_statement(&d, cur, prev);
 	else if (cur->type == LABEL)
 		save_label(d, cur, prev);
 	//ft_printf(">> Save statement/label__\n");

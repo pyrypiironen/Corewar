@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 12:07:05 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/09 15:59:21 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/10 12:42:38 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,14 @@ static void	add_arg_to_statement(t_asm *d, t_oken *cur, t_stat *dst)
 
 void	save_argument(t_asm *d, t_oken *cur, t_oken *prev)
 {
+	ft_printf("\t*statement*\n %p\nvalid: %u\n", d->tail_statement, d->tail_statement->valid);
 	if (!cur && !prev)
 		error_asm(d, NULL, -1);
-	ft_printf("Save argument__ [%s]\n", cur->str);
 	if (!d->head.prog_name[0] || !d->head.comment[0] || !d->tail_statement)
 		asm_token_error(d, cur, STX_ERR);
-	if (d->tail_statement->valid)
-		asm_token_error(d, cur, STX_ERR);
+	if (d->tail_statement->valid == true)
+		asm_token_error(d, cur, ARGCOUNT_ERR);
+	ft_printf("Save argument__ [%s]\n", cur->str);
 	add_arg_to_statement(d, cur, d->tail_statement);
 	// if all args are met, valid = true
 	// if tail_statement == valid && d->unref_labels

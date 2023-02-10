@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/09 17:09:17 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/10 11:53:21 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static void	syntax_checker(t_asm *d)
 		if (tmp->type == NAME || tmp->type == COMMENT)
 			save_header(d, tmp, prev);
 		else if (tmp->type == DIR || tmp->type == IND || tmp->type == REG || \
-		tmp->type == DIRLAB)
+		tmp->type == DIRLAB || tmp->type == INDIRLAB)
 			save_argument(d, tmp, prev);
 		else if (tmp->type != SEPARATOR && tmp->type != NEWLINE)
 			token_to_statement(d, tmp, prev);

@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/09 15:51:56 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/10 13:58:11 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int	add_token(t_asm *d, char *str, int len, t_type type)
 	new->row = d->row;
 	new->col = d->col;
 	new->str = ft_strnew((size_t)len);
-	/* if (type == LABEL)
-		ft_printf("->LABEL\n"); */
+	if (!new->str)
+		memdel_exit_asm(d, new, MALLOC_ERR);
 	if (!new->str)
 		error_asm(d, NULL, MAL_ERR);
-	ft_strncpy(new->str, str, (size_t)len);
+	ft_strncpy(new->str, str, len);
 	if (d->tokens == NULL)
 	{
 		d->tokens = new;
@@ -101,7 +101,7 @@ void	tokenize(t_asm *d)
 {
 	int	ret;
 
-	ft_printf("\n* * * Tokenize * * *\n");
+	//ft_printf("\n* * * Tokenize * * *\n");
 	while (d->buf[d->i])
 	{
 		ret = 0;
