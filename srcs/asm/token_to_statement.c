@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/10 14:49:19 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/11 16:20:41 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static t_stat	*init_statement(t_asm *d, t_oken *cur)
 	new->opcode = 0;
 	ft_bzero((void *)new->args, 3);
 	ft_bzero((void *)new->argtypes, 3);
+	ft_bzero((void *)new->arglabel, 3);
 	new->cur_arg = 0;
 	new->location = -1;
 	new->valid = false;
@@ -74,10 +75,7 @@ void	save_statement(t_asm **d, t_oken *cur, t_oken *prev)
 	(*d)->tail_statement = new;
 	//ft_printf("\n\t*save_statement*\n %p\nvalid: %u\n", (*d)->tail_statement, (*d)->tail_statement->valid);
 	if ((*d)->unref_labels)
-	{
 		add_statement_to_labels(*d, new);
-		return ;
-	}
 	if (!tmp)
 	{
 		(*d)->statements = new;
