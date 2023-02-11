@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:05:42 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/08 17:02:29 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/11 16:03:40 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ int	main(int ac, char **av)
 	lexer(&d);
 	close(d.fd);
 	//write_file(&d);
+	free_asm(&d);
 	return (0);
 }
