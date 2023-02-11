@@ -19,16 +19,15 @@ VM:
 - replicate bug of lld? read size of 2 instead of 4
 - use of % MEM_SIZE to prevent overruns
 
+FIX:
+	- lexical/syntx error positions.
+
 1. Tokenize V
 	- no other types other than NEWLINE between NAME and COMMENT
-	- file has to start with name and comment before statements, labels..
-	- only declared once
  __Validate:
 	- indirect labels as arguments..
 	- double check that a word does not end or begin with ':'
 
-2. Save header
-3. Save label names, and index it points to. Save in t_lab, not as statement.
 4. Parse, save data in structs:
 	- label: t_lab
 	- statement: t_stat
