@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/09 15:54:45 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:53:39 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ static bool	is_label_arg(t_asm *d, char *str, int *len)
 	while (str[*len + i] && !ft_strchr(" #;,\n", (int)str[*len + i]))
 	{
 		if (!ft_strchr(LABEL_CHARS, (int)str[*len + i]))
+		{
+			ft_printf("LABEL ARG ERROR\n");
 			set_error_pos(d, (*len + d->i + i), LEX_ERR);
+		}
 		i++;
 	}
 	*len = *len + i;
@@ -73,7 +76,11 @@ static bool	is_direct(t_asm *d, char *str, int *len)
 	while (str[*len + i] && !ft_strchr(" #;,\n", (int)str[*len + i]))
 	{
 		if (!ft_isdigit((int)str[*len + i]))
-			set_error_pos(d, *len + i, LEX_ERR);
+		{
+			//ft_printf("IS_DIRECT ERROR\n");
+			//d->i = d->i + *len + i;
+			set_error_pos(d, d->i + *len, LEX_ERR);
+		}
 		i++;
 	}
 	//ft_printf(" IS DIR >> ");
