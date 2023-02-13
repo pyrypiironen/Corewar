@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/10 14:40:41 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/13 15:39:10 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,6 @@ static void	syntax_checker(t_asm *d)
 
 	tmp = d->tokens;
 	prev = NULL;
-	// check one token at a time, add to linked list of statements, hash table of labels..
-	// indirect label?
 	while (tmp)
 	{
 		if (tmp->type == NAME || tmp->type == COMMENT)
@@ -85,12 +83,17 @@ static void	syntax_checker(t_asm *d)
 			save_argument(d, tmp, prev, d->tail_statement);
 		else if (tmp->type != SEPARATOR && tmp->type != NEWLINE)
 			token_to_statement(d, tmp, prev);
-		// validate separator && newline
 		prev = tmp;
 		tmp = tmp->next;
+		if (tmp != NULL && prev != NULL && tmp->type == NEWLINE && \
+		prev->type == SEPARATOR)
+			asm_token_error(d, tmp, ENDLINE_ERR);
 	}
+	if (prev->type != NEWLINE)
+		exit_asm(d, NO_NL_END_STR);
 	// if end reached and d->unref_labels == true
 	//		point those unreferenced to the place after the champ code
+	// THEN: check reference to labels. + count size.
 }
 
 /*
@@ -98,11 +101,30 @@ static void	syntax_checker(t_asm *d)
 ** saves the separated words as tokens. Will only check for basic errors.
 */
 
+/* static void	print_labels(t_lab **table)
+{
+	size_t	i;
+	t_lab	*tmp;
+
+	i = -1;
+	while (table[++i])
+	{
+		tmp = table[i];
+		while (tmp)
+		{
+			ft_printf("%s stat: %p\n", tmp->name, tmp->statement);
+			tmp = tmp->next;
+		}
+	}
+} */
+
 void	lexer(t_asm *d)
 {
 	tokenize(d);
 	init_label_table(d);
 	syntax_checker(d);
-	ft_printf("Name: [%s]\nComm: [%s]\n", d->head.prog_name, d->head.comment);
+	label_checker(d);
+	//print_labels(d->labels);
+	//ft_printf("Name: [%s]\nComm: [%s]\n", d->head.prog_name, d->head.comment);
 	//parse(d);
 }
