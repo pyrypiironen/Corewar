@@ -1,54 +1,44 @@
+
+
 labels: can be on the same line, next, or whitespace in between
 - several labels in a row, all point to the line after the labels.
 - If no statements are given, it will indicate to the place immediately
 after the champion's executable code, but if no '\n' is found and EOF is reached 
 = ERROR (beware of several labels in a row where the last one does not have a newline)
-
-statements:
-- valid argument, argument types, separator char, label char, (alt)comment
+-----> % MEM_SIZE
 
 Need to handle:
 - calculate the result of the labels
-- error: duplicate label, undefined label
-
-No need to handle:
-- the contents of registries
-- the memory
+- error: undefined label
 
 VM:
 - replicate bug of lld? read size of 2 instead of 4
 - use of % MEM_SIZE to prevent overruns
 
-FIX:
-	- lexical/syntx error positions.
-
 1. Tokenize V
 	- no other types other than NEWLINE between NAME and COMMENT
- __Validate:
-	- indirect labels as arguments..
+ _Validate:
 	- double check that a word does not end or begin with ':'
 
 4. Parse, save data in structs:
-	- label: t_lab
-	- statement: t_stat
 
 -- Only need to find the label address and calculate at time of translation.
 	- save to hash table before?
 
 5. Validate:
 Statement:
-- name
-- opcode
-- arg_count
-- arg_type
-- characters 
 
 CHECK ORIG:
 - same label name, different statements == Always refers to the first. Keep adding to list,
 will return the first match.
 - labels and their lines: write statements in order. label is only there to describe a statement,
 to return the place in memory. ex: %:live turned out to be -5, because it is direct and the line before.
+- arguments in weird positions, after newline etc.
+- min/max values of arguments
 
 TEST:
 file starts with number, comment, label, op
 file stops with -||-
+
+LIBFT errors:
+- ft_printf seg faults when given extra %s that does not exist.

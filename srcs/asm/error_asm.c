@@ -6,26 +6,35 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:26:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/13 17:38:51 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/13 18:18:59 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
 
-static void	label_error(t_oken *cur, char *label)
+static void	label_error(t_oken *cur)
 {
 	size_t	start;
+	char	*label;
 
 	start = 1;
+	label = NULL;
+	if (cur)
+		label = cur->str;
+	else
+	{
+		ft_printf("No such label\n");
+		return ;
+	}
 	if (label[start] == ':')
 	{
 		start++;
-		ft_printf("No such label %s while attempting to dereference token\
+		ft_printf("No such label %s while attempting to dereference token \
 [TOKEN][%03d:%03d] DIRECT_LABEL \"%s\"\n", &label[start], cur->row, cur->col, \
 label);
 	}
 	else
-		ft_printf("No such label %s while attempting to dereference token\
+		ft_printf("No such label %s while attempting to dereference token \
 [TOKEN][%03d:%03d] INDIRECT_LABEL \"%s\"\n", &label[start], cur->row, \
 cur->col, label);
 }
@@ -61,6 +70,7 @@ static void	asm_syntax_error(t_oken *cur, int status)
 
 void	asm_token_error(t_asm *d, t_oken *cur, int status)
 {
+	//ft_printf("ASM_TOKEN_ERROR\n");
 	if (status == NAMELEN_ERR)
 		ft_putstr_fd(NAME_ERR, STDERR_FILENO);
 	else if (status == COMMLEN_ERR)
@@ -71,7 +81,7 @@ void	asm_token_error(t_asm *d, t_oken *cur, int status)
 		ft_printf("Syntax error at token [%03d:%03d] ENDLINE\n", \
 		cur->row, cur->col);
 	else if (status == NOLABEL_ERR)
-		label_error(cur, cur->str);
+		label_error(cur);
 	else
 		asm_syntax_error(cur, status);
 	free_asm(d);

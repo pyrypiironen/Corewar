@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/13 15:01:37 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/13 18:33:36 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ void	save_label(t_asm *d, t_oken *cur, t_oken *prev)
 	new->line = 0;
 	new->start = 0;
 	new->bytes = 0;
+	//new->name = ft_strsub(cur->str, 0, ft_strlen(cur->str - 1));
 	new->name = cur->str;
 	if (!new->name)
 		memdel_exit_asm(d, new, MALLOC_ERR);

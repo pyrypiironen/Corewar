@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 14:59:55 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/10 14:37:41 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/13 18:35:14 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	init_label_table(t_asm *d)
 	//ft_printf("Label table initialized! %u [%p]\n", d->n_labels, d->labels);
 }
 
-t_lab	*get_label(t_asm *d, char *name)
+t_lab	*get_label(t_asm *d, char *name, size_t len)
 {
 	t_lab			*tmp;
 	unsigned long	index;
@@ -69,7 +69,8 @@ t_lab	*get_label(t_asm *d, char *name)
 	tmp = d->labels[index];
 	while (tmp)
 	{
-		if (!ft_strcmp(name, tmp->name))
+		//ft_printf("%s\n", tmp->name);
+		if (!ft_strncmp(name, tmp->name, len))
 			break ;
 		tmp = tmp->next;
 	}
