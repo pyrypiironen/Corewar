@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/10 13:58:11 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:37:49 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ static int	check_type(t_asm *d, char *str)
 		return (len);
 	else
 	{
-		ft_printf("Did not find token type [%s]\n", str);
-		return (set_error_pos(d, d->i, STX_ERR));
+		//ft_printf("NO TYPE\n");
+		return (set_error_pos(d, d->i, LEX_ERR));
 	}
 }
 

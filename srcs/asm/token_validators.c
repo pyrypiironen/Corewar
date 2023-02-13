@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/09 15:54:31 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:44:03 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ static int	found_quote(t_asm *d, char *str, int *len)
 {
 	int	tmplen;
 	
-	//ft_printf("\n\tYES, should be quote: [%c]\n", str[0]);
 	tmplen = 1;
 	//d->i++;
+	//ft_printf("\n\tYES, should be quote: [%c]\n", str[0]);
 	while (str[tmplen] != '"')
 	{
 		if (str[tmplen] == 0)
@@ -120,6 +120,7 @@ int	is_label(char *str, int *len)
 		}
 		*len += 1;
 	}
+	//ft_printf("Not label\n");
 	*len = 0;
 	return (*len);
 }

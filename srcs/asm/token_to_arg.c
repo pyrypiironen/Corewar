@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 12:07:05 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/11 16:18:12 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/13 14:15:54 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	arg_registry(t_asm *d, t_oken *cur, t_stat *dst)
 		asm_token_error(d, cur, STX_ERR);
 	res = ft_atoi(&cur->str[1]);
 	dst->args[dst->cur_arg] = res;
-	ft_printf("added %s as ARG #%u to %u\n", cur->str, dst->cur_arg, dst);
+	//ft_printf("added %s as ARG #%u to %u\n", cur->str, dst->cur_arg, dst);
 }
 
 static void	arg_label(t_asm *d, t_oken *cur, t_stat *dst)
@@ -70,7 +70,7 @@ static void	arg_label(t_asm *d, t_oken *cur, t_stat *dst)
 	dst->arglabel[dst->cur_arg] = &cur->str[start];
 	if (!dst->arglabel[dst->cur_arg])
 		error_asm(d, NULL, MAL_ERR);
-	ft_printf("added %s as arg #%u of type %u to %p\n", dst->arglabel[dst->cur_arg], dst->cur_arg, dst->argtypes[dst->cur_arg], dst);
+	//ft_printf("added %s as arg #%u of type %u to %p\n", dst->arglabel[dst->cur_arg], dst->cur_arg, dst->argtypes[dst->cur_arg], dst);
 }
 
 static void	arg_integer(t_asm *d, t_oken *cur, t_stat *dst)
@@ -92,7 +92,7 @@ static void	arg_integer(t_asm *d, t_oken *cur, t_stat *dst)
 		if (!ft_isdigit((int)cur->str[start++]))
 			asm_token_error(d, cur, STX_ERR);
 	}
-	ft_printf("added %s as arg #%u to %p\n", cur->str, dst->cur_arg, dst);
+	//ft_printf("added %s as arg #%u to %p\n", cur->str, dst->cur_arg, dst);
 }
 
 void	save_argument(t_asm *d, t_oken *cur, t_oken *prev, t_stat *dst)
@@ -105,7 +105,7 @@ void	save_argument(t_asm *d, t_oken *cur, t_oken *prev, t_stat *dst)
 	if (!d->head.prog_name[0] || !d->head.comment[0] || !dst)
 		asm_token_error(d, cur, STX_ERR);
 	if (dst->cur_arg + 1 > g_op_tab[dst->opcode].expected_arg_count)
-		asm_token_error(d, cur, ARGCOUNT_ERR);
+		asm_token_error(d, cur, STX_ERR);
 	type = validate_type(d, cur, dst);
 	dst->argtypes[dst->cur_arg] = type;
 	if (cur->type == REG)
