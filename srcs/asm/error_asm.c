@@ -6,11 +6,29 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:26:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/13 14:50:29 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:38:51 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
+
+static void	label_error(t_oken *cur, char *label)
+{
+	size_t	start;
+
+	start = 1;
+	if (label[start] == ':')
+	{
+		start++;
+		ft_printf("No such label %s while attempting to dereference token\
+[TOKEN][%03d:%03d] DIRECT_LABEL \"%s\"\n", &label[start], cur->row, cur->col, \
+label);
+	}
+	else
+		ft_printf("No such label %s while attempting to dereference token\
+[TOKEN][%03d:%03d] INDIRECT_LABEL \"%s\"\n", &label[start], cur->row, \
+cur->col, label);
+}
 
 static void	asm_syntax_error(t_oken *cur, int status)
 {
@@ -52,6 +70,8 @@ void	asm_token_error(t_asm *d, t_oken *cur, int status)
 	else if (status == ENDLINE_ERR)
 		ft_printf("Syntax error at token [%03d:%03d] ENDLINE\n", \
 		cur->row, cur->col);
+	else if (status == NOLABEL_ERR)
+		label_error(cur, cur->str);
 	else
 		asm_syntax_error(cur, status);
 	free_asm(d);
@@ -64,6 +84,8 @@ void	error_asm(t_asm *d, char *line, int status)
 		ft_printf("Lexical error at [%d:%d]\n", d->row, d->col);
 	else if (status == STX_ERR || status == EOF_ERR)
 		asm_syntax_error(NULL, status);
+	else if (status == MAL_ERR)
+		ft_putstr_fd(MALLOC_ERR, STDERR_FILENO);
 	if (line)
 		ft_strdel(&line);
 	free_asm(d);
