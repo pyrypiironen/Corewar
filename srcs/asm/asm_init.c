@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_asm.c                                         :+:      :+:    :+:   */
+/*   asm_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:20:07 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/09 17:08:40 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/13 16:35:48 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	init_asm(t_asm *d, int ac, char **av)
 	d->unref_labels = false;
 	ft_bzero(d->head.prog_name, PROG_NAME_LENGTH + 1);
 	ft_bzero(d->head.comment, COMMENT_LENGTH + 1);
+	ft_bzero(d->code, CHAMP_MAX_SIZE + 1);
 	validate(d, ac, av);
 	count_lines_labels(d);
 	//init_label_table(d);
