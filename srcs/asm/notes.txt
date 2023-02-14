@@ -1,4 +1,5 @@
-
+- LABEL_CHEK SEG FAULTS, check result code calculations.
+- calculate sizes, calculate labels except the last undefined ones.
 
 labels: can be on the same line, next, or whitespace in between
 - several labels in a row, all point to the line after the labels.
@@ -20,14 +21,6 @@ VM:
  _Validate:
 	- double check that a word does not end or begin with ':'
 
-4. Parse, save data in structs:
-
--- Only need to find the label address and calculate at time of translation.
-	- save to hash table before?
-
-5. Validate:
-Statement:
-
 CHECK ORIG:
 - same label name, different statements == Always refers to the first. Keep adding to list,
 will return the first match.
@@ -35,6 +28,7 @@ will return the first match.
 to return the place in memory. ex: %:live turned out to be -5, because it is direct and the line before.
 - arguments in weird positions, after newline etc.
 - min/max values of arguments
+- last bunch of labels followed by commented lines followed by statement
 
 TEST:
 file starts with number, comment, label, op

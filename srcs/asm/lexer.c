@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/13 15:39:10 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:01:09 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,10 +120,11 @@ static void	syntax_checker(t_asm *d)
 
 void	lexer(t_asm *d)
 {
-	tokenize(d);
 	init_label_table(d);
+	tokenize(d);
 	syntax_checker(d);
 	label_checker(d);
+	translate_calculations(d);
 	//print_labels(d->labels);
 	//ft_printf("Name: [%s]\nComm: [%s]\n", d->head.prog_name, d->head.comment);
 	//parse(d);

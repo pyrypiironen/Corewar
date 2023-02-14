@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/13 18:33:36 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:07:58 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,21 @@ static t_stat	*init_statement(t_asm *d, t_oken *cur)
 	new->next = NULL;
 	new->label = NULL;
 	new->opcode = 0;
+	new->rescode = 0;
 	ft_bzero((void *)new->args, 3);
 	ft_bzero((void *)new->argtypes, 3);
 	ft_bzero((void *)new->arglabel, 3);
 	new->cur_arg = 0;
-	new->location = -1;
+	new->location = 0;
 	new->valid = false;
+	new->has_res = true;
 	while (i < 16)
 	{
 		if (!ft_strcmp(cur->str, g_op_tab[i].instruction))
 			break ;
 		i++;
 	}
+	//ft_printf("%s op: %u\n", cur->str, i);
 	new->opcode = i;
 	return (new);
 }
@@ -68,6 +71,9 @@ void	save_statement(t_asm **d, t_oken *cur, t_oken *prev)
 		error_asm(*d, NULL, -1);
 	tmp = (*d)->statements;
 	new = init_statement(*d, cur);
+	if (new->opcode == 0 || new->opcode == 8 || new->opcode == 11 \
+	|| new->opcode == 14)
+		new->has_res = false;
 	(*d)->tail_statement = new;
 	if ((*d)->unref_labels)
 		add_statement_to_labels(*d, new);
@@ -93,8 +99,9 @@ void	save_label(t_asm *d, t_oken *cur, t_oken *prev)
 	new->line = 0;
 	new->start = 0;
 	new->bytes = 0;
-	//new->name = ft_strsub(cur->str, 0, ft_strlen(cur->str - 1));
-	new->name = cur->str;
+	new->name = ft_strsub(cur->str, 0, ft_strlen(cur->str) - 1);
+	//new->name = cur->str;
+	//ft_printf("[%s]\n", new->name);
 	if (!new->name)
 		memdel_exit_asm(d, new, MALLOC_ERR);
 	d->unref_labels = true;

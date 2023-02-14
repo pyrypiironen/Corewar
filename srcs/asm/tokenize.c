@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/13 18:17:12 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:55:00 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static int	check_type(t_asm *d, char *str)
 		return (len);
 	else
 	{
-		//ft_printf("NO TYPE\n");
+		//ft_printf("NO TYPE\n [%c]", str[0]);
 		return (set_error_pos(d, d->i, LEX_ERR));
 	}
 }
@@ -113,7 +113,10 @@ void	tokenize(t_asm *d)
 		if (d->buf[d->i] == COMMENT_CHAR || d->buf[d->i] == ALT_COMMENT_CHAR)
 			ret = skip_to_next_line(d, &d->buf[d->i]);
 		else
+		{
+			//ft_printf("[%c]\n", d->buf[d->i]);
 			ret = check_type(d, &d->buf[d->i]);
+		}
 		if (ret == EOF_ERR)
 			return ;
 		d->i += ret;

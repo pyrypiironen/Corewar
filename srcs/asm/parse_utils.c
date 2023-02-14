@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:53:40 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/13 18:35:22 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:06:53 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static t_oken	*find_token(t_asm *d, char *str, uint8_t type)
 
 	cur = d->tokens;
 	start = 0;
-	if (type == IND)
-	//ft_printf("FIND_TOKEN [%s] type [%u]\n", str, type);
+	//if (type == IND)
+	//	ft_printf("FIND_TOKEN [%s] type [%u]\n", str, type);
 	while (cur)
 	{
 		//ft_printf("CUR STR [%s]\n", cur->str);
@@ -50,10 +50,10 @@ void	label_checker(t_asm *d)
 		{
 			if (tmp->arglabel[i])
 			{
-				//ft_printf("Before get_label %s\n", tmp->arglabel[i]);
+				ft_printf("Before get_label %s\n", tmp->arglabel[i]);
 				len = ft_strlen(tmp->arglabel[i]);
 				ret = get_label(d, tmp->arglabel[i], len);
-				//ft_printf("After get_label %p\n", ret);
+				ft_printf("After get_label %p\n", ret);
 				if (!ret)
 					asm_token_error(d, find_token(d, tmp->arglabel[i], \
 					tmp->argtypes[i]), NOLABEL_ERR);
