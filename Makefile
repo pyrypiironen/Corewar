@@ -7,7 +7,8 @@ INCL = -I./includes/
 
 ASM_SRC_FILES = assembler.c validate_file.c lexer.c token_validators.c \
 asm_init.c hash_labels.c free_asm.c error_asm.c parse_utils.c tokenize.c \
-is_arg.c token_to_statement.c token_to_arg.c
+is_arg.c token_to_statement.c token_to_arg.c translate_calculations.c \
+write_bytecode.c
 
 ASM_H = ./includes/assembler.h
 ASM_SRC_DIR = ./srcs/asm/
