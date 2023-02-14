@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/14 15:49:24 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:17:00 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ static bool	is_valid_command_str(char *str, int *i, t_type *type)
 
 	len = ft_strlen(str);
 	if (len > 5 && !ft_strncmp(NAME_CMD_STRING, str, 5) && \
-	(str[5] == '"' || str[5] == ' '))
+	(str[5] == '"' || str[5] == ' ' || str[5] == '\t'))
 	{
 		*i += 5;
 		*type = NAME;
 		return (true);
 	}
 	if (len > 8 && !ft_strncmp(COMMENT_CMD_STRING, str, 8) && \
-	(str[8] == '"' || str[8] == ' '))
+	(str[8] == '"' || str[8] == ' ' || str[8] == '\t'))
 	{
 		*i += 8;
 		*type = COMMENT;
@@ -67,8 +67,8 @@ int	is_command(t_asm *d, char *str, int *len, t_type *type)
 	i = 0;
 	//check the return values, so it skips to the right part..
 	if (!is_valid_command_str(str, &i, type))
-		return (0);
 	//ft_printf(" i: [%i]\n", i);
+		return (0);
 	while (str[i] && ft_iswhitespace((int)str[i]))
 		i++;
 	if (str[i] == '"' && found_quote(d, &str[i], len))
