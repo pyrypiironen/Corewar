@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:05:42 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/14 16:18:15 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/14 18:05:18 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	main(int ac, char **av)
 	init_asm(&d, ac, av);
 	lexer(&d);
 	close(d.fd);
-	//write_file(&d);
+	write_file(&d, av[ac - 1]);
 	// warn of too big size..
 	free_asm(&d);
 	return (0);
