@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:26:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/11 16:19:26 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/14 18:21:54 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ static void	free_labels(t_lab **labels, size_t size)
 		while (tmp != NULL)
 		{
 			next = tmp->next;
+			ft_strdel(&tmp->name);
 			free(tmp);
 			tmp = NULL;
 			tmp = next;
