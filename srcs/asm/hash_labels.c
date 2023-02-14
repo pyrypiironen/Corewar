@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 14:59:55 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/14 16:07:10 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:12:14 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ t_lab	*get_label(t_asm *d, char *name, size_t len)
 	tmp = d->labels[index];
 	while (tmp)
 	{
-		ft_printf("%s\n", tmp->name);
+		//ft_printf("%s\n", tmp->name);
 		if (!ft_strncmp(name, tmp->name, len))
 			break ;
 		tmp = tmp->next;
