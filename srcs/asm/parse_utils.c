@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:53:40 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/14 16:06:53 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:12:06 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ void	label_checker(t_asm *d)
 		{
 			if (tmp->arglabel[i])
 			{
-				ft_printf("Before get_label %s\n", tmp->arglabel[i]);
+				//ft_printf("Before get_label %s\n", tmp->arglabel[i]);
 				len = ft_strlen(tmp->arglabel[i]);
 				ret = get_label(d, tmp->arglabel[i], len);
-				ft_printf("After get_label %p\n", ret);
+				//ft_printf("After get_label %p\n", ret);
 				if (!ret)
 					asm_token_error(d, find_token(d, tmp->arglabel[i], \
 					tmp->argtypes[i]), NOLABEL_ERR);
