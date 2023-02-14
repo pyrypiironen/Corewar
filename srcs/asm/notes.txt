@@ -1,5 +1,6 @@
 - LABEL_CHEK SEG FAULTS, check result code calculations.
-- calculate sizes, calculate labels except the last undefined ones.
+- calculate sizes V
+- calculate label values
 
 labels: can be on the same line, next, or whitespace in between
 - several labels in a row, all point to the line after the labels.

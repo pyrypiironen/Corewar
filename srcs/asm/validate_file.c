@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 16:31:28 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/13 17:56:35 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/14 18:00:26 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ static void	validate_file_name(t_asm *d, char *name)
 		exit_asm(d, "ERROR: invalid file name.\n");
 	if (ft_strcmp(extension, ".s"))
 		exit_asm(d, "ERROR: invalid file extension.\n");
-	/* if (!ft_strcmp(name, extension))
-		exit_asm(d, "ERROR: invalid file name."); */
 }
 
 static void	validate_file(t_asm *d, char *name)
