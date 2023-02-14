@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:20:07 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/13 16:35:48 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:23:18 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,7 @@ static void	count_lines_labels(t_asm *d)
 	{
 		while (ft_iswhitespace((int)d->buf[i]))
 			i++;
-		if (d->buf[i] && d->buf[i] == '\n')
-			d->n_lines++;
-		else if (d->buf[i])
+		if (d->buf[i])
 			i += check_label(d, &d->buf[i]);
 
 		i++;
@@ -66,7 +64,7 @@ void	init_asm(t_asm *d, int ac, char **av)
 	d->tokens = NULL;
 	d->n_players = 0;
 	d->fd = 0;
-	d->n_lines = 1;
+	d->code_size = 0;
 	d->n_labels = 0;
 	d->head.magic = COREWAR_EXEC_MAGIC;
 	d->head.prog_size = 0;
