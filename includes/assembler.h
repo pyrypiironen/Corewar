@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/13 18:29:50 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/14 18:20:59 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define ARGCOUNT_ERR_STR "Too many arguments for operation."
 # define NO_NL_END_STR "Syntax error - unexpected end of input \
 (Perhaps you forgot to end with a newline ?)\n"
+# define WRITE_FILE_ERR "ERROR: could not open file for writing.\n"
 
 /* Error codes */
 # define LEX_ERR -42
@@ -105,12 +106,14 @@ typedef struct s_stat
 	struct s_stat	*next;
 	t_op			op;
 	char			*label;
+	char			*arglabel[3];
+	size_t			location;
 	int				args[3];
 	uint8_t			argtypes[3];
-	char			*arglabel[3];
 	uint8_t			cur_arg;
 	uint8_t			opcode;
-	size_t			location;
+	uint8_t			rescode;
+	bool			has_res;
 	bool			valid;
 }	t_stat;
 
@@ -137,7 +140,7 @@ typedef struct s_asm
 	int			row;
 	int			col;
 	int			i;
-	size_t		n_lines;
+	size_t		code_size;
 	size_t		n_labels;
 	char		*buf;
 	bool		debug;
@@ -155,6 +158,7 @@ void	free_asm(t_asm *d);
 void	parse_flags(t_asm *d, char *str);
 void	init_asm(t_asm *d, int ac, char **av);
 void	validate(t_asm *d, int ac, char **av);
+void	write_file(t_asm *d, char *file);
 
 /*
 ** Lexer functions
@@ -181,6 +185,12 @@ t_lab	*get_label(t_asm *d, char *name, size_t len);
 void	init_label_table(t_asm *d);
 void	add_label_to_table(t_asm *d, t_lab *new);
 void	add_statement_to_labels(t_asm *d, t_stat *new);
+
+/*
+** Translations
+*/
+
+void	translate_calculations(t_asm *d);
 
 /*
 ** Utility functions
