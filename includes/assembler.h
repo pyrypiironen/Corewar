@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/14 18:20:59 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/15 16:08:58 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ typedef struct s_stat
 	t_op			op;
 	char			*label;
 	char			*arglabel[3];
-	size_t			location;
+	int				loc;
 	int				args[3];
 	uint8_t			argtypes[3];
 	uint8_t			cur_arg;
