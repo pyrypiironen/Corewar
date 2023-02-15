@@ -1,17 +1,18 @@
-- LABEL_CHEK SEG FAULTS, check result code calculations.
-- calculate sizes V
-- calculate label values
-
-labels: can be on the same line, next, or whitespace in between
-- several labels in a row, all point to the line after the labels.
-- If no statements are given, it will indicate to the place immediately
-after the champion's executable code, but if no '\n' is found and EOF is reached 
-= ERROR (beware of several labels in a row where the last one does not have a newline)
------> % MEM_SIZE
+- check negative values, labels in labels
+- check too big integers, too big code sizes.
+-----> % MEM_SIZE ?
 
 Need to handle:
-- calculate the result of the labels
-- error: undefined label
+
+ERRORCASES:
+mat.s
+tcd2.s (if .extend is removed)
+tcd3.s -||-
+	- FIX: break and try for new argument if no valid is found, OR defend why this is better..
+empty_comment1.s
+empty_name1.s
+invalid_label1.s && 2.s
+no_label_name.s
 
 VM:
 - replicate bug of lld? read size of 2 instead of 4
