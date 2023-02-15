@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/14 15:55:38 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/15 17:28:21 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static bool	is_label_arg(t_asm *d, char *str, int *len)
 	{
 		if (!ft_strchr(LABEL_CHARS, (int)str[*len + i]))
 		{
-			ft_printf("LABEL ARG ERROR\n");
+			//ft_printf("LABEL ARG ERROR\n");
 			set_error_pos(d, (*len + d->i + i), LEX_ERR);
 		}
 		i++;
@@ -77,7 +77,7 @@ static bool	is_direct(t_asm *d, char *str, int *len)
 	{
 		if (!ft_isdigit((int)str[*len + i]))
 		{
-			ft_printf("IS_DIRECT ERROR [%c]\n", str[*len + i]);
+			//ft_printf("IS_DIRECT ERROR [%c]\n", str[*len + i]);
 			//d->i = d->i + *len + i;
 			set_error_pos(d, d->i + *len, LEX_ERR);
 		}
