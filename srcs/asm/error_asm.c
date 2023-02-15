@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:26:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/14 15:37:57 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/15 17:26:58 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,22 +46,22 @@ static void	asm_syntax_error(t_oken *cur, int status)
 	else if (cur)
 	{
 		if (cur->type == OP)
-			ft_printf("Syntax error at token [%03d:%03d] INSTRUCTION \
+			ft_printf("Syntax error at token [TOKEN][%03d:%03d] INSTRUCTION \
 \"%s\"\n", cur->row, cur->col, cur->str);
 		else if (cur->type == REG)
-			ft_printf("Syntax error at token [%03d:%03d] REGISTER \
+			ft_printf("Syntax error at token [TOKEN][%03d:%03d] REGISTER \
 \"%s\"\n", cur->row, cur->col, cur->str);
 		else if (cur->type == LABEL)
-			ft_printf("Syntax error at token [%03d:%03d] INDIRECT_LABEL \
+			ft_printf("Syntax error at token [TOKEN][%03d:%03d] INDIRECT_LABEL \
 \"%s\"\n", cur->row, cur->col, cur->str);
 		else if (cur->type == DIR)
-			ft_printf("Syntax error at token [%03d:%03d] DIRECT \
+			ft_printf("Syntax error at token [TOKEN][%03d:%03d] DIRECT \
 \"%s\"\n", cur->row, cur->col, cur->str);
 		else if (cur->type == IND)
-			ft_printf("Syntax error at token [%03d:%03d] INDIRECT \
+			ft_printf("Syntax error at token [TOKEN][%03d:%03d] INDIRECT \
 \"%s\"\n", cur->row, cur->col, cur->str);
 		else if (cur->type == DIRLAB)
-			ft_printf("Syntax error at token [%03d:%03d] DIRECT_LABEL \
+			ft_printf("Syntax error at token [TOKEN][%03d:%03d] DIRECT_LABEL \
 \"%s\"\n", cur->row, cur->col, cur->str);
 	}
 	else
@@ -70,7 +70,6 @@ static void	asm_syntax_error(t_oken *cur, int status)
 
 void	asm_token_error(t_asm *d, t_oken *cur, int status)
 {
-	//ft_printf("ASM_TOKEN_ERROR\n");
 	if (status == NAMELEN_ERR)
 		ft_putstr_fd(NAME_ERR, STDERR_FILENO);
 	else if (status == COMMLEN_ERR)
