@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/16 14:09:12 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/16 15:56:59 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,10 +116,7 @@ void	tokenize(t_asm *d)
 		if (d->buf[d->i] == COMMENT_CHAR || d->buf[d->i] == ALT_COMMENT_CHAR)
 			ret = skip_to_next_line(d, &d->buf[d->i]);
 		else
-		{
-			//ft_printf("[%c]\n", d->buf[d->i]);
 			ret = check_type(d, &d->buf[d->i]);
-		}
 		if (ret == EOF_ERR)
 			return ;
 		d->i += ret;
