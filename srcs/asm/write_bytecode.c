@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:56:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/15 17:23:35 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:44:38 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,10 @@ void	write_file(t_asm *d, char *file)
 	write_header(d, fd);
 	write_bytecode(d, fd);
 	ft_printf("Writing output program to %s\n", filename);
+	if (d->debug && d->code_size > CHAMP_MAX_SIZE)
+		ft_printf("Warning: the champion code written to %s may be too large!\n\
+		Your champion: [%lu] bytes, provided virtual machine takes [%lu] bytes.\
+		\n", filename, d->code_size, CHAMP_MAX_SIZE);
 	ft_strdel(&filename);
 	close(fd);
 }
