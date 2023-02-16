@@ -1,6 +1,6 @@
 .name 		"dtonc v1.0pl2"
 .comment	"ta mere elle fait du rodeo sur les kfar"
-.extend
+#.extend
 	
 begin:
 #	st	r1, :boucle+1
