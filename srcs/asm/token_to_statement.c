@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/15 15:58:08 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:07:41 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static t_stat	*init_statement(t_asm *d, t_oken *cur)
 	new->rescode = 0;
 	ft_bzero((void *)new->args, 3);
 	ft_bzero((void *)new->argtypes, 3);
-	ft_bzero((void *)new->arglabel, 3);
+	ft_bzero((void *)new->arglabel, 3 * sizeof(char *));
 	new->cur_arg = 0;
 	new->loc = 0;
 	new->valid = false;
