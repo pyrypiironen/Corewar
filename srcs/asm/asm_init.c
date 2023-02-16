@@ -6,13 +6,13 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:20:07 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/14 18:03:23 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:05:11 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
 
-static int	check_label(t_asm *d, char *buf)
+/* static int	check_label(t_asm *d, char *buf)
 {
 	size_t	i;
 
@@ -38,8 +38,8 @@ static int	check_label(t_asm *d, char *buf)
 		i++;
 	return (i - (i > 0));
 }
-
-static void	count_lines_labels(t_asm *d)
+ */
+/* static void	count_lines_labels(t_asm *d)
 {
 	size_t	i;
 
@@ -54,7 +54,7 @@ static void	count_lines_labels(t_asm *d)
 		i++;
 	}
 	//ft_printf("lines: %u\nlabels: %u\n", d->n_lines, d->n_labels);
-}
+} */
 
 void	init_asm(t_asm *d, int ac, char **av)
 {
@@ -76,6 +76,6 @@ void	init_asm(t_asm *d, int ac, char **av)
 	ft_bzero(d->head.comment, COMMENT_LENGTH + 1);
 	ft_bzero(d->code, CHAMP_MAX_SIZE + 1);
 	validate(d, ac, av);
-	count_lines_labels(d);
+	//count_lines_labels(d);
 	//init_label_table(d);
 }

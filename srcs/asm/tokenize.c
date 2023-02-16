@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/14 15:55:00 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:09:12 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,10 @@ static int	check_type(t_asm *d, char *str)
 	else if (str[len] == SEPARATOR_CHAR)
 		return (add_token(d, str, 1, SEPARATOR));
 	else if (is_label(str, &len))
+	{
+		d->n_labels++;
 		return (add_token(d, str, len, LABEL));
+	}
 	else if (is_op(str, &len))
 		return (add_token(d, str, len, OP));
 	else if (is_arg(d, str, &len, &type))
