@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/15 16:08:58 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:47:00 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,8 +155,6 @@ void	error_asm(t_asm *d, char *line, int status);
 void	exit_asm(t_asm *d, char *str);
 void	memdel_exit_asm(t_asm *d, void *mem, char *str);
 void	free_asm(t_asm *d);
-void	parse_flags(t_asm *d, char *str);
-void	init_asm(t_asm *d, int ac, char **av);
 void	validate(t_asm *d, int ac, char **av);
 void	write_file(t_asm *d, char *file);
 
