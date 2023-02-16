@@ -14,9 +14,12 @@ empty_name1.s
 invalid_label1.s && 2.s
 no_label_name.s
 
+
+
 VM:
 - replicate bug of lld? read size of 2 instead of 4
 - use of % MEM_SIZE to prevent overruns
+- debug the loading and unloading into registrys, script different combinations
 
 1. Tokenize V
 	- no other types other than NEWLINE between NAME and COMMENT
