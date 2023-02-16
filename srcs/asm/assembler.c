@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:05:42 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/16 14:51:52 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/16 15:53:18 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	exit_asm(t_asm *d, char *str)
 		ft_putstr_fd(str, STDERR_FILENO);
 	exit(EXIT_FAILURE);
 }
-
 
 int	main(int ac, char **av)
 {
