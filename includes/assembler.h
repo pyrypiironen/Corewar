@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/16 15:27:41 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:55:36 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,15 @@
 # include <stdbool.h>
 
 /* Error messages */
-# define MALLOC_ERR "ERROR: malloc failure.\n"
-# define FILE_ERR "ERROR: invalid file.\n"
+# define MALLOC_ERR "Error: malloc failure.\n"
+# define FILE_ERR "Error: invalid file.\n"
 # define NAME_ERR "Champion name too long (Max length 128)\n"
 # define COMMENT_ERR "Champion comment too long (Max length 2048)\n"
 # define ARGCOUNT_ERR_STR "Too many arguments for operation."
 # define NO_NL_END_STR "Syntax error - unexpected end of input \
 (Perhaps you forgot to end with a newline ?)\n"
-# define WRITE_FILE_ERR "ERROR: could not open file for writing.\n"
+# define WRITE_FILE_ERR "Error: could not open file for writing.\n"
+# define DOUBLE_CMD_ERR "Error: command already given.\n"
 
 /* Error codes */
 # define LEX_ERR -42

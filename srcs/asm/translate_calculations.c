@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:25:30 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/15 17:20:28 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/17 15:42:16 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void	translate_calculations(t_asm *d)
 	size_t	size;
 	t_stat	*tmp;
 
+	//ft_printf("translate_calculations\n");
 	tmp = d->statements;
 	tmp->loc = 0;
 	while (tmp)

@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/14 16:17:00 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/17 15:43:24 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int	is_command(t_asm *d, char *str, int *len, t_type *type)
 	if (str[i] == '"' && found_quote(d, &str[i], len))
 	{
 		d->i += i;
+		//ft_printf("AFTER found_quote\n");
 		return (add_token(d, &str[i], *len, *type));
 	}
 	d->i += i;

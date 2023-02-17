@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:26:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/15 17:26:58 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:09:40 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,37 +39,36 @@ label);
 cur->col, label);
 }
 
-static void	asm_syntax_error(t_oken *cur, int status)
+static void	asm_syntax_error(t_asm *d, t_oken *cur)
 {
-	if (status == EOF_ERR)
-		ft_printf("Syntax error at [%d:%d] EOF\n", cur->row, cur->col);
-	else if (cur)
-	{
-		if (cur->type == OP)
-			ft_printf("Syntax error at token [TOKEN][%03d:%03d] INSTRUCTION \
+	if (cur->type == OP)
+		ft_printf("Syntax error at token [TOKEN][%03d:%03d] INSTRUCTION \
 \"%s\"\n", cur->row, cur->col, cur->str);
-		else if (cur->type == REG)
-			ft_printf("Syntax error at token [TOKEN][%03d:%03d] REGISTER \
+	else if (cur->type == REG)
+		ft_printf("Syntax error at token [TOKEN][%03d:%03d] REGISTER \
 \"%s\"\n", cur->row, cur->col, cur->str);
-		else if (cur->type == LABEL)
-			ft_printf("Syntax error at token [TOKEN][%03d:%03d] INDIRECT_LABEL \
+	else if (cur->type == LABEL || cur->type == INDIRLAB)
+		ft_printf("Syntax error at token [TOKEN][%03d:%03d] INDIRECT_LABEL \
 \"%s\"\n", cur->row, cur->col, cur->str);
-		else if (cur->type == DIR)
-			ft_printf("Syntax error at token [TOKEN][%03d:%03d] DIRECT \
+	else if (cur->type == DIR)
+		ft_printf("Syntax error at token [TOKEN][%03d:%03d] DIRECT \
 \"%s\"\n", cur->row, cur->col, cur->str);
-		else if (cur->type == IND)
-			ft_printf("Syntax error at token [TOKEN][%03d:%03d] INDIRECT \
+	else if (cur->type == IND)
+		ft_printf("Syntax error at token [TOKEN][%03d:%03d] INDIRECT \
 \"%s\"\n", cur->row, cur->col, cur->str);
-		else if (cur->type == DIRLAB)
-			ft_printf("Syntax error at token [TOKEN][%03d:%03d] DIRECT_LABEL \
+	else if (cur->type == DIRLAB)
+		ft_printf("Syntax error at token [TOKEN][%03d:%03d] DIRECT_LABEL \
 \"%s\"\n", cur->row, cur->col, cur->str);
-	}
+	else if (cur->type == NAME || cur->type == COMMENT)
+		ft_printf("Syntax error at token [TOKEN][%03d:%03d] COMMAND %s\n", \
+cur->row, cur->col, cur->str);
 	else
-		ft_printf("Syntax error at token [%03d:%03d]\n", cur->row, cur->col);
+		ft_printf("Syntax error at [%03d:%03d]\n", d->row, d->col);
 }
 
 void	asm_token_error(t_asm *d, t_oken *cur, int status)
 {
+	//ft_printf("TOEKEEN ERR\n");
 	if (status == NAMELEN_ERR)
 		ft_putstr_fd(NAME_ERR, STDERR_FILENO);
 	else if (status == COMMLEN_ERR)
@@ -81,18 +80,23 @@ void	asm_token_error(t_asm *d, t_oken *cur, int status)
 		cur->row, cur->col);
 	else if (status == NOLABEL_ERR)
 		label_error(cur);
+	else if (cur)
+		asm_syntax_error(d, cur);
 	else
-		asm_syntax_error(cur, status);
+		ft_putstr_fd("Error\n", STDERR_FILENO);
 	free_asm(d);
 	exit(EXIT_FAILURE);
 }
 
 void	error_asm(t_asm *d, char *line, int status)
 {
+	//ft_printf("error_asm\n");
 	if (status == LEX_ERR)
 		ft_printf("Lexical error at [%d:%d]\n", d->row, d->col);
-	else if (status == STX_ERR || status == EOF_ERR)
-		asm_syntax_error(NULL, status);
+	else if (status == STX_ERR)
+		asm_syntax_error(d, NULL);
+	else if (status == EOF_ERR)
+		ft_printf("Syntax error at [%d:%d] EOF\n", d->row, d->col);
 	else if (status == MAL_ERR)
 		ft_putstr_fd(MALLOC_ERR, STDERR_FILENO);
 	if (line)

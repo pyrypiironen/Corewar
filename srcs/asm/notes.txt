@@ -1,5 +1,5 @@
 - check negative values, labels in labels
-- check too big integers, too big code sizes.
+- check too big integers as arguments
 -----> % MEM_SIZE ?
 
 Need to handle:
