@@ -89,6 +89,8 @@ void	print_carriages(t_vm_data *d)
 		ft_printf("{yellow}%i\n", carriage->to_execute);
 		ft_printf("{blue}Jump size: ");
 		ft_printf("{yellow}%i\n", carriage->jump_size);
+		ft_printf("{blue}Last live: ");
+		ft_printf("{yellow}%i\n", carriage->last_live);
 		while (i < 16)
 		{
 			ft_printf("Registry %i: %i\n", i + 1, carriage->registrys[i]);

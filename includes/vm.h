@@ -31,7 +31,8 @@ typedef struct			s_vm_data
 	struct s_carriage	*carriages;
 	struct s_carriage	*carriage_head;
 	int					player_amount;
-	int					last_live;			// or pointer to players struct
+	int					winner;			// or pointer to players struct
+	int					current_cycle;
 	int					cycles_to_die;
 	int					live_statements;
 	int					n_flag;

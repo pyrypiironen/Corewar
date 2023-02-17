@@ -12,14 +12,15 @@
 
 # include "../../../includes/vm.h"
 
-// void	op_live(t_carriage *carriage, t_vm_data *d)
-// {
-// 	unsigned char	first;
+void	op_live(t_carriage *carriage, t_vm_data *d)
+{
+	int	value;
 
-
-
-
-
-
-
-// }
+	carriage->last_live = d->current_cycle;
+	d->live_statements += 1;
+	value = get_4_byte_value(d, (carriage->cursor + 1) % MEM_SIZE);
+	value *= -1;
+	if (value > 0 && value <= d->player_amount)
+		d->winner = value;
+	carriage->cursor = (carriage->cursor + 5) % MEM_SIZE;
+}
