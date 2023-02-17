@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/16 14:07:58 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:57:06 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,13 @@ static void	save_header(t_asm *d, t_oken *cur, t_oken *prev)
 	if (prev && prev->type != NEWLINE && prev->type != NAME \
 	&& prev->type != COMMENT)
 		asm_token_error(d, cur, STX_ERR);
-	if (cur->type == NAME)
+	if (cur->type == NAME && !d->head.prog_name[0])
 		save_name(d, cur);
-	else
+	else if (cur->type == COMMENT && !d->head.comment[0])
 		save_comment(d, cur);
+	else
+		exit_asm(d, DOUBLE_CMD_ERR);
+		//asm_token_error(d, cur, STX_ERR);
 }
 
 static void	syntax_checker(t_asm *d)
@@ -76,6 +79,7 @@ static void	syntax_checker(t_asm *d)
 	prev = NULL;
 	while (tmp)
 	{
+		//ft_printf("type [%u]\n", tmp->type);
 		if (tmp->type == NAME || tmp->type == COMMENT)
 			save_header(d, tmp, prev);
 		else if (tmp->type == DIR || tmp->type == IND || tmp->type == REG || \
@@ -88,12 +92,10 @@ static void	syntax_checker(t_asm *d)
 		if (tmp != NULL && prev != NULL && tmp->type == NEWLINE && \
 		prev->type == SEPARATOR)
 			asm_token_error(d, tmp, ENDLINE_ERR);
+		//ft_printf("\ttype end\n");
 	}
 	if (prev->type != NEWLINE)
 		exit_asm(d, NO_NL_END_STR);
-	// if end reached and d->unref_labels == true
-	//		point those unreferenced to the place after the champ code
-	// THEN: check reference to labels. + count size.
 }
 
 /*
@@ -123,9 +125,14 @@ void	lexer(t_asm *d)
 	tokenize(d);
 	init_label_table(d);
 	syntax_checker(d);
-	label_checker(d);
-	translate_calculations(d);
-	//print_labels(d->labels);
 	//ft_printf("Name: [%s]\nComm: [%s]\n", d->head.prog_name, d->head.comment);
+	//ft_printf("n_labels: %u statements: %x\n", d->n_labels, d->statements);
+	if (d->n_labels != 0 && d->statements != NULL)
+		label_checker(d);
+	else if (d->statements != NULL)
+		translate_calculations(d);
+	else if (!d->n_labels && !d->statements)
+		error_asm(d, NULL, EOF_ERR);
+	//print_labels(d->labels);
 	//parse(d);
 }

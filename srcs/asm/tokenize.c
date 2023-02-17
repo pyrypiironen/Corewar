@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/16 15:56:59 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/17 15:52:46 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	add_token(t_asm *d, char *str, int len, t_type type)
 	if (!new->str)
 		error_asm(d, NULL, MAL_ERR);
 	ft_strncpy(new->str, str, len);
+	//ft_printf("ADD_TOKEN\n[%s][%u]\n", new->str, len);
 	if (d->tokens == NULL)
 	{
 		d->tokens = new;
@@ -108,7 +109,7 @@ void	tokenize(t_asm *d)
 	while (d->buf[d->i])
 	{
 		ret = 0;
-		while (ft_strchr(" \t\r\v", (int)d->buf[d->i]))
+		while (d->buf[d->i] && ft_strchr(" \t\r\v", (int)d->buf[d->i]))
 		{
 			d->i++;
 			d->col++;
@@ -122,6 +123,7 @@ void	tokenize(t_asm *d)
 		d->i += ret;
 		if (d->i && d->buf[d->i - 1] != '\n')
 			d->col += ret;
+		//ft_printf("end of loop\n");
 	}
 /* 	t_oken	*tmp;
 

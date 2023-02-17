@@ -6,13 +6,13 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:05:42 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/16 15:53:18 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:55:29 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
 
-void	init_asm(t_asm *d, int ac, char **av)
+static void	init_asm(t_asm *d, int ac, char **av)
 {
 	d->labels = NULL;
 	d->statements = NULL;
