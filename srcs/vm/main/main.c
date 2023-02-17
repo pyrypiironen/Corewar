@@ -24,18 +24,20 @@ int	main(int argc, char **argv)
 	init_core(argc, argv, d);
 
 
-	d->arena[4084] = 0x78;		// argument value code
-	d->arena[4085] = 0x01;		// 
-	d->arena[4086] = 0x00;		// 
-	d->arena[4087] = 0x07;		// 
+	d->arena[4084] = 0xff;		// argument value code
+	d->arena[4085] = 0xff;		// 
+	d->arena[4086] = 0xff;		// 
+	d->arena[4087] = 0xfe;		// 
 	d->arena[4088] = 0x00;		// 
 	d->arena[4089] = 0x64; 		// 
 	d->arena[4090] = 0x00;		// 
 	
 	d->arena[4091] = 0x00; 		// reg
 	d->arena[4092] = 0x02;		// 
-	d->arena[4093] = 0x64; 		//  reg
-	d->arena[4094] = 0x32;		//
+	d->arena[4094] = 0x00; 		// reg
+	d->arena[4095] = 0x00;		//
+	d->arena[0] = 0x00; 		// reg
+	d->arena[1] = 0x02;
 
 
 	d->arena[187] = 0x7f;
@@ -53,19 +55,21 @@ int	main(int argc, char **argv)
 
 
 
-	d->carriage_head->cursor = 4083;
+	d->carriage_head->cursor = 4093;
 	d->carriage_head->carry = 0;
 
 	d->carriage_head->registrys[0] = 50;
 	d->carriage_head->registrys[1] = 100;
 	d->carriage_head->registrys[2] = 2100000;
 	d->carriage_head->registrys[3] = 612;
+	d->current_cycle = 42;
 
 
 	
-	print_arena(d);
+	//print_arena(d);
 	print_carriages(d);
-	op_sti(d->carriage_head, d);
+	op_live(d->carriage_head, d);
+	//op_sti(d->carriage_head, d);
 	//op_jump(d->carriage_head, d);
 	//op_add(d->carriage_head, d);
 	//op_lldi(d->carriage_head, d);
@@ -74,7 +78,8 @@ int	main(int argc, char **argv)
 	ft_printf("{red} *	*	*	*	*	*	*	*	*	*	\n");
 	//print_arena(d);
 	print_carriages(d);
-	print_arena(d);
+	ft_printf("{red}winner: %d\n", d->winner);
+	//print_arena(d);
 
 	ft_printf("{green}Success! Main exit (exit code 0).\n");
 	exit (0);

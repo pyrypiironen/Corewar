@@ -49,7 +49,8 @@ static void	init_data_vm(t_vm_data *d)
 	d->player_head = NULL;
 	d->carriage_head = NULL;
 	d->player_amount = 0;
-	d->last_live = 0;
+	d->winner = 0;
+	d->current_cycle = 0;
 	d->cycles_to_die = CYCLE_TO_DIE;
 	d->live_statements = 0;
 	d->n_flag = 0;
