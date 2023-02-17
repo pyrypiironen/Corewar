@@ -28,12 +28,14 @@ typedef struct			s_vm_data
 	int					arena_color[MEM_SIZE];
 	struct s_player		*players;
 	struct s_player		*player_head;
-	struct s_carriage	*carriages;
+	struct s_carriage	*carriage;
 	struct s_carriage	*carriage_head;
 	int					player_amount;
 	int					winner;			// or pointer to players struct
 	int					current_cycle;
 	int					cycles_to_die;
+	int					cycles_to_check;
+	int					check_count;
 	int					live_statements;
 	int					n_flag;
 	int					d_flag;
@@ -48,7 +50,7 @@ typedef struct			s_carriage
 	int					last_live;
 	unsigned char		statement;
 	int					to_execute;
-	int					jump_size;
+	int					jump_size; // is this needed?
 	int					registrys[REG_NUMBER];
 	struct s_carriage	*next;
 }						t_carriage;
@@ -63,6 +65,27 @@ typedef struct		s_player
 	int				location;
 	struct s_player		*next;
 }					t_player;
+
+typedef void		(*t_op)(t_carriage *carriage, t_vm_data *d);
+
+static const t_op	g_dispatch[16] = {
+	op_live,
+	op_ld,
+	op_st,
+	op_add,
+	op_sub,
+	op_and,
+	op_or,
+	op_xor,
+	op_jump,
+	op_ldi,
+	op_sti,
+	op_fork,
+	op_lld,
+	op_lldi,
+	op_lfork,
+	op_aff
+};
 
 
 void	print_error(char *str, int usage);

@@ -52,6 +52,7 @@ static void	init_data_vm(t_vm_data *d)
 	d->winner = 0;
 	d->current_cycle = 0;
 	d->cycles_to_die = CYCLE_TO_DIE;
+	d->cycles_to_check = d->cycles_to_die;
 	d->live_statements = 0;
 	d->n_flag = 0;
 }
