@@ -1,0 +1,2 @@
+.name "zork"
+.comment "
