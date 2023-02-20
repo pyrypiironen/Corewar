@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hash_labels.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 14:59:55 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/14 16:12:14 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/20 20:12:05 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ void	add_label_to_table(t_asm *d, t_lab *new)
 
 	//printf("\t*label* %p\n", new->name);
 	index = label_hash(new->name, d->n_labels);
+	//ft_printf("add label [%s]\n", new->name);
 	if (d->labels[index] == NULL)
 	{
-		//printf("add label [%p]\n", new);
 		d->labels[index] = new;
 		return ;
 	}
 	tmp = d->labels[index];
 	while (tmp->next != NULL)
 	{
-		//printf("add label [%p]\n", tmp->next);
+		//ft_printf("add label [%p]\n", tmp->next);
 		tmp = tmp->next;
 	}
 	tmp->next = new;
@@ -67,12 +67,16 @@ t_lab	*get_label(t_asm *d, char *name, size_t len)
 
 	index = label_hash(name, d->n_labels);
 	tmp = d->labels[index];
+	//
+	//ft_printf("\nGET_LABEL: %s %u", name, len);
+	//
 	while (tmp)
 	{
-		//ft_printf("%s\n", tmp->name);
-		if (!ft_strncmp(name, tmp->name, len))
+		if (!ft_strncmp(name, tmp->name, len) && len == ft_strlen(tmp->name))
 			break ;
 		tmp = tmp->next;
 	}
+	//if (tmp)
+	//	ft_printf(" SUCCESS\n");
 	return (tmp);
 }

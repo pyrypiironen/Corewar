@@ -1,16 +1,15 @@
-- check negative values, labels in labels
+FIX:
+- add type of argument even if it is a label arg? argtype code error
+
 - check too big integers as arguments
 -----> % MEM_SIZE ?
 
 Need to handle:
 
 ERRORCASES:
-mat.s
-tcd2.s (if .extend is removed)
-tcd3.s -||-
-	- FIX: break and try for new argument if no valid is found, OR defend why this is better..
-empty_comment1.s
-empty_name1.s
+helltrain.s - 15: sti r1 %:cc4l %1
+	->> references cc4ld instead of cc4l
+
 invalid_label1.s && 2.s
 no_label_name.s
 

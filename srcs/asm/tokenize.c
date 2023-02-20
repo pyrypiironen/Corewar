@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tokenize.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/17 15:52:46 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/20 18:36:10 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,8 @@ void	tokenize(t_asm *d)
 			d->i++;
 			d->col++;
 		}
+		if (!d->buf[d->i])
+			return ;
 		if (d->buf[d->i] == COMMENT_CHAR || d->buf[d->i] == ALT_COMMENT_CHAR)
 			ret = skip_to_next_line(d, &d->buf[d->i]);
 		else
@@ -123,7 +125,7 @@ void	tokenize(t_asm *d)
 		d->i += ret;
 		if (d->i && d->buf[d->i - 1] != '\n')
 			d->col += ret;
-		//ft_printf("end of loop\n");
+		//ft_printf("end of loop [%c]\n", d->buf[d->i]);
 	}
 /* 	t_oken	*tmp;
 

@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:25:30 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/20 14:57:33 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/20 20:13:02 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,15 @@ static void	add_label_values(t_asm *d)
 			if (name)
 			{
 				tmplab = get_label(d, name, ft_strlen(name));
+				//ft_printf("Calc - %s\n", name);
+				//if (tmplab)
+				//	ft_printf("\t[%s]\n", tmplab->name);
 				if (!tmplab || !tmplab->statement)
-					tmp->args[i] = d->code_size;
+					tmp->args[i] = d->code_size - tmp->loc;
 				else
+				{
 					tmp->args[i] = tmplab->statement->loc - tmp->loc;
+				}
 			}
 			i++;
 		}
@@ -112,5 +117,6 @@ void	translate_calculations(t_asm *d)
 			tmp->next->loc = d->code_size;
 		tmp = tmp->next;
 	}
+	//ft_printf("code size: %x\n", d->code_size);
 	add_label_values(d);
 }
