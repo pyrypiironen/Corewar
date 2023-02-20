@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   translate_calculations.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:25:30 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/17 15:42:16 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:57:33 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ static size_t	calculate_rescode(t_stat *cur)
 	cur->rescode = cur->argtypes[0] << 6;
 	cur->rescode |= cur->argtypes[1] << 4;
 	cur->rescode |= cur->argtypes[2] << 2;
+	//ft_printf("rescode: %x\n", cur->rescode);
 	return (1);
 }
 
@@ -76,7 +77,8 @@ static size_t	calculate_statement_size(t_stat *cur)
 	ret = 1;
 	i = 0;
 	dirsize = 4;
-	if (cur->has_res)
+	//ft_printf("calculate statement sizes, has res: %u\n", cur->has_res);
+	if (cur->has_res == true)
 		ret += calculate_rescode(cur);
 	if (cur->opcode > 7 && cur->opcode < 15 && cur->opcode != 12)
 		dirsize = 2;
@@ -98,7 +100,7 @@ void	translate_calculations(t_asm *d)
 	size_t	size;
 	t_stat	*tmp;
 
-	//ft_printf("translate_calculations\n");
+	//ft_putstr("translate_calculations\n");
 	tmp = d->statements;
 	tmp->loc = 0;
 	while (tmp)

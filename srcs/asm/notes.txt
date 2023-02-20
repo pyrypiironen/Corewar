@@ -5,7 +5,6 @@
 Need to handle:
 
 ERRORCASES:
-huge_label_name.s == SEG FAULT (linux)
 mat.s
 tcd2.s (if .extend is removed)
 tcd3.s -||-
@@ -15,6 +14,8 @@ empty_name1.s
 invalid_label1.s && 2.s
 no_label_name.s
 
+MORE TESTS:
+https://github.com/avocadohooman/42-Corewar
 
 
 VM:

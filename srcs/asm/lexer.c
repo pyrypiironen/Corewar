@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexer.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/17 16:57:06 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:55:57 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,12 +127,12 @@ void	lexer(t_asm *d)
 	syntax_checker(d);
 	//ft_printf("Name: [%s]\nComm: [%s]\n", d->head.prog_name, d->head.comment);
 	//ft_printf("n_labels: %u statements: %x\n", d->n_labels, d->statements);
+	if (!d->n_labels && !d->statements)
+		error_asm(d, NULL, EOF_ERR);
 	if (d->n_labels != 0 && d->statements != NULL)
 		label_checker(d);
-	else if (d->statements != NULL)
+	if (d->statements != NULL)
 		translate_calculations(d);
-	else if (!d->n_labels && !d->statements)
-		error_asm(d, NULL, EOF_ERR);
 	//print_labels(d->labels);
 	//parse(d);
 }
