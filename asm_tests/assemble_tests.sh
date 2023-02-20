@@ -2,26 +2,26 @@
 
 #ASM=$(./asm_orig)
 
-if test -d orig_testfiles; then
+if test -d my_testfiles; then
 	echo "Directory already exists"
 else
-	mkdir orig_testfiles
+	mkdir my_testfiles
 fi
 
 for file in ./asm_checks/*
 do
-	./asm_orig $file
+	./asm $file
 done
-mv ./asm_checks/*.cor orig_testfiles
+mv ./asm_checks/*.cor my_testfiles
 
 for file in ./asm_errors/*
 do
-	./asm_orig $file
+	./asm $file
 done
-mv ./asm_errors/*.cor orig_testfiles
+mv ./asm_errors/*.cor my_testfiles
 
 for file in ./champs/*
 do
-	./asm_orig $file
+	./asm $file
 done
-mv ./champs/*.cor orig_testfiles
+mv ./champs/*.cor my_testfiles
