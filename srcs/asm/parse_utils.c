@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:53:40 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/17 15:33:20 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/20 12:35:15 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 static t_oken	*find_token(t_asm *d, char *str, uint8_t type)
 {
 	t_oken	*cur;
-	size_t	start;
 
 	cur = d->tokens;
-	start = 0;
 	while (cur)
 	{
 		if (cur->str && type == DIR && !ft_strcmp(&cur->str[2], str) && \
@@ -40,7 +38,7 @@ void	label_checker(t_asm *d)
 	int		i;
 
 	tmp = d->statements;
-	ft_printf("label_checker\n");
+	//ft_printf("label_checker\n");
 	while (tmp)
 	{
 		i = -1;

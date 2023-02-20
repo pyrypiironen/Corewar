@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   write_bytecode.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:56:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/16 14:44:38 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/20 12:38:11 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,9 @@ static void	write_arg(t_stat *cur, int fd, int cur_arg)
 
 static void	write_bytecode(t_asm *d, int fd)
 {
-	uint8_t	data;
 	int		i;
 	t_stat	*tmp;
 
-	data = 0;
 	tmp = d->statements;
 	while (tmp)
 	{
@@ -117,5 +115,5 @@ void	write_file(t_asm *d, char *file)
 		Your champion: [%lu] bytes, provided virtual machine takes [%lu] bytes.\
 		\n", filename, d->code_size, CHAMP_MAX_SIZE);
 	ft_strdel(&filename);
-	close(fd);
+	//close(fd);
 }

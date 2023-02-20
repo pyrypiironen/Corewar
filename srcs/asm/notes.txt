@@ -5,6 +5,7 @@
 Need to handle:
 
 ERRORCASES:
+huge_label_name.s == SEG FAULT (linux)
 mat.s
 tcd2.s (if .extend is removed)
 tcd3.s -||-
