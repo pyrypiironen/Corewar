@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_validators.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/17 15:43:24 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:08:03 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	found_quote(t_asm *d, char *str, int *len)
 	tmplen = 1;
 	//d->i++;
 	//ft_printf("\n\tYES, should be quote: [%c]\n", str[0]);
-	while (str[tmplen] != '"')
+	while (str[tmplen] && str[tmplen] != '"')
 	{
 		if (str[tmplen] == 0)
 		{
