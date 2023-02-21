@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_validators.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/20 14:08:03 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:25:12 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,24 @@ static int	found_quote(t_asm *d, char *str, int *len)
 	int	tmplen;
 	
 	tmplen = 1;
-	//d->i++;
-	//ft_printf("\n\tYES, should be quote: [%c]\n", str[0]);
 	while (str[tmplen] && str[tmplen] != '"')
 	{
+		if (str[tmplen] == '\n')
+		{
+			d->row++;
+			d->col = 1;
+		}
 		if (str[tmplen] == 0)
 		{
 			d->i += tmplen;
 			set_error_pos(d, d->i, STX_ERR);
 		}
 		tmplen += 1;
+		d->col++;
 	}
 	//ft_printf(">>[%s]\n>>len %d\n", str, *i);
 	*len += tmplen;
-	//ft_printf(" command >> ");
 	*len += 1;
-	//d->i += tmplen;
-	//ft_printf("[%s]\n", ft_strsub(str, 0, *len));
 	return (1);
 }
 

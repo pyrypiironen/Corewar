@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/15 17:28:21 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/21 16:15:35 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ static bool	is_direct(t_asm *d, char *str, int *len)
 		set_error_pos(d, *len + i, EOF_ERR);
 	else if (str[*len + i] == '-')
 		i++;
+	if (!ft_isdigit((int)str[*len + i]))
+		set_error_pos(d, d->i + *len, LEX_ERR);
 	while (str[*len + i] && !ft_strchr(" \t#;,\n", (int)str[*len + i]))
 	{
 		if (!ft_isdigit((int)str[*len + i]))

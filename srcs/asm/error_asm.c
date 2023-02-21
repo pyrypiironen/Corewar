@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:26:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/17 16:09:40 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:23:19 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ cur->col, label);
 
 static void	asm_syntax_error(t_asm *d, t_oken *cur)
 {
+	//set_token_error_pos(d, cur);
 	if (cur->type == OP)
 		ft_printf("Syntax error at token [TOKEN][%03d:%03d] INSTRUCTION \
 \"%s\"\n", cur->row, cur->col, cur->str);
@@ -63,7 +64,9 @@ static void	asm_syntax_error(t_asm *d, t_oken *cur)
 		ft_printf("Syntax error at token [TOKEN][%03d:%03d] COMMAND %s\n", \
 cur->row, cur->col, cur->str);
 	else
-		ft_printf("Syntax error at [%03d:%03d]\n", d->row, d->col);
+		ft_printf("Syntax error at [%03d:%03d]\n", cur->row, cur->col);
+	if (!d)
+		exit(EXIT_FAILURE);
 }
 
 void	asm_token_error(t_asm *d, t_oken *cur, int status)
@@ -73,13 +76,15 @@ void	asm_token_error(t_asm *d, t_oken *cur, int status)
 		ft_putstr_fd(NAME_ERR, STDERR_FILENO);
 	else if (status == COMMLEN_ERR)
 		ft_putstr_fd(COMMENT_ERR, STDERR_FILENO);
-	else if (status == ARGCOUNT_ERR)
-		ft_putstr_fd(ARGCOUNT_ERR_STR, STDERR_FILENO);
 	else if (status == ENDLINE_ERR)
 		ft_printf("Syntax error at token [%03d:%03d] ENDLINE\n", \
 		cur->row, cur->col);
+	else if (status == ARGCOUNT_ERR)
+		ft_printf("Invalid argument count at operation.\n");
 	else if (status == NOLABEL_ERR)
 		label_error(cur);
+	else if (status == SEPARATOR_ERR)
+		ft_putstr_fd(SEPARATOR_ERR_STR, STDERR_FILENO);
 	else if (cur)
 		asm_syntax_error(d, cur);
 	else

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_to_statement.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/20 14:57:19 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/21 16:27:09 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ void	save_statement(t_asm **d, t_oken *cur, t_oken *prev)
 
 	if (!cur && !prev)
 		error_asm(*d, NULL, -1);
+	if ((*d)->tail_statement && (*d)->tail_statement->valid == false)
+		asm_token_error(*d, cur, ARGCOUNT_ERR);
 	tmp = (*d)->statements;
 	new = init_statement(*d, cur);
 	if (new->opcode == 0 || new->opcode == 8 || new->opcode == 11 \

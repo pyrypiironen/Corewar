@@ -1,14 +1,13 @@
 FIX:
-- add type of argument even if it is a label arg? argtype code error
 
-- check too big integers as arguments
------> % MEM_SIZE ?
+- rm set_token_error? fix it?
+- add my libft for --> FT_DPRINTF error messages
 
-Need to handle:
 
 ERRORCASES:
-helltrain.s - 15: sti r1 %:cc4l %1
-	->> references cc4ld instead of cc4l
+/Users/abackman/workspace/evals/corewar/eval/assembler/tests_asm/invalid_files/error31.s
+/Users/abackman/workspace/evals/corewar/eval/assembler/tests_asm/invalid_files/error33.s
+/Users/abackman/workspace/evals/corewar/eval/assembler/tests_asm/invalid_files/error55.s
 
 invalid_label1.s && 2.s
 no_label_name.s

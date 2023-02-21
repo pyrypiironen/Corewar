@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexer.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/20 14:55:57 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/21 16:45:27 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ static void	syntax_checker(t_asm *d)
 	prev = NULL;
 	while (tmp)
 	{
-		//ft_printf("type [%u]\n", tmp->type);
 		if (tmp->type == NAME || tmp->type == COMMENT)
 			save_header(d, tmp, prev);
 		else if (tmp->type == DIR || tmp->type == IND || tmp->type == REG || \
@@ -89,10 +88,8 @@ static void	syntax_checker(t_asm *d)
 			token_to_statement(d, tmp, prev);
 		prev = tmp;
 		tmp = tmp->next;
-		if (tmp != NULL && prev != NULL && tmp->type == NEWLINE && \
-		prev->type == SEPARATOR)
-			asm_token_error(d, tmp, ENDLINE_ERR);
-		//ft_printf("\ttype end\n");
+		if (valid_token_order(tmp, prev) == false)
+			asm_token_error(d, tmp, STX_ERR);
 	}
 	if (prev->type != NEWLINE)
 		exit_asm(d, NO_NL_END_STR);
@@ -125,6 +122,8 @@ void	lexer(t_asm *d)
 	tokenize(d);
 	init_label_table(d);
 	syntax_checker(d);
+	if (d->tail_statement && d->tail_statement->valid == false)
+		asm_token_error(d, NULL, ARGCOUNT_ERR);
 	//ft_printf("Name: [%s]\nComm: [%s]\n", d->head.prog_name, d->head.comment);
 	//ft_printf("n_labels: %u statements: %x\n", d->n_labels, d->statements);
 	if (!d->n_labels && !d->statements)

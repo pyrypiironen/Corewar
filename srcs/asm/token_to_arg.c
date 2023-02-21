@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 12:07:05 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/14 12:02:00 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/21 13:57:18 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,21 @@ static uint8_t	validate_type(t_asm *d, t_oken *cur, t_stat *dst)
 	if (cur->type == REG)
 	{
 		if (!(g_op_tab[dst->opcode].arg_type[dst->cur_arg] & T_REG))
-			memdel_exit_asm(d, dst, "Invalid REG argument type\n");
+			memdel_exit_asm(d, dst, "Invalid REGISTRY argument type\n");
 		else
 			return (T_REG);
 	}
 	if (cur->type == DIR || cur->type == DIRLAB)
 	{
 		if (!(g_op_tab[dst->opcode].arg_type[dst->cur_arg] & T_DIR))
-			memdel_exit_asm(d, dst, "Invalid DIR argument type\n");
+			memdel_exit_asm(d, dst, "Invalid DIRECT argument type\n");
 		else
 			return (T_DIR);
 	}
 	if (cur->type == IND || cur->type == INDIRLAB)
 	{
 		if (!(g_op_tab[dst->opcode].arg_type[dst->cur_arg] & T_IND))
-			memdel_exit_asm(d, dst, "Invalid IND argument type\n");
+			memdel_exit_asm(d, dst, "Invalid INDIRECT argument type\n");
 		else
 			return (T_IND);
 	}

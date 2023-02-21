@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:53:40 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/20 12:35:15 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:26:53 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,59 @@ void	label_checker(t_asm *d)
 		}
 		tmp = tmp->next;
 	}
+}
+
+void	set_token_error_pos(t_asm *d, t_oken *cur)
+{
+	int		lines;
+	int		i;
+	char	*pos;
+
+	lines = 1;
+	i = 0;
+	while (lines < cur->row && d->buf[i])
+	{
+		if (d->buf[i] == '\n')
+			lines++;
+		i++;
+	}
+	pos = ft_strstr(&d->buf[i], cur->str);
+	if (!pos)
+		return ;
+	while (&d->buf[i] != pos)
+	{
+		if (d->buf[i] == '\n')
+		{
+			lines++;
+			cur->col = 1;
+		}
+		i++;
+		cur->col++;
+	}
+	cur->row = lines + 1;
+}
+
+bool	valid_token_order(t_oken *cur, t_oken *prev)
+{
+	if (cur != NULL && prev != NULL && cur->type == NEWLINE && \
+		prev->type == SEPARATOR)
+		return (false);
+	if (cur && prev && (cur->type == REG || cur->type == DIR || cur->type == \
+	IND || cur->type == DIRLAB || cur->type == INDIRLAB) && prev->type != \
+	SEPARATOR && prev->type != OP)
+		return (false);
+	if (cur && prev && ((cur->type == NAME && prev->type == COMMENT) || \
+	(cur->type == COMMENT && prev->type == NAME)))
+		return (false);
+	if (cur && prev && ((cur->type == OP && prev->type != NEWLINE && \
+	prev->type != LABEL)))
+		return (false);
+	if (cur && prev && (cur->type == LABEL && prev->type != NEWLINE))
+		return (false);
+	if (cur && prev && (cur->type == SEPARATOR && (prev->type == SEPARATOR ||\
+	prev->type == OP)))
+		return (false);
+	return (true);
 }
 
 int	set_error_pos(t_asm *d, int pos, int status)
