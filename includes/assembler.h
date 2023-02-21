@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   assembler.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/20 13:52:19 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:21:51 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@
 # define COMMENT_ERR "Champion comment too long (Max length 2048)\n"
 # define ARGCOUNT_ERR_STR "Too many arguments for operation."
 # define NO_NL_END_STR "Syntax error - unexpected end of input \
-(Perhaps you forgot to end with a newline ?)\n"
+(Did you forget a newline or a double quote?)\n"
 # define WRITE_FILE_ERR "Error: could not open file for writing.\n"
 # define DOUBLE_CMD_ERR "Error: command already given.\n"
+# define SEPARATOR_ERR_STR "Error: separator followed by separator.\n"
 
 /* Error codes */
 # define LEX_ERR -42
@@ -43,6 +44,7 @@
 # define ARGCOUNT_ERR -144
 # define ENDLINE_ERR -145
 # define NOLABEL_ERR -146
+# define SEPARATOR_ERR -147
 
 /*
 ** Structs
@@ -175,6 +177,7 @@ void	token_to_statement(t_asm *d, t_oken *cur, t_oken *prev);
 void	save_label(t_asm *d, t_oken *cur, t_oken *prev);
 void	save_argument(t_asm *d, t_oken *cur, t_oken *prev, t_stat *dst);
 void	save_statement(t_asm **d, t_oken *cur, t_oken *prev);
+bool	valid_token_order(t_oken *cur, t_oken *prev);
 
 /*
 ** Label functions
@@ -196,6 +199,7 @@ void	translate_calculations(t_asm *d);
 */
 
 int		set_error_pos(t_asm *d, int pos, int status);
+void	set_token_error_pos(t_asm *d, t_oken *cur);
 void	asm_token_error(t_asm *d, t_oken *cur, int status);
 
 #endif
