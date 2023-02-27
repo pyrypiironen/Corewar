@@ -29,6 +29,7 @@ if test -f tmp1.cor; then
 	else
 		printf "$RED ERROR: original asm wrote to file when yours did not.$NC\n"
 		printf "$YELLOW Your output:\n$NC $OUT_NEW"
+		rm tmp1.s tmp2.s
 		exit 1
 	fi
 fi
@@ -37,6 +38,7 @@ DIFF=$(diff -u tmp1.cor tmp2.cor)
 if [ $ERROR == 1 ]; then
 	printf "$YELLOW Original:\n$NC $OUT_ORG\n"
 	printf "$YELLOW Your asm:\n$NC $OUT_NEW\n"
+	#rm tmp1.s tmp2.s
 	exit 1
 fi
 if test $DIFF; then
