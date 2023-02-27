@@ -46,7 +46,7 @@ static void	read_statement(t_vm_data *d)
 
 	d->carriage->statement = d->arena[d->carriage->cursor] - 1;
 	if (d->carriage->statement < 16 && d->carriage->statement >= 0)
-		d->carriage->to_execute = to_execute[d->carriage->statement] - 1;  // Is -1 correct?
+		d->carriage->to_execute = to_execute[d->carriage->statement] - 1;// Is -1 correct?
 	else
 		d->carriage->cursor = (d->carriage->cursor + 1) % MEM_SIZE;
 }

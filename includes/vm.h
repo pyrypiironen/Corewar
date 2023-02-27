@@ -66,27 +66,6 @@ typedef struct		s_player
 	struct s_player		*next;
 }					t_player;
 
-typedef void		(*t_op)(t_carriage *carriage, t_vm_data *d);
-
-static const t_op	g_dispatch[16] = {
-	op_live,
-	op_ld,
-	op_st,
-	op_add,
-	op_sub,
-	op_and,
-	op_or,
-	op_xor,
-	op_jump,
-	op_ldi,
-	op_sti,
-	op_fork,
-	op_lld,
-	op_lldi,
-	op_lfork,
-	op_aff
-};
-
 
 void	print_error(char *str, int usage);
 
@@ -141,7 +120,7 @@ int		get_2_byte_value(t_vm_data *d, int position, int idx);
 void	int_to_arena(t_vm_data *d, int position, int value);
 
 //		op_helpers_2.c
-
+//		empty so far
 
 //		op_jump.c
 void	op_jump(t_carriage *carriage, t_vm_data *d);
@@ -175,6 +154,27 @@ void	print_carriages(t_vm_data *d);
 
 
 
+//		* * * * * * * * DISPATCH TABLE TO STATEMENTS * * * * * * * *
+typedef void		(*t_op)(t_carriage *carriage, t_vm_data *d);
+
+static const t_op	g_dispatch[16] = {
+	op_live,
+	op_ld,
+	op_st,
+	op_add,
+	op_sub,
+	op_and,
+	op_or,
+	op_xor,
+	op_jump,
+	op_ldi,
+	op_sti,
+	op_fork,
+	op_lld,
+	op_lldi,
+	op_lfork,
+	op_aff
+};
 
 
 
