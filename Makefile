@@ -46,7 +46,8 @@ STATEMENTS =	op_add.c \
 				op_live.c \
 				op_st.c 
 
-GAME =			play.c
+GAME =			checks.c \
+				play.c
 
 
 MAIN_SRCS = $(addprefix srcs/vm/main/, $(MAIN))

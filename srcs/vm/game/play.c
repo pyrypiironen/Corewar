@@ -4,18 +4,21 @@
 # include "../../../includes/vm.h"
 
 static void	execute_statements(t_vm_data *d);
+static void	check_carriage(t_vm_data *d);
+static void	read_statement(t_vm_data *d);
+
 
 void	play_the_game(t_vm_data *d)
 {
 	while (d->carriage_head)
 	{
 		// if (d->d_flag == d->current_cycle)
-		//	take_a_dump
+		//	take_a_dump (print arena or something like that)
 		d->current_cycle += 1;
 		d->cycles_to_check -= 1;
 		execute_statements(d);	// TEST!!
-		// if (d->cycles_to_check <= 0)
-		// 	check(d);
+		if (d->cycles_to_check <= 0)
+			check(d);
 	}
 }
 
@@ -46,7 +49,7 @@ static void	read_statement(t_vm_data *d)
 
 	d->carriage->statement = d->arena[d->carriage->cursor] - 1;
 	if (d->carriage->statement < 16 && d->carriage->statement >= 0)
-		d->carriage->to_execute = to_execute[d->carriage->statement] - 1;  // Is -1 correct?
+		d->carriage->to_execute = to_execute[d->carriage->statement] - 1;// Is -1 correct?
 	else
 		d->carriage->cursor = (d->carriage->cursor + 1) % MEM_SIZE;
 }
