@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:53:40 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/21 18:26:53 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/27 16:12:41 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	label_checker(t_asm *d)
 	int		i;
 
 	tmp = d->statements;
-	//ft_printf("label_checker\n");
 	while (tmp)
 	{
 		i = -1;

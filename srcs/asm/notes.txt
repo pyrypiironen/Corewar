@@ -3,15 +3,26 @@ FIX:
 - rm set_token_error? fix it?
 - add my libft for --> FT_DPRINTF error messages
 
-
-ERRORCASES:
-/Users/abackman/workspace/evals/corewar/eval/assembler/tests_asm/invalid_files/error31.s
-/Users/abackman/workspace/evals/corewar/eval/assembler/tests_asm/invalid_files/error33.s
-/Users/abackman/workspace/evals/corewar/eval/assembler/tests_asm/invalid_files/error55.s
+other_testfiles/invalid_files/error1.s
+other_testfiles/invalid_files/error10.s
+other_testfiles/invalid_files/error26.s
+other_testfiles/invalid_files/error38.s
+other_testfiles/invalid_files/error4.s
+other_testfiles/invalid_files/error40.s
+other_testfiles/invalid_files/error41.s
+other_testfiles/invalid_files/error42.s
+other_testfiles/invalid_files/error46.s
+other_testfiles/invalid_files/error49.s
+other_testfiles/invalid_files/error59.s
+other_testfiles/invalid_files/error64.s
+other_testfiles/invalid_files/error7.s
+other_testfiles/invalid_files/error8.s
 
 invalid_label1.s && 2.s
 no_label_name.s
 
+ASM_ORIG ERRORS:
+asm_tests/other_testfiles/valid_files/champ4.s SEG FAULT
 MORE TESTS:
 https://github.com/avocadohooman/42-Corewar
 

@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:26:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/14 18:21:54 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/27 16:13:14 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ static void	free_tokens(t_oken *tokens)
 	while (cur)
 	{
 		next = cur->next;
-		ft_strdel(&cur->str);
+		if (cur->str != NULL)
+			ft_strdel(&cur->str);
 		free(cur);
 		cur = NULL;
 		cur = next;

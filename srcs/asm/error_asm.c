@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:26:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/21 18:23:19 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:17:11 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,42 +29,41 @@ static void	label_error(t_oken *cur)
 	if (label[start] == ':')
 	{
 		start++;
-		ft_printf("No such label %s while attempting to dereference token \
+		ft_dprintf(2, "No such label %s while attempting to dereference token \
 [TOKEN][%03d:%03d] DIRECT_LABEL \"%s\"\n", &label[start], cur->row, cur->col, \
 label);
 	}
 	else
-		ft_printf("No such label %s while attempting to dereference token \
+		ft_dprintf(2, "No such label %s while attempting to dereference token \
 [TOKEN][%03d:%03d] INDIRECT_LABEL \"%s\"\n", &label[start], cur->row, \
 cur->col, label);
 }
 
 static void	asm_syntax_error(t_asm *d, t_oken *cur)
 {
-	//set_token_error_pos(d, cur);
 	if (cur->type == OP)
-		ft_printf("Syntax error at token [TOKEN][%03d:%03d] INSTRUCTION \
+		ft_dprintf(2, "Syntax error at token [TOKEN][%03d:%03d] INSTRUCTION \
 \"%s\"\n", cur->row, cur->col, cur->str);
 	else if (cur->type == REG)
-		ft_printf("Syntax error at token [TOKEN][%03d:%03d] REGISTER \
+		ft_dprintf(2, "Syntax error at token [TOKEN][%03d:%03d] REGISTER \
 \"%s\"\n", cur->row, cur->col, cur->str);
 	else if (cur->type == LABEL || cur->type == INDIRLAB)
-		ft_printf("Syntax error at token [TOKEN][%03d:%03d] INDIRECT_LABEL \
+		ft_dprintf(2, "Syntax error at token [TOKEN][%03d:%03d] INDIRECT_LABEL \
 \"%s\"\n", cur->row, cur->col, cur->str);
 	else if (cur->type == DIR)
-		ft_printf("Syntax error at token [TOKEN][%03d:%03d] DIRECT \
+		ft_dprintf(2, "Syntax error at token [TOKEN][%03d:%03d] DIRECT \
 \"%s\"\n", cur->row, cur->col, cur->str);
 	else if (cur->type == IND)
-		ft_printf("Syntax error at token [TOKEN][%03d:%03d] INDIRECT \
+		ft_dprintf(2, "Syntax error at token [TOKEN][%03d:%03d] INDIRECT \
 \"%s\"\n", cur->row, cur->col, cur->str);
 	else if (cur->type == DIRLAB)
-		ft_printf("Syntax error at token [TOKEN][%03d:%03d] DIRECT_LABEL \
+		ft_dprintf(2, "Syntax error at token [TOKEN][%03d:%03d] DIRECT_LABEL \
 \"%s\"\n", cur->row, cur->col, cur->str);
 	else if (cur->type == NAME || cur->type == COMMENT)
-		ft_printf("Syntax error at token [TOKEN][%03d:%03d] COMMAND %s\n", \
+		ft_dprintf(2, "Syntax error at token [TOKEN][%03d:%03d] COMMAND %s\n", \
 cur->row, cur->col, cur->str);
 	else
-		ft_printf("Syntax error at [%03d:%03d]\n", cur->row, cur->col);
+		ft_dprintf(2, "Syntax error at [%03d:%03d]\n", cur->row, cur->col);
 	if (!d)
 		exit(EXIT_FAILURE);
 }
@@ -77,10 +76,10 @@ void	asm_token_error(t_asm *d, t_oken *cur, int status)
 	else if (status == COMMLEN_ERR)
 		ft_putstr_fd(COMMENT_ERR, STDERR_FILENO);
 	else if (status == ENDLINE_ERR)
-		ft_printf("Syntax error at token [%03d:%03d] ENDLINE\n", \
+		ft_dprintf(2, "Syntax error at token [%03d:%03d] ENDLINE\n", \
 		cur->row, cur->col);
 	else if (status == ARGCOUNT_ERR)
-		ft_printf("Invalid argument count at operation.\n");
+		ft_dprintf(2, "Invalid argument count at operation.\n");
 	else if (status == NOLABEL_ERR)
 		label_error(cur);
 	else if (status == SEPARATOR_ERR)
@@ -97,11 +96,11 @@ void	error_asm(t_asm *d, char *line, int status)
 {
 	//ft_printf("error_asm\n");
 	if (status == LEX_ERR)
-		ft_printf("Lexical error at [%d:%d]\n", d->row, d->col);
+		ft_dprintf(2, "Lexical error at [%d:%d]\n", d->row, d->col);
 	else if (status == STX_ERR)
 		asm_syntax_error(d, NULL);
 	else if (status == EOF_ERR)
-		ft_printf("Syntax error at [%d:%d] EOF\n", d->row, d->col);
+		ft_dprintf(2, "Syntax error at [%d:%d] EOF\n", d->row, d->col);
 	else if (status == MAL_ERR)
 		ft_putstr_fd(MALLOC_ERR, STDERR_FILENO);
 	if (line)

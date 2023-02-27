@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:05:42 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/17 16:55:29 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/27 16:16:24 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	memdel_exit_asm(t_asm *d, void *mem, char *str)
 {
 	if (str)
 		ft_putstr_fd(str, STDERR_FILENO);
-	if (mem)
+	if (mem != NULL)
 		ft_memdel(&mem);
 	if (d)
 		free_asm(d);

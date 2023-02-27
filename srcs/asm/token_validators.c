@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/21 18:25:12 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:07:46 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	found_quote(t_asm *d, char *str, int *len)
 {
 	int	tmplen;
-	
+
 	tmplen = 1;
 	while (str[tmplen] && str[tmplen] != '"')
 	{
@@ -32,7 +32,6 @@ static int	found_quote(t_asm *d, char *str, int *len)
 		tmplen += 1;
 		d->col++;
 	}
-	//ft_printf(">>[%s]\n>>len %d\n", str, *i);
 	*len += tmplen;
 	*len += 1;
 	return (1);
@@ -57,7 +56,6 @@ static bool	is_valid_command_str(char *str, int *i, t_type *type)
 		*type = COMMENT;
 		return (true);
 	}
-	//ft_printf("NOT A VALID COMMAND STR\n");
 	return (false);
 }
 
@@ -66,20 +64,16 @@ int	is_command(t_asm *d, char *str, int *len, t_type *type)
 	int	i;
 
 	i = 0;
-	//check the return values, so it skips to the right part..
 	if (!is_valid_command_str(str, &i, type))
-	//ft_printf(" i: [%i]\n", i);
 		return (0);
 	while (str[i] && ft_iswhitespace((int)str[i]))
 		i++;
 	if (str[i] == '"' && found_quote(d, &str[i], len))
 	{
 		d->i += i;
-		//ft_printf("AFTER found_quote\n");
 		return (add_token(d, &str[i], *len, *type));
 	}
 	d->i += i;
-	//ft_printf("NOT A VALID COMMAND [%c%c%c]\n", str[i - 2], str[i - 1], str[i]);
 	return (0);
 }
 
@@ -91,14 +85,10 @@ int	is_op(char *str, int *len)
 	while (--i > -1)
 	{
 		*len = (int)ft_strlen(g_op_tab[i].instruction);
-		if (!ft_strncmp(g_op_tab[i].instruction, str, (size_t)*len))
-		{
-			//ft_printf(" OP >> [%c] ", str[*len]);
+		if (!ft_strncmp(g_op_tab[i].instruction, str, (size_t)(*len)))
 			return (*len);
-		}
 	}
 	*len = 0;
-	//ft_printf(" NOT OP >> [%c] ", str[*len]);
 	return (*len);
 }
 
@@ -110,19 +100,16 @@ int	is_label(char *str, int *len)
 	{
 		if (!ft_strchr(LABEL_CHARS, (int)str[*len]) && str[*len] != ':')
 		{
-			//ft_printf(" NOT label >> [%c] ", str[0]);
 			*len = 0;
 			return (*len);
 		}
 		else if (str[*len] == LABEL_CHAR)
 		{
-			//ft_printf(" label >> ");
 			*len += 1;
 			return (*len);
 		}
 		*len += 1;
 	}
-	//ft_printf("Not label\n");
 	*len = 0;
 	return (*len);
 }
