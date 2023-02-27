@@ -120,7 +120,7 @@ int		get_2_byte_value(t_vm_data *d, int position, int idx);
 void	int_to_arena(t_vm_data *d, int position, int value);
 
 //		op_helpers_2.c
-//		empty so far
+int		count_jump_size(unsigned char code, int	dir_size, int args);
 
 //		op_jump.c
 void	op_jump(t_carriage *carriage, t_vm_data *d);
@@ -144,6 +144,17 @@ void	op_sti(t_carriage *carriage, t_vm_data *d);
 void	op_and(t_carriage *carriage, t_vm_data *d);
 void	op_or(t_carriage *carriage, t_vm_data *d);
 void	op_xor(t_carriage *carriage, t_vm_data *d);
+
+//		* * * * * * * * THE GAME * * * * * * * *
+//		checks.c
+void	check(t_vm_data *d);
+
+//		play.c
+void	play_the_game(t_vm_data *d);
+
+
+
+
 
 
 //		* * * * * * * * TESTS * * * * * * * *
