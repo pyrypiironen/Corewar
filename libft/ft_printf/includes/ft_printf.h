@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:07:36 by abackman          #+#    #+#             */
-/*   Updated: 2022/07/07 12:21:04 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/28 13:29:03 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int					pr_float(t_print *print);
 
 typedef int			(*t_able)(t_print *print);
 
-static const t_able	g_dispatch[14] = {
+static const t_able	g_table[14] = {
 	pr_perc,
 	pr_char,
 	pr_str,

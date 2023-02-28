@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 19:23:59 by abackman          #+#    #+#             */
-/*   Updated: 2022/07/07 12:21:21 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/28 13:29:37 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	as_convert_yes(t_print *print, const char *format)
 	if (format[print->i] == SPECIFY[x])
 	{
 		print->conv = format[print->i];
-		ret += g_dispatch[x](print);
+		ret += g_table[x](print);
 	}
 	else
 		print->i--;

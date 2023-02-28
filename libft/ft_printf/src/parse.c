@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 18:30:20 by abackman          #+#    #+#             */
-/*   Updated: 2022/08/09 12:54:40 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/28 13:29:28 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	convert_yes(t_print *print, const char *format)
 		print->conv = format[print->i];
 		if (print->conv == 'c' && print->str != NULL)
 			ft_strdel(&print->str);
-		ret += g_dispatch[x](print);
+		ret += g_table[x](print);
 		if (print->str != NULL)
 			print_conversion(print, ret);
 	}
