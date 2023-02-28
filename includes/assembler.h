@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/21 18:21:51 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/28 14:21:30 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,7 +199,6 @@ void	translate_calculations(t_asm *d);
 */
 
 int		set_error_pos(t_asm *d, int pos, int status);
-void	set_token_error_pos(t_asm *d, t_oken *cur);
 void	asm_token_error(t_asm *d, t_oken *cur, int status);
 
 #endif

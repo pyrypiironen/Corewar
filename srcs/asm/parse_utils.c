@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:53:40 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/27 16:12:41 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/28 14:21:12 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,36 +56,6 @@ void	label_checker(t_asm *d)
 	}
 }
 
-void	set_token_error_pos(t_asm *d, t_oken *cur)
-{
-	int		lines;
-	int		i;
-	char	*pos;
-
-	lines = 1;
-	i = 0;
-	while (lines < cur->row && d->buf[i])
-	{
-		if (d->buf[i] == '\n')
-			lines++;
-		i++;
-	}
-	pos = ft_strstr(&d->buf[i], cur->str);
-	if (!pos)
-		return ;
-	while (&d->buf[i] != pos)
-	{
-		if (d->buf[i] == '\n')
-		{
-			lines++;
-			cur->col = 1;
-		}
-		i++;
-		cur->col++;
-	}
-	cur->row = lines + 1;
-}
-
 bool	valid_token_order(t_oken *cur, t_oken *prev)
 {
 	if (cur != NULL && prev != NULL && cur->type == NEWLINE && \
@@ -103,7 +73,7 @@ bool	valid_token_order(t_oken *cur, t_oken *prev)
 		return (false);
 	if (cur && prev && (cur->type == LABEL && prev->type != NEWLINE))
 		return (false);
-	if (cur && prev && (cur->type == SEPARATOR && (prev->type == SEPARATOR ||\
+	if (cur && prev && (cur->type == SEPARATOR && (prev->type == SEPARATOR || \
 	prev->type == OP)))
 		return (false);
 	return (true);
