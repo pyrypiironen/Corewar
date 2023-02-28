@@ -12,8 +12,11 @@ void	play_the_game(t_vm_data *d)
 {
 	while (d->carriage_head)
 	{
-		// if (d->d_flag == d->current_cycle)
-		//	take_a_dump (print arena or something like that)
+		if (d->d_flag == d->current_cycle)
+		{
+			print_arena(d);
+			exit(0);
+		}	//	take_a_dump (print arena or something like that)
 		d->current_cycle += 1;
 		d->cycles_to_check -= 1;
 		execute_statements(d);	// TEST!!
