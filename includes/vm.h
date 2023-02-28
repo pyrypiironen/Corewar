@@ -120,7 +120,8 @@ int		get_2_byte_value(t_vm_data *d, int position, int idx);
 void	int_to_arena(t_vm_data *d, int position, int value);
 
 //		op_helpers_2.c
-int		count_jump_size(unsigned char code, int	dir_size, int args);
+int		count_jump_size(t_carriage *carriage, t_vm_data *d, int	dir_size, \
+		int args);
 
 //		op_jump.c
 void	op_jump(t_carriage *carriage, t_vm_data *d);
@@ -168,7 +169,7 @@ void	print_carriages(t_vm_data *d);
 //		* * * * * * * * DISPATCH TABLE TO STATEMENTS * * * * * * * *
 typedef void		(*t_op)(t_carriage *carriage, t_vm_data *d);
 
-static const t_op	g_dispatch[16] = {
+static const t_op	g_dispatcher[16] = {
 	op_live,
 	op_ld,
 	op_st,

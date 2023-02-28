@@ -32,7 +32,9 @@ void	op_and(t_carriage *carriage, t_vm_data *d)
 		carriage->carry = update_carry(carriage->registrys[arg_3]);
 	}
 	else
-		ft_printf("{purple}error in and function\n"); // skip somewhere
+		carriage->cursor = (carriage->cursor \
+		+ count_jump_size(carriage, d, 4, 3)) % MEM_SIZE;
+
 }
 
 void	op_or(t_carriage *carriage, t_vm_data *d)
@@ -52,7 +54,8 @@ void	op_or(t_carriage *carriage, t_vm_data *d)
 		carriage->carry = update_carry(carriage->registrys[arg_3]);
 	}
 	else
-		ft_printf("{purple}error in or function\n"); // skip somewhere
+		carriage->cursor = (carriage->cursor \
+		+ count_jump_size(carriage, d, 4, 3)) % MEM_SIZE;
 }
 
 void	op_xor(t_carriage *carriage, t_vm_data *d)
@@ -72,20 +75,9 @@ void	op_xor(t_carriage *carriage, t_vm_data *d)
 		carriage->carry = update_carry(carriage->registrys[arg_3]);
 	}
 	else
-		ft_printf("{purple}error in or function\n"); // skip somewhere
+		carriage->cursor = (carriage->cursor \
+		+ count_jump_size(carriage, d, 4, 3)) % MEM_SIZE;
 }
-/*
-01 01 01 00 REG REG REG == 0x54 == 1 + 1 + 1 - tested
-01 10 01 00 REG DIR REG == 0x64 == 1 + 4 + 1 - tested
-01 11 01 00 REG IND REG == 0x74 == 1 + 2 + 1 - tested
-10 01 01 00 DIR REG REG == 0x94 == 4 + 1 + 1 - tested
-10 10 01 00 DIR DIR REG == 0xa4 == 4 + 4 + 1 - tested
-10 11 01 00 DIR IND REG == 0xb4 == 4 + 2 + 1 - tested
-11 01 01 00 IND REG REG == 0xd4 == 2 + 1 + 1 - tested
-11 10 01 00 IND DIR REG == 0xe4 == 2 + 4 + 1 - tested
-11 11 01 00 IND IND REG == 0xf4 == 2 + 2 + 1 - tested
-*/
-
 
 static long long	get_first_arg(t_carriage *carriage, t_vm_data *d)
 {

@@ -39,7 +39,7 @@ static void	check_carriage(t_vm_data *d)
 	if (d->carriage->to_execute < 0)
 		read_statement(d);
 	else if (d->carriage->to_execute == 0)
-		g_dispatch[d->carriage->statement](d->carriage, d);
+		g_dispatcher[d->carriage->statement](d->carriage, d);
 }
 
 static void	read_statement(t_vm_data *d)

@@ -29,10 +29,10 @@ int	main(int argc, char **argv)
 
 
 	// * * * * * * * * * * ONLY TESTING * * * * * * * * * *
-	int res;
-	unsigned char x = 168;
-	res = count_jump_size(x, 2, 1);
-	ft_printf("res = %i\n", res);
+	// int res;
+	// unsigned char x = 168;
+	// res = count_jump_size(x, 2, 1);
+	// ft_printf("res = %i\n", res);
 
 	// 11 11 11 00 = 252 --> 6
 	// 10 10 10 00 = 168 --> 6 or 12

@@ -21,4 +21,5 @@ void	op_aff(t_carriage *carriage, t_vm_data *d)
 	is_valid_reg((carriage->cursor + 2) % MEM_SIZE, d))
 		ft_printf("%c\n", carriage->registrys[value - 1]);
 	carriage->cursor = (carriage->cursor + 3) % MEM_SIZE;
+	// Or should we read argument value code.
 }
