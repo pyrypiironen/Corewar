@@ -12,6 +12,9 @@
 
 # include "../../../includes/vm.h"
 
+// Load statement. The task of this statement is to load the value (T_DIR or 
+// T_IND) into the registry. Can't load further than 512 memory location away.
+// Also update value of carry if needed.
 void	op_ld(t_carriage *carriage, t_vm_data *d)
 {
 	unsigned char	reg;
@@ -41,6 +44,8 @@ void	op_ld(t_carriage *carriage, t_vm_data *d)
 		+ count_jump_size(carriage, d, 4, 2)) % MEM_SIZE;
 }
 
+// Long load statement. Same than load statement, but can load further than
+// 512 memory location away.
 void	op_lld(t_carriage *carriage, t_vm_data *d)
 {
 	unsigned char	reg;

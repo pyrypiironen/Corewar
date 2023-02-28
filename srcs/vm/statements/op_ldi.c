@@ -5,6 +5,10 @@
 static long long	get_first_arg(t_carriage *carriage, t_vm_data *d);
 static long long	get_second_arg(t_carriage *carriage, t_vm_data *d);
 
+// Statement ldi.  Writes the 4 byte value to the registry, which was passed to 
+// it as the third parameter. Reads the value at the address, which is formed 
+// according to the following principle:
+// current position + (<first arg value> + <second arg value>) % IDX_MOD.
 void	op_ldi(t_carriage *carriage, t_vm_data *d)
 {
 	long long	arg_1;
@@ -27,6 +31,8 @@ void	op_ldi(t_carriage *carriage, t_vm_data *d)
 		+ count_jump_size(carriage, d, 2, 3)) % MEM_SIZE;
 }
 
+// Statement lldi. Same than statement ldi, but can load further than
+// 512 memory location away.
 void	op_lldi(t_carriage *carriage, t_vm_data *d)
 {
 	long long	arg_1;

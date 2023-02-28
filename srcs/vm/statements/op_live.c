@@ -12,6 +12,9 @@
 
 # include "../../../includes/vm.h"
 
+// Live statement. Carriage which performs the live statement is alive.
+// Also if the number specified as an argument matches the number of the player,
+// then it will consider that the player is alive.
 void	op_live(t_carriage *carriage, t_vm_data *d)
 {
 	int	value;
