@@ -39,7 +39,8 @@ void	op_st(t_carriage *carriage, t_vm_data *d)
 		carriage->cursor = (carriage->cursor + 5) % MEM_SIZE;
 	}
 	else
-		; //Just move cursor 4 or 5 bytes ??????
+		carriage->cursor = (carriage->cursor \
+		+ count_jump_size(carriage, d, 4, 2)) % MEM_SIZE;
 }
 
 
@@ -62,7 +63,8 @@ void	op_sti(t_carriage *carriage, t_vm_data *d)
 		carriage->cursor = carriage->cursor_copy;
 	}
 	else
-		ft_printf("{purple}error in and function\n"); // skip somewhere
+		carriage->cursor = (carriage->cursor \
+		+ count_jump_size(carriage, d, 2, 3)) % MEM_SIZE;
 }
 
 static long long	get_second_arg(t_carriage *carriage, t_vm_data *d)
@@ -113,12 +115,3 @@ static long long	get_third_arg(t_carriage *carriage, t_vm_data *d)
 	}
 	return (2147483648);
 }
-
-/*
-01 01 01 00 REG REG REG == 0x54 == 1 + 1 + 1 - tested
-01 10 01 00 REG DIR REG == 0x64 == 1 + 2 + 1 - tested
-01 11 01 00 REG IND REG == 0x74 == 1 + 2 + 1 - tested
-01 01 10 00 REG REG DIR == 0x58 == 1 + 1 + 2 - tested
-01 10 10 00 REG DIR DIR == 0x68 == 1 + 2 + 2 - tested
-01 11 10 00 REG IND DIR == 0x78 == 1 + 2 + 2 - tested
-*/

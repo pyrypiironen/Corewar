@@ -37,7 +37,8 @@ void	op_ld(t_carriage *carriage, t_vm_data *d)
 		carriage->cursor = (carriage->cursor + 5) % MEM_SIZE;
 	}
 	else
-		;// Jump over 5 or 7 bytes?????????
+		carriage->cursor = (carriage->cursor \
+		+ count_jump_size(carriage, d, 4, 2)) % MEM_SIZE;
 }
 
 void	op_lld(t_carriage *carriage, t_vm_data *d)
@@ -65,5 +66,6 @@ void	op_lld(t_carriage *carriage, t_vm_data *d)
 		carriage->cursor = (carriage->cursor + 5) % MEM_SIZE;
 	}
 	else
-		;// Jump over 5 or 7 bytes?????????
+		carriage->cursor = (carriage->cursor \
+		+ count_jump_size(carriage, d, 4, 2)) % MEM_SIZE;
 }

@@ -27,5 +27,5 @@ void	op_jump(t_carriage *carriage, t_vm_data *d)
 	}
 	else
 		// If the carry value is zero, no movement is performed.
-		carriage->cursor = (carriage->cursor + 4) % MEM_SIZE;
+		carriage->cursor = (carriage->cursor + 4) % MEM_SIZE; // nosense for testing
 }

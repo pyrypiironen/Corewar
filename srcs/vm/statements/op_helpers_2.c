@@ -12,16 +12,16 @@
 
 # include "../../../includes/vm.h"
 
-int	count_jump_size(unsigned char code, int	dir_size, int args)
+int	count_jump_size(t_carriage *carriage, t_vm_data *d, int	dir_size, int args)
 {
 	int	ret;
 	int	i;
+	unsigned char	code;
 	unsigned char	tmp;
 
-	ret = 0;
+	ret = 1;
 	i = 0;
-	// 01 11 01 00
-	// 00 00 00 11 maski
+	code = d->arena[(carriage->cursor + 1)  % MEM_SIZE];
 	code = code >> (2 + 2 * (3 - args));
 	while(i < 3)
 	{

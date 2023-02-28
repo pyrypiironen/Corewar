@@ -32,7 +32,7 @@ void	op_add(t_carriage *carriage, t_vm_data *d)
 		carriage->carry = update_carry(carriage->registrys[third]);
 	}
 	carriage->cursor = (carriage->cursor + carriage->jump_size) % MEM_SIZE;
-	carriage->jump_size = 0;			// is needed?
+	// Or should we read argument value code.
 }
 
 void	op_sub(t_carriage *carriage, t_vm_data *d)
@@ -53,7 +53,7 @@ void	op_sub(t_carriage *carriage, t_vm_data *d)
 		carriage->carry = update_carry(carriage->registrys[third]);
 	}
 	carriage->cursor = (carriage->cursor + carriage->jump_size) % MEM_SIZE;
-	carriage->jump_size = 0;			// is needed?
+	// Or should we read argument value code.
 }
 
 static int	is_valid_add_sub(t_carriage *carriage, t_vm_data *d)
