@@ -3,50 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   tokenize.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abackman <abackman@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/20 18:36:10 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/28 14:13:51 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
 
 /*
-** Goes through the input, cleans it up (removes whitespace and comments) and
-** saves the separated words as tokens. Will only check for syntax errors.
+** Checks the type of the token, and saves it if valid and exits if not.
 */
-
-int	add_token(t_asm *d, char *str, int len, t_type type)
-{
-	t_oken	*new;
-	t_oken	*tmp;
-
-	tmp = d->tokens;
-	new = (t_oken *)malloc(sizeof(t_oken));
-	if (!new)
-		error_asm(d, NULL, MAL_ERR);
-	new->next = NULL;
-	new->type = type;
-	new->row = d->row;
-	new->col = d->col;
-	new->str = ft_strnew((size_t)len);
-	if (!new->str)
-		memdel_exit_asm(d, new, MALLOC_ERR);
-	if (!new->str)
-		error_asm(d, NULL, MAL_ERR);
-	ft_strncpy(new->str, str, len);
-	//ft_printf("ADD_TOKEN\n[%s][%u]\n", new->str, len);
-	if (d->tokens == NULL)
-	{
-		d->tokens = new;
-		return (len);
-	}
-	while (tmp->next != NULL)
-		tmp = tmp->next;
-	tmp->next = new;
-	return (len);
-}
 
 static int	check_type(t_asm *d, char *str)
 {
@@ -58,15 +26,12 @@ static int	check_type(t_asm *d, char *str)
 	if (str[len] == '\n')
 	{
 		add_token(d, str, 1, NEWLINE);
-		d->row++;
-		d->col = 1;
 		return (1);
 	}
 	else if (str[len] == SEPARATOR_CHAR)
 		return (add_token(d, str, 1, SEPARATOR));
 	else if (is_label(str, &len))
 	{
-		d->n_labels++;
 		return (add_token(d, str, len, LABEL));
 	}
 	else if (is_op(str, &len))
@@ -76,11 +41,12 @@ static int	check_type(t_asm *d, char *str)
 	else if (is_command(d, str, &len, &type))
 		return (len);
 	else
-	{
-		//ft_printf("NO TYPE\n [%c]", str[0]);
 		return (set_error_pos(d, d->i, LEX_ERR));
-	}
 }
+
+/*
+** Skips the buffer until the next line is reached.
+*/
 
 static int	skip_to_next_line(t_asm *d, char *str)
 {
@@ -95,17 +61,70 @@ static int	skip_to_next_line(t_asm *d, char *str)
 	if (!str[len])
 		return (EOF_ERR);
 	add_token(d, &str[len], 1, NEWLINE);
-	d->row++;
-	d->col = 1;
 	len++;
 	return (len);
 }
+
+/*
+** Helper function for add_token().
+*/
+
+static void	add_token_helper(t_asm *d, t_oken *new, t_type type)
+{
+	if (type == NEWLINE)
+	{
+		d->row++;
+		d->col = 1;
+	}
+	else if (type == LABEL)
+		d->n_labels++;
+	new->next = NULL;
+	new->type = type;
+	new->row = d->row;
+	new->col = d->col;
+}
+
+/*
+** Goes through the input, cleans it up (removes whitespace and comments) and
+** saves the separated words as tokens. Will only check for lexical errors.
+*/
+
+int	add_token(t_asm *d, char *str, int len, t_type type)
+{
+	t_oken	*new;
+	t_oken	*tmp;
+
+	tmp = d->tokens;
+	new = (t_oken *)malloc(sizeof(t_oken));
+	if (!new)
+		error_asm(d, NULL, MAL_ERR);
+	add_token_helper(d, new, type);
+	new->str = ft_strnew((size_t)len);
+	if (!new->str)
+		memdel_exit_asm(d, new, MALLOC_ERR);
+	if (!new->str)
+		error_asm(d, NULL, MAL_ERR);
+	ft_strncpy(new->str, str, len);
+	if (d->tokens == NULL)
+	{
+		d->tokens = new;
+		return (len);
+	}
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	tmp->next = new;
+	return (len);
+}
+
+/*
+** Iterates through the whole input or until an error is found. Cleans up the
+** input from comments and whitespace, creates a linked list of tokens.
+*/
 
 void	tokenize(t_asm *d)
 {
 	int	ret;
 
-	//ft_printf("\n* * * Tokenize * * *\n");
 	while (d->buf[d->i])
 	{
 		ret = 0;
@@ -125,16 +144,5 @@ void	tokenize(t_asm *d)
 		d->i += ret;
 		if (d->i && d->buf[d->i - 1] != '\n')
 			d->col += ret;
-		//ft_printf("end of loop [%c]\n", d->buf[d->i]);
 	}
-/* 	t_oken	*tmp;
-
-	tmp = d->tokens;
-	while (tmp)
-	{
-		ft_printf("TYPE: %u\n", tmp->type);
-		ft_printf("[%s]\n", tmp->str);
-		ft_printf("%d %d\n\n", tmp->row, tmp->col);
-		tmp = tmp->next;
-	} */
 }

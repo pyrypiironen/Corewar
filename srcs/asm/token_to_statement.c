@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/21 16:27:09 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/28 14:28:38 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 static t_stat	*init_statement(t_asm *d, t_oken *cur)
 {
 	t_stat	*new;
-	uint8_t	i;
+	int8_t	i;
 
-	i = 0;
+	i = -1;
 	new = (t_stat *)malloc(sizeof(t_stat));
 	if (!new)
 		error_asm(d, NULL, MAL_ERR);
@@ -32,13 +32,11 @@ static t_stat	*init_statement(t_asm *d, t_oken *cur)
 	new->loc = 0;
 	new->valid = false;
 	new->has_res = true;
-	while (i < 16)
+	while (++i < 16)
 	{
 		if (!ft_strcmp(cur->str, g_op_tab[i].instruction))
 			break ;
-		i++;
 	}
-	//ft_printf("%s op: %u\n", cur->str, i);
 	new->opcode = i;
 	return (new);
 }
@@ -102,8 +100,6 @@ void	save_label(t_asm *d, t_oken *cur, t_oken *prev)
 	new->start = 0;
 	new->bytes = 0;
 	new->name = ft_strsub(cur->str, 0, ft_strlen(cur->str) - 1);
-	//new->name = cur->str;
-	//ft_printf("[%s]\n", new->name);
 	if (!new->name)
 		memdel_exit_asm(d, new, MALLOC_ERR);
 	d->unref_labels = true;

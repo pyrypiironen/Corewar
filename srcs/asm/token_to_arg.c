@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 12:07:05 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/27 16:21:09 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/28 14:18:17 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 static uint8_t	validate_type(t_asm *d, t_oken *cur, t_stat *dst)
 {
-	//ft_printf("\nARG--> [%s]\nTYPE-> %u\nOP---> %u\n", cur->str, cur->type, dst->opcode);
-	//
-	// REPLACE NULL with dst if leaks?
 	if (cur->type == REG)
 	{
 		if (!(g_op_tab[dst->opcode].arg_type[dst->cur_arg] & T_REG))
@@ -54,13 +51,11 @@ static void	arg_registry(t_asm *d, t_oken *cur, t_stat *dst)
 		asm_token_error(d, cur, STX_ERR);
 	res = ft_atoi(&cur->str[1]);
 	dst->args[dst->cur_arg] = res;
-	//ft_printf("added %s as ARG #%u to %u\n", cur->str, dst->cur_arg, dst);
 }
 
 static void	arg_label(t_asm *d, t_oken *cur, t_stat *dst)
 {
 	size_t	start;
-	
 
 	start = 1;
 	if (cur->type == DIRLAB)
@@ -72,7 +67,6 @@ static void	arg_label(t_asm *d, t_oken *cur, t_stat *dst)
 	dst->arglabel[dst->cur_arg] = &cur->str[start];
 	if (!dst->arglabel[dst->cur_arg])
 		error_asm(d, NULL, MAL_ERR);
-	//ft_printf("added %s as arg #%u of type %u to %p\n", dst->arglabel[dst->cur_arg], dst->cur_arg, dst->argtypes[dst->cur_arg], dst);
 }
 
 static void	arg_integer(t_asm *d, t_oken *cur, t_stat *dst)
@@ -94,14 +88,12 @@ static void	arg_integer(t_asm *d, t_oken *cur, t_stat *dst)
 		if (!ft_isdigit((int)cur->str[start++]))
 			asm_token_error(d, cur, STX_ERR);
 	}
-	//ft_printf("added %s as arg #%u to %p\n", cur->str, dst->cur_arg, dst);
 }
 
 void	save_argument(t_asm *d, t_oken *cur, t_oken *prev, t_stat *dst)
 {
 	uint8_t	type;
 
-	//ft_printf("\n\t*save_argument*\n %p\nvalid: %u\n", dst, dst->valid);
 	if (!cur && !prev)
 		error_asm(d, NULL, -1);
 	if (!d->head.prog_name[0] || !d->head.comment[0] || !dst)

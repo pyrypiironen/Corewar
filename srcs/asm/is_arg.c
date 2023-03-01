@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/21 16:15:35 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/28 14:23:48 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ static bool	is_reg(char *str, int *len)
 			return (false);
 		i++;
 	}
-	//ft_printf(" IS_REG >> ");
 	*len = *len + i;
 	return (true);
 }
@@ -43,22 +42,17 @@ static bool	is_label_arg(t_asm *d, char *str, int *len)
 		return (false);
 	else
 		i++;
-	//ft_printf("IS LAB ARG? %c\n", str[*len + i]);
 	if (str[*len + i] == '\0')
 		set_error_pos(d, *len + i, EOF_ERR);
-	while(str[*len + i] && str[*len + i] == ' ')
+	while (str[*len + i] && str[*len + i] == ' ')
 		i++;
 	while (str[*len + i] && !ft_strchr(" \t#;,\n", (int)str[*len + i]))
 	{
 		if (!ft_strchr(LABEL_CHARS, (int)str[*len + i]))
-		{
-			//ft_printf("LABEL ARG ERROR\n");
 			set_error_pos(d, (*len + d->i + i), LEX_ERR);
-		}
 		i++;
 	}
 	*len = *len + i;
-	//ft_printf(" IS LABEL ARG >> [%c] ", str[*len]);
 	return (true);
 }
 
@@ -78,19 +72,14 @@ static bool	is_direct(t_asm *d, char *str, int *len)
 	while (str[*len + i] && !ft_strchr(" \t#;,\n", (int)str[*len + i]))
 	{
 		if (!ft_isdigit((int)str[*len + i]))
-		{
-			//ft_printf("IS_DIRECT ERROR [%c]\n", str[*len + i]);
-			//d->i = d->i + *len + i;
 			set_error_pos(d, d->i + *len, LEX_ERR);
-		}
 		i++;
 	}
-	//ft_printf(" IS DIR >> ");
 	*len = *len + i;
 	return (true);
 }
 
-static bool is_indirect(t_asm *d, char *str, int *len)
+static bool	is_indirect(t_asm *d, char *str, int *len)
 {
 	int	i;
 
@@ -102,12 +91,9 @@ static bool is_indirect(t_asm *d, char *str, int *len)
 	while (str[*len + i] && !ft_strchr(" \t#;,\n", (int)str[*len + i]))
 	{
 		if (!ft_isdigit((int)str[*len + i]))
-		{
-			//ft_printf(" NOT INDDIR >> ");
 			return (false);
-		}
 		i++;
-	} 
+	}
 	if (str[*len + i] == '\0')
 		set_error_pos(d, *len + i, EOF_ERR);
 	else if (str[*len + i] == '-')
@@ -118,7 +104,6 @@ static bool is_indirect(t_asm *d, char *str, int *len)
 			set_error_pos(d, *len + i, LEX_ERR);
 		i++;
 	}
-	//ft_printf(" IS INDIR >> ");
 	*len = *len + i;
 	return (true);
 }
@@ -131,10 +116,7 @@ int	is_arg(t_asm *d, char *str, int *len, t_type *type)
 	{
 		*type = DIRLAB;
 		if (str[0] == ':')
-		{
 			*type = INDIRLAB;
-			//ft_printf(" IS INDIRLAB! ");
-		}
 	}
 	else if (is_direct(d, str, len))
 		*type = DIR;

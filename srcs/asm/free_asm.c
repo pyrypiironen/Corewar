@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:26:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/27 16:13:14 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/28 14:28:45 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,6 @@ static void	free_statements(t_stat *statements)
 	{
 		next = tmp->next;
 		ft_strdel(&tmp->label);
-		//ft_freearray(tmp->arglabel, 3);
-		/* ft_strdel(&tmp->arglabel[0]);
-		ft_strdel(&tmp->arglabel[1]);
-		ft_strdel(&tmp->arglabel[2]); */
 		free(tmp);
 		tmp = NULL;
 		tmp = next;

@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/21 16:45:27 by abackman         ###   ########.fr       */
+/*   Updated: 2023/02/28 14:28:34 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ static void	save_header(t_asm *d, t_oken *cur, t_oken *prev)
 		save_comment(d, cur);
 	else
 		exit_asm(d, DOUBLE_CMD_ERR);
-		//asm_token_error(d, cur, STX_ERR);
 }
 
 static void	syntax_checker(t_asm *d)
@@ -100,23 +99,6 @@ static void	syntax_checker(t_asm *d)
 ** saves the separated words as tokens. Will only check for basic errors.
 */
 
-/* static void	print_labels(t_lab **table)
-{
-	size_t	i;
-	t_lab	*tmp;
-
-	i = -1;
-	while (table[++i])
-	{
-		tmp = table[i];
-		while (tmp)
-		{
-			ft_printf("%s stat: %p\n", tmp->name, tmp->statement);
-			tmp = tmp->next;
-		}
-	}
-} */
-
 void	lexer(t_asm *d)
 {
 	tokenize(d);
@@ -124,14 +106,10 @@ void	lexer(t_asm *d)
 	syntax_checker(d);
 	if (d->tail_statement && d->tail_statement->valid == false)
 		asm_token_error(d, NULL, ARGCOUNT_ERR);
-	//ft_printf("Name: [%s]\nComm: [%s]\n", d->head.prog_name, d->head.comment);
-	//ft_printf("n_labels: %u statements: %x\n", d->n_labels, d->statements);
 	if (!d->n_labels && !d->statements)
 		error_asm(d, NULL, EOF_ERR);
 	if (d->n_labels != 0 && d->statements != NULL)
 		label_checker(d);
 	if (d->statements != NULL)
 		translate_calculations(d);
-	//print_labels(d->labels);
-	//parse(d);
 }
