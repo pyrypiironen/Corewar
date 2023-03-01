@@ -39,6 +39,8 @@ typedef struct			s_vm_data
 	int					live_statements;
 	int					n_flag;
 	int					d_flag;
+	int					od_flag;
+	int					c_flag;
 }						t_vm_data;
 
 typedef struct			s_carriage
@@ -50,7 +52,7 @@ typedef struct			s_carriage
 	int					last_live;
 	unsigned char		statement;
 	int					to_execute;
-	int					jump_size; // is this needed?
+	int					jump_size;
 	int					registrys[REG_NUMBER];
 	struct s_carriage	*next;
 }						t_carriage;
@@ -67,7 +69,6 @@ typedef struct		s_player
 }					t_player;
 
 
-void	print_error(char *str, int usage);
 
 void	init_core(int argc, char **argv, t_vm_data *d);
 void	read_champs(int	argc, char **argv, t_vm_data *d);
@@ -153,6 +154,13 @@ void	check(t_vm_data *d);
 //		play.c
 void	play_the_game(t_vm_data *d);
 
+//		* * * * * * * * HELPERS * * * * * * * *
+//		print.c
+void	print_error(char *str, int usage);
+void	print_dump(t_vm_data *d);
+void	print_replica_dump(t_vm_data *d);
+void	print_contestants(t_vm_data *d);
+void	dump_info(t_vm_data *d);
 
 
 
@@ -161,7 +169,7 @@ void	play_the_game(t_vm_data *d);
 //		* * * * * * * * TESTS * * * * * * * *
 //		prerequite_tests.c
 void	print_champs(t_vm_data *d);
-void	print_arena(t_vm_data *d);				// Move to somewhere
+void	print_arena(t_vm_data *d);
 void	print_carriages(t_vm_data *d);
 
 

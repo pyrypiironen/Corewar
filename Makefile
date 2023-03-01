@@ -29,7 +29,7 @@ PREREQUITES =	arena.c \
 				read_cor.c \
 				read_cor_2.c
 
-HELPERS =		error.c
+HELPERS =		print.c
 
 #Delete when project is ready
 TESTS =			prerequite_tests.c

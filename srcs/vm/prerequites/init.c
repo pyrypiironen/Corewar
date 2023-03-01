@@ -53,5 +53,8 @@ static void	init_data_vm(t_vm_data *d)
 	d->cycles_to_check = d->cycles_to_die;
 	d->live_statements = 0;
 	d->n_flag = 0;
+	d->d_flag = -2;
+	d->od_flag = -2;
+	d->c_flag = -2;
 }
 

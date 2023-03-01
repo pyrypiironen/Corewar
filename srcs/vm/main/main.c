@@ -22,6 +22,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		print_error("Wrong usage. Invalid amount of arguments.", 1);
 	init_core(argc, argv, d);
+	print_contestants(d);
 	play_the_game(d);
 	
 

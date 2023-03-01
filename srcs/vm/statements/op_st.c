@@ -15,6 +15,11 @@
 static long long	get_second_arg(t_carriage *carriage, t_vm_data *d);
 static long long	get_third_arg(t_carriage *carriage, t_vm_data *d);
 
+// Statement st. Writes a value from the registry that was passed as the first 
+// argument. The location of writing depends on the type of the second argument:
+// If second argument is registry, then the value is written to registry.
+// If second argument is T_IND, then the value is written to memory location
+// which is pointed by it.
 void	op_st(t_carriage *carriage, t_vm_data *d)
 {
 	int	first;

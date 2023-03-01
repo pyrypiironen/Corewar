@@ -16,7 +16,6 @@ static int	is_flag(t_vm_data *d, char *argv);
 static void	read_flag(t_vm_data *d, char *value);
 static int	core_atoi(t_vm_data *d, char *str);
 
-
 // Main function of reading command line input and .cor files.
 // Will initialize champions data structures and flag data.
 void	read_champs(int argc, char **argv, t_vm_data *d)
@@ -48,9 +47,23 @@ static int	is_flag(t_vm_data *d, char *argv)
 	}
 	else if (ft_strcmp(argv, "-dump") == 0)
 	{
-		if (d->d_flag != 0)
-			print_error("Wrong usage. Only one -dump flag is allowed.", 1);
+		if (d->d_flag != -2 || d->od_flag != -2 || d->c_flag != -2)
+			print_error("Wrong usage. Only one -dump/-d/-c flag allowed.", 1);
 		d->d_flag = -1;
+		return (1);
+	}
+	else if (ft_strcmp(argv, "-d") == 0)
+	{
+		if (d->d_flag != -2 || d->od_flag != -2 || d->c_flag != -2)
+			print_error("Wrong usage. Only one -dump/-d/-c flag allowed.", 1);
+		d->od_flag = -1;
+		return (1);
+	}
+	else if (ft_strcmp(argv, "-c") == 0)
+	{
+		if (d->d_flag != -2 || d->od_flag != -2 || d->c_flag != -2)
+			print_error("Wrong usage. Only one -dump/-d/-c flag allowed.", 1);
+		d->c_flag = -1;
 		return (1);
 	}
 	return (0);
@@ -61,8 +74,12 @@ static void	read_flag(t_vm_data *d, char *value)
 {
 	if (d->n_flag == -1)
 		d->n_flag = core_atoi(d, value);
-	else
+	else if (d->d_flag == -1)
 		d->d_flag = core_atoi(d, value);
+	else if (d->od_flag == -1)
+		d->od_flag = core_atoi(d, value);
+	else
+		d->c_flag = core_atoi(d, value);
 }
 
 // Simple version of ft_atoi modified to this project. Also include error
