@@ -45,7 +45,7 @@ static void	remove_dead(t_vm_data *d)
 // Check if carriage is dead. Return 1 if it is dead and 0 if it is alive.
 static int	is_dead(t_vm_data *d, t_carriage *carriage)
 {
-	if(d->cycles_to_die <= d->current_cycle - carriage->last_live)
+	if(carriage && (d->cycles_to_die <= d->current_cycle - carriage->last_live))
 		return (1);
 	return (0);
 }

@@ -23,8 +23,6 @@ void	init_core(int argc, char **argv, t_vm_data *d)
 	read_champs(argc, argv, d);
 	fill_arena(d);
 	init_carriages(d);
-
-
 }
 
 // Initialize the arena and array which points the color of every memory

@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		print_error("Wrong usage. Invalid amount of arguments.", 1);
 	init_core(argc, argv, d);
-	//play_the_game(d);
+	play_the_game(d);
 	
 
 
@@ -100,6 +100,6 @@ int	main(int argc, char **argv)
 	// //print_arena(d);
 
 
-	ft_printf("{green}Success! Main exit (exit code 0).\n");
+	ft_printf("{green}Success! Main exit (exit code 0).{eoc}\n");
 	exit (0);
 }
