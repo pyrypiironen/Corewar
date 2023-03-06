@@ -49,6 +49,8 @@ void	op_lfork(t_carriage *carriage, t_vm_data *d)
 	d->carriage_head = new;
 	copy_carriage(carriage, d);
 	d->carriage_head->cursor = (carriage->cursor + arg) % MEM_SIZE;
+	//new line to avoid seg fault:
+	d->carriage_head->cursor_copy = d->carriage_head->cursor;
 	carriage->cursor = (carriage->cursor + 4) % MEM_SIZE;
 }
 

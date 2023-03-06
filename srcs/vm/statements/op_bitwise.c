@@ -17,13 +17,20 @@ static long long	get_second_arg(t_carriage *carriage, t_vm_data *d);
 
 void	op_and(t_carriage *carriage, t_vm_data *d)
 {
+	printf("op_and IN\n");
 	long long	arg_1;
 	long long	arg_2;
 	int			arg_3;
 
+	printf("Cursor-copy before arg 1: %d\n", carriage->cursor_copy);
+	// Cursor_copy already have the invalid value before entering this function.
 	arg_1 = get_first_arg(carriage, d);
 	arg_2 = get_second_arg(carriage, d);
-	arg_3 = d->arena[carriage->cursor_copy] - 1;
+	// When first arg is valid, there is no problem, because we initialize
+	// cursor_copy again. But when not, we run over with invalid value.
+	printf("Cursor-copy: %d\n", carriage->cursor_copy);
+	arg_3 = d->arena[carriage->cursor_copy] - 1;	// And this line seg faults.
+	printf("After third arg.\n");
 	if (is_valid_reg(carriage->cursor_copy, d) && arg_1 != 2147483648 \
 		&& arg_2 != 2147483648)
 	{
@@ -34,7 +41,7 @@ void	op_and(t_carriage *carriage, t_vm_data *d)
 	else
 		carriage->cursor = (carriage->cursor \
 		+ count_jump_size(carriage, d, 4, 3)) % MEM_SIZE;
-
+	printf("op_and OUT\n");
 }
 
 void	op_or(t_carriage *carriage, t_vm_data *d)

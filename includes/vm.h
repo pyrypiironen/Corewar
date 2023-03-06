@@ -17,6 +17,7 @@
 # include "../libft/libft.h"
 # include "op.h"
 # include <fcntl.h>
+# include <stdio.h> // DELETE, just for real printf
 
 static const char *color_tab[] = {
 	"", "\x1B[32m", "\x1B[33m", "\x1B[31m", "\x1B[35m"
