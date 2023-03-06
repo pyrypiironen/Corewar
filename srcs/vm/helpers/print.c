@@ -59,8 +59,8 @@ void	print_replica_dump(t_vm_data *d)
 			ft_printf("%.2x", d->arena[i]);
 			i++;
 			j++;
-			if (j < 64)
-				ft_printf(" ");
+			//if (j < 64)
+			ft_printf(" ");
 		}
 		ft_printf("\n");
 	}
