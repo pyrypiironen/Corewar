@@ -13,6 +13,7 @@
 #include "../../../includes/vm.h"
 
 static int	is_flag(t_vm_data *d, char *argv);
+static int	is_flag_helper(t_vm_data *d, char *argv);
 static void	read_flag(t_vm_data *d, char *value);
 static int	core_atoi(t_vm_data *d, char *str);
 
@@ -47,21 +48,40 @@ static int	is_flag(t_vm_data *d, char *argv)
 	}
 	else if (ft_strcmp(argv, "-dump") == 0)
 	{
-		if (d->d_flag != -2 || d->od_flag != -2 || d->c_flag != -2)
+		if (d->d_flag != -2 || d->od_flag != -2 || d->c_flag != -2 || \
+			d->a_flag != -2)
 			print_error("Wrong usage. Only one -dump/-d/-c flag allowed.", 1);
 		d->d_flag = -1;
 		return (1);
 	}
 	else if (ft_strcmp(argv, "-d") == 0)
 	{
-		if (d->d_flag != -2 || d->od_flag != -2 || d->c_flag != -2)
+		if (d->d_flag != -2 || d->od_flag != -2 || d->c_flag != -2 || \
+			d->a_flag != -2)
 			print_error("Wrong usage. Only one -dump/-d/-c flag allowed.", 1);
 		d->od_flag = -1;
 		return (1);
 	}
+	else if (is_flag_helper(d, argv))
+		return (1);
+	return (0);
+}
+
+// Just an extension for is_flag function.
+static int	is_flag_helper(t_vm_data *d, char *argv)
+{
+	if (ft_strcmp(argv, "-a") == 0)
+	{
+		if (d->d_flag != -2 || d->od_flag != -2 || d->c_flag != -2 || \
+			d->a_flag != -2)
+			print_error("Wrong usage. Only one -dump/-d/-c flag allowed.", 1);
+		d->a_flag = -1;
+		return (1);
+	}
 	else if (ft_strcmp(argv, "-c") == 0)
 	{
-		if (d->d_flag != -2 || d->od_flag != -2 || d->c_flag != -2)
+		if (d->d_flag != -2 || d->od_flag != -2 || d->c_flag != -2 || \
+			d->a_flag != -2)
 			print_error("Wrong usage. Only one -dump/-d/-c flag allowed.", 1);
 		d->c_flag = -1;
 		return (1);
@@ -78,6 +98,8 @@ static void	read_flag(t_vm_data *d, char *value)
 		d->d_flag = core_atoi(d, value);
 	else if (d->od_flag == -1)
 		d->od_flag = core_atoi(d, value);
+	else if (d->a_flag == -1)
+		d->a_flag = core_atoi(d, value);
 	else
 		d->c_flag = core_atoi(d, value);
 }

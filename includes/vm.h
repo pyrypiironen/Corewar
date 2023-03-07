@@ -42,6 +42,7 @@ typedef struct			s_vm_data
 	int					d_flag;
 	int					od_flag;
 	int					c_flag;
+	int					a_flag; // print actions and dump
 }						t_vm_data;
 
 typedef struct			s_carriage
