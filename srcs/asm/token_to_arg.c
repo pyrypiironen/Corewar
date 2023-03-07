@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 12:07:05 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/28 14:18:17 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/07 16:18:32 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ static void	arg_registry(t_asm *d, t_oken *cur, t_stat *dst)
 		asm_token_error(d, cur, STX_ERR);
 	res = ft_atoi(&cur->str[1]);
 	dst->args[dst->cur_arg] = res;
+	if (d->debug && (res < 1 || res > 16))
+		ft_printf("Warning: argument type \"registry\" should be between \
+1-16, but has value %lu. [%0.3lu:%0.3lu]\n", res, cur->row, cur->col);
 }
 
 static void	arg_label(t_asm *d, t_oken *cur, t_stat *dst)
