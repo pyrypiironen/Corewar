@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/28 14:28:34 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/07 16:39:30 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,9 @@ static void	syntax_checker(t_asm *d)
 			save_argument(d, tmp, prev, d->tail_statement);
 		else if (tmp->type != SEPARATOR && tmp->type != NEWLINE)
 			token_to_statement(d, tmp, prev);
+		if (tmp->type == NEWLINE && d->tail_statement && \
+		!d->tail_statement->valid)
+			asm_token_error(d, tmp, ENDLINE_ERR);
 		prev = tmp;
 		tmp = tmp->next;
 		if (valid_token_order(tmp, prev) == false)
