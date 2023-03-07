@@ -19,28 +19,39 @@ def blue(text):
 os.system('rm corewar && cd .. && make vm && make vm_clean && cp corewar ./vm_tests/corewar && cd vm_tests')
 
 # Set the starting cycle of testing.
-cycle = 0
+cycle = 0			#First diff comes in cycle 1105
 
-
+# Define champs
 champs = ' ./champs/Car.cor ./champs/Gagnant.cor'
+
+# Define commands and log files
 corewar = './corewar' + champs + ' -d '
 corewar42 = './corewar42' + champs + ' -d '
+corewar_info = './corewar' + champs + ' -c '
+corewar_text = './logs/corewar.txt'
+corewar42_text = './logs/corewar42.txt'
+info_text = './logs/info.txt'
+
+
+
+
+
 
 # Next:
 # Write winner texts to corewar.
 # Add break point to test loop.
 
 
-while cycle < 50000:
+while cycle < 50:
 	# Open text files, run the programs and write outputs to text files.
-	with open('corewar.txt', 'w') as f1:
+	with open(corewar_text, 'w') as f1:
 		subprocess.run(corewar + str(cycle), shell=True, stdout=f1)
-	with open('corewar42.txt', 'w') as f2:
+	with open(corewar42_text, 'w') as f2:
 		subprocess.run(corewar42 + str(cycle), shell=True, stdout=f2)
 	# Compare text files.
-	with open('corewar.txt', 'r') as f1:
+	with open(corewar_text, 'r') as f1:
 		output = f1.read()
-	with open('corewar42.txt', 'r') as f2:
+	with open(corewar42_text, 'r') as f2:
 		output42 = f2.read()
 	s = difflib.SequenceMatcher(None, output, output42)
 	# Print result.
@@ -49,11 +60,11 @@ while cycle < 50000:
 	else:
 		print(red('Cycle ' + str(cycle) + ' : Difference found!'))
 		break
-	
-	
-	
-	
-
 	# Iterate cycle for dump.
 	cycle += 1
+
+
+with open(info_text, 'w') as f3:
+	subprocess.run(corewar_info + str(cycle), shell=True, stdout=f3)
+
 

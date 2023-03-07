@@ -1,0 +1,54 @@
+Introducing contestants...
+* Player 1, weighing 281 bytes, "Tching tching(Intercepteur), Bouh!Bouh!(bruits d'anti-jeu)" ("") !
+* Player 2, weighing 325 bytes, "Celebration Funebre v0.99pl42" ("Jour J") !
+
+Cycle: 50
+Cycles to die: 1536
+Cycles to check: 1486
+Live statements: 0
+
+ID: 2
+Carry flag: 1
+Cursor location: 2142
+Statement: 0A
+To execute: 0
+Last live: 0
+Registry 1: -2
+Registry 2: 1
+Registry 3: 0
+Registry 4: 1
+Registry 5: 1
+Registry 6: 1
+Registry 7: 1
+Registry 8: 1
+Registry 9: 1
+Registry 10: 1
+Registry 11: 1
+Registry 12: 1
+Registry 13: 1
+Registry 14: 1
+Registry 15: 1
+Registry 16: 1
+
+ID: 1
+Carry flag: 0
+Cursor location: 0
+Statement: 0B
+To execute: 750
+Last live: 0
+Registry 1: -1
+Registry 2: 1
+Registry 3: 1
+Registry 4: 1
+Registry 5: 1
+Registry 6: 1
+Registry 7: 1
+Registry 8: 1
+Registry 9: 1
+Registry 10: 1
+Registry 11: 1
+Registry 12: 1
+Registry 13: 1
+Registry 14: 1
+Registry 15: 1
+Registry 16: 1
