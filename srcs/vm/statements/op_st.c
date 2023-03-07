@@ -128,11 +128,3 @@ static long long	get_third_arg(t_carriage *carriage, t_vm_data *d)
 	}
 	return (2147483648);
 }
-
-// static void	sti_actions(t_carriage *carriage, t_vm_data *d)
-// {
-// 	if (d->a_flag != -2)
-// 	{
-// 		ft_printf("P%5d | sti r%d %d %d\n", carriage->id, )
-// 	}
-// }
