@@ -62,6 +62,7 @@ static void	check_carriage(t_vm_data *d)
 	}
 }
 
+// Read new statement and init all its necessary data to the carriage.
 static void	read_statement(t_vm_data *d)
 {
 	//write(1, "read statement in\n", 18); // TESTING

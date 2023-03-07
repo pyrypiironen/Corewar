@@ -24,8 +24,12 @@ void	op_jump(t_carriage *carriage, t_vm_data *d)
 		second = d->arena[(carriage->cursor + 2) % MEM_SIZE];
 		arg = ((first << 8) + second);
 		carriage->cursor = (carriage->cursor + (arg % IDX_MOD)) % MEM_SIZE;
+		if (d->a_flag != -2)
+			ft_printf("P%5d | zjmp %d OK\n", carriage->id, arg);
 	}
 	else
-		// If the carry value is zero, no movement is performed.
-		carriage->cursor = (carriage->cursor + 4) % MEM_SIZE; // nosense for testing
+	{
+		carriage->cursor = (carriage->cursor + 3) % MEM_SIZE;
+		ft_printf("P%5d | zjmp %d FAILED\n", carriage->id, arg);
+	}
 }

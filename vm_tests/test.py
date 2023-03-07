@@ -16,7 +16,7 @@ def blue(text):
     return '\033[34m' + text + '\033[0m'
 
 # Make and copy new corewar to this folder.
-os.system('rm corewar && cd .. && make vm && make vm_clean && cp corewar ./vm_tests/corewar && cd vm_tests')
+os.system('cd .. && make vm && make vm_clean && cp corewar ./vm_tests/corewar && cd vm_tests')
 
 # Set the starting cycle of testing.
 cycle = 0			#First diff comes in cycle 1105

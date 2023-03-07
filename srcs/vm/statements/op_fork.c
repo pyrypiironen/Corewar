@@ -12,6 +12,8 @@
 
 # include "../../../includes/vm.h"
 
+// The fork statement makes a copy of the carriage. And this copy is placed at
+// the address <first arg> % IDX_MOD.
 void	op_fork(t_carriage *carriage, t_vm_data *d)
 {
 	unsigned char	first;
@@ -28,10 +30,15 @@ void	op_fork(t_carriage *carriage, t_vm_data *d)
 	new->next = d->carriage_head;
 	d->carriage_head = new;
 	copy_carriage(carriage, d);
+	if (d->a_flag != -2)
+		ft_printf("P%5d | fork %d (%d)\n", carriage->id, arg, \
+		(carriage->cursor + arg) % IDX_MOD);
 	d->carriage_head->cursor = (carriage->cursor + (arg % IDX_MOD)) % MEM_SIZE;
 	carriage->cursor = (carriage->cursor + 4) % MEM_SIZE;
 }
 
+// Long lfork statement. Same than fork statement, but can place new carriage
+// further than 512 memory location away.
 void	op_lfork(t_carriage *carriage, t_vm_data *d)
 {
 	unsigned char	first;
@@ -48,6 +55,9 @@ void	op_lfork(t_carriage *carriage, t_vm_data *d)
 	new->next = d->carriage_head;
 	d->carriage_head = new;
 	copy_carriage(carriage, d);
+	if (d->a_flag != -2)
+		ft_printf("P%5d | lfork %d (%d)\n", carriage->id, arg, \
+		carriage->cursor + arg);
 	d->carriage_head->cursor = (carriage->cursor + arg) % MEM_SIZE;
 	carriage->cursor = (carriage->cursor + 4) % MEM_SIZE;
 }

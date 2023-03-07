@@ -14,6 +14,7 @@
 
 static long long	get_second_arg(t_carriage *carriage, t_vm_data *d);
 static long long	get_third_arg(t_carriage *carriage, t_vm_data *d);
+static void	sti_actions(t_carriage *carriage, t_vm_data *d);
 
 // This statement writes a value from the registry that was passed as the first 
 // argument. The location of writing depends on the type of the second argument:
@@ -50,24 +51,29 @@ void	op_st(t_carriage *carriage, t_vm_data *d)
 
 
 // This statement writes the value of the registry passed as the first
-// paramete to the address:
+// parameter to the address:
 // current position + (<second arg value> + <third arg value>) % IDX_MOD.
 void	op_sti(t_carriage *carriage, t_vm_data *d)
 {
-	int			arg_1; // Actually index for reg, name this better
+	int			reg; // Actually index for reg, name this better
 	long long	arg_2;
 	long long	arg_3;
 	int			pos;
 
-	arg_1 = d->arena[(carriage->cursor + 2) % MEM_SIZE] - 1;
+	reg = d->arena[(carriage->cursor + 2) % MEM_SIZE] - 1;
 	arg_2 = get_second_arg(carriage, d);
 	arg_3 = get_third_arg(carriage, d);
 	if (is_valid_reg((carriage->cursor + 2) % MEM_SIZE, d) && \
 		arg_2 != 2147483648 && arg_3 != 2147483648)
 	{
 		pos = (carriage->cursor + (arg_2 + arg_3) % IDX_MOD) % MEM_SIZE;
-		int_to_arena(d, pos, carriage->registrys[arg_1]);
+		int_to_arena(d, pos, carriage->registrys[reg]);
 		carriage->cursor = carriage->cursor_copy;
+		//sti_actions(carriage, d);
+		if (d->a_flag != -2)
+			ft_printf("P%5d | sti r%d %d %d\n       | -> store to %d + %d = %d \
+(with pc and mod %d)\n", carriage->id, reg + 1, arg_2, arg_3, \
+			arg_2, arg_3, arg_2 + arg_3, pos);
 	}
 	else
 		carriage->cursor = (carriage->cursor \
@@ -122,3 +128,11 @@ static long long	get_third_arg(t_carriage *carriage, t_vm_data *d)
 	}
 	return (2147483648);
 }
+
+// static void	sti_actions(t_carriage *carriage, t_vm_data *d)
+// {
+// 	if (d->a_flag != -2)
+// 	{
+// 		ft_printf("P%5d | sti r%d %d %d\n", carriage->id, )
+// 	}
+// }
