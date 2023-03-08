@@ -86,6 +86,8 @@ void	op_xor(t_carriage *carriage, t_vm_data *d)
 		+ count_jump_size(carriage, d, 4, 3)) % MEM_SIZE;
 }
 
+// Read argument type code and based on that, get first value from T_REG,
+// T_DIR or T_IND.
 static long long	get_first_arg(t_carriage *carriage, t_vm_data *d)
 {
 	int			res;
@@ -117,6 +119,8 @@ static long long	get_first_arg(t_carriage *carriage, t_vm_data *d)
 	return (2147483648);
 }
 
+// Read argument type code and based on that, get second value from T_REG,
+// T_DIR or T_IND.
 static long long	get_second_arg(t_carriage *carriage, t_vm_data *d)
 {
 	int			res;

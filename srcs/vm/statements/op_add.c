@@ -32,8 +32,8 @@ void	op_add(t_carriage *carriage, t_vm_data *d)
 		carriage->registrys[second];
 		carriage->carry = update_carry(carriage->registrys[third]);
 		if (d->a_flag != -2)
-			ft_printf("P%5d | add r%d r%d r%d\n", carriage->id, \
-			first + 1, second + 1, third + 1);
+			ft_printf("P      | add r%d r%d r%d\n", first + 1, second + 1, \
+			third + 1);
 	}
 	carriage->cursor = (carriage->cursor + 5) % MEM_SIZE;
 	// Or should we read argument value code.
@@ -57,13 +57,14 @@ void	op_sub(t_carriage *carriage, t_vm_data *d)
 		carriage->registrys[second];
 		carriage->carry = update_carry(carriage->registrys[third]);
 		if (d->a_flag != -2)
-			ft_printf("P%5d | sub r%d r%d r%d\n", carriage->id, \
-			first + 1, second + 1, third + 1);
+			ft_printf("P     | sub r%d r%d r%d\n", first + 1, second + 1, \
+			third + 1);
 	}
 	carriage->cursor = (carriage->cursor + 5) % MEM_SIZE;
 	// Or should we read argument value code.
 }
 
+// Check that all arguments are valid regitrys.
 static int	is_valid_add_sub(t_carriage *carriage, t_vm_data *d)
 {
 	if (!is_valid_reg((carriage->cursor + 2) % MEM_SIZE, d))

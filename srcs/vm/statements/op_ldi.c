@@ -5,7 +5,8 @@
 static long long	get_first_arg(t_carriage *carriage, t_vm_data *d);
 static long long	get_second_arg(t_carriage *carriage, t_vm_data *d);
 
-// Statement ldi.  Writes the 4 byte value to the registry, which was passed to 
+// Load index.
+// This statement writes the 4 byte value to the registry, which was passed to 
 // it as the third parameter. Reads the value at the address, which is formed 
 // according to the following principle:
 // current position + (<first arg value> + <second arg value>) % IDX_MOD.
@@ -13,17 +14,18 @@ void	op_ldi(t_carriage *carriage, t_vm_data *d)
 {
 	long long	arg_1;
 	long long	arg_2;
-	int			arg_3;  // Actually index for reg, name this better
+	int			reg;
 	int			pos;
 
 	arg_1 = get_first_arg(carriage, d);
 	arg_2 = get_second_arg(carriage, d);
-	arg_3 = d->arena[carriage->cursor_copy] - 1;
+	reg = d->arena[carriage->cursor_copy] - 1;
 	if (is_valid_reg(carriage->cursor_copy, d) && arg_1 != 2147483648 \
 		&& arg_2 != 2147483648)
 	{
-		pos = (carriage->cursor + (arg_1 + arg_2) % IDX_MOD) % MEM_SIZE;
-		carriage->registrys[arg_3] = get_4_byte_value(d, pos);
+		//pos = (carriage->cursor + (arg_1 + arg_2) % IDX_MOD) % MEM_SIZE; //replaced by next line
+		pos = move_cursor(carriage, (arg_1 + arg_2) % IDX_MOD);
+		carriage->registrys[reg] = get_4_byte_value(d, pos);
 		carriage->cursor = (carriage->cursor_copy + 1) % MEM_SIZE;
 	}
 	else
@@ -31,23 +33,25 @@ void	op_ldi(t_carriage *carriage, t_vm_data *d)
 		+ count_jump_size(carriage, d, 2, 3)) % MEM_SIZE;
 }
 
+// Long load index.
 // Statement lldi. Same than statement ldi, but can load further than
 // 512 memory location away.
 void	op_lldi(t_carriage *carriage, t_vm_data *d)
 {
 	long long	arg_1;
 	long long	arg_2;
-	int			arg_3;  // Actually index for reg, name this better
+	int			reg;
 	int			pos;
 
 	arg_1 = get_first_arg(carriage, d);
 	arg_2 = get_second_arg(carriage, d);
-	arg_3 = d->arena[carriage->cursor_copy] - 1;
+	reg = d->arena[carriage->cursor_copy] - 1;
 	if (is_valid_reg(carriage->cursor_copy, d) && arg_1 != 2147483648 \
 		&& arg_2 != 2147483648)
 	{
-		pos = (carriage->cursor + arg_1 + arg_2) % MEM_SIZE;
-		carriage->registrys[arg_3] = get_4_byte_value(d, pos);
+		//pos = (carriage->cursor + arg_1 + arg_2) % MEM_SIZE; //replaced by next line
+		pos = move_cursor(carriage, arg_1 + arg_2);
+		carriage->registrys[reg] = get_4_byte_value(d, pos);
 		carriage->cursor = (carriage->cursor_copy + 1) % MEM_SIZE;
 	}
 	else
@@ -55,9 +59,10 @@ void	op_lldi(t_carriage *carriage, t_vm_data *d)
 		+ count_jump_size(carriage, d, 2, 3)) % MEM_SIZE;
 }
 
+// Read argument type code and based on that, get first value from T_REG,
+// T_DIR or T_IND.
 static long long	get_first_arg(t_carriage *carriage, t_vm_data *d)
 {
-	// Cleanup the reg validations when not needed
 	int			res;
 	int			pos;
 
@@ -85,6 +90,8 @@ static long long	get_first_arg(t_carriage *carriage, t_vm_data *d)
 	return (2147483648);
 }
 
+// Read argument type code and based on that, get second value from T_REG,
+// or T_DIR.
 static long long	get_second_arg(t_carriage *carriage, t_vm_data *d)
 {
 	int			res;

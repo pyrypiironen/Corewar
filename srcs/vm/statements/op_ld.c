@@ -84,5 +84,5 @@ unsigned char reg)
 {
 	carriage->carry = update_carry(value);
 	if (d->a_flag != -2)
-		ft_printf("P%5d | ld %d r%d\n", carriage->id, value, reg + 1);
+		ft_printf("P      | ld %d r%d\n", value, reg + 1);
 }

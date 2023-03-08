@@ -25,15 +25,14 @@ void	op_jump(t_carriage *carriage, t_vm_data *d)
 	arg = ((first << 8) + second);
 	if (carriage->carry)
 	{
-		//carriage->cursor = (carriage->cursor + (arg % IDX_MOD)) % MEM_SIZE; // OLD
 		carriage->cursor = move_cursor(carriage, arg % IDX_MOD);
 		if (d->a_flag != -2)
-			ft_printf("P%5d | zjmp %d OK\n", carriage->id, arg);
+			ft_printf("P      | zjmp %d OK\n", arg);
 	}
 	else
 	{
 		carriage->cursor = (carriage->cursor + 3) % MEM_SIZE;
 		if (d->a_flag != -2)
-			ft_printf("P%5d | zjmp %d FAILED\n", carriage->id, arg);
+			ft_printf("P      | zjmp %d FAILED\n", arg);
 	}
 }

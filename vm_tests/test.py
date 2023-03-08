@@ -22,7 +22,7 @@ os.system('cd .. && make vm && make vm_clean && cp corewar ./vm_tests/corewar &&
 # First difference: 2515
 cycle = 2500
 # Set the cycle to print info.
-info = 799
+info = 1070
 
 # Define champs
 champs = ' ./champs/Car.cor ./champs/Gagnant.cor'

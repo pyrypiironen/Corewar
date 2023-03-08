@@ -6,7 +6,7 @@ It is now cycle 2
 It is now cycle 3
 It is now cycle 4
 It is now cycle 5
-P    2 | ld 0 r3
+P      | ld 0 r3
 Carriage position: 2055
 It is now cycle 6
 It is now cycle 7
@@ -28,7 +28,7 @@ It is now cycle 22
 It is now cycle 23
 It is now cycle 24
 It is now cycle 25
-P    2 | zjmp 80 OK
+P      | zjmp 80 OK
 Carriage position: 2135
 It is now cycle 26
 It is now cycle 27
@@ -55,7 +55,7 @@ It is now cycle 47
 It is now cycle 48
 It is now cycle 49
 It is now cycle 50
-P    2 | sti r1 -74 1
+P      | sti r1 -74 1
        | -> store to -74 + 1 = -73 (with pc and mod 2062)
 Carriage position: 2142
 It is now cycle 51
@@ -83,7 +83,7 @@ It is now cycle 72
 It is now cycle 73
 It is now cycle 74
 It is now cycle 75
-P    2 | sti r1 -81 15
+P      | sti r1 -81 15
        | -> store to -81 + 15 = -66 (with pc and mod 2076)
 Carriage position: 2149
 It is now cycle 76
@@ -111,7 +111,7 @@ It is now cycle 97
 It is now cycle 98
 It is now cycle 99
 It is now cycle 100
-P    2 | sti r1 -88 29
+P      | sti r1 -88 29
        | -> store to -88 + 29 = -59 (with pc and mod 2090)
 Carriage position: 2156
 It is now cycle 101
@@ -139,7 +139,7 @@ It is now cycle 122
 It is now cycle 123
 It is now cycle 124
 It is now cycle 125
-P    2 | sti r1 -95 43
+P      | sti r1 -95 43
        | -> store to -95 + 43 = -52 (with pc and mod 2104)
 Carriage position: 2163
 It is now cycle 126
@@ -167,7 +167,7 @@ It is now cycle 147
 It is now cycle 148
 It is now cycle 149
 It is now cycle 150
-P    2 | sti r1 -102 57
+P      | sti r1 -102 57
        | -> store to -102 + 57 = -45 (with pc and mod 2118)
 Carriage position: 2170
 It is now cycle 151
@@ -195,7 +195,7 @@ It is now cycle 172
 It is now cycle 173
 It is now cycle 174
 It is now cycle 175
-P    2 | sti r1 -109 71
+P      | sti r1 -109 71
        | -> store to -109 + 71 = -38 (with pc and mod 2132)
 Carriage position: 2177
 It is now cycle 176
@@ -203,28 +203,28 @@ It is now cycle 177
 It is now cycle 178
 It is now cycle 179
 It is now cycle 180
-P    2 | ld 393216 r4
+P      | ld 393216 r4
 Carriage position: 2184
 It is now cycle 181
 It is now cycle 182
 It is now cycle 183
 It is now cycle 184
 It is now cycle 185
-P    2 | ld 917504 r12
+P      | ld 917504 r12
 Carriage position: 2191
 It is now cycle 186
 It is now cycle 187
 It is now cycle 188
 It is now cycle 189
 It is now cycle 190
-P    2 | ld 1 r11
+P      | ld 1 r11
 Carriage position: 2198
 It is now cycle 191
 It is now cycle 192
 It is now cycle 193
 It is now cycle 194
 It is now cycle 195
-P    2 | ld 6 r10
+P      | ld 6 r10
 Carriage position: 2205
 It is now cycle 196
 It is now cycle 197
@@ -236,7 +236,7 @@ It is now cycle 202
 It is now cycle 203
 It is now cycle 204
 It is now cycle 205
-P    2 | live 42
+P      | live 42
 Carriage position: 2210
 It is now cycle 206
 It is now cycle 207
@@ -263,7 +263,7 @@ It is now cycle 227
 It is now cycle 228
 It is now cycle 229
 It is now cycle 230
-P    2 | sti r4 -155 1
+P      | sti r4 -155 1
        | -> store to -155 + 1 = -154 (with pc and mod 2056)
 Carriage position: 2217
 It is now cycle 231
@@ -276,7 +276,7 @@ It is now cycle 237
 It is now cycle 238
 It is now cycle 239
 It is now cycle 240
-P    2 | add r4 r12 r4
+P      | add r4 r12 r4
 Carriage position: 2222
 It is now cycle 241
 It is now cycle 242
@@ -288,7 +288,7 @@ It is now cycle 247
 It is now cycle 248
 It is now cycle 249
 It is now cycle 250
-P    2 | sub r10 r11 r10
+P     | sub r10 r11 r10
 Carriage position: 2227
 It is now cycle 251
 It is now cycle 252
@@ -310,7 +310,7 @@ It is now cycle 267
 It is now cycle 268
 It is now cycle 269
 It is now cycle 270
-P    2 | zjmp -50 FAILED
+P      | zjmp -50 FAILED
 Carriage position: 2230
 It is now cycle 271
 It is now cycle 272
@@ -842,16 +842,16 @@ It is now cycle 797
 It is now cycle 798
 It is now cycle 799
 It is now cycle 800
-P    1 | fork 106 (106)
+P    | fork 106 (106)
 Carriage position: 3
 It is now cycle 801
 It is now cycle 802
 It is now cycle 803
 It is now cycle 804
 It is now cycle 805
-P    1 | ld 400 r3
+P      | ld 400 r3
 Carriage position: 113
-P    1 | ld -272 r3
+P      | ld -272 r3
 Carriage position: 10
 It is now cycle 806
 It is now cycle 807
@@ -863,9 +863,9 @@ It is now cycle 812
 It is now cycle 813
 It is now cycle 814
 It is now cycle 815
-P    1 | live 0
+P      | live 0
 Carriage position: 118
-P    1 | live 0
+P      | live 0
 Carriage position: 15
 It is now cycle 816
 It is now cycle 817
@@ -1122,7 +1122,7 @@ It is now cycle 1067
 It is now cycle 1068
 It is now cycle 1069
 It is now cycle 1070
-P    2 | fork -25 (2205)
+P    | fork -25 (2205)
 Carriage position: 2233
 It is now cycle 1071
 It is now cycle 1072
@@ -1134,9 +1134,9 @@ It is now cycle 1077
 It is now cycle 1078
 It is now cycle 1079
 It is now cycle 1080
-P    2 | live 42
+P      | live 42
 Carriage position: 2210
-P    2 | live 3
+P      | live 3
 Carriage position: 2238
 It is now cycle 1081
 It is now cycle 1082
@@ -1163,7 +1163,7 @@ It is now cycle 1102
 It is now cycle 1103
 It is now cycle 1104
 It is now cycle 1105
-P    4 | sti r4 -155 1
+P      | sti r4 -155 1
        | -> store to -155 + 1 = -154 (with pc and mod 2056)
 Carriage position: 2217
 It is now cycle 1106
@@ -1176,7 +1176,7 @@ It is now cycle 1112
 It is now cycle 1113
 It is now cycle 1114
 It is now cycle 1115
-P    4 | add r4 r12 r4
+P      | add r4 r12 r4
 Carriage position: 2222
 It is now cycle 1116
 It is now cycle 1117
@@ -1188,7 +1188,7 @@ It is now cycle 1122
 It is now cycle 1123
 It is now cycle 1124
 It is now cycle 1125
-P    4 | sub r10 r11 r10
+P     | sub r10 r11 r10
 Carriage position: 2227
 It is now cycle 1126
 It is now cycle 1127
@@ -1210,7 +1210,7 @@ It is now cycle 1142
 It is now cycle 1143
 It is now cycle 1144
 It is now cycle 1145
-P    4 | zjmp -50 FAILED
+P      | zjmp -50 FAILED
 Carriage position: 2230
 It is now cycle 1146
 It is now cycle 1147
@@ -1682,18 +1682,18 @@ It is now cycle 1612
 It is now cycle 1613
 It is now cycle 1614
 It is now cycle 1615
-P    3 | fork 40 (158)
+P    | fork 40 (158)
 Carriage position: 121
-P    1 | fork 47 (62)
+P    | fork 47 (62)
 Carriage position: 18
 It is now cycle 1616
 It is now cycle 1617
 It is now cycle 1618
 It is now cycle 1619
 It is now cycle 1620
-P    6 | ld -202 r3
+P      | ld -202 r3
 Carriage position: 69
-P    1 | ld -272 r3
+P      | ld -272 r3
 Carriage position: 25
 It is now cycle 1621
 It is now cycle 1622
@@ -1955,7 +1955,7 @@ It is now cycle 1877
 It is now cycle 1878
 It is now cycle 1879
 It is now cycle 1880
-P    2 | fork 40 (2278)
+P    | fork 40 (2278)
 Carriage position: 2241
 It is now cycle 1881
 It is now cycle 1882
@@ -1967,9 +1967,9 @@ It is now cycle 1887
 It is now cycle 1888
 It is now cycle 1889
 It is now cycle 1890
-P    7 | live 42
+P      | live 42
 Carriage position: 2283
-P    2 | live 4
+P      | live 4
 Carriage position: 2246
 It is now cycle 1891
 It is now cycle 1892
@@ -2026,7 +2026,7 @@ It is now cycle 1942
 It is now cycle 1943
 It is now cycle 1944
 It is now cycle 1945
-P    4 | fork -25 (2205)
+P    | fork -25 (2205)
 Carriage position: 2233
 It is now cycle 1946
 It is now cycle 1947
@@ -2038,9 +2038,9 @@ It is now cycle 1952
 It is now cycle 1953
 It is now cycle 1954
 It is now cycle 1955
-P    8 | live 42
+P      | live 42
 Carriage position: 2210
-P    4 | live 3
+P      | live 3
 Carriage position: 2238
 It is now cycle 1956
 It is now cycle 1957
@@ -2067,7 +2067,7 @@ It is now cycle 1977
 It is now cycle 1978
 It is now cycle 1979
 It is now cycle 1980
-P    8 | sti r4 -155 1
+P      | sti r4 -155 1
        | -> store to -155 + 1 = -154 (with pc and mod 2056)
 Carriage position: 2217
 It is now cycle 1981
@@ -2080,7 +2080,7 @@ It is now cycle 1987
 It is now cycle 1988
 It is now cycle 1989
 It is now cycle 1990
-P    8 | add r4 r12 r4
+P      | add r4 r12 r4
 Carriage position: 2222
 It is now cycle 1991
 It is now cycle 1992
@@ -2092,7 +2092,7 @@ It is now cycle 1997
 It is now cycle 1998
 It is now cycle 1999
 It is now cycle 2000
-P    8 | sub r10 r11 r10
+P     | sub r10 r11 r10
 Carriage position: 2227
 It is now cycle 2001
 It is now cycle 2002
@@ -2114,7 +2114,7 @@ It is now cycle 2017
 It is now cycle 2018
 It is now cycle 2019
 It is now cycle 2020
-P    8 | zjmp -50 FAILED
+P      | zjmp -50 FAILED
 Carriage position: 2230
 It is now cycle 2021
 It is now cycle 2022
@@ -2511,56 +2511,56 @@ It is now cycle 2412
 It is now cycle 2413
 It is now cycle 2414
 It is now cycle 2415
-P    5 | fork 13 (171)
+P    | fork 13 (171)
 Carriage position: 161
-P    3 | fork 20 (141)
+P    | fork 20 (141)
 Carriage position: 124
 It is now cycle 2416
 It is now cycle 2417
 It is now cycle 2418
 It is now cycle 2419
 It is now cycle 2420
-P   10 | ld 4 r2
+P      | ld 4 r2
 Carriage position: 148
-P    9 | ld 0 r4
+P      | ld 0 r4
 Carriage position: 178
-P    6 | fork 20 (89)
+P    | fork 20 (89)
 Carriage position: 72
-P    5 | ld 0 r4
+P      | ld 0 r4
 Carriage position: 168
-P    3 | ld 0 r2
+P      | ld 0 r2
 Carriage position: 131
-P    1 | fork 20 (45)
+P    | fork 20 (45)
 Carriage position: 28
 It is now cycle 2421
 It is now cycle 2422
 It is now cycle 2423
 It is now cycle 2424
 It is now cycle 2425
-P   12 | ld 4 r2
+P      | ld 4 r2
 Carriage position: 52
-P   11 | ld 4 r2
+P      | ld 4 r2
 Carriage position: 96
-P   10 | ld 0 r4
+P      | ld 0 r4
 Carriage position: 155
-P    6 | ld 0 r2
+P      | ld 0 r2
 Carriage position: 79
-P    3 | ld 0 r4
+P      | ld 0 r4
 Carriage position: 138
-P    1 | ld 0 r2
+P      | ld 0 r2
 Carriage position: 35
 It is now cycle 2426
 It is now cycle 2427
 It is now cycle 2428
 It is now cycle 2429
 It is now cycle 2430
-P   12 | ld 0 r4
+P      | ld 0 r4
 Carriage position: 59
-P   11 | ld 0 r4
+P      | ld 0 r4
 Carriage position: 103
-P    6 | ld 0 r4
+P      | ld 0 r4
 Carriage position: 86
-P    1 | ld 0 r4
+P      | ld 0 r4
 Carriage position: 42
 It is now cycle 2431
 It is now cycle 2432
@@ -2572,35 +2572,35 @@ It is now cycle 2437
 It is now cycle 2438
 It is now cycle 2439
 It is now cycle 2440
-P    9 | zjmp 92 OK
+P      | zjmp 92 OK
 Carriage position: 270
-P    5 | zjmp 91 OK
+P      | zjmp 91 OK
 Carriage position: 259
 It is now cycle 2441
 It is now cycle 2442
 It is now cycle 2443
 It is now cycle 2444
 It is now cycle 2445
-P   10 | zjmp 52 OK
+P      | zjmp 52 OK
 Carriage position: 207
-P    3 | zjmp 69 OK
+P      | zjmp 69 OK
 Carriage position: 207
 It is now cycle 2446
 It is now cycle 2447
 It is now cycle 2448
 It is now cycle 2449
 It is now cycle 2450
-P   12 | zjmp 122 OK
+P      | zjmp 122 OK
 Carriage position: 181
-P   11 | zjmp 130 OK
+P      | zjmp 130 OK
 Carriage position: 233
-P    9 | live 1
+P      | live 1
 Carriage position: 275
-P    6 | zjmp 147 OK
+P      | zjmp 147 OK
 Carriage position: 233
-P    5 | live 1
+P      | live 1
 Carriage position: 264
-P    1 | zjmp 139 OK
+P      | zjmp 139 OK
 Carriage position: 181
 It is now cycle 2451
 It is now cycle 2452
@@ -2622,10 +2622,10 @@ It is now cycle 2467
 It is now cycle 2468
 It is now cycle 2469
 It is now cycle 2470
-P   10 | ldi 4 18 r6
+P      | ldi 4 18 r6
        | -> load from 4 + 18 = 22 (with pc and mod 229)
 Carriage position: 213
-P    3 | ldi 0 18 r6
+P      | ldi 0 18 r6
        | -> load from 0 + 18 = 18 (with pc and mod 225)
 Carriage position: 213
 It is now cycle 2471
@@ -2633,20 +2633,20 @@ It is now cycle 2472
 It is now cycle 2473
 It is now cycle 2474
 It is now cycle 2475
-P   12 | ldi 4 18 r6
+P      | ldi 4 18 r6
        | -> load from 4 + 18 = 22 (with pc and mod 203)
 Carriage position: 187
-P   11 | ldi 4 18 r6
+P      | ldi 4 18 r6
        | -> load from 4 + 18 = 22 (with pc and mod 255)
 Carriage position: 239
-P   10 | ld 0 r4
+P      | ld 0 r4
 Carriage position: 220
-P    6 | ldi 0 18 r6
+P      | ldi 0 18 r6
        | -> load from 0 + 18 = 18 (with pc and mod 251)
 Carriage position: 239
-P    3 | ld 0 r4
+P      | ld 0 r4
 Carriage position: 220
-P    1 | ldi 0 18 r6
+P      | ldi 0 18 r6
        | -> load from 0 + 18 = 18 (with pc and mod 199)
 Carriage position: 187
 It is now cycle 2476
@@ -2654,35 +2654,35 @@ It is now cycle 2477
 It is now cycle 2478
 It is now cycle 2479
 It is now cycle 2480
-P   12 | ld 0 r4
+P      | ld 0 r4
 Carriage position: 194
-P   11 | ld 0 r4
+P      | ld 0 r4
 Carriage position: 246
-P    6 | ld 0 r4
+P      | ld 0 r4
 Carriage position: 246
-P    1 | ld 0 r4
+P      | ld 0 r4
 Carriage position: 194
 It is now cycle 2481
 It is now cycle 2482
 It is now cycle 2483
 It is now cycle 2484
 It is now cycle 2485
-P   10 | live 1
+P      | live 1
 Carriage position: 225
-P    3 | live 1
+P      | live 1
 Carriage position: 225
 It is now cycle 2486
 It is now cycle 2487
 It is now cycle 2488
 It is now cycle 2489
 It is now cycle 2490
-P   12 | live 1
+P      | live 1
 Carriage position: 199
-P   11 | live 1
+P      | live 1
 Carriage position: 251
-P    6 | live 1
+P      | live 1
 Carriage position: 251
-P    1 | live 1
+P      | live 1
 Carriage position: 199
 It is now cycle 2491
 It is now cycle 2492
@@ -2704,10 +2704,10 @@ It is now cycle 2507
 It is now cycle 2508
 It is now cycle 2509
 It is now cycle 2510
-P   10 | sti r6 4 400
+P      | sti r6 4 400
        | -> store to 4 + 400 = 404 (with pc and mod 629)
 Carriage position: 230
-P    3 | sti r6 0 400
+P      | sti r6 0 400
        | -> store to 0 + 400 = 400 (with pc and mod 625)
 Carriage position: 230
 It is now cycle 2511
@@ -2715,16 +2715,16 @@ It is now cycle 2512
 It is now cycle 2513
 It is now cycle 2514
 It is now cycle 2515
-P   12 | sti r6 4 -272
+P      | sti r6 4 -272
        | -> store to 4 + -272 = -268 (with pc and mod -69)
 Carriage position: 204
-P   11 | sti r6 4 -202
+P      | sti r6 4 -202
        | -> store to 4 + -202 = -198 (with pc and mod 53)
 Carriage position: 256
-P    6 | sti r6 0 -202
+P      | sti r6 0 -202
        | -> store to 0 + -202 = -202 (with pc and mod 49)
 Carriage position: 256
-P    1 | sti r6 0 -272
+P      | sti r6 0 -272
        | -> store to 0 + -272 = -272 (with pc and mod -73)
 Carriage position: 204
 0c 00 6a 02 90 ff ff fe f0 03 01 00 00 00 00 0c 00 2f 02 90 ff ff fe f0 03 0c 00 14 02 90 00 00

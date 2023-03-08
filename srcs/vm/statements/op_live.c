@@ -27,5 +27,5 @@ void	op_live(t_carriage *carriage, t_vm_data *d)
 		d->winner = value;
 	carriage->cursor = (carriage->cursor + 5) % MEM_SIZE;
 	if (d->a_flag != -2)
-		ft_printf("P%5d | live %d\n", carriage->id, value * -1);
+		ft_printf("P      | live %d\n", value * -1);
 }

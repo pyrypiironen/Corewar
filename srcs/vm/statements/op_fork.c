@@ -31,9 +31,9 @@ void	op_fork(t_carriage *carriage, t_vm_data *d)
 	d->carriage_head = new;
 	copy_carriage(carriage, d);
 	if (d->a_flag != -2)
-		ft_printf("P%5d | fork %d (%d)\n", carriage->id, arg, \
-		(carriage->cursor + arg) % IDX_MOD);
-	d->carriage_head->cursor = (carriage->cursor + (arg % IDX_MOD)) % MEM_SIZE;
+		ft_printf("P    | fork %d (%d)\n", arg, \
+		(carriage->cursor + arg) % MEM_SIZE);
+	d->carriage_head->cursor = move_cursor(carriage, arg % IDX_MOD);
 	carriage->cursor = (carriage->cursor + 3) % MEM_SIZE; // Modified 4 to 3
 }
 
@@ -56,8 +56,7 @@ void	op_lfork(t_carriage *carriage, t_vm_data *d)
 	d->carriage_head = new;
 	copy_carriage(carriage, d);
 	if (d->a_flag != -2)
-		ft_printf("P%5d | lfork %d (%d)\n", carriage->id, arg, \
-		carriage->cursor + arg);
+		ft_printf("P      | lfork %d (%d)\n", arg, carriage->cursor + arg);
 	d->carriage_head->cursor = (carriage->cursor + arg) % MEM_SIZE;
 	carriage->cursor = (carriage->cursor + 4) % MEM_SIZE;
 }

@@ -71,8 +71,8 @@ void	op_sti(t_carriage *carriage, t_vm_data *d)
 		carriage->cursor = carriage->cursor_copy;
 		//sti_actions(carriage, d);
 		if (d->a_flag != -2)
-			ft_printf("P%5d | sti r%d %d %d\n       | -> store to %d + %d = %d \
-(with pc and mod %d)\n", carriage->id, reg + 1, arg_2, arg_3, \
+			ft_printf("P      | sti r%d %d %d\n       | -> store to \
+%d + %d = %d (with pc and mod %d)\n", reg + 1, arg_2, arg_3, \
 			arg_2, arg_3, arg_2 + arg_3, pos);
 	}
 	else
