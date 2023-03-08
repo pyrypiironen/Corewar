@@ -14,6 +14,8 @@
 
 static int	is_valid_add_sub(t_carriage *carriage, t_vm_data *d);
 
+// This statements add sum of argument 1 and argument 2 to argument 3.
+// All arguments are registrys. Also update the carry.
 void	op_add(t_carriage *carriage, t_vm_data *d)
 {
 	int	first;
@@ -23,7 +25,6 @@ void	op_add(t_carriage *carriage, t_vm_data *d)
 	first = d->arena[(carriage->cursor + 2) % MEM_SIZE] - 1;
 	second = d->arena[(carriage->cursor + 3) % MEM_SIZE] - 1;
 	third = d->arena[(carriage->cursor + 4) % MEM_SIZE] - 1;
-	carriage->jump_size = 5;
 	if (d->arena[(carriage->cursor + 1) % MEM_SIZE] == 0x54 && \
 	is_valid_add_sub(carriage, d))
 	{
@@ -34,10 +35,12 @@ void	op_add(t_carriage *carriage, t_vm_data *d)
 			ft_printf("P%5d | add r%d r%d r%d\n", carriage->id, \
 			first + 1, second + 1, third + 1);
 	}
-	carriage->cursor = (carriage->cursor + carriage->jump_size) % MEM_SIZE;
+	carriage->cursor = (carriage->cursor + 5) % MEM_SIZE;
 	// Or should we read argument value code.
 }
 
+// This statement add argument 1 reduced of argument 2 to argument 3.
+// All arguments are registrys. Also update the carry.
 void	op_sub(t_carriage *carriage, t_vm_data *d)
 {
 	int	first;
@@ -47,7 +50,6 @@ void	op_sub(t_carriage *carriage, t_vm_data *d)
 	first = d->arena[(carriage->cursor + 2) % MEM_SIZE] - 1;
 	second = d->arena[(carriage->cursor + 3) % MEM_SIZE] - 1;
 	third = d->arena[(carriage->cursor + 4) % MEM_SIZE] - 1;
-	carriage->jump_size = 5;
 	if (d->arena[(carriage->cursor + 1) % MEM_SIZE] == 0x54 &&\
 	is_valid_add_sub(carriage, d))
 	{
@@ -58,7 +60,7 @@ void	op_sub(t_carriage *carriage, t_vm_data *d)
 			ft_printf("P%5d | sub r%d r%d r%d\n", carriage->id, \
 			first + 1, second + 1, third + 1);
 	}
-	carriage->cursor = (carriage->cursor + carriage->jump_size) % MEM_SIZE;
+	carriage->cursor = (carriage->cursor + 5) % MEM_SIZE;
 	// Or should we read argument value code.
 }
 

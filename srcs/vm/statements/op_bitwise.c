@@ -15,6 +15,9 @@
 static long long	get_first_arg(t_carriage *carriage, t_vm_data *d);
 static long long	get_second_arg(t_carriage *carriage, t_vm_data *d);
 
+// This statement performs a "bitwise AND" statement for the values ​of the first
+// two arguments and writes the result to the registry passed as the third
+// argument. Also update the carry.
 void	op_and(t_carriage *carriage, t_vm_data *d)
 {
 	long long	arg_1;
@@ -37,6 +40,7 @@ void	op_and(t_carriage *carriage, t_vm_data *d)
 		+ count_jump_size(carriage, d, 4, 3)) % MEM_SIZE;
 }
 
+// Same than op_and, but "bitwise AND" is replaced by "bitwise OR".
 void	op_or(t_carriage *carriage, t_vm_data *d)
 {
 	long long	arg_1;
@@ -59,6 +63,7 @@ void	op_or(t_carriage *carriage, t_vm_data *d)
 		+ count_jump_size(carriage, d, 4, 3)) % MEM_SIZE;
 }
 
+// Same than op_or, but "bitwise OR" is replaced by "bitwise exclusive OR".
 void	op_xor(t_carriage *carriage, t_vm_data *d)
 {
 	long long	arg_1;

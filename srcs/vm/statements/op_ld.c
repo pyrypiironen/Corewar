@@ -29,7 +29,6 @@ void	op_ld(t_carriage *carriage, t_vm_data *d)
 		reg = d->arena[(carriage->cursor + 6) % MEM_SIZE] - 1;
 		value = get_4_byte_value(d, carriage->cursor + 2);
 		carriage->registrys[reg] = value;
-		//carriage->carry = update_carry(value);
 		ld_actions(d, carriage, value, reg);
 		carriage->cursor = (carriage->cursor + 7) % MEM_SIZE;
 	}
@@ -40,7 +39,6 @@ void	op_ld(t_carriage *carriage, t_vm_data *d)
 		value = get_4_byte_value(d, (carriage->cursor + \
 		get_2_byte_value(d, (carriage->cursor + 2), 1)) % MEM_SIZE);
 		carriage->registrys[reg] = value;
-		//carriage->carry = update_carry(value);
 		ld_actions(d, carriage, value, reg);
 		carriage->cursor = (carriage->cursor + 5) % MEM_SIZE;
 	}
@@ -80,6 +78,7 @@ void	op_lld(t_carriage *carriage, t_vm_data *d)
 		+ count_jump_size(carriage, d, 4, 2)) % MEM_SIZE;
 }
 
+// Update carry to op_ld and print information of actions if -a flag is on.
 static void	ld_actions(t_vm_data *d, t_carriage *carriage, int value, \
 unsigned char reg)
 {

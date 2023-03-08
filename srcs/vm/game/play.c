@@ -15,10 +15,10 @@ void	play_the_game(t_vm_data *d)
 	{
 		if (d->a_flag != -2)
 			ft_printf("It is now cycle %d\n", d->current_cycle + 1);
-		if (d->d_flag == d->current_cycle)
-			print_dump(d);
-		else if (d->od_flag == d->current_cycle || \
+		if (d->d_flag == d->current_cycle || \
 			d->a_flag == d->current_cycle)
+			print_dump(d);
+		else if (d->od_flag == d->current_cycle)
 			print_replica_dump(d);
 		else if (d->c_flag == d->current_cycle)
 			dump_info(d);

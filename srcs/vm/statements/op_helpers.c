@@ -12,14 +12,12 @@
 
 # include "../../../includes/vm.h"
 
+// Check if given registry is valid (return 1) or invalid (return 0).
 int	is_valid_reg(int position, t_vm_data *d)
 {
-	int	ret;
-
-	ret = 0;
 	if (d->arena[position] > 0 && d->arena[position] <= REG_NUMBER)
-		ret = 1;
-	return (ret);
+		return (1);
+	return (0);
 }
 
 int	update_carry(int value)
@@ -29,6 +27,8 @@ int	update_carry(int value)
 	return (0);
 }
 
+// Get values from given position and following three memory locations.
+// Convert values to one integer and return it.
 int	get_4_byte_value(t_vm_data *d, int position)
 {
 	unsigned char	first;
@@ -45,6 +45,9 @@ int	get_4_byte_value(t_vm_data *d, int position)
 	return (value);
 }
 
+// Get values from given position and following  memory location.
+// Convert values to one integer and return it. IDX_MOD is used if given
+// parameter idx is not 0.
 int	get_2_byte_value(t_vm_data *d, int position, int idx)
 {
 	unsigned char	first;
@@ -59,6 +62,8 @@ int	get_2_byte_value(t_vm_data *d, int position, int idx)
 	return ((int)value);
 }
 
+// Take integer value as a parameter and write it to the arena starting on given
+// position.
 void	int_to_arena(t_vm_data *d, int position, int value)
 {
 	d->arena[position] = (value & 0xff000000) >> 24;

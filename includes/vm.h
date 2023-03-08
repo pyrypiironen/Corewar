@@ -125,6 +125,7 @@ void	int_to_arena(t_vm_data *d, int position, int value);
 //		op_helpers_2.c
 int		count_jump_size(t_carriage *carriage, t_vm_data *d, int	dir_size, \
 		int args);
+int		move_cursor(t_carriage *carriage, int arg);
 
 //		op_jump.c
 void	op_jump(t_carriage *carriage, t_vm_data *d);

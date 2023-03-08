@@ -310,7 +310,7 @@ It is now cycle 267
 It is now cycle 268
 It is now cycle 269
 It is now cycle 270
-P    2 | zjmp 9 FAILED
+P    2 | zjmp -50 FAILED
 Carriage position: 2230
 It is now cycle 271
 It is now cycle 272
@@ -843,7 +843,7 @@ It is now cycle 798
 It is now cycle 799
 It is now cycle 800
 P    1 | fork 106 (106)
-Carriage position: 4
+Carriage position: 3
 It is now cycle 801
 It is now cycle 802
 It is now cycle 803
@@ -851,12 +851,13 @@ It is now cycle 804
 It is now cycle 805
 P    1 | ld 400 r3
 Carriage position: 113
+P    1 | ld -272 r3
+Carriage position: 10
 It is now cycle 806
 It is now cycle 807
 It is now cycle 808
 It is now cycle 809
 It is now cycle 810
-Carriage position: 10
 It is now cycle 811
 It is now cycle 812
 It is now cycle 813
@@ -864,13 +865,13 @@ It is now cycle 814
 It is now cycle 815
 P    1 | live 0
 Carriage position: 118
+P    1 | live 0
+Carriage position: 15
 It is now cycle 816
 It is now cycle 817
 It is now cycle 818
 It is now cycle 819
 It is now cycle 820
-P    1 | live 0
-Carriage position: 15
 It is now cycle 821
 It is now cycle 822
 It is now cycle 823
@@ -1122,7 +1123,7 @@ It is now cycle 1068
 It is now cycle 1069
 It is now cycle 1070
 P    2 | fork -25 (157)
-Carriage position: 2234
+Carriage position: 2233
 It is now cycle 1071
 It is now cycle 1072
 It is now cycle 1073
@@ -1131,11 +1132,12 @@ It is now cycle 1075
 It is now cycle 1076
 It is now cycle 1077
 It is now cycle 1078
-Carriage position: 2238
 It is now cycle 1079
 It is now cycle 1080
 P    2 | live 42
 Carriage position: 2210
+P    2 | live 3
+Carriage position: 2238
 It is now cycle 1081
 It is now cycle 1082
 It is now cycle 1083
@@ -1208,7 +1210,7 @@ It is now cycle 1142
 It is now cycle 1143
 It is now cycle 1144
 It is now cycle 1145
-P    2 | zjmp 9 FAILED
+P    2 | zjmp -50 FAILED
 Carriage position: 2230
 It is now cycle 1146
 It is now cycle 1147
@@ -1681,31 +1683,28 @@ It is now cycle 1613
 It is now cycle 1614
 It is now cycle 1615
 P    1 | fork 40 (158)
-Carriage position: 122
+Carriage position: 121
+P    1 | fork 47 (62)
+Carriage position: 18
 It is now cycle 1616
 It is now cycle 1617
 It is now cycle 1618
 It is now cycle 1619
 It is now cycle 1620
-P    1 | fork 47 (62)
-Carriage position: 19
+P    1 | ld -202 r3
+Carriage position: 69
+P    1 | ld -272 r3
+Carriage position: 25
 It is now cycle 1621
 It is now cycle 1622
-P    1 | ld 0 r2
-Carriage position: 131
 It is now cycle 1623
 It is now cycle 1624
 It is now cycle 1625
-P    1 | ld -202 r3
-Carriage position: 69
 It is now cycle 1626
 It is now cycle 1627
-P    1 | ld 0 r4
-Carriage position: 138
 It is now cycle 1628
 It is now cycle 1629
 It is now cycle 1630
-Carriage position: 25
 It is now cycle 1631
 It is now cycle 1632
 It is now cycle 1633
@@ -1723,8 +1722,6 @@ It is now cycle 1644
 It is now cycle 1645
 It is now cycle 1646
 It is now cycle 1647
-P    1 | zjmp 69 OK
-Carriage position: 207
 It is now cycle 1648
 It is now cycle 1649
 It is now cycle 1650
@@ -1750,14 +1747,11 @@ It is now cycle 1669
 It is now cycle 1670
 It is now cycle 1671
 It is now cycle 1672
-Carriage position: 213
 It is now cycle 1673
 It is now cycle 1674
 It is now cycle 1675
 It is now cycle 1676
 It is now cycle 1677
-P    1 | ld 0 r4
-Carriage position: 220
 It is now cycle 1678
 It is now cycle 1679
 It is now cycle 1680
@@ -1768,8 +1762,6 @@ It is now cycle 1684
 It is now cycle 1685
 It is now cycle 1686
 It is now cycle 1687
-P    1 | live 1
-Carriage position: 225
 It is now cycle 1688
 It is now cycle 1689
 It is now cycle 1690
@@ -1795,71 +1787,1060 @@ It is now cycle 1709
 It is now cycle 1710
 It is now cycle 1711
 It is now cycle 1712
+It is now cycle 1713
+It is now cycle 1714
+It is now cycle 1715
+It is now cycle 1716
+It is now cycle 1717
+It is now cycle 1718
+It is now cycle 1719
+It is now cycle 1720
+It is now cycle 1721
+It is now cycle 1722
+It is now cycle 1723
+It is now cycle 1724
+It is now cycle 1725
+It is now cycle 1726
+It is now cycle 1727
+It is now cycle 1728
+It is now cycle 1729
+It is now cycle 1730
+It is now cycle 1731
+It is now cycle 1732
+It is now cycle 1733
+It is now cycle 1734
+It is now cycle 1735
+It is now cycle 1736
+It is now cycle 1737
+It is now cycle 1738
+It is now cycle 1739
+It is now cycle 1740
+It is now cycle 1741
+It is now cycle 1742
+It is now cycle 1743
+It is now cycle 1744
+It is now cycle 1745
+It is now cycle 1746
+It is now cycle 1747
+It is now cycle 1748
+It is now cycle 1749
+It is now cycle 1750
+It is now cycle 1751
+It is now cycle 1752
+It is now cycle 1753
+It is now cycle 1754
+It is now cycle 1755
+It is now cycle 1756
+It is now cycle 1757
+It is now cycle 1758
+It is now cycle 1759
+It is now cycle 1760
+It is now cycle 1761
+It is now cycle 1762
+It is now cycle 1763
+It is now cycle 1764
+It is now cycle 1765
+It is now cycle 1766
+It is now cycle 1767
+It is now cycle 1768
+It is now cycle 1769
+It is now cycle 1770
+It is now cycle 1771
+It is now cycle 1772
+It is now cycle 1773
+It is now cycle 1774
+It is now cycle 1775
+It is now cycle 1776
+It is now cycle 1777
+It is now cycle 1778
+It is now cycle 1779
+It is now cycle 1780
+It is now cycle 1781
+It is now cycle 1782
+It is now cycle 1783
+It is now cycle 1784
+It is now cycle 1785
+It is now cycle 1786
+It is now cycle 1787
+It is now cycle 1788
+It is now cycle 1789
+It is now cycle 1790
+It is now cycle 1791
+It is now cycle 1792
+It is now cycle 1793
+It is now cycle 1794
+It is now cycle 1795
+It is now cycle 1796
+It is now cycle 1797
+It is now cycle 1798
+It is now cycle 1799
+It is now cycle 1800
+It is now cycle 1801
+It is now cycle 1802
+It is now cycle 1803
+It is now cycle 1804
+It is now cycle 1805
+It is now cycle 1806
+It is now cycle 1807
+It is now cycle 1808
+It is now cycle 1809
+It is now cycle 1810
+It is now cycle 1811
+It is now cycle 1812
+It is now cycle 1813
+It is now cycle 1814
+It is now cycle 1815
+It is now cycle 1816
+It is now cycle 1817
+It is now cycle 1818
+It is now cycle 1819
+It is now cycle 1820
+It is now cycle 1821
+It is now cycle 1822
+It is now cycle 1823
+It is now cycle 1824
+It is now cycle 1825
+It is now cycle 1826
+It is now cycle 1827
+It is now cycle 1828
+It is now cycle 1829
+It is now cycle 1830
+It is now cycle 1831
+It is now cycle 1832
+It is now cycle 1833
+It is now cycle 1834
+It is now cycle 1835
+It is now cycle 1836
+It is now cycle 1837
+It is now cycle 1838
+It is now cycle 1839
+It is now cycle 1840
+It is now cycle 1841
+It is now cycle 1842
+It is now cycle 1843
+It is now cycle 1844
+It is now cycle 1845
+It is now cycle 1846
+It is now cycle 1847
+It is now cycle 1848
+It is now cycle 1849
+It is now cycle 1850
+It is now cycle 1851
+It is now cycle 1852
+It is now cycle 1853
+It is now cycle 1854
+It is now cycle 1855
+It is now cycle 1856
+It is now cycle 1857
+It is now cycle 1858
+It is now cycle 1859
+It is now cycle 1860
+It is now cycle 1861
+It is now cycle 1862
+It is now cycle 1863
+It is now cycle 1864
+It is now cycle 1865
+It is now cycle 1866
+It is now cycle 1867
+It is now cycle 1868
+It is now cycle 1869
+It is now cycle 1870
+It is now cycle 1871
+It is now cycle 1872
+It is now cycle 1873
+It is now cycle 1874
+It is now cycle 1875
+It is now cycle 1876
+It is now cycle 1877
+It is now cycle 1878
+It is now cycle 1879
+It is now cycle 1880
+P    2 | fork 40 (230)
+Carriage position: 2241
+It is now cycle 1881
+It is now cycle 1882
+It is now cycle 1883
+It is now cycle 1884
+It is now cycle 1885
+It is now cycle 1886
+It is now cycle 1887
+It is now cycle 1888
+It is now cycle 1889
+It is now cycle 1890
+P    2 | live 42
+Carriage position: 2283
+P    2 | live 4
+Carriage position: 2246
+It is now cycle 1891
+It is now cycle 1892
+It is now cycle 1893
+It is now cycle 1894
+It is now cycle 1895
+It is now cycle 1896
+It is now cycle 1897
+It is now cycle 1898
+It is now cycle 1899
+It is now cycle 1900
+It is now cycle 1901
+It is now cycle 1902
+It is now cycle 1903
+It is now cycle 1904
+It is now cycle 1905
+It is now cycle 1906
+It is now cycle 1907
+It is now cycle 1908
+It is now cycle 1909
+It is now cycle 1910
+It is now cycle 1911
+It is now cycle 1912
+It is now cycle 1913
+It is now cycle 1914
+It is now cycle 1915
+It is now cycle 1916
+It is now cycle 1917
+It is now cycle 1918
+It is now cycle 1919
+It is now cycle 1920
+It is now cycle 1921
+It is now cycle 1922
+It is now cycle 1923
+It is now cycle 1924
+It is now cycle 1925
+It is now cycle 1926
+It is now cycle 1927
+It is now cycle 1928
+It is now cycle 1929
+It is now cycle 1930
+It is now cycle 1931
+It is now cycle 1932
+It is now cycle 1933
+It is now cycle 1934
+It is now cycle 1935
+It is now cycle 1936
+It is now cycle 1937
+It is now cycle 1938
+It is now cycle 1939
+It is now cycle 1940
+It is now cycle 1941
+It is now cycle 1942
+It is now cycle 1943
+It is now cycle 1944
+It is now cycle 1945
+P    2 | fork -25 (157)
+Carriage position: 2233
+It is now cycle 1946
+It is now cycle 1947
+It is now cycle 1948
+It is now cycle 1949
+It is now cycle 1950
+It is now cycle 1951
+It is now cycle 1952
+It is now cycle 1953
+It is now cycle 1954
+It is now cycle 1955
+P    2 | live 42
+Carriage position: 2210
+P    2 | live 3
+Carriage position: 2238
+It is now cycle 1956
+It is now cycle 1957
+It is now cycle 1958
+It is now cycle 1959
+It is now cycle 1960
+It is now cycle 1961
+It is now cycle 1962
+It is now cycle 1963
+It is now cycle 1964
+It is now cycle 1965
+It is now cycle 1966
+It is now cycle 1967
+It is now cycle 1968
+It is now cycle 1969
+It is now cycle 1970
+It is now cycle 1971
+It is now cycle 1972
+It is now cycle 1973
+It is now cycle 1974
+It is now cycle 1975
+It is now cycle 1976
+It is now cycle 1977
+It is now cycle 1978
+It is now cycle 1979
+It is now cycle 1980
+P    2 | sti r4 -155 1
+       | -> store to -155 + 1 = -154 (with pc and mod 2056)
+Carriage position: 2217
+It is now cycle 1981
+It is now cycle 1982
+It is now cycle 1983
+It is now cycle 1984
+It is now cycle 1985
+It is now cycle 1986
+It is now cycle 1987
+It is now cycle 1988
+It is now cycle 1989
+It is now cycle 1990
+P    2 | add r4 r12 r4
+Carriage position: 2222
+It is now cycle 1991
+It is now cycle 1992
+It is now cycle 1993
+It is now cycle 1994
+It is now cycle 1995
+It is now cycle 1996
+It is now cycle 1997
+It is now cycle 1998
+It is now cycle 1999
+It is now cycle 2000
+P    2 | sub r10 r11 r10
+Carriage position: 2227
+It is now cycle 2001
+It is now cycle 2002
+It is now cycle 2003
+It is now cycle 2004
+It is now cycle 2005
+It is now cycle 2006
+It is now cycle 2007
+It is now cycle 2008
+It is now cycle 2009
+It is now cycle 2010
+It is now cycle 2011
+It is now cycle 2012
+It is now cycle 2013
+It is now cycle 2014
+It is now cycle 2015
+It is now cycle 2016
+It is now cycle 2017
+It is now cycle 2018
+It is now cycle 2019
+It is now cycle 2020
+P    2 | zjmp -50 FAILED
+Carriage position: 2230
+It is now cycle 2021
+It is now cycle 2022
+It is now cycle 2023
+It is now cycle 2024
+It is now cycle 2025
+It is now cycle 2026
+It is now cycle 2027
+It is now cycle 2028
+It is now cycle 2029
+It is now cycle 2030
+It is now cycle 2031
+It is now cycle 2032
+It is now cycle 2033
+It is now cycle 2034
+It is now cycle 2035
+It is now cycle 2036
+It is now cycle 2037
+It is now cycle 2038
+It is now cycle 2039
+It is now cycle 2040
+It is now cycle 2041
+It is now cycle 2042
+It is now cycle 2043
+It is now cycle 2044
+It is now cycle 2045
+It is now cycle 2046
+It is now cycle 2047
+It is now cycle 2048
+It is now cycle 2049
+It is now cycle 2050
+It is now cycle 2051
+It is now cycle 2052
+It is now cycle 2053
+It is now cycle 2054
+It is now cycle 2055
+It is now cycle 2056
+It is now cycle 2057
+It is now cycle 2058
+It is now cycle 2059
+It is now cycle 2060
+It is now cycle 2061
+It is now cycle 2062
+It is now cycle 2063
+It is now cycle 2064
+It is now cycle 2065
+It is now cycle 2066
+It is now cycle 2067
+It is now cycle 2068
+It is now cycle 2069
+It is now cycle 2070
+It is now cycle 2071
+It is now cycle 2072
+It is now cycle 2073
+It is now cycle 2074
+It is now cycle 2075
+It is now cycle 2076
+It is now cycle 2077
+It is now cycle 2078
+It is now cycle 2079
+It is now cycle 2080
+It is now cycle 2081
+It is now cycle 2082
+It is now cycle 2083
+It is now cycle 2084
+It is now cycle 2085
+It is now cycle 2086
+It is now cycle 2087
+It is now cycle 2088
+It is now cycle 2089
+It is now cycle 2090
+It is now cycle 2091
+It is now cycle 2092
+It is now cycle 2093
+It is now cycle 2094
+It is now cycle 2095
+It is now cycle 2096
+It is now cycle 2097
+It is now cycle 2098
+It is now cycle 2099
+It is now cycle 2100
+It is now cycle 2101
+It is now cycle 2102
+It is now cycle 2103
+It is now cycle 2104
+It is now cycle 2105
+It is now cycle 2106
+It is now cycle 2107
+It is now cycle 2108
+It is now cycle 2109
+It is now cycle 2110
+It is now cycle 2111
+It is now cycle 2112
+It is now cycle 2113
+It is now cycle 2114
+It is now cycle 2115
+It is now cycle 2116
+It is now cycle 2117
+It is now cycle 2118
+It is now cycle 2119
+It is now cycle 2120
+It is now cycle 2121
+It is now cycle 2122
+It is now cycle 2123
+It is now cycle 2124
+It is now cycle 2125
+It is now cycle 2126
+It is now cycle 2127
+It is now cycle 2128
+It is now cycle 2129
+It is now cycle 2130
+It is now cycle 2131
+It is now cycle 2132
+It is now cycle 2133
+It is now cycle 2134
+It is now cycle 2135
+It is now cycle 2136
+It is now cycle 2137
+It is now cycle 2138
+It is now cycle 2139
+It is now cycle 2140
+It is now cycle 2141
+It is now cycle 2142
+It is now cycle 2143
+It is now cycle 2144
+It is now cycle 2145
+It is now cycle 2146
+It is now cycle 2147
+It is now cycle 2148
+It is now cycle 2149
+It is now cycle 2150
+It is now cycle 2151
+It is now cycle 2152
+It is now cycle 2153
+It is now cycle 2154
+It is now cycle 2155
+It is now cycle 2156
+It is now cycle 2157
+It is now cycle 2158
+It is now cycle 2159
+It is now cycle 2160
+It is now cycle 2161
+It is now cycle 2162
+It is now cycle 2163
+It is now cycle 2164
+It is now cycle 2165
+It is now cycle 2166
+It is now cycle 2167
+It is now cycle 2168
+It is now cycle 2169
+It is now cycle 2170
+It is now cycle 2171
+It is now cycle 2172
+It is now cycle 2173
+It is now cycle 2174
+It is now cycle 2175
+It is now cycle 2176
+It is now cycle 2177
+It is now cycle 2178
+It is now cycle 2179
+It is now cycle 2180
+It is now cycle 2181
+It is now cycle 2182
+It is now cycle 2183
+It is now cycle 2184
+It is now cycle 2185
+It is now cycle 2186
+It is now cycle 2187
+It is now cycle 2188
+It is now cycle 2189
+It is now cycle 2190
+It is now cycle 2191
+It is now cycle 2192
+It is now cycle 2193
+It is now cycle 2194
+It is now cycle 2195
+It is now cycle 2196
+It is now cycle 2197
+It is now cycle 2198
+It is now cycle 2199
+It is now cycle 2200
+It is now cycle 2201
+It is now cycle 2202
+It is now cycle 2203
+It is now cycle 2204
+It is now cycle 2205
+It is now cycle 2206
+It is now cycle 2207
+It is now cycle 2208
+It is now cycle 2209
+It is now cycle 2210
+It is now cycle 2211
+It is now cycle 2212
+It is now cycle 2213
+It is now cycle 2214
+It is now cycle 2215
+It is now cycle 2216
+It is now cycle 2217
+It is now cycle 2218
+It is now cycle 2219
+It is now cycle 2220
+It is now cycle 2221
+It is now cycle 2222
+It is now cycle 2223
+It is now cycle 2224
+It is now cycle 2225
+It is now cycle 2226
+It is now cycle 2227
+It is now cycle 2228
+It is now cycle 2229
+It is now cycle 2230
+It is now cycle 2231
+It is now cycle 2232
+It is now cycle 2233
+It is now cycle 2234
+It is now cycle 2235
+It is now cycle 2236
+It is now cycle 2237
+It is now cycle 2238
+It is now cycle 2239
+It is now cycle 2240
+It is now cycle 2241
+It is now cycle 2242
+It is now cycle 2243
+It is now cycle 2244
+It is now cycle 2245
+It is now cycle 2246
+It is now cycle 2247
+It is now cycle 2248
+It is now cycle 2249
+It is now cycle 2250
+It is now cycle 2251
+It is now cycle 2252
+It is now cycle 2253
+It is now cycle 2254
+It is now cycle 2255
+It is now cycle 2256
+It is now cycle 2257
+It is now cycle 2258
+It is now cycle 2259
+It is now cycle 2260
+It is now cycle 2261
+It is now cycle 2262
+It is now cycle 2263
+It is now cycle 2264
+It is now cycle 2265
+It is now cycle 2266
+It is now cycle 2267
+It is now cycle 2268
+It is now cycle 2269
+It is now cycle 2270
+It is now cycle 2271
+It is now cycle 2272
+It is now cycle 2273
+It is now cycle 2274
+It is now cycle 2275
+It is now cycle 2276
+It is now cycle 2277
+It is now cycle 2278
+It is now cycle 2279
+It is now cycle 2280
+It is now cycle 2281
+It is now cycle 2282
+It is now cycle 2283
+It is now cycle 2284
+It is now cycle 2285
+It is now cycle 2286
+It is now cycle 2287
+It is now cycle 2288
+It is now cycle 2289
+It is now cycle 2290
+It is now cycle 2291
+It is now cycle 2292
+It is now cycle 2293
+It is now cycle 2294
+It is now cycle 2295
+It is now cycle 2296
+It is now cycle 2297
+It is now cycle 2298
+It is now cycle 2299
+It is now cycle 2300
+It is now cycle 2301
+It is now cycle 2302
+It is now cycle 2303
+It is now cycle 2304
+It is now cycle 2305
+It is now cycle 2306
+It is now cycle 2307
+It is now cycle 2308
+It is now cycle 2309
+It is now cycle 2310
+It is now cycle 2311
+It is now cycle 2312
+It is now cycle 2313
+It is now cycle 2314
+It is now cycle 2315
+It is now cycle 2316
+It is now cycle 2317
+It is now cycle 2318
+It is now cycle 2319
+It is now cycle 2320
+It is now cycle 2321
+It is now cycle 2322
+It is now cycle 2323
+It is now cycle 2324
+It is now cycle 2325
+It is now cycle 2326
+It is now cycle 2327
+It is now cycle 2328
+It is now cycle 2329
+It is now cycle 2330
+It is now cycle 2331
+It is now cycle 2332
+It is now cycle 2333
+It is now cycle 2334
+It is now cycle 2335
+It is now cycle 2336
+It is now cycle 2337
+It is now cycle 2338
+It is now cycle 2339
+It is now cycle 2340
+It is now cycle 2341
+It is now cycle 2342
+It is now cycle 2343
+It is now cycle 2344
+It is now cycle 2345
+It is now cycle 2346
+It is now cycle 2347
+It is now cycle 2348
+It is now cycle 2349
+It is now cycle 2350
+It is now cycle 2351
+It is now cycle 2352
+It is now cycle 2353
+It is now cycle 2354
+It is now cycle 2355
+It is now cycle 2356
+It is now cycle 2357
+It is now cycle 2358
+It is now cycle 2359
+It is now cycle 2360
+It is now cycle 2361
+It is now cycle 2362
+It is now cycle 2363
+It is now cycle 2364
+It is now cycle 2365
+It is now cycle 2366
+It is now cycle 2367
+It is now cycle 2368
+It is now cycle 2369
+It is now cycle 2370
+It is now cycle 2371
+It is now cycle 2372
+It is now cycle 2373
+It is now cycle 2374
+It is now cycle 2375
+It is now cycle 2376
+It is now cycle 2377
+It is now cycle 2378
+It is now cycle 2379
+It is now cycle 2380
+It is now cycle 2381
+It is now cycle 2382
+It is now cycle 2383
+It is now cycle 2384
+It is now cycle 2385
+It is now cycle 2386
+It is now cycle 2387
+It is now cycle 2388
+It is now cycle 2389
+It is now cycle 2390
+It is now cycle 2391
+It is now cycle 2392
+It is now cycle 2393
+It is now cycle 2394
+It is now cycle 2395
+It is now cycle 2396
+It is now cycle 2397
+It is now cycle 2398
+It is now cycle 2399
+It is now cycle 2400
+It is now cycle 2401
+It is now cycle 2402
+It is now cycle 2403
+It is now cycle 2404
+It is now cycle 2405
+It is now cycle 2406
+It is now cycle 2407
+It is now cycle 2408
+It is now cycle 2409
+It is now cycle 2410
+It is now cycle 2411
+It is now cycle 2412
+It is now cycle 2413
+It is now cycle 2414
+It is now cycle 2415
+P    1 | fork 13 (171)
+Carriage position: 161
+P    1 | fork 20 (141)
+Carriage position: 124
+It is now cycle 2416
+It is now cycle 2417
+It is now cycle 2418
+It is now cycle 2419
+It is now cycle 2420
+P    1 | ld 4 r2
+Carriage position: 148
+P    1 | ld 0 r4
+Carriage position: 178
+P    1 | fork 20 (89)
+Carriage position: 72
+P    1 | ld 0 r4
+Carriage position: 168
+P    1 | ld 0 r2
+Carriage position: 131
+P    1 | fork 20 (45)
+Carriage position: 28
+It is now cycle 2421
+It is now cycle 2422
+It is now cycle 2423
+It is now cycle 2424
+It is now cycle 2425
+P    1 | ld 4 r2
+Carriage position: 52
+P    1 | ld 4 r2
+Carriage position: 96
+P    1 | ld 0 r4
+Carriage position: 155
+P    1 | ld 0 r2
+Carriage position: 79
+P    1 | ld 0 r4
+Carriage position: 138
+P    1 | ld 0 r2
+Carriage position: 35
+It is now cycle 2426
+It is now cycle 2427
+It is now cycle 2428
+It is now cycle 2429
+It is now cycle 2430
+P    1 | ld 0 r4
+Carriage position: 59
+P    1 | ld 0 r4
+Carriage position: 103
+P    1 | ld 0 r4
+Carriage position: 86
+P    1 | ld 0 r4
+Carriage position: 42
+It is now cycle 2431
+It is now cycle 2432
+It is now cycle 2433
+It is now cycle 2434
+It is now cycle 2435
+It is now cycle 2436
+It is now cycle 2437
+It is now cycle 2438
+It is now cycle 2439
+It is now cycle 2440
+P    1 | zjmp 92 OK
+Carriage position: 270
+P    1 | zjmp 91 OK
+Carriage position: 259
+It is now cycle 2441
+It is now cycle 2442
+It is now cycle 2443
+It is now cycle 2444
+It is now cycle 2445
+P    1 | zjmp 52 OK
+Carriage position: 207
+P    1 | zjmp 69 OK
+Carriage position: 207
+It is now cycle 2446
+It is now cycle 2447
+It is now cycle 2448
+It is now cycle 2449
+It is now cycle 2450
+P    1 | zjmp 122 OK
+Carriage position: 181
+P    1 | zjmp 130 OK
+Carriage position: 233
+P    1 | live 1
+Carriage position: 275
+P    1 | zjmp 147 OK
+Carriage position: 233
+P    1 | live 1
+Carriage position: 264
+P    1 | zjmp 139 OK
+Carriage position: 181
+It is now cycle 2451
+It is now cycle 2452
+It is now cycle 2453
+It is now cycle 2454
+It is now cycle 2455
+It is now cycle 2456
+It is now cycle 2457
+It is now cycle 2458
+It is now cycle 2459
+It is now cycle 2460
+It is now cycle 2461
+It is now cycle 2462
+It is now cycle 2463
+It is now cycle 2464
+It is now cycle 2465
+It is now cycle 2466
+It is now cycle 2467
+It is now cycle 2468
+It is now cycle 2469
+It is now cycle 2470
+Carriage position: 213
+Carriage position: 213
+It is now cycle 2471
+It is now cycle 2472
+It is now cycle 2473
+It is now cycle 2474
+It is now cycle 2475
+Carriage position: 187
+Carriage position: 239
+P    1 | ld 0 r4
+Carriage position: 220
+Carriage position: 239
+P    1 | ld 0 r4
+Carriage position: 220
+Carriage position: 187
+It is now cycle 2476
+It is now cycle 2477
+It is now cycle 2478
+It is now cycle 2479
+It is now cycle 2480
+P    1 | ld 0 r4
+Carriage position: 194
+P    1 | ld 0 r4
+Carriage position: 246
+P    1 | ld 0 r4
+Carriage position: 246
+P    1 | ld 0 r4
+Carriage position: 194
+It is now cycle 2481
+It is now cycle 2482
+It is now cycle 2483
+It is now cycle 2484
+It is now cycle 2485
+P    1 | live 1
+Carriage position: 225
+P    1 | live 1
+Carriage position: 225
+It is now cycle 2486
+It is now cycle 2487
+It is now cycle 2488
+It is now cycle 2489
+It is now cycle 2490
+P    1 | live 1
+Carriage position: 199
+P    1 | live 1
+Carriage position: 251
+P    1 | live 1
+Carriage position: 251
+P    1 | live 1
+Carriage position: 199
+It is now cycle 2491
+It is now cycle 2492
+It is now cycle 2493
+It is now cycle 2494
+It is now cycle 2495
+It is now cycle 2496
+It is now cycle 2497
+It is now cycle 2498
+It is now cycle 2499
+It is now cycle 2500
+It is now cycle 2501
+It is now cycle 2502
+It is now cycle 2503
+It is now cycle 2504
+It is now cycle 2505
+It is now cycle 2506
+It is now cycle 2507
+It is now cycle 2508
+It is now cycle 2509
+It is now cycle 2510
+P    1 | sti r6 4 400
+       | -> store to 4 + 400 = 404 (with pc and mod 629)
+Carriage position: 230
 P    1 | sti r6 0 400
        | -> store to 0 + 400 = 400 (with pc and mod 625)
 Carriage position: 230
-It is now cycle 1713
-0x0000 : 0c 00 6a 02 90 ff ff fe f0 03 01 00 00 00 00 0c 00 2f 02 90 ff ff fe f0 03 0c 00 14 02 90 00 00 00 00 02 02 90 00 00 00 00 04 09 00 8b 02 90 00 00 00 04 02 02 90 00 00 00 00 04 09 00 7a 02 90 
-0x0040 : ff ff ff 36 03 0c 00 14 02 90 00 00 00 00 02 02 90 00 00 00 00 04 09 00 93 02 90 00 00 00 04 02 02 90 00 00 00 00 04 09 00 82 02 90 00 00 01 90 03 01 00 00 00 00 0c 00 28 0c 00 14 02 90 00 00 
-0x0080 : 00 00 02 02 90 00 00 00 00 04 09 00 45 02 90 00 00 00 04 02 02 90 00 00 00 00 04 09 00 34 0c 00 0d 02 90 00 00 00 00 04 09 00 5b 02 90 00 00 00 00 04 09 00 5c 0a 64 02 00 12 06 02 90 00 00 00 
-0x00c0 : 00 04 01 00 00 00 01 0b 54 06 02 03 09 fe eb 0a 64 02 00 12 06 02 90 00 00 00 00 04 01 00 00 00 01 0b 54 06 02 03 09 01 8b 0a 64 02 00 12 06 02 90 00 00 00 00 04 01 00 00 00 01 0b 54 06 02 03 
-0x0100 : 09 ff 31 01 00 00 00 01 0c ff fb 09 ff f8 01 00 00 00 01 0c ff fb 09 ff f8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0140 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0180 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x01c0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0200 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0240 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0b 54 06 02 00 00 00 00 00 00 00 00 00 00 00 
-0x0280 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x02c0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0300 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0340 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0380 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x03c0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0400 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0440 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0480 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x04c0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0500 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0540 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0580 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x05c0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0600 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0640 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0680 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x06c0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0700 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0740 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0780 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x07c0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0800 : 02 90 00 00 00 00 03 09 00 14 00 00 00 01 ff ff ff fe 0b 64 0f 00 00 0e 09 ff 38 01 ff ff ff fe 0b 64 0f 00 00 0e 09 ff 38 01 ff ff ff fe 0b 64 0f 00 00 0e 09 ff 38 01 ff ff ff fe 0b 64 0f 00 
-0x0840 : 00 0e 09 ff 38 0b ff ff ff fe 0e 09 ff 38 0b 64 0f 00 00 0e ff ff ff fe 68 01 ff b6 00 01 0b 68 01 ff af 00 0f 0b 68 01 ff a8 00 1d 0b 68 01 ff a1 00 2b 0b 68 01 ff 9a 00 39 0b 68 01 ff 93 00 
-0x0880 : 47 02 90 00 06 00 00 04 02 90 00 0e 00 00 0c 02 90 00 00 00 01 0b 02 90 00 00 00 06 0a 01 00 00 00 2a 0b 68 04 ff 65 00 01 04 54 04 0c 04 05 54 0a 0b 0a 09 ff ce 0c ff e7 01 00 00 00 03 0c 00 
-0x08c0 : 28 01 00 00 00 04 0c 00 45 01 00 00 00 2a 0a a4 00 08 ff 3f 0f 02 90 ff ff ff 46 0e 02 90 00 00 00 00 02 09 ff 24 01 00 00 00 2a 0c 00 3d 01 00 00 00 2a 0a a4 00 04 ff 1a 0f 02 90 ff ff ff 42 
-0x0900 : 0e 02 90 00 00 00 00 02 09 fe ff 01 00 00 00 2a 0a a4 00 0c fe fd 0f 02 90 ff ff ff 4a 0e 02 90 00 00 00 00 02 09 fe e2 01 00 00 00 2a 0a a4 00 00 fe e0 0f 02 90 ff ff ff 3e 0e 02 90 00 00 00 
-0x0940 : 00 02 09 fe c5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0980 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x09c0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0a00 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0a40 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0a80 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0ac0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0b00 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0b40 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0b80 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0bc0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0c00 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0c40 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0c80 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0cc0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0d00 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0d40 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0d80 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0dc0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0e00 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0e40 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0e80 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0ec0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0f00 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0f40 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0f80 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-0x0fc0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+It is now cycle 2511
+It is now cycle 2512
+It is now cycle 2513
+It is now cycle 2514
+It is now cycle 2515
+P    1 | sti r6 4 -272
+       | -> store to 4 + -272 = -268 (with pc and mod -69)
+Carriage position: 204
+P    1 | sti r6 4 -202
+       | -> store to 4 + -202 = -198 (with pc and mod 53)
+Carriage position: 256
+P    1 | sti r6 0 -202
+       | -> store to 0 + -202 = -202 (with pc and mod 49)
+Carriage position: 256
+P    1 | sti r6 0 -272
+       | -> store to 0 + -272 = -272 (with pc and mod -73)
+Carriage position: 204
+It is now cycle 2516
+0c 00 6a 02 90 ff ff fe f0 03 01 00 00 00 00 0c 00 2f 02 90 ff ff fe f0 03 0c 00 14 02 90 00 00
+00 00 02 02 90 00 00 00 00 04 09 00 8b 02 90 00 00 0b 54 06 02 03 09 ff 31 00 04 09 00 7a 02 90
+ff ff ff 36 03 0c 00 14 02 90 00 00 00 00 02 02 90 00 00 00 00 04 09 00 93 02 90 00 00 00 04 02
+02 90 00 00 00 00 04 09 00 82 02 90 00 00 01 90 03 01 00 00 00 00 0c 00 28 0c 00 14 02 90 00 00
+00 00 02 02 90 00 00 00 00 04 09 00 45 02 90 00 00 00 04 02 02 90 00 00 00 00 04 09 00 34 0c 00
+0d 02 90 00 00 00 00 04 09 00 5b 02 90 00 00 00 00 04 09 00 5c 0a 64 02 00 12 06 02 90 00 00 00
+00 04 01 00 00 00 01 0b 54 06 02 03 09 fe eb 0a 64 02 00 12 06 02 90 00 00 00 00 04 01 00 00 00
+01 0b 54 06 02 03 09 01 8b 0a 64 02 00 12 06 02 90 00 00 00 00 04 01 00 00 00 01 0b 54 06 02 03
+09 ff 31 01 00 00 00 01 0c ff fb 09 ff f8 01 00 00 00 01 0c ff fb 09 ff f8 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0b 54 06 02 03 09 01 8b 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+02 90 00 00 00 00 03 09 00 22 00 00 00 01 ff ff ff fe 0b 64 0f 00 00 0e 09 ff 38 01 ff ff ff fe
+0b 64 0f 00 00 0e 09 ff 38 01 ff ff ff fe 0b 64 0f 00 00 0e 09 ff 38 01 ff ff ff fe 0b 64 0f 00
+00 0e 09 ff 38 0b ff ff ff fe 0e 09 ff 38 0b 64 0f 00 00 0e ff ff ff fe 68 01 ff b6 00 01 0b 68
+01 ff af 00 0f 0b 68 01 ff a8 00 1d 0b 68 01 ff a1 00 2b 0b 68 01 ff 9a 00 39 0b 68 01 ff 93 00
+47 02 90 00 06 00 00 04 02 90 00 0e 00 00 0c 02 90 00 00 00 01 0b 02 90 00 00 00 06 0a 01 00 00
+00 2a 0b 68 04 ff 65 00 01 04 54 04 0c 04 05 54 0a 0b 0a 09 ff ce 0c ff e7 01 00 00 00 03 0c 00
+28 01 00 00 00 04 0c 00 45 01 00 00 00 2a 0a a4 00 08 ff 3f 0f 02 90 ff ff ff 46 0e 02 90 00 00
+00 00 02 09 ff 24 01 00 00 00 2a 0c 00 3d 01 00 00 00 2a 0a a4 00 04 ff 1a 0f 02 90 ff ff ff 42
+0e 02 90 00 00 00 00 02 09 fe ff 01 00 00 00 2a 0a a4 00 0c fe fd 0f 02 90 ff ff ff 4a 0e 02 90
+00 00 00 00 02 09 fe e2 01 00 00 00 2a 0a a4 00 00 fe e0 0f 02 90 ff ff ff 3e 0e 02 90 00 00 00
+00 02 09 fe c5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00

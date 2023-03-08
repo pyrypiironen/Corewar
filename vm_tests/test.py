@@ -19,7 +19,8 @@ def blue(text):
 os.system('cd .. && make vm && make vm_clean && cp corewar ./vm_tests/corewar && cd vm_tests')
 
 # Set the starting cycle of comparing outputs of our corewar and the original corewar.
-cycle = 1700
+# First difference: 2515
+cycle = 2500
 # Set the cycle to print info.
 info = 799
 

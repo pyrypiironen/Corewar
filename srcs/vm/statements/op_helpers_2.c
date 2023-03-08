@@ -12,6 +12,7 @@
 
 # include "../../../includes/vm.h"
 
+// Count jump size based on argument types.
 int	count_jump_size(t_carriage *carriage, t_vm_data *d, int	dir_size, int args)
 {
 	int	ret;
@@ -36,4 +37,13 @@ int	count_jump_size(t_carriage *carriage, t_vm_data *d, int	dir_size, int args)
 		i++;
 	}
 	return (ret);
+}
+
+// Protect cursor movement against negative value and getting out of the arena.
+int	move_cursor(t_carriage *carriage, int arg)
+{
+	if (carriage->cursor + arg >= 0)
+		return ((carriage->cursor + arg) % MEM_SIZE);
+	else
+		return (MEM_SIZE + (carriage->cursor + arg) % MEM_SIZE);
 }
