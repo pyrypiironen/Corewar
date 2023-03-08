@@ -18,8 +18,10 @@ def blue(text):
 # Make and copy new corewar to this folder.
 os.system('cd .. && make vm && make vm_clean && cp corewar ./vm_tests/corewar && cd vm_tests')
 
-# Set the starting cycle of testing.
-cycle = 0			#First diff comes in cycle 1105
+# Set the starting cycle of comparing outputs of our corewar and the original corewar.
+cycle = 1700
+# Set the cycle to print info.
+info = 799
 
 # Define champs
 champs = ' ./champs/Car.cor ./champs/Gagnant.cor'
@@ -31,6 +33,12 @@ corewar_info = './corewar' + champs + ' -c '
 corewar_text = './logs/corewar.txt'
 corewar42_text = './logs/corewar42.txt'
 info_text = './logs/info.txt'
+# hmaronen and group corewar:
+corewar99 = './corewar99' + champs + ' -v 14 -dump '
+actions99_text = './logs/actions99.txt'
+# Our corewar with actions flag
+corewar_actions = './corewar' + champs + ' -a '
+actions_text = './logs/actions.txt'
 
 
 
@@ -42,7 +50,7 @@ info_text = './logs/info.txt'
 # Add break point to test loop.
 
 
-while cycle < 50:
+while cycle < 10000:
 	# Open text files, run the programs and write outputs to text files.
 	with open(corewar_text, 'w') as f1:
 		subprocess.run(corewar + str(cycle), shell=True, stdout=f1)
@@ -65,6 +73,10 @@ while cycle < 50:
 
 
 with open(info_text, 'w') as f3:
-	subprocess.run(corewar_info + str(cycle), shell=True, stdout=f3)
+	subprocess.run(corewar_info + str(info), shell=True, stdout=f3)
+with open(actions_text, 'w') as f4:
+	subprocess.run(corewar_actions + str(cycle), shell=True, stdout=f4)
+with open(actions99_text, 'w') as f5:
+	subprocess.run(corewar99 + str(cycle), shell=True, stdout=f5)
 
 

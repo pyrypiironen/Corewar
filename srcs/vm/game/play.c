@@ -55,17 +55,15 @@ static void	check_carriage(t_vm_data *d)
 		read_statement(d);
 	else if (d->carriage->to_execute == 0)
 	{
-		//write(1, "Dispatch\n", 10);
-		//printf("Statement: %d\n", d->carriage->statement);
 		g_dispatcher[d->carriage->statement](d->carriage, d);
-		//write(1, "Dispatch done\n", 15);
+		if (d->a_flag != -2)
+			ft_printf("Carriage position: %d\n", d->carriage->cursor);
 	}
 }
 
 // Read new statement and init all its necessary data to the carriage.
 static void	read_statement(t_vm_data *d)
 {
-	//write(1, "read statement in\n", 18); // TESTING
 	static const int	to_execute[16] = \
 	{10, 5, 5, 10, 10, 6, 6, 6, 20, 25, 25, 800, 10, 50, 1000, 2};
 

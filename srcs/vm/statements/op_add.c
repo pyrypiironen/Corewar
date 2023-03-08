@@ -55,7 +55,7 @@ void	op_sub(t_carriage *carriage, t_vm_data *d)
 		carriage->registrys[second];
 		carriage->carry = update_carry(carriage->registrys[third]);
 		if (d->a_flag != -2)
-			ft_printf("P%5d | add r%d r%d r%d\n", carriage->id, \
+			ft_printf("P%5d | sub r%d r%d r%d\n", carriage->id, \
 			first + 1, second + 1, third + 1);
 	}
 	carriage->cursor = (carriage->cursor + carriage->jump_size) % MEM_SIZE;

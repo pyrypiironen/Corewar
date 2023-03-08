@@ -30,6 +30,7 @@ void	op_jump(t_carriage *carriage, t_vm_data *d)
 	else
 	{
 		carriage->cursor = (carriage->cursor + 3) % MEM_SIZE;
-		ft_printf("P%5d | zjmp %d FAILED\n", carriage->id, arg);
+		if (d->a_flag != -2)
+			ft_printf("P%5d | zjmp %d FAILED\n", carriage->id, arg);
 	}
 }
