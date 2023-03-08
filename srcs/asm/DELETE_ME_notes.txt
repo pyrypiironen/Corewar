@@ -1,5 +1,5 @@
 FIX:
-
+- FLAG to replicate original assembler's disregard for .s and just looks for the dot.
 - if newline and no tail_statement is not valid == ENDLINE ERRORS
 
 
