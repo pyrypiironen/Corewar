@@ -29,6 +29,7 @@ int	update_carry(int value)
 
 // Get values from given position and following three memory locations.
 // Convert values to one integer and return it.
+// Protected against negative 'position' parameter.
 int	get_4_byte_value(t_vm_data *d, int position)
 {
 	unsigned char	first;
@@ -37,6 +38,9 @@ int	get_4_byte_value(t_vm_data *d, int position)
 	unsigned char	fourth;
 	int				value;
 
+	// Added this to protect against negative parameter.
+	if (position < 0)
+		position = position % MEM_SIZE + MEM_SIZE;
 	first = d->arena[(position + 0) % MEM_SIZE];
 	second = d->arena[(position + 1) % MEM_SIZE];
 	third = d->arena[(position + 2) % MEM_SIZE];
@@ -47,13 +51,16 @@ int	get_4_byte_value(t_vm_data *d, int position)
 
 // Get values from given position and following  memory location.
 // Convert values to one integer and return it. IDX_MOD is used if given
-// parameter idx is not 0.
+// parameter idx is not 0. Protected against negative 'position' parameter.
 int	get_2_byte_value(t_vm_data *d, int position, int idx)
 {
 	unsigned char	first;
 	unsigned char	second;
 	short			value;
-
+	
+	// Added this to protect against negative parameter.
+	if (position < 0)
+		position = position % MEM_SIZE + MEM_SIZE;
 	first = d->arena[(position + 0) % MEM_SIZE];
 	second = d->arena[(position + 1) % MEM_SIZE];
 	value = (first << 8) + second;

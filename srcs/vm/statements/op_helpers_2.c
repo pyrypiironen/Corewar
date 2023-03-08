@@ -40,6 +40,7 @@ int	count_jump_size(t_carriage *carriage, t_vm_data *d, int	dir_size, int args)
 }
 
 // Protect cursor movement against negative value and getting out of the arena.
+// Return is new location of cursor, not the change.
 int	move_cursor(t_carriage *carriage, int arg)
 {
 	if (carriage->cursor + arg >= 0)

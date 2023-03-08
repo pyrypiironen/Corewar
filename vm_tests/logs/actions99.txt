@@ -849,7 +849,7 @@ It is now cycle 802
 It is now cycle 803
 It is now cycle 804
 It is now cycle 805
-P    3 | ld 400 r3
+P    1 | ld 400 r3
 Carriage position: 113
 P    1 | ld -272 r3
 Carriage position: 10
@@ -863,7 +863,7 @@ It is now cycle 812
 It is now cycle 813
 It is now cycle 814
 It is now cycle 815
-P    3 | live 0
+P    1 | live 0
 Carriage position: 118
 P    1 | live 0
 Carriage position: 15
@@ -1134,7 +1134,7 @@ It is now cycle 1077
 It is now cycle 1078
 It is now cycle 1079
 It is now cycle 1080
-P    4 | live 42
+P    2 | live 42
 Carriage position: 2210
 P    2 | live 3
 Carriage position: 2238
