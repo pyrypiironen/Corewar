@@ -1,135 +1,20 @@
 Introducing contestants...
-* Player 1, weighing 23 bytes, "st" ("store") !
+* Player 1, weighing 394 bytes, "turtle" ("TURTLE FFS U LAMA") !
 * Player 2, weighing 325 bytes, "Celebration Funebre v0.99pl42" ("Jour J") !
 
-Cycle: 17046
-Cycles to die: 936
-Cycles to check: 558
-Live statements: 56
-
-ID: 2
-Carry flag: 1
-Cursor location: 974
-Statement: 0D
-To execute:								17
-Last live: 16009
-Registry 1: -2
-Registry 2: -2
-Registry 3: 0
-Registry 4: 4063232
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
-Registry 9: 0
-Registry 10: 2
-Registry 11: 1
-Registry 12: 917504
-Registry 13: 0
-Registry 14: -182
-Registry 15: -13106689
-Registry 16: 0
-
-ID: 2
-Carry flag: 1
-Cursor location: 974
-Statement: 0D
-To execute:								1
-Last live: 15993
-Registry 1: -2
-Registry 2: 0
-Registry 3: 0
-Registry 4: 2228224
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
-Registry 9: 0
-Registry 10: 4
-Registry 11: 1
-Registry 12: 917504
-Registry 13: 0
-Registry 14: -186
-Registry 15: 3593
-Registry 16: 0
-
-ID: 2
-Carry flag: 1
-Cursor location: 974
-Statement: 0D
-To execute:								1
-Last live: 15993
-Registry 1: -2
-Registry 2: 0
-Registry 3: 0
-Registry 4: 2228224
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
-Registry 9: 0
-Registry 10: 4
-Registry 11: 1
-Registry 12: 917504
-Registry 13: 0
-Registry 14: -190
-Registry 15: -32807921
-Registry 16: 0
-
-ID: 2
-Carry flag: 1
-Cursor location: 974
-Statement: 0D
-To execute:								1
-Last live: 15993
-Registry 1: -2
-Registry 2: 0
-Registry 3: 0
-Registry 4: 2228224
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
-Registry 9: 0
-Registry 10: 4
-Registry 11: 1
-Registry 12: 917504
-Registry 13: 0
-Registry 14: -194
-Registry 15: 33554431
-Registry 16: 0
-
-ID: 2
-Carry flag: 1
-Cursor location: 974
-Statement: 0D
-To execute:								1
-Last live: 15993
-Registry 1: -2
-Registry 2: 0
-Registry 3: 0
-Registry 4: 2228224
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
-Registry 9: 0
-Registry 10: 4
-Registry 11: 1
-Registry 12: 917504
-Registry 13: 0
-Registry 14: -182
-Registry 15: -13106689
-Registry 16: 0
+Cycle: 3554
+Cycles to die: 1436
+Cycles to check: 904
+Live statements: 55
 
 ID: 2
 Carry flag: 0
-Cursor location: 998
-Statement: FF
-To execute:								-1
-Last live: 17045
+Cursor location: 2230
+Statement: 0B
+To execute:								141
+Last live: 2830
 Registry 1: -2
-Registry 2: -2
+Registry 2: 0
 Registry 3: 0
 Registry 4: 4063232
 Registry 5: 0
@@ -146,67 +31,21 @@ Registry 15: 0
 Registry 16: 0
 
 ID: 2
-Carry flag: 1
-Cursor location: 2295
-Statement: 0A
-To execute:								9
-Last live: 17030
+Carry flag: 0
+Cursor location: 2283
+Statement: 0B
+To execute:								11
+Last live: 2765
 Registry 1: -2
 Registry 2: 0
 Registry 3: 0
-Registry 4: 4980736
+Registry 4: 2228224
 Registry 5: 0
 Registry 6: 0
 Registry 7: 0
 Registry 8: 0
 Registry 9: 0
-Registry 10: 1
-Registry 11: 1
-Registry 12: 917504
-Registry 13: 0
-Registry 14: -182
-Registry 15: -13106689
-Registry 16: 0
-
-ID: 2
-Carry flag: 1
-Cursor location: 2171
-Statement: FF
-To execute:								-3
-Last live: 17043
-Registry 1: -2
-Registry 2: -2
-Registry 3: 0
-Registry 4: 4063232
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
-Registry 9: 0
-Registry 10: 2
-Registry 11: 1
-Registry 12: 917504
-Registry 13: 0
-Registry 14: -182
-Registry 15: -13106689
-Registry 16: 0
-
-ID: 2
-Carry flag: 0
-Cursor location: 2184
-Statement: 0D
-To execute:								21
-Last live: 17015
-Registry 1: -2
-Registry 2: -2
-Registry 3: 0
-Registry 4: 4063232
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
-Registry 9: 0
-Registry 10: 2
+Registry 10: 4
 Registry 11: 1
 Registry 12: 917504
 Registry 13: 0
@@ -216,148 +55,10 @@ Registry 16: 0
 
 ID: 2
 Carry flag: 1
-Cursor location: 2148
-Statement: 0E
-To execute:								142
-Last live: 16186
-Registry 1: -2
-Registry 2: 0
-Registry 3: 0
-Registry 4: 393216
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
-Registry 9: 0
-Registry 10: 6
-Registry 11: 1
-Registry 12: 917504
-Registry 13: 0
-Registry 14: -186
-Registry 15: 3593
-Registry 16: 0
-
-ID: 2
-Carry flag: 1
-Cursor location: 2148
-Statement: 0E
-To execute:								142
-Last live: 16186
-Registry 1: -2
-Registry 2: 0
-Registry 3: 0
-Registry 4: 393216
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
-Registry 9: 0
-Registry 10: 6
-Registry 11: 1
-Registry 12: 917504
-Registry 13: 0
-Registry 14: -186
-Registry 15: 3593
-Registry 16: 0
-
-ID: 2
-Carry flag: 1
-Cursor location: 2148
-Statement: 0E
-To execute:								142
-Last live: 16186
-Registry 1: -2
-Registry 2: 0
-Registry 3: 0
-Registry 4: 393216
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
-Registry 9: 0
-Registry 10: 6
-Registry 11: 1
-Registry 12: 917504
-Registry 13: 0
-Registry 14: -186
-Registry 15: 3593
-Registry 16: 0
-
-ID: 2
-Carry flag: 1
-Cursor location: 2173
-Statement: 0D
-To execute:								36
-Last live: 17027
-Registry 1: -2
-Registry 2: 0
-Registry 3: 0
-Registry 4: 2228224
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
-Registry 9: 0
-Registry 10: 4
-Registry 11: 1
-Registry 12: 917504
-Registry 13: 0
-Registry 14: -182
-Registry 15: -13106689
-Registry 16: 0
-
-ID: 2
-Carry flag: 1
-Cursor location: 2173
-Statement: 0D
-To execute:								36
-Last live: 17027
-Registry 1: -2
-Registry 2: 0
-Registry 3: 0
-Registry 4: 2228224
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
-Registry 9: 0
-Registry 10: 4
-Registry 11: 1
-Registry 12: 917504
-Registry 13: 0
-Registry 14: -194
-Registry 15: 33554431
-Registry 16: 0
-
-ID: 2
-Carry flag: 1
-Cursor location: 2173
-Statement: 0D
-To execute:								36
-Last live: 17027
-Registry 1: -2
-Registry 2: 0
-Registry 3: 0
-Registry 4: 2228224
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
-Registry 9: 0
-Registry 10: 4
-Registry 11: 1
-Registry 12: 917504
-Registry 13: 0
-Registry 14: -190
-Registry 15: -32807921
-Registry 16: 0
-
-ID: 2
-Carry flag: 1
-Cursor location: 2295
+Cursor location: 393
 Statement: 0A
-To execute:								9
-Last live: 17030
+To execute:								5
+Last live: 3534
 Registry 1: -2
 Registry 2: 0
 Registry 3: 0
@@ -377,10 +78,10 @@ Registry 16: 0
 
 ID: 2
 Carry flag: 1
-Cursor location: 2295
+Cursor location: 393
 Statement: 0A
-To execute:								9
-Last live: 17030
+To execute:								5
+Last live: 3534
 Registry 1: -2
 Registry 2: 0
 Registry 3: 0
@@ -399,34 +100,34 @@ Registry 15: 33554431
 Registry 16: 0
 
 ID: 2
-Carry flag: 1
-Cursor location: 2148
-Statement: 0E
-To execute:								142
-Last live: 16186
+Carry flag: 0
+Cursor location: 2238
+Statement: 0B
+To execute:								76
+Last live: 2830
 Registry 1: -2
 Registry 2: 0
 Registry 3: 0
-Registry 4: 393216
+Registry 4: 3145728
 Registry 5: 0
 Registry 6: 0
 Registry 7: 0
 Registry 8: 0
 Registry 9: 0
-Registry 10: 6
+Registry 10: 3
 Registry 11: 1
 Registry 12: 917504
 Registry 13: 0
-Registry 14: -186
-Registry 15: 3593
+Registry 14: 0
+Registry 15: 0
 Registry 16: 0
 
 ID: 2
 Carry flag: 1
-Cursor location: 2295
+Cursor location: 393
 Statement: 0A
-To execute:								9
-Last live: 17030
+To execute:								5
+Last live: 3534
 Registry 1: -2
 Registry 2: 0
 Registry 3: 0
@@ -444,12 +145,35 @@ Registry 14: -190
 Registry 15: -32807921
 Registry 16: 0
 
-ID: 2
+ID: 1
 Carry flag: 1
-Cursor location: 2173
-Statement: 0D
-To execute:								36
-Last live: 17027
+Cursor location: 386
+Statement: 02
+To execute:								1
+Last live: 3400
+Registry 1: -1
+Registry 2: 439025904
+Registry 3: 0
+Registry 4: 0
+Registry 5: 0
+Registry 6: 0
+Registry 7: 0
+Registry 8: 0
+Registry 9: 0
+Registry 10: 0
+Registry 11: 0
+Registry 12: 0
+Registry 13: 0
+Registry 14: 0
+Registry 15: 0
+Registry 16: 0
+
+ID: 2
+Carry flag: 0
+Cursor location: 2246
+Statement: 0B
+To execute:								11
+Last live: 2765
 Registry 1: -2
 Registry 2: 0
 Registry 3: 0
@@ -463,16 +187,39 @@ Registry 10: 4
 Registry 11: 1
 Registry 12: 917504
 Registry 13: 0
-Registry 14: -186
-Registry 15: 3593
+Registry 14: 0
+Registry 15: 0
+Registry 16: 0
+
+ID: 1
+Carry flag: 1
+Cursor location: 223
+Statement: 00
+To execute:								1
+Last live: 3525
+Registry 1: -1
+Registry 2: 0
+Registry 3: 0
+Registry 4: 0
+Registry 5: 0
+Registry 6: 0
+Registry 7: 0
+Registry 8: 0
+Registry 9: 0
+Registry 10: 0
+Registry 11: 0
+Registry 12: 0
+Registry 13: 0
+Registry 14: 0
+Registry 15: 0
 Registry 16: 0
 
 ID: 2
 Carry flag: 1
-Cursor location: 2295
+Cursor location: 393
 Statement: 0A
-To execute:								9
-Last live: 17030
+To execute:								5
+Last live: 3534
 Registry 1: -2
 Registry 2: 0
 Registry 3: 0
@@ -488,4 +235,27 @@ Registry 12: 917504
 Registry 13: 0
 Registry 14: -186
 Registry 15: 3593
+Registry 16: 0
+
+ID: 1
+Carry flag: 1
+Cursor location: 215
+Statement: 02
+To execute:								1
+Last live: 3400
+Registry 1: -1
+Registry 2: 439025904
+Registry 3: 0
+Registry 4: 0
+Registry 5: 0
+Registry 6: 0
+Registry 7: 0
+Registry 8: 0
+Registry 9: 0
+Registry 10: 0
+Registry 11: 0
+Registry 12: 0
+Registry 13: 0
+Registry 14: 0
+Registry 15: 0
 Registry 16: 0

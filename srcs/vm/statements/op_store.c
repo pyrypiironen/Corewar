@@ -36,13 +36,21 @@ void	op_st(t_carriage *carriage, t_vm_data *d)
 		carriage->registrys[d->arena[second] - 1] = \
 		carriage->registrys[d->arena[first] - 1];
 		carriage->cursor = (carriage->cursor + 4) % MEM_SIZE;
+		if (d->a_flag != -2)
+			ft_printf("P      | st r%c %d\n", d->arena[first], \
+			d->arena[second]);
 	}
 	else if (d->arena[(carriage->cursor + 1) % MEM_SIZE] == 0x70 && \
 	is_valid_reg(first, d))
 	{
 		position = (carriage->cursor + get_2_byte_value(d, \
 		carriage->cursor + 3, 1)) % MEM_SIZE;
+		if (position < 0)
+			position = MEM_SIZE + position;
 		int_to_arena(d, position, carriage->registrys[d->arena[first] - 1]);
+		if (d->a_flag != -2)
+			ft_printf("P      | st r%d %d\n", d->arena[first], \
+			get_2_byte_value(d, carriage->cursor + 3, 1) % MEM_SIZE);
 		carriage->cursor = (carriage->cursor + 5) % MEM_SIZE;
 	}
 	else

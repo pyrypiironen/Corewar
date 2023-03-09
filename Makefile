@@ -18,9 +18,14 @@ ASM_OBJ_FILES = $(ASM_SRC_FILES:.c=.o)
 ASM_OBJ = $(addprefix $(ASM_OBJ_DIR), $(ASM_OBJ_FILES))
 
 
-MAIN =		main.c
+GAME =			checks.c \
+				play.c
 
-CARRIAGES = init.c
+HELPERS =		init_carriages.c \
+				print.c \
+				print_2.c
+
+MAIN =			main.c
 
 PREREQUITES =	arena.c \
 				champs.c \
@@ -28,11 +33,6 @@ PREREQUITES =	arena.c \
 				read_args.c \
 				read_cor.c \
 				read_cor_2.c
-
-HELPERS =		print.c
-
-#Delete when project is ready
-TESTS =			prerequite_tests.c
 
 STATEMENTS =	op_add.c \
 				op_aff.c \
@@ -46,12 +46,13 @@ STATEMENTS =	op_add.c \
 				op_live.c \
 				op_store.c 
 
-GAME =			checks.c \
-				play.c
+#Delete when project is ready
+TESTS =			prerequite_tests.c
+
+
 
 
 MAIN_SRCS = $(addprefix srcs/vm/main/, $(MAIN))
-CARRIAGES_SRCS = $(addprefix srcs/vm/carriages/, $(CARRIAGES))
 PREREQUITES_SRCS = $(addprefix srcs/vm/prerequites/, $(PREREQUITES))
 HELPERS_SRCS = $(addprefix srcs/vm/helpers/, $(HELPERS))
 TESTS_SRCS = $(addprefix srcs/vm/tests/, $(TESTS))
@@ -60,7 +61,7 @@ GAME_SRCS = $(addprefix srcs/vm/game/, $(GAME))
 
 
 
-VM_SRC_FILES =	$(MAIN_SRCS) $(CARRIAGES_SRCS) $(HELPERS_SRCS) \
+VM_SRC_FILES =	$(MAIN_SRCS) $(HELPERS_SRCS) \
 				$(PREREQUITES_SRCS) $(TESTS_SRCS) $(STATEMENT_SRCS) $(GAME_SRCS)
 
 VM_OBJ_DIR = ./srcs/objs/vm/
@@ -80,7 +81,7 @@ $(ASM_OBJ_DIR)%.o: $(ASM_SRC_DIR)%.c
 
 $(COREWAR): $(VM_OBJ) $(LIBFT)
 		$(CC) $(FLAGS) -o $@ $^
-		@echo "Virtual machine done."
+		@echo "\033[0;33mVirtual machine created.\033[0m"
 
 # $(COREWAR): $(LIBFT) $(VM_OBJ) $(VM_H)
 #	$(CC) -o $@ $(FLAGS) $(INCL) $(VM_SRC) $(LIBFT)

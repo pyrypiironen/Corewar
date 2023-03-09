@@ -32,7 +32,7 @@ typedef struct			s_vm_data
 	struct s_carriage	*carriage;
 	struct s_carriage	*carriage_head;
 	int					player_amount;
-	int					winner;			// or pointer to players struct
+	int					winner;
 	int					current_cycle;
 	int					cycles_to_die;
 	int					cycles_to_check;
@@ -42,7 +42,7 @@ typedef struct			s_vm_data
 	int					d_flag;
 	int					od_flag;
 	int					c_flag;
-	int					a_flag; // print actions and dump
+	int					a_flag;
 }						t_vm_data;
 
 typedef struct			s_carriage
@@ -72,14 +72,28 @@ typedef struct		s_player
 
 
 
-void	init_core(int argc, char **argv, t_vm_data *d);
-void	read_champs(int	argc, char **argv, t_vm_data *d);
-
-
-//		* * * * * * * * CARRIAGES * * * * * * * *
-//		init.c
 void	init_carriages(t_vm_data *d);
 
+//		* * * * * * * * THE GAME * * * * * * * *
+//		checks.c
+void	check(t_vm_data *d);
+
+//		play.c
+void	play_the_game(t_vm_data *d);
+
+//		* * * * * * * * HELPERS * * * * * * * *
+//		init_carriages.c
+void	init_carriages(t_vm_data *d);
+
+//		print.c
+void	print_error(char *str, int usage);
+void	print_dump(t_vm_data *d);
+void	print_replica_dump(t_vm_data *d);
+void	print_contestants(t_vm_data *d);
+void	dump_info(t_vm_data *d);
+
+//		print_2.c
+void	print_winner(t_vm_data *d);
 
 //		* * * * * * * * PREREQUITES * * * * * * * *
 //		arena.c
@@ -91,6 +105,12 @@ void	init_champ(t_vm_data *d, t_player *champ, char *file);
 void	init_ids(t_vm_data *d);
 int		check_id(t_player *champ, int id);
 void	id_error_check(t_vm_data *d);
+
+//		init.c
+void	init_core(int argc, char **argv, t_vm_data *d);
+
+//		read_args.c
+void	read_champs(int	argc, char **argv, t_vm_data *d);
 
 //		read_cor.c
 void	read_magic(int fd);
@@ -150,20 +170,7 @@ void	op_lldi(t_carriage *carriage, t_vm_data *d);
 void	op_st(t_carriage *carriage, t_vm_data *d);
 void	op_sti(t_carriage *carriage, t_vm_data *d);
 
-//		* * * * * * * * THE GAME * * * * * * * *
-//		checks.c
-void	check(t_vm_data *d);
 
-//		play.c
-void	play_the_game(t_vm_data *d);
-
-//		* * * * * * * * HELPERS * * * * * * * *
-//		print.c
-void	print_error(char *str, int usage);
-void	print_dump(t_vm_data *d);
-void	print_replica_dump(t_vm_data *d);
-void	print_contestants(t_vm_data *d);
-void	dump_info(t_vm_data *d);
 
 
 

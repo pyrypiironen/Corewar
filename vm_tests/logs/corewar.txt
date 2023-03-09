@@ -1,3 +1,4 @@
 Introducing contestants...
-* Player 1, weighing 23 bytes, "st" ("store") !
+* Player 1, weighing 394 bytes, "turtle" ("TURTLE FFS U LAMA") !
 * Player 2, weighing 325 bytes, "Celebration Funebre v0.99pl42" ("Jour J") !
+Contestant 2, "Celebration Funebre v0.99pl42", has won !

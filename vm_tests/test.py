@@ -19,13 +19,13 @@ def blue(text):
 os.system('cd .. && make vm && make vm_clean && cp corewar ./vm_tests/corewar && cd vm_tests')
 
 # Set the starting cycle of comparing outputs of our corewar and the original corewar.
-# First difference: 6276
-cycle = 50000
+# First difference: 
+cycle = 24437
 # Set the cycle to print info.
-info = 17046
+info = 3554
 
 # Define champs
-champs = ' ./champs/op_st.cor ./champs/Gagnant.cor'
+champs = ' ./champs/turtle.cor ./champs/Gagnant.cor'
 
 # Define commands and log files
 corewar = './corewar' + champs + ' -d '
@@ -51,7 +51,7 @@ actions_text = './logs/actions.txt'
 # Add break point to test loop.
 
 
-while cycle < 70000:
+while cycle < 24440:
 	# Open text files, run the programs and write outputs to text files.
 	with open(corewar_text, 'w') as f1:
 		subprocess.run(corewar + str(cycle), shell=True, stdout=f1)

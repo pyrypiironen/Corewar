@@ -25,7 +25,6 @@ void	play_the_game(t_vm_data *d)
 		d->current_cycle += 1;
 		d->cycles_to_check -= 1;
 		execute_statements(d);
-		//write(1, "execute statements out\n", 24); // TESTING
 		if (d->cycles_to_check <= 0)
 			check(d);
 	}
@@ -35,21 +34,18 @@ void	play_the_game(t_vm_data *d)
 // if necessary, and remove dead carriages.
 static void	execute_statements(t_vm_data *d)
 {
-	//write(1, "execute statements in\n", 24); // TESTING
 	d->carriage = d->carriage_head;
 	while (d->carriage)
 	{
 		check_carriage(d);
 		d->carriage = d->carriage->next;
 	}
-
 }
 
 // Read statement if there is no statement waiting to execute. If there is,
 // then countdown and execute the statement on right cycle.
 static void	check_carriage(t_vm_data *d) 
 {
-	// write(1, "Check carriage in\n", 18); // TESTING
 	d->carriage->to_execute -= 1;
 	if (d->carriage->to_execute < 0)
 		read_statement(d);
@@ -69,7 +65,7 @@ static void	read_statement(t_vm_data *d)
 
 	d->carriage->statement = d->arena[d->carriage->cursor] - 1;
 	if (d->carriage->statement < 16 && d->carriage->statement >= 0)
-		d->carriage->to_execute = to_execute[d->carriage->statement] - 1;// Is -1 correct?
+		d->carriage->to_execute = to_execute[d->carriage->statement] - 1;
 	else
 		d->carriage->cursor = (d->carriage->cursor + 1) % MEM_SIZE;
 }

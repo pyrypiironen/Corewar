@@ -24,6 +24,7 @@ int	main(int argc, char **argv)
 	init_core(argc, argv, d);
 	print_contestants(d);
 	play_the_game(d);
+	print_winner(d);
 	
 
 
