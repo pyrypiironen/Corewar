@@ -59,54 +59,51 @@ TESTS_SRCS = $(addprefix srcs/vm/tests/, $(TESTS))
 STATEMENT_SRCS = $(addprefix srcs/vm/statements/, $(STATEMENTS))
 GAME_SRCS = $(addprefix srcs/vm/game/, $(GAME))
 
-
-
 VM_SRC_FILES =	$(MAIN_SRCS) $(HELPERS_SRCS) \
 				$(PREREQUITES_SRCS) $(TESTS_SRCS) $(STATEMENT_SRCS) $(GAME_SRCS)
 
 VM_OBJ_DIR = ./srcs/objs/vm/
 VM_OBJ_FILES = $(VM_SRC_FILES:.c=.o)
 VM_OBJ = $(VM_OBJ_FILES)
-# $(addprefix $(VM_OBJ_DIR), 
+# $(addprefix $(VM_OBJ_DIR)
 
 all: $(ASSEMBLER) $(COREWAR)
 # Add Makefile as prerequisite for $(Corewar), change syntax which would compile with Makefile
 $(ASSEMBLER): $(ASM_OBJ) $(ASM_H) $(LIBFT) Makefile
-	$(CC) -o $@ $(FLAGS) $(INCL) $(ASM_OBJ) $(LIBFT)
-	@echo "Assembler done."
+	@$(CC) -o $@ $(FLAGS) $(INCL) $(ASM_OBJ) $(LIBFT)
+	@echo "\033[0;33mAssembler compiled.\033[0m"
 
 $(ASM_OBJ_DIR)%.o: $(ASM_SRC_DIR)%.c
 	@mkdir -p $(ASM_OBJ_DIR)
-	$(CC) $(FLAGS) -c $< -o $@ $(INCL)
+	@$(CC) $(FLAGS) -c $< -o $@ $(INCL)
 
 $(COREWAR): $(VM_OBJ) $(LIBFT)
-		$(CC) $(FLAGS) -o $@ $^
-		@echo "\033[0;33mVirtual machine created.\033[0m"
-
-# $(COREWAR): $(LIBFT) $(VM_OBJ) $(VM_H)
-#	$(CC) -o $@ $(FLAGS) $(INCL) $(VM_SRC) $(LIBFT)
-
-$(VM_OBJ_DIR)%.o: $(VM_SRC_DIR)%.c
-	@mkdir -p $(VM_OBJ_DIR)
-	$(CC) $(FLAGS) -c $< -o $@ $(INCL)
+		@mkdir -p $(VM_OBJ_DIR)
+		@$(CC) $(FLAGS) -o $@ $^
+		@echo "\033[0;33mVirtual machine compiled.\033[0m"
 
 $(LIBFT):
 	@$(MAKE) -C ./libft/
+	@echo "\033[0;33mLibft compiled.\033[0m"
 
 clean:
 	@/bin/rm -rf ./srcs/objs
 	@$(MAKE) -C ./libft/ clean
+# Is following line with wildcats ok?
+#		@mv srcs/vm/*/*.o $(VM_OBJ_DIR)
+	@echo "\033[0;33mObjects folder deleted.\033[0m"
 
 fclean: clean
 	@$(MAKE) -C ./libft/ fclean
-	@/bin/rm $(ASSEMBLER)
-	@/bin/rm $(COREWAR)
+	@rm -f $(ASSEMBLER)
+	@rm -f $(COREWAR)
+	@echo "\033[0;33mMake fclean done.\033[0m"
 
 re: fclean all
 
-vm: $(COREWAR)
+# vm: $(COREWAR)
 	
-vm_clean:
-	@rm srcs/vm/*/*.o
+# vm_clean:
+# 	@rm srcs/vm/*/*.o
 
 .PHONY: all clean fclean re

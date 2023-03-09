@@ -46,18 +46,18 @@ all: $(NAME)
 
 $(NAME):
 	@make -C ft_printf
-	gcc $(FLAGS) -c $(SRC) $(GNL_SRC)
+	@gcc $(FLAGS) -c $(SRC) $(GNL_SRC)
 	@mv $(OBJ_FILES) $(OBJS_DIR)
 	@mv $(GNL_OBJ_FILE) $(OBJS_DIR)
-	ar rc $(NAME) $(OBJS) $(GNL_OBJ) $(PFOBJS)
+	@ar rc $(NAME) $(OBJS) $(GNL_OBJ) $(PFOBJS)
 	@ranlib $(NAME)
 
 clean:
 	@make -C ft_printf clean
-	/bin/rm -f $(OBJS) $(GNL_OBJ)
+	@/bin/rm -f $(OBJS) $(GNL_OBJ)
 
 fclean: clean
 	@make -C ft_printf fclean
-	/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME)
 
 re: fclean all
