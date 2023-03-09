@@ -49,9 +49,9 @@ static void	fill_carriage(t_vm_data *d)
 	d->carriage_head->cursor_copy = 0;
 	d->carriage_head->last_live = 0;
 	d->carriage_head->statement = d->arena[d->players->location];
-	d->carriage_head->to_execute = -1;			// Before first statement
-	d->carriage_head->jump_size = -1;			// Check this
+	d->carriage_head->to_execute = -1;
+	d->carriage_head->jump_size = -1;
 	d->carriage_head->registrys[0] = d->players->id * -1;
 	while (i < REG_NUMBER)
-		d->carriage_head->registrys[i++] = 1; // FOR TESTING
+		d->carriage_head->registrys[i++] = 0;
 }

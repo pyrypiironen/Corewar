@@ -30,11 +30,6 @@ int	main(int argc, char **argv)
 
 
 	// * * * * * * * * * * ONLY TESTING * * * * * * * * * *
-	// int res;
-	// unsigned char x = 168;
-	// res = count_jump_size(x, 2, 1);
-	// ft_printf("res = %i\n", res);
-
 	// 11 11 11 00 = 252 --> 6
 	// 10 10 10 00 = 168 --> 6 or 12
 	// 01 01 01 00 = 84 --> 3
@@ -51,11 +46,11 @@ int	main(int argc, char **argv)
 	// d->arena[4089] = 0x64; 		// 
 	// d->arena[4090] = 0x00;		// 
 	
-	// d->arena[4091] = 0x00; 		// reg
+	// d->arena[4091] = 0x00; 		//
 	// d->arena[4092] = 0x02;		// 
-	// d->arena[4094] = 0x00; 		// reg
+	// d->arena[4094] = 0x00; 		//
 	// d->arena[4095] = 0x00;		//
-	// d->arena[0] = 0x00; 		// reg
+	// d->arena[0] = 0x00; 		//
 	// d->arena[1] = 0x02;
 
 
@@ -67,25 +62,24 @@ int	main(int argc, char **argv)
 	// d->arena[288] = 0x00;
 	// d->arena[289] = 0x00;
 	// d->arena[290] = 0x00;
-	// // d->arena[187 + 512] = 0x7f;
-	// // d->arena[188 + 512] = 0xff;
-	// // d->arena[189 + 512] = 0xff;
-	// // d->arena[190 + 512] = 0xff;
+	// d->arena[187 + 512] = 0x7f;
+	// d->arena[188 + 512] = 0xff;
+	// d->arena[189 + 512] = 0xff;
+	// d->arena[190 + 512] = 0xff;
 
 
 
-	// d->carriage_head->cursor = 4093;
+	// d->carriage_head->cursor = 4083;
 	// d->carriage_head->carry = 0;
 
 	// d->carriage_head->registrys[0] = 50;
 	// d->carriage_head->registrys[1] = 100;
 	// d->carriage_head->registrys[2] = 2100000;
 	// d->carriage_head->registrys[3] = 612;
-	// d->current_cycle = 42;
 
 
 	
-	// //print_arena(d);
+
 	// print_carriages(d);
 	// op_live(d->carriage_head, d);
 	// //op_sti(d->carriage_head, d);
@@ -94,13 +88,13 @@ int	main(int argc, char **argv)
 	// //op_lldi(d->carriage_head, d);
 
 
-	// ft_printf("{red} *	*	*	*	*	*	*	*	*	*	\n");
-	// //print_arena(d);
+	// // ft_printf("{red} *	*	*	*	*	*	*	*	*	*	\n");
+	// print_arena(d);
+	// op_ld(d->carriage_head, d);
 	// print_carriages(d);
-	// ft_printf("{red}winner: %d\n", d->winner);
-	// //print_arena(d);
+	// print_arena(d);
 
 
-	ft_printf("{green}Success! Main exit (exit code 0).{eoc}\n");
+	//ft_printf("{green}Success! Main exit (exit code 0).{eoc}\n");
 	exit (0);
 }

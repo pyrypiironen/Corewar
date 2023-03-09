@@ -29,32 +29,6 @@ fork_arriere:	live	%42
 		fork	%:arriere
 		zjmp	%:fork_arriere
 
-# On commence les lives en serie
-live_live:	live	%42	
-		sti	r1, %:live100, r9	
-		sti	r1, %:live102, r9	
-		sti	r1, %:live104, r9	
-		sti	r1, %:live106, r9	
-		sti	r1, %:live108, r9	
-		sti	r1, %:live110, r9	
-		sti	r1, %:live112, r9	
-		sti	r1, %:live114, r9	
-		sti	r1, %:live116, r9	
-		sti	r1, %:live118, r9	
-		sti	r1, %:live120, r9	
-		sti	r1, %:live122, r9	
-		sti	r1, %:live124, r9	
-		sti	r1, %:live126, r9	
-		sti	r1, %:live128, r9	
-		sti	r1, %:live130, r9	
-		sti	r1, %:live132, r9	
-		sti	r1, %:live134, r9
-		sti	r1, %:live136, r9
-		sti	r1, %:live138, r9	
-		sti	r1, %:live140, r9	
-		sti	r1, %:live142, r9	
-		sti	r1, %:live144, r9	
-		sti	r1, %:live146, r9	
 		sti	r1, %:live148, r9	
 		xor	r9,%6,r10
 		zjmp	%:fork_live

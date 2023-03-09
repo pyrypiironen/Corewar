@@ -103,7 +103,8 @@ void	dump_info(t_vm_data *d)
 		ft_printf("Carry flag: %i\n", d->carriage->carry);
 		ft_printf("Cursor location: %i\n", d->carriage->cursor);
 		ft_printf("Statement: %.2X\n", d->carriage->statement);
-		ft_printf("To execute: %i\n", d->carriage->to_execute);
+		ft_printf("To execute:						\
+		%i\n", d->carriage->to_execute);
 		ft_printf("Last live: %i\n", d->carriage->last_live);
 		while (i < 16)
 		{

@@ -23,10 +23,13 @@ void	op_ldi(t_carriage *carriage, t_vm_data *d)
 	if (is_valid_reg(carriage->cursor_copy, d) && arg_1 != 2147483648 \
 		&& arg_2 != 2147483648)
 	{
-		//pos = (carriage->cursor + (arg_1 + arg_2) % IDX_MOD) % MEM_SIZE; //replaced by next line
 		pos = move_cursor(carriage, (arg_1 + arg_2) % IDX_MOD);
 		carriage->registrys[reg] = get_4_byte_value(d, pos);
 		carriage->cursor = (carriage->cursor_copy + 1) % MEM_SIZE;
+		if (d->a_flag != -2)
+			ft_printf("P      | ldi %d %d r%d\n       | -> load from %d + %d = \
+%d (with pc and mod %d)\n", \
+	 		arg_1, arg_2, reg + 1, arg_1, arg_2, arg_1 + arg_2, pos);
 	}
 	else
 		carriage->cursor = (carriage->cursor \
@@ -49,7 +52,6 @@ void	op_lldi(t_carriage *carriage, t_vm_data *d)
 	if (is_valid_reg(carriage->cursor_copy, d) && arg_1 != 2147483648 \
 		&& arg_2 != 2147483648)
 	{
-		//pos = (carriage->cursor + arg_1 + arg_2) % MEM_SIZE; //replaced by next line
 		pos = move_cursor(carriage, arg_1 + arg_2);
 		carriage->registrys[reg] = get_4_byte_value(d, pos);
 		carriage->cursor = (carriage->cursor_copy + 1) % MEM_SIZE;
@@ -90,7 +92,7 @@ static long long	get_first_arg(t_carriage *carriage, t_vm_data *d)
 	return (2147483648);
 }
 
-// Read argument type code and based on that, get second value from T_REG,
+// Read argument type code and based on that, get second value from T_REG
 // or T_DIR.
 static long long	get_second_arg(t_carriage *carriage, t_vm_data *d)
 {

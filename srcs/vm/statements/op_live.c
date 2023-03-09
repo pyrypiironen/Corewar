@@ -24,7 +24,11 @@ void	op_live(t_carriage *carriage, t_vm_data *d)
 	value = get_4_byte_value(d, (carriage->cursor + 1) % MEM_SIZE);
 	value *= -1;
 	if (value > 0 && value <= d->player_amount)
+	{
 		d->winner = value;
+		if (d->a_flag != -2)
+			ft_printf("A process shows that player %d is alive\n", value);
+	}
 	carriage->cursor = (carriage->cursor + 5) % MEM_SIZE;
 	if (d->a_flag != -2)
 		ft_printf("P      | live %d\n", value * -1);

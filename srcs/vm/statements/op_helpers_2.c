@@ -20,7 +20,7 @@ int	count_jump_size(t_carriage *carriage, t_vm_data *d, int	dir_size, int args)
 	unsigned char	code;
 	unsigned char	tmp;
 
-	ret = 1;
+	ret = 2;
 	i = 0;
 	code = d->arena[(carriage->cursor + 1)  % MEM_SIZE];
 	code = code >> (2 + 2 * (3 - args));

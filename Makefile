@@ -41,10 +41,10 @@ STATEMENTS =	op_add.c \
 				op_helpers.c \
 				op_helpers_2.c \
 				op_jump.c \
-				op_ld.c \
-				op_ldi.c \
+				op_load.c \
+				op_load_index.c \
 				op_live.c \
-				op_st.c 
+				op_store.c 
 
 GAME =			checks.c \
 				play.c

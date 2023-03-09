@@ -16,6 +16,7 @@ static long long	get_second_arg(t_carriage *carriage, t_vm_data *d);
 static long long	get_third_arg(t_carriage *carriage, t_vm_data *d);
 static void	sti_actions(t_carriage *carriage, t_vm_data *d);
 
+// Store.
 // This statement writes a value from the registry that was passed as the first 
 // argument. The location of writing depends on the type of the second argument:
 // If second argument is registry, then the value is written to registry.
@@ -49,13 +50,13 @@ void	op_st(t_carriage *carriage, t_vm_data *d)
 		+ count_jump_size(carriage, d, 4, 2)) % MEM_SIZE;
 }
 
-
+// Store index.
 // This statement writes the value of the registry passed as the first
 // parameter to the address:
 // current position + (<second arg value> + <third arg value>) % IDX_MOD.
 void	op_sti(t_carriage *carriage, t_vm_data *d)
 {
-	int			reg; // Actually index for reg, name this better
+	int			reg;
 	long long	arg_2;
 	long long	arg_3;
 	int			pos;
@@ -66,20 +67,21 @@ void	op_sti(t_carriage *carriage, t_vm_data *d)
 	if (is_valid_reg((carriage->cursor + 2) % MEM_SIZE, d) && \
 		arg_2 != 2147483648 && arg_3 != 2147483648)
 	{
-		pos = (carriage->cursor + (arg_2 + arg_3) % IDX_MOD) % MEM_SIZE;
+		pos = move_cursor(carriage, (arg_2 + arg_3) % IDX_MOD);
 		int_to_arena(d, pos, carriage->registrys[reg]);
 		carriage->cursor = carriage->cursor_copy;
-		//sti_actions(carriage, d);
 		if (d->a_flag != -2)
 			ft_printf("P      | sti r%d %d %d\n       | -> store to \
-%d + %d = %d (with pc and mod %d)\n", reg + 1, arg_2, arg_3, \
-			arg_2, arg_3, arg_2 + arg_3, pos);
+%d + %d = %d (with pc and mod %d)\n", \
+			reg + 1, arg_2, arg_3, arg_2, arg_3, arg_2 + arg_3, pos);
 	}
 	else
 		carriage->cursor = (carriage->cursor \
 		+ count_jump_size(carriage, d, 2, 3)) % MEM_SIZE;
 }
 
+// Read argument type code and based on that, get second value from T_REG,
+// T_DIR or T_IND.
 static long long	get_second_arg(t_carriage *carriage, t_vm_data *d)
 {
 	int			res;
@@ -92,7 +94,6 @@ static long long	get_second_arg(t_carriage *carriage, t_vm_data *d)
 		carriage->cursor_copy = (pos + 1) % MEM_SIZE;
 		return (carriage->registrys[d->arena[pos] - 1]);
 	}
-		
 	else if (res == 0x64 || res == 0x68)
 	{
 		carriage->cursor_copy = (pos + 2) % MEM_SIZE;
@@ -108,6 +109,8 @@ static long long	get_second_arg(t_carriage *carriage, t_vm_data *d)
 	return (2147483648);
 }
 
+// Read argument type code and based on that, get third value from T_REG or
+// T_DIR.
 static long long	get_third_arg(t_carriage *carriage, t_vm_data *d)
 {
 	int			res;
@@ -119,8 +122,7 @@ static long long	get_third_arg(t_carriage *carriage, t_vm_data *d)
 	{
 		carriage->cursor_copy = (carriage->cursor_copy + 1) % MEM_SIZE;
 		return (carriage->registrys[d->arena[pos] - 1]);
-	}
-		
+	}	
 	else if (res == 0x58 || res == 0x68 || res == 0x78)
 	{
 		carriage->cursor_copy = (carriage->cursor_copy + 2) % MEM_SIZE;

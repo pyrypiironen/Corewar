@@ -110,6 +110,11 @@ void	op_sub(t_carriage *carriage, t_vm_data *d);
 //		op_aff.c
 void	op_aff(t_carriage *carriage, t_vm_data *d);
 
+//		op_bitwise.c
+void	op_and(t_carriage *carriage, t_vm_data *d);
+void	op_or(t_carriage *carriage, t_vm_data *d);
+void	op_xor(t_carriage *carriage, t_vm_data *d);
+
 //		op_fork.c
 void	op_fork(t_carriage *carriage, t_vm_data *d);
 void	op_lfork(t_carriage *carriage, t_vm_data *d);
@@ -130,25 +135,20 @@ int		move_cursor(t_carriage *carriage, int arg);
 //		op_jump.c
 void	op_jump(t_carriage *carriage, t_vm_data *d);
 
-//		op_ld.c
-void	op_ld(t_carriage *carriage, t_vm_data *d);
-void	op_lld(t_carriage *carriage, t_vm_data *d);
-
-//		op_ldi.c
-void	op_ldi(t_carriage *carriage, t_vm_data *d);
-void	op_lldi(t_carriage *carriage, t_vm_data *d);
-
 //		op_live.c
 void	op_live(t_carriage *carriage, t_vm_data *d);
 
-//		op_st.c
+//		op_load.c
+void	op_ld(t_carriage *carriage, t_vm_data *d);
+void	op_lld(t_carriage *carriage, t_vm_data *d);
+
+//		op_load_index.c
+void	op_ldi(t_carriage *carriage, t_vm_data *d);
+void	op_lldi(t_carriage *carriage, t_vm_data *d);
+
+//		op_store.c
 void	op_st(t_carriage *carriage, t_vm_data *d);
 void	op_sti(t_carriage *carriage, t_vm_data *d);
-
-//		op_bitwise.c
-void	op_and(t_carriage *carriage, t_vm_data *d);
-void	op_or(t_carriage *carriage, t_vm_data *d);
-void	op_xor(t_carriage *carriage, t_vm_data *d);
 
 //		* * * * * * * * THE GAME * * * * * * * *
 //		checks.c

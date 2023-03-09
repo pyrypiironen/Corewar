@@ -34,9 +34,11 @@ void	op_add(t_carriage *carriage, t_vm_data *d)
 		if (d->a_flag != -2)
 			ft_printf("P      | add r%d r%d r%d\n", first + 1, second + 1, \
 			third + 1);
+		carriage->cursor = (carriage->cursor + 5) % MEM_SIZE;
 	}
-	carriage->cursor = (carriage->cursor + 5) % MEM_SIZE;
-	// Or should we read argument value code.
+	else
+		carriage->cursor = (carriage->cursor \
+		+ count_jump_size(carriage, d, 4, 3)) % MEM_SIZE;
 }
 
 // This statement add argument 1 reduced of argument 2 to argument 3.
@@ -59,9 +61,11 @@ void	op_sub(t_carriage *carriage, t_vm_data *d)
 		if (d->a_flag != -2)
 			ft_printf("P     | sub r%d r%d r%d\n", first + 1, second + 1, \
 			third + 1);
+		carriage->cursor = (carriage->cursor + 5) % MEM_SIZE;
 	}
-	carriage->cursor = (carriage->cursor + 5) % MEM_SIZE;
-	// Or should we read argument value code.
+	else
+		carriage->cursor = (carriage->cursor \
+		+ count_jump_size(carriage, d, 4, 3)) % MEM_SIZE;
 }
 
 // Check that all arguments are valid regitrys.

@@ -38,7 +38,6 @@ int	get_4_byte_value(t_vm_data *d, int position)
 	unsigned char	fourth;
 	int				value;
 
-	// Added this to protect against negative parameter.
 	if (position < 0)
 		position = position % MEM_SIZE + MEM_SIZE;
 	first = d->arena[(position + 0) % MEM_SIZE];
@@ -58,7 +57,6 @@ int	get_2_byte_value(t_vm_data *d, int position, int idx)
 	unsigned char	second;
 	short			value;
 	
-	// Added this to protect against negative parameter.
 	if (position < 0)
 		position = position % MEM_SIZE + MEM_SIZE;
 	first = d->arena[(position + 0) % MEM_SIZE];
