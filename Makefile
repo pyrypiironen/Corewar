@@ -101,9 +101,12 @@ fclean: clean
 
 re: fclean all
 
-# vm: $(COREWAR)
+# Can remove before submit, not yet
+vm: $(COREWAR)
 	
-# vm_clean:
-# 	@rm srcs/vm/*/*.o
+vm_clean:
+	@rm srcs/vm/*/*.o
+# * * * * 
+
 
 .PHONY: all clean fclean re

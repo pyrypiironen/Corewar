@@ -34,6 +34,9 @@ void	op_and(t_carriage *carriage, t_vm_data *d)
 		carriage->registrys[arg_3] = (int)arg_1 & (int)arg_2;
 		carriage->cursor = (carriage->cursor_copy + 1) % MEM_SIZE;
 		carriage->carry = update_carry(carriage->registrys[arg_3]);
+		if (d->a_flag != -2)
+			ft_printf("P      | and %d %d r%d\n", \
+			arg_1, arg_2, arg_3 + 1);
 	}
 	else
 		carriage->cursor = (carriage->cursor \
@@ -57,6 +60,9 @@ void	op_or(t_carriage *carriage, t_vm_data *d)
 		carriage->registrys[arg_3] = (int)arg_1 | (int)arg_2;
 		carriage->cursor = (carriage->cursor_copy + 1) % MEM_SIZE;
 		carriage->carry = update_carry(carriage->registrys[arg_3]);
+		if (d->a_flag != -2)
+			ft_printf("P      | or %d %d r%d\n", \
+			arg_1, arg_2, arg_3 + 1);
 	}
 	else
 		carriage->cursor = (carriage->cursor \
@@ -80,6 +86,9 @@ void	op_xor(t_carriage *carriage, t_vm_data *d)
 		carriage->registrys[arg_3] = (int)arg_1 ^ (int)arg_2;
 		carriage->cursor = (carriage->cursor_copy + 1) % MEM_SIZE;
 		carriage->carry = update_carry(carriage->registrys[arg_3]);
+		if (d->a_flag != -2)
+			ft_printf("P      | xor %d %d r%d\n", \
+			arg_1, arg_2, arg_3 + 1);
 	}
 	else
 		carriage->cursor = (carriage->cursor \

@@ -1,189 +1,89 @@
 Introducing contestants...
-* Player 1, weighing 394 bytes, "turtle" ("TURTLE FFS U LAMA") !
-* Player 2, weighing 325 bytes, "Celebration Funebre v0.99pl42" ("Jour J") !
+* Player 1, weighing 578 bytes, "Kitty Miaou" ("Ma cherie
+Si tu voulais bien etre la bienvenue dans ma vie
+Vi vi c'est bien ce que j'ai dis
+Je ne penses plus qu'a toi
+Mes penses restent sans voix sans toi
+Dis moi es-tu la?
+Me veux-tu?
+Je serais l'esclave de tes desirs
+Aime le monde, pour toi, moi je desire tout le Monde avec toi
+J'aime bien le voir evoluer, et fleurir avec toi
+- Minou
+Dieu est la plus belle invention.
+Tapis dans l'ombre, je veille
+- Minou") !
+* Player 2, weighing 247 bytes, "katch upper" ("do you like mirror ?") !
+* Player 3, weighing 71 bytes, "dubo" ("Tu veux du pain") !
+* Player 4, weighing 325 bytes, "Celebration Funebre v0.99pl42" ("Jour J") !
 
-Cycle: 3554
-Cycles to die: 1436
-Cycles to check: 904
-Live statements: 55
-
-ID: 2
-Carry flag: 0
-Cursor location: 2230
-Statement: 0B
-To execute:								141
-Last live: 2830
-Registry 1: -2
-Registry 2: 0
-Registry 3: 0
-Registry 4: 4063232
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
-Registry 9: 0
-Registry 10: 2
-Registry 11: 1
-Registry 12: 917504
-Registry 13: 0
-Registry 14: 0
-Registry 15: 0
-Registry 16: 0
-
-ID: 2
-Carry flag: 0
-Cursor location: 2283
-Statement: 0B
-To execute:								11
-Last live: 2765
-Registry 1: -2
-Registry 2: 0
-Registry 3: 0
-Registry 4: 2228224
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
-Registry 9: 0
-Registry 10: 4
-Registry 11: 1
-Registry 12: 917504
-Registry 13: 0
-Registry 14: 0
-Registry 15: 0
-Registry 16: 0
+Cycle: 1062
+Cycles to die: 1536
+Cycles to check: 474
+Live statements: 14
 
 ID: 2
 Carry flag: 1
-Cursor location: 393
+Cursor location: 1052
 Statement: 0A
-To execute:								5
-Last live: 3534
-Registry 1: -2
-Registry 2: 0
+To execute:								22
+Last live: 0
+Registry 1: 118164308
+Registry 2: 1409812230
 Registry 3: 0
-Registry 4: 1310720
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
-Registry 9: 0
-Registry 10: 5
-Registry 11: 1
-Registry 12: 917504
-Registry 13: 0
-Registry 14: -182
-Registry 15: -13106689
-Registry 16: 0
-
-ID: 2
-Carry flag: 1
-Cursor location: 393
-Statement: 0A
-To execute:								5
-Last live: 3534
-Registry 1: -2
-Registry 2: 0
-Registry 3: 0
-Registry 4: 1310720
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
-Registry 9: 0
-Registry 10: 5
-Registry 11: 1
-Registry 12: 917504
-Registry 13: 0
-Registry 14: -194
-Registry 15: 33554431
-Registry 16: 0
-
-ID: 2
-Carry flag: 0
-Cursor location: 2238
-Statement: 0B
-To execute:								76
-Last live: 2830
-Registry 1: -2
-Registry 2: 0
-Registry 3: 0
-Registry 4: 3145728
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
-Registry 9: 0
-Registry 10: 3
-Registry 11: 1
-Registry 12: 917504
-Registry 13: 0
-Registry 14: 0
-Registry 15: 0
-Registry 16: 0
-
-ID: 2
-Carry flag: 1
-Cursor location: 393
-Statement: 0A
-To execute:								5
-Last live: 3534
-Registry 1: -2
-Registry 2: 0
-Registry 3: 0
-Registry 4: 1310720
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
-Registry 9: 0
-Registry 10: 5
-Registry 11: 1
-Registry 12: 917504
-Registry 13: 0
-Registry 14: -190
-Registry 15: -32807921
-Registry 16: 0
-
-ID: 1
-Carry flag: 1
-Cursor location: 386
-Statement: 02
-To execute:								1
-Last live: 3400
-Registry 1: -1
-Registry 2: 439025904
-Registry 3: 0
-Registry 4: 0
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
+Registry 4: 118164308
+Registry 5: 1409484550
+Registry 6: 26
+Registry 7: -508
+Registry 8: -32899583
 Registry 9: 0
 Registry 10: 0
-Registry 11: 0
-Registry 12: 0
-Registry 13: 0
-Registry 14: 0
-Registry 15: 0
+Registry 11: 20
+Registry 12: 23
+Registry 13: 252382036
+Registry 14: 1409486598
+Registry 15: -62
 Registry 16: 0
 
-ID: 2
+ID: 1
+Carry flag: 1
+Cursor location: 1575
+Statement: 0A
+To execute:								3
+Last live: 0
+Registry 1: 252645135
+Registry 2: 151737348
+Registry 3: 0
+Registry 4: 218234879
+Registry 5: 101191179
+Registry 6: 190058504
+Registry 7: 151737346
+Registry 8: 4
+Registry 9: 507
+Registry 10: 11
+Registry 11: 252645135
+Registry 12: 507
+Registry 13: 8
+Registry 14: 6
+Registry 15: 61947
+Registry 16: 151737346
+
+ID: 4
 Carry flag: 0
-Cursor location: 2246
+Cursor location: 3254
 Statement: 0B
-To execute:								11
-Last live: 2765
-Registry 1: -2
+To execute:								8
+Last live: 205
+Registry 1: -4
 Registry 2: 0
 Registry 3: 0
-Registry 4: 2228224
+Registry 4: 1310720
 Registry 5: 0
 Registry 6: 0
 Registry 7: 0
 Registry 8: 0
 Registry 9: 0
-Registry 10: 4
+Registry 10: 5
 Registry 11: 1
 Registry 12: 917504
 Registry 13: 0
@@ -191,13 +91,13 @@ Registry 14: 0
 Registry 15: 0
 Registry 16: 0
 
-ID: 1
-Carry flag: 1
-Cursor location: 223
-Statement: 00
-To execute:								1
-Last live: 3525
-Registry 1: -1
+ID: 3
+Carry flag: 0
+Cursor location: 3011
+Statement: FF
+To execute:								-892
+Last live: 150
+Registry 1: -3
 Registry 2: 0
 Registry 3: 0
 Registry 4: 0
@@ -216,46 +116,46 @@ Registry 16: 0
 
 ID: 2
 Carry flag: 1
-Cursor location: 393
+Cursor location: 1052
 Statement: 0A
-To execute:								5
-Last live: 3534
-Registry 1: -2
-Registry 2: 0
+To execute:								22
+Last live: 0
+Registry 1: 252400644
+Registry 2: 84347915
 Registry 3: 0
-Registry 4: 1310720
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
+Registry 4: 252400653
+Registry 5: 235342859
+Registry 6: 22
+Registry 7: -508
+Registry 8: 33554431
 Registry 9: 0
-Registry 10: 5
-Registry 11: 1
-Registry 12: 917504
-Registry 13: 0
-Registry 14: -186
-Registry 15: 3593
+Registry 10: 0
+Registry 11: 16
+Registry 12: 19
+Registry 13: 252400653
+Registry 14: 235867147
+Registry 15: -62
 Registry 16: 0
 
 ID: 1
 Carry flag: 1
-Cursor location: 215
-Statement: 02
-To execute:								1
-Last live: 3400
-Registry 1: -1
-Registry 2: 439025904
-Registry 3: 0
-Registry 4: 0
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
+Cursor location: 1575
+Statement: 0A
+To execute:								3
+Last live: 0
+Registry 1: 134877312
+Registry 2: 190055176
+Registry 3: 134877312
+Registry 4: 190055688
+Registry 5: -62636
+Registry 6: 1410009100
+Registry 7: 190054664
 Registry 8: 0
-Registry 9: 0
-Registry 10: 0
-Registry 11: 0
-Registry 12: 0
-Registry 13: 0
-Registry 14: 0
-Registry 15: 0
-Registry 16: 0
+Registry 9: 8
+Registry 10: 11
+Registry 11: 168853504
+Registry 12: 9
+Registry 13: 8
+Registry 14: 6
+Registry 15: 61947
+Registry 16: 190054664

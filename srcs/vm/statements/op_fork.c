@@ -34,7 +34,7 @@ void	op_fork(t_carriage *carriage, t_vm_data *d)
 		ft_printf("P    | fork %d (%d)\n", arg, \
 		(carriage->cursor + arg) % MEM_SIZE);
 	d->carriage_head->cursor = move_cursor(carriage, arg % IDX_MOD);
-	carriage->cursor = (carriage->cursor + 3) % MEM_SIZE;
+	carriage->cursor = (carriage->cursor + 3) % MEM_SIZE; // Modified (was 3)
 }
 
 // Long lfork statement. Same than fork statement, but can place new carriage

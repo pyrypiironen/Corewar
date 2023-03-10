@@ -55,6 +55,9 @@ void	op_lldi(t_carriage *carriage, t_vm_data *d)
 		pos = move_cursor(carriage, arg_1 + arg_2);
 		carriage->registrys[reg] = get_4_byte_value(d, pos);
 		carriage->cursor = (carriage->cursor_copy + 1) % MEM_SIZE;
+		if (d->a_flag != -2)
+		 ft_printf("P      | lldi %d %d r%d\n       | -> load from %d + %d = %d\
+ (with pc %d)\n", arg_1, arg_2, reg + 1, arg_1, arg_2, arg_1 + arg_2, pos);
 	}
 	else
 		carriage->cursor = (carriage->cursor \
