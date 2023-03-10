@@ -6,11 +6,16 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:25:30 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/28 13:24:15 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:56:59 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
+
+/*
+** Gets the location of the statement that the label points to, assigns it as
+** the value of the corresponding argument.
+*/
 
 static void	add_label_values(t_asm *d)
 {
@@ -41,6 +46,10 @@ static void	add_label_values(t_asm *d)
 	}
 }
 
+/*
+** Calculates the result code.
+*/
+
 static size_t	calculate_rescode(t_stat *cur)
 {
 	cur->rescode = cur->argtypes[0] << 6;
@@ -48,6 +57,10 @@ static size_t	calculate_rescode(t_stat *cur)
 	cur->rescode |= cur->argtypes[2] << 2;
 	return (1);
 }
+
+/*
+** Calculates the result code and the size of the statement.
+*/
 
 static size_t	calculate_statement_size(t_stat *cur)
 {
@@ -74,6 +87,11 @@ static size_t	calculate_statement_size(t_stat *cur)
 	}
 	return (ret);
 }
+
+/*
+** Makes the appropriate calculations for each statement, their size and
+** argument type code. Also calculates the values of labels.
+*/
 
 void	translate_calculations(t_asm *d)
 {

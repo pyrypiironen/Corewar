@@ -6,11 +6,15 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:26:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/28 12:49:15 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:21:45 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
+
+/*
+** Various functions for printing different error messages.
+*/
 
 static void	label_error(t_oken *cur)
 {

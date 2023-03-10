@@ -6,11 +6,15 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:53:40 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/28 14:21:12 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:42:09 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
+
+/*
+** Finds the corresponding token that 'str' is referring to and returns it.
+*/
 
 static t_oken	*find_token(t_asm *d, char *str, uint8_t type)
 {
@@ -29,6 +33,11 @@ static t_oken	*find_token(t_asm *d, char *str, uint8_t type)
 	}
 	return (NULL);
 }
+
+/*
+** Iterates through all statements. If a label is given as an argument, we
+** need to validate that it has been defined in the input file.
+*/
 
 void	label_checker(t_asm *d)
 {
@@ -56,6 +65,10 @@ void	label_checker(t_asm *d)
 	}
 }
 
+/*
+** Validates the correct order syntax of two tokens.
+*/
+
 bool	valid_token_order(t_oken *cur, t_oken *prev)
 {
 	if (cur != NULL && prev != NULL && cur->type == NEWLINE && \
@@ -78,6 +91,11 @@ bool	valid_token_order(t_oken *cur, t_oken *prev)
 		return (false);
 	return (true);
 }
+
+/*
+** Sets the correct error position (row and column) from the index of the
+** buffer string.
+*/
 
 int	set_error_pos(t_asm *d, int pos, int status)
 {

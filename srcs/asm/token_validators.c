@@ -6,11 +6,16 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/27 15:07:46 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:54:06 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
+
+/*
+** Validates 'str', attempts to find the second double quote that terminates
+** the name.
+*/
 
 static int	found_quote(t_asm *d, char *str, int *len)
 {
@@ -37,6 +42,10 @@ static int	found_quote(t_asm *d, char *str, int *len)
 	return (1);
 }
 
+/*
+** Validates 'str', whether it is a valid command string.
+*/
+
 static bool	is_valid_command_str(char *str, int *i, t_type *type)
 {
 	size_t	len;
@@ -59,6 +68,10 @@ static bool	is_valid_command_str(char *str, int *i, t_type *type)
 	return (false);
 }
 
+/*
+** Validates 'str', both the command itself and the name given after.
+*/
+
 int	is_command(t_asm *d, char *str, int *len, t_type *type)
 {
 	int	i;
@@ -77,6 +90,11 @@ int	is_command(t_asm *d, char *str, int *len, t_type *type)
 	return (0);
 }
 
+/*
+** Validates 'str'. Returns the length of the portion considered to be a
+** statement, or returns 0 if it does not follow correct statement syntax.
+*/
+
 int	is_op(char *str, int *len)
 {
 	int	i;
@@ -91,6 +109,11 @@ int	is_op(char *str, int *len)
 	*len = 0;
 	return (*len);
 }
+
+/*
+** Validates 'str'. Returns the length of the portion considered to be a label,
+** or returns 0 if it does not follow correct label syntax.
+*/
 
 int	is_label(char *str, int *len)
 {

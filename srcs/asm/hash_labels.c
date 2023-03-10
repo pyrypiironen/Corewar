@@ -6,11 +6,15 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 14:59:55 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/28 14:23:57 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:29:32 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
+
+/*
+** Generates a number within 'size' range, with 'name' as a pseudo-random seed.
+*/
 
 static unsigned long	label_hash(char *name, int size)
 {
@@ -23,6 +27,11 @@ static unsigned long	label_hash(char *name, int size)
 		hash = ((hash << 5) + hash) + name[i++];
 	return (hash % size);
 }
+
+/*
+** Puts 'new' into the hash table, if there is already a struct in the index
+** it will add 'new' to the end of the linked list at index.
+*/
 
 void	add_label_to_table(t_asm *d, t_lab *new)
 {
@@ -41,6 +50,10 @@ void	add_label_to_table(t_asm *d, t_lab *new)
 	tmp->next = new;
 }
 
+/*
+** Allocates memory for the hash table and initializes all indexes to NULL.
+*/
+
 void	init_label_table(t_asm *d)
 {
 	size_t	i;
@@ -52,6 +65,11 @@ void	init_label_table(t_asm *d)
 	while (i < d->n_labels)
 		d->labels[i++] = NULL;
 }
+
+/*
+** Attempts to find a label with matching 'name' in the hash table. If found,
+** returns that label. If not, NULL is returned.
+*/
 
 t_lab	*get_label(t_asm *d, char *name, size_t len)
 {

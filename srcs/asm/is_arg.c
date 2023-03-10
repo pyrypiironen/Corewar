@@ -6,11 +6,16 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/28 14:23:48 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:32:13 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
+
+/*
+** Checks the syntax of 'str'. If it is considered a valid registry argument,
+** true is returned. If not, false is returned.
+*/
 
 static bool	is_reg(char *str, int *len)
 {
@@ -30,6 +35,11 @@ static bool	is_reg(char *str, int *len)
 	*len = *len + i;
 	return (true);
 }
+
+/*
+** Checks the syntax of 'str'. If it is considered a valid label argument,
+** true is returned. If not, false is returned.
+*/
 
 static bool	is_label_arg(t_asm *d, char *str, int *len)
 {
@@ -56,6 +66,11 @@ static bool	is_label_arg(t_asm *d, char *str, int *len)
 	return (true);
 }
 
+/*
+** Checks the syntax of 'str'. If it is considered a valid direct argument,
+** true is returned. If not, false is returned.
+*/
+
 static bool	is_direct(t_asm *d, char *str, int *len)
 {
 	int	i;
@@ -78,6 +93,11 @@ static bool	is_direct(t_asm *d, char *str, int *len)
 	*len = *len + i;
 	return (true);
 }
+
+/*
+** Checks the syntax of 'str'. If it is considered a valid indirect argument,
+** true is returned. If not, false is returned.
+*/
 
 static bool	is_indirect(t_asm *d, char *str, int *len)
 {
@@ -107,6 +127,12 @@ static bool	is_indirect(t_asm *d, char *str, int *len)
 	*len = *len + i;
 	return (true);
 }
+
+/*
+** Checks the syntax of 'str'. If it is considered a valid indirect argument,
+** assigns the type of argument to 'type' and returns 0. If not, assigns 'type
+** to be VOID and returns 0.
+*/
 
 int	is_arg(t_asm *d, char *str, int *len, t_type *type)
 {

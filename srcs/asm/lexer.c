@@ -6,11 +6,15 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/03/07 16:39:30 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:36:51 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
+
+/*
+** Saves the given comment of the champion in the t_header struct.
+*/
 
 static void	save_comment(t_asm *d, t_oken *cur)
 {
@@ -34,6 +38,10 @@ static void	save_comment(t_asm *d, t_oken *cur)
 	}
 }
 
+/*
+** Saves the given name of the champion in the t_header struct.
+*/
+
 static void	save_name(t_asm *d, t_oken *cur)
 {
 	int	i;
@@ -56,6 +64,12 @@ static void	save_name(t_asm *d, t_oken *cur)
 	}
 }
 
+/*
+** Checks the syntax of the command tokens and the previous token. If these
+** commands were already given, this is considered an error and the program
+** exits.
+*/
+
 static void	save_header(t_asm *d, t_oken *cur, t_oken *prev)
 {
 	if (prev && prev->type != NEWLINE && prev->type != NAME \
@@ -68,6 +82,12 @@ static void	save_header(t_asm *d, t_oken *cur, t_oken *prev)
 	else
 		exit_asm(d, DOUBLE_CMD_ERR);
 }
+
+/*
+** Iterates through all tokens, validates them and the order they come in.
+** If an error is found, an error function is called to print an error message,
+** free up allocated memory and exit the program.
+*/
 
 static void	syntax_checker(t_asm *d)
 {

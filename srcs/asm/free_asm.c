@@ -6,11 +6,15 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:26:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/28 14:28:45 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:23:06 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
+
+/*
+** Frees linked list of tokens.
+*/
 
 static void	free_tokens(t_oken *tokens)
 {
@@ -29,6 +33,10 @@ static void	free_tokens(t_oken *tokens)
 	}
 }
 
+/*
+** Frees linked list of statements.
+*/
+
 static void	free_statements(t_stat *statements)
 {
 	t_stat	*tmp;
@@ -44,6 +52,10 @@ static void	free_statements(t_stat *statements)
 		tmp = next;
 	}
 }
+
+/*
+** Frees hash table of labels.
+*/
 
 static void	free_labels(t_lab **labels, size_t size)
 {
@@ -68,6 +80,10 @@ static void	free_labels(t_lab **labels, size_t size)
 	free(labels);
 	labels = NULL;
 }
+
+/*
+** Frees all dynamically allocated memory.
+*/
 
 void	free_asm(t_asm *d)
 {

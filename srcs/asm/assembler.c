@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:05:42 by abackman          #+#    #+#             */
-/*   Updated: 2023/03/07 16:22:50 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:21:11 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,10 @@ static void	parse_flags(t_asm *d, char *str, char *binary)
 	}
 }
 
+/*
+** Frees allocated memory, prints given error message and exits.
+*/
+
 void	memdel_exit_asm(t_asm *d, void *mem, char *str)
 {
 	if (str)
@@ -56,6 +60,10 @@ void	memdel_exit_asm(t_asm *d, void *mem, char *str)
 		free_asm(d);
 	exit(EXIT_FAILURE);
 }
+
+/*
+** Frees allocated memory, prints given error message and exits.
+*/
 
 void	exit_asm(t_asm *d, char *str)
 {

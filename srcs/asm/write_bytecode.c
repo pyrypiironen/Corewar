@@ -6,11 +6,16 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:56:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/03/07 16:22:42 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/10 16:10:39 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
+
+/*
+** Changes the endianness of an integer. We deal with values of 2 or 4 bytes,
+** so we need to swap the bytes according to 'size'.
+*/
 
 static int	small_to_big_endian(int value, uint8_t size)
 {
@@ -31,6 +36,10 @@ static int	small_to_big_endian(int value, uint8_t size)
 	ret |= (0xff000000 & value) >> 24;
 	return (ret);
 }
+
+/*
+** Writes one single argument as bytecode to the output file.
+*/
 
 static void	write_arg(t_stat *cur, int fd, int cur_arg)
 {
@@ -54,6 +63,10 @@ static void	write_arg(t_stat *cur, int fd, int cur_arg)
 	}
 }
 
+/*
+** Writes the champion code, one statement at a time.
+*/
+
 static void	write_bytecode(t_asm *d, int fd)
 {
 	int		i;
@@ -71,6 +84,11 @@ static void	write_bytecode(t_asm *d, int fd)
 		tmp = tmp->next;
 	}
 }
+
+/*
+** Writes the magic header, the champion name, the code size and the champion
+** comment to the output file.
+*/
 
 static void	write_header(t_asm *d, int fd)
 {
@@ -91,6 +109,10 @@ static void	write_header(t_asm *d, int fd)
 	data = 0;
 	write(fd, &data, 4);
 }
+
+/*
+** Main function to write the full bytecode of the output file.
+*/
 
 void	write_file(t_asm *d, char *file)
 {

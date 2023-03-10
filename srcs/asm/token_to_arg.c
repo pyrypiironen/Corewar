@@ -6,11 +6,15 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 12:07:05 by abackman          #+#    #+#             */
-/*   Updated: 2023/03/07 16:18:32 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:46:07 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
+
+/*
+** Validates that the type of argument is valid for the corresponding statement.
+*/
 
 static uint8_t	validate_type(t_asm *d, t_oken *cur, t_stat *dst)
 {
@@ -38,6 +42,10 @@ static uint8_t	validate_type(t_asm *d, t_oken *cur, t_stat *dst)
 	return (0);
 }
 
+/*
+** Converts a token to a registry argument.
+*/
+
 static void	arg_registry(t_asm *d, t_oken *cur, t_stat *dst)
 {
 	int		res;
@@ -56,6 +64,10 @@ static void	arg_registry(t_asm *d, t_oken *cur, t_stat *dst)
 1-16, but has value %lu. [%0.3lu:%0.3lu]\n", res, cur->row, cur->col);
 }
 
+/*
+** Converts a token to an label argument.
+*/
+
 static void	arg_label(t_asm *d, t_oken *cur, t_stat *dst)
 {
 	size_t	start;
@@ -71,6 +83,10 @@ static void	arg_label(t_asm *d, t_oken *cur, t_stat *dst)
 	if (!dst->arglabel[dst->cur_arg])
 		error_asm(d, NULL, MAL_ERR);
 }
+
+/*
+** Converts a token to an integer argument.
+*/
 
 static void	arg_integer(t_asm *d, t_oken *cur, t_stat *dst)
 {
@@ -92,6 +108,11 @@ static void	arg_integer(t_asm *d, t_oken *cur, t_stat *dst)
 			asm_token_error(d, cur, STX_ERR);
 	}
 }
+
+/*
+** Validates a token considered to be an argument. If the syntax is valid,
+** the argument is saved to the corresponding statement.
+*/
 
 void	save_argument(t_asm *d, t_oken *cur, t_oken *prev, t_stat *dst)
 {

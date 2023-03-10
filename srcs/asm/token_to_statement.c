@@ -6,11 +6,15 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/28 14:28:38 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:49:52 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assembler.h"
+
+/*
+** Allocates and initializes the values of a statement struct.
+*/
 
 static t_stat	*init_statement(t_asm *d, t_oken *cur)
 {
@@ -41,6 +45,10 @@ static t_stat	*init_statement(t_asm *d, t_oken *cur)
 	return (new);
 }
 
+/*
+** All labels in a row that do not point to a statement are pointed to 'new'.
+*/
+
 void	add_statement_to_labels(t_asm *d, t_stat *new)
 {
 	int		i;
@@ -59,6 +67,10 @@ void	add_statement_to_labels(t_asm *d, t_stat *new)
 	}
 	d->unref_labels = false;
 }
+
+/*
+** Converts the 'cur' token to a t_stat struct, saves it to a linked list.
+*/
 
 void	save_statement(t_asm **d, t_oken *cur, t_oken *prev)
 {
@@ -87,6 +99,10 @@ void	save_statement(t_asm **d, t_oken *cur, t_oken *prev)
 	tmp->next = new;
 }
 
+/*
+** Converts 'cur' to a t_lab struct, saves it in the hash table of labels.
+*/
+
 void	save_label(t_asm *d, t_oken *cur, t_oken *prev)
 {
 	t_lab	*new;
@@ -107,6 +123,10 @@ void	save_label(t_asm *d, t_oken *cur, t_oken *prev)
 	if (!cur && !prev)
 		error_asm(d, NULL, -1);
 }
+
+/*
+** Validates the token as either a statement or label.
+*/
 
 void	token_to_statement(t_asm *d, t_oken *cur, t_oken *prev)
 {
