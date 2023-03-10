@@ -16,12 +16,18 @@
 //argument. Converts it to type char. And displays as an ASCII character.
 void	op_aff(t_carriage *carriage, t_vm_data *d)
 {
-	int	value;
+	int		value;
+	char	printable;
 
 	value = d->arena[(carriage->cursor + 2) % MEM_SIZE];
 	if (d->arena[(carriage->cursor + 1) % MEM_SIZE] == 0x40 && \
 	is_valid_reg((carriage->cursor + 2) % MEM_SIZE, d))
-		ft_printf("%c\n", carriage->registrys[value - 1]);
+	{
+		printable = (char)carriage->registrys[value - 1];
+		if (printable > 32 && printable < 127)
+			ft_printf("%c\n", printable);
+		if (d->a_flag != -2)
+			ft_printf("Aff: %c\n", printable);
+	}
 	carriage->cursor = (carriage->cursor + 3) % MEM_SIZE;
-	// Or should we read argument value code.
 }

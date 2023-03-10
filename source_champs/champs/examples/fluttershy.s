@@ -41,7 +41,7 @@ ardefl1:
 	add		r2, r3, r2
 ardefchk:
 	live	%3940641
-	xor		r2, r5, r15
+	or		r2, r5, r15
 	zjmp	%:ardefinit
 ardefloop:	
 	ld		%0, r16
@@ -138,7 +138,10 @@ torpl1:
 	add		r2, r3, r2
 torpchk:
 	live	%89523
-	xor		r2, r5, r15	
+	or		r2, r10, r15
+	or		r3, r9, r15
+	or		r4, r7, r15
+	or		r5, r8, r15
 	zjmp	%362
 torploop:
 	ld		%0, r15
