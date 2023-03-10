@@ -11,8 +11,8 @@ ASM="../asm"
 
 if [ "$1" != "" ]; then
 	if test -f $1; then
-		cp $1 tmp.s
-		leaks --atExit -- $ASM tmp.s > tmp.txt
+		cp $1 leaktmp.s
+		leaks --atExit -- $ASM leaktmp.s > tmp.txt
 		OUTPUT=$(grep "leaked bytes" tmp.txt | cut -d ' ' -f 6)
 		LEAKFOUND=0
 		#echo "$OUTPUT"
@@ -21,7 +21,10 @@ if [ "$1" != "" ]; then
 			printf "$RED Your assembler may be leaking memory.$NC "$1"\n"
 			LEAKFOUND=1
 		fi
-		/bin/rm tmp.txt tmp.s tmp.cor
+		/bin/rm tmp.txt leaktmp.s
+		if test -f leaktmp.cor; then
+			/bin/rm leaktmp.cor
+		fi
 		if [ $LEAKFOUND == 0 ]; then
 			printf "$GREEN No memory leaks found.$NC "$1"\n"
 		fi
