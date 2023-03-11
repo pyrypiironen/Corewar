@@ -28,6 +28,9 @@ void	op_aff(t_carriage *carriage, t_vm_data *d)
 			ft_printf("%c\n", printable);
 		if (d->a_flag != -2)
 			ft_printf("Aff: %c\n", printable);
+		carriage->cursor = (carriage->cursor + 3) % MEM_SIZE;
 	}
-	carriage->cursor = (carriage->cursor + 3) % MEM_SIZE;
+	else
+		carriage->cursor = (carriage->cursor \
+		+ count_jump_size(carriage, d, 4, 1)) % MEM_SIZE;
 }
