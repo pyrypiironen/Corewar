@@ -20,7 +20,7 @@ os.system('cd .. && make vm && make vm_clean && cp corewar ./vm_tests/corewar &&
 
 # Set the starting cycle of comparing outputs of our corewar and the original corewar.
 # First difference: 
-cycle = 1062
+cycle = 30000
 # Set the cycle to print info.
 info = 1062
 

@@ -51,10 +51,19 @@ static void	check_carriage(t_vm_data *d)
 		read_statement(d);
 	else if (d->carriage->to_execute == 0)
 	{
+		//ft_printf("Cycle: %d IN\n", d->current_cycle);
+		// if (d->current_cycle == 3861)
+		// {
+		// 	print_carriages(d);
+		// 	ft_printf("--------------\n");
+		// 	print_arena(d);
+		// 	sleep(1);
+		// }
 		g_dispatcher[d->carriage->statement](d->carriage, d);
 		if (d->a_flag != -2)
 			ft_printf("Carriage position: %d\n", d->carriage->cursor);
 	}
+	//ft_printf("Cycle: %d OUT\n", d->current_cycle);
 }
 
 // Read new statement and init all its necessary data to the carriage.

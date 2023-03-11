@@ -47,9 +47,9 @@ Registry 16: 0
 
 ID: 1
 Carry flag: 1
-Cursor location: 1575
+Cursor location: 1580
 Statement: 0A
-To execute:								3
+To execute:								0
 Last live: 0
 Registry 1: 252645135
 Registry 2: 151737348
@@ -139,9 +139,9 @@ Registry 16: 0
 
 ID: 1
 Carry flag: 1
-Cursor location: 1575
+Cursor location: 1580
 Statement: 0A
-To execute:								3
+To execute:								0
 Last live: 0
 Registry 1: 134877312
 Registry 2: 190055176

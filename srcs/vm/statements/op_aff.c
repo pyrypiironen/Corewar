@@ -33,4 +33,5 @@ void	op_aff(t_carriage *carriage, t_vm_data *d)
 	else
 		carriage->cursor = (carriage->cursor \
 		+ count_jump_size(carriage, d, 4, 1)) % MEM_SIZE;
+
 }

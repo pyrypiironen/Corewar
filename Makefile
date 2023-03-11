@@ -1,7 +1,7 @@
 ASSEMBLER = asm
 COREWAR = corewar
 CC = gcc
-FLAGS = -Wall -Wextra -Werror #-fsanitize=address
+FLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 LIBFT = ./libft/libft.a
 INCL = -I./includes/
 

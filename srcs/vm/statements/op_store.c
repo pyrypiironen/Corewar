@@ -14,7 +14,7 @@
 
 static long long	get_second_arg(t_carriage *carriage, t_vm_data *d);
 static long long	get_third_arg(t_carriage *carriage, t_vm_data *d);
-static void	sti_actions(t_carriage *carriage, t_vm_data *d);
+static void			sti_actions(t_carriage *carriage, t_vm_data *d);
 
 // Store.
 // This statement writes a value from the registry that was passed as the first 
@@ -97,6 +97,7 @@ static long long	get_second_arg(t_carriage *carriage, t_vm_data *d)
 
 	res = d->arena[(carriage->cursor + 1) % MEM_SIZE];
 	pos = (carriage->cursor + 3) % MEM_SIZE;
+	carriage->cursor_copy = carriage->cursor;
 	if ((res == 0x54 || res == 0x58) && is_valid_reg(pos, d))
 	{
 		carriage->cursor_copy = (pos + 1) % MEM_SIZE;
@@ -107,7 +108,6 @@ static long long	get_second_arg(t_carriage *carriage, t_vm_data *d)
 		carriage->cursor_copy = (pos + 2) % MEM_SIZE;
 		return (get_2_byte_value(d, pos, 0));
 	}
-		
 	else if (res == 0x74 || res == 0x78)
 	{
 		carriage->cursor_copy = (pos + 2) % MEM_SIZE;

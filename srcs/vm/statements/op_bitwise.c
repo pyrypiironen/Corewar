@@ -24,7 +24,7 @@ void	op_and(t_carriage *carriage, t_vm_data *d)
 	long long	arg_2;
 	int			arg_3;
 
-	d->carriage->cursor_copy = 0;
+	// d->carriage->cursor_copy = 0; commented this out, I don't think it is needed
 	arg_1 = get_first_arg(carriage, d);
 	arg_2 = get_second_arg(carriage, d);
 	arg_3 = d->arena[carriage->cursor_copy] - 1;
@@ -50,7 +50,7 @@ void	op_or(t_carriage *carriage, t_vm_data *d)
 	long long	arg_2;
 	int			arg_3;
 
-	d->carriage->cursor_copy = 0;
+	// d->carriage->cursor_copy = 0; commented this out, I don't think it is needed
 	arg_1 = get_first_arg(carriage, d);
 	arg_2 = get_second_arg(carriage, d);
 	arg_3 = d->arena[carriage->cursor_copy] - 1;
@@ -76,7 +76,7 @@ void	op_xor(t_carriage *carriage, t_vm_data *d)
 	long long	arg_2;
 	int			arg_3;
 
-	d->carriage->cursor_copy = 0;
+	// d->carriage->cursor_copy = 0; commented this out, I don't think it is needed
 	arg_1 = get_first_arg(carriage, d);
 	arg_2 = get_second_arg(carriage, d);
 	arg_3 = d->arena[carriage->cursor_copy] - 1;
@@ -104,6 +104,7 @@ static long long	get_first_arg(t_carriage *carriage, t_vm_data *d)
 
 	res = d->arena[(carriage->cursor + 1) % MEM_SIZE];
 	pos = (carriage->cursor + 2) % MEM_SIZE;
+	carriage->cursor_copy = carriage->cursor;
 	if (((res == 0x54 && is_valid_reg((pos + 1) % MEM_SIZE, d)) || res == 0x64 \
 		|| res == 0x74) && is_valid_reg(pos, d))
 	{
