@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:11:32 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/28 14:28:29 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/13 16:23:12 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,8 @@ typedef struct s_asm
 	t_oken		*tokens;
 	t_stat		*statements;
 	t_stat		*tail_statement;
-	char		code[CHAMP_MAX_SIZE];
+	char		*buf;
+	//char		code[CHAMP_MAX_SIZE];
 	int			fd;
 	int			n_players;
 	int			row;
@@ -145,7 +146,6 @@ typedef struct s_asm
 	int			i;
 	size_t		code_size;
 	size_t		n_labels;
-	char		*buf;
 	bool		debug;
 	bool		unref_labels;
 }	t_asm;

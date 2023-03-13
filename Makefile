@@ -1,7 +1,7 @@
 ASSEMBLER = asm
 COREWAR = corewar
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -g -fsanitize=address -fsanitize=undefined -fno-sanitize-recover=all -fno-sanitize=null -fno-sanitize=alignment
 LIBFT = ./libft/libft.a
 INCL = -I./includes/
 OBJS = ./srcs/objs

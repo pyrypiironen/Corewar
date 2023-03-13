@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:53:40 by abackman          #+#    #+#             */
-/*   Updated: 2023/03/10 15:42:09 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/13 16:14:27 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ int	set_error_pos(t_asm *d, int pos, int status)
 	x = 1;
 	y = 1;
 	i = 0;
-	while (i < pos)
+	while (i < pos && d->buf[i])
 	{
 		if (d->buf[i] == '\n')
 		{

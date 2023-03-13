@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/03/10 15:32:13 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/13 16:04:18 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static bool	is_label_arg(t_asm *d, char *str, int *len)
 	i = 0;
 	if (str[*len] == DIRECT_CHAR)
 		i++;
-	if (str[*len + i] != LABEL_CHAR)
+	if (str[*len + i] && str[*len + i] != LABEL_CHAR)
 		return (false);
 	else
 		i++;

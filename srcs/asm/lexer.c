@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/03/10 15:36:51 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/13 14:33:22 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ static void	save_name(t_asm *d, t_oken *cur)
 	i = 1;
 	if (d->head.prog_name[0])
 		asm_token_error(d, cur, STX_ERR);
-	else if (ft_strlen(cur->str) > PROG_NAME_LENGTH + 2)
+	else if (cur && ft_strlen(cur->str) > PROG_NAME_LENGTH + 2)
 		asm_token_error(d, cur, NAMELEN_ERR);
-	if (!ft_strcmp(cur->str, "\"\""))
+	if (cur && !ft_strcmp(cur->str, "\"\""))
 		d->head.prog_name[0] = 1;
 	else
 	{
@@ -75,9 +75,9 @@ static void	save_header(t_asm *d, t_oken *cur, t_oken *prev)
 	if (prev && prev->type != NEWLINE && prev->type != NAME \
 	&& prev->type != COMMENT)
 		asm_token_error(d, cur, STX_ERR);
-	if (cur->type == NAME && !d->head.prog_name[0])
+	if (cur && cur->type == NAME && !d->head.prog_name[0])
 		save_name(d, cur);
-	else if (cur->type == COMMENT && !d->head.comment[0])
+	else if (cur && cur->type == COMMENT && !d->head.comment[0])
 		save_comment(d, cur);
 	else
 		exit_asm(d, DOUBLE_CMD_ERR);
@@ -113,7 +113,7 @@ static void	syntax_checker(t_asm *d)
 		if (valid_token_order(tmp, prev) == false)
 			asm_token_error(d, tmp, STX_ERR);
 	}
-	if (prev->type != NEWLINE)
+	if (prev && prev->type != NEWLINE)
 		exit_asm(d, NO_NL_END_STR);
 }
 

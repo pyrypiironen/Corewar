@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/02/28 14:13:51 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/13 16:24:26 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,15 @@ static int	check_type(t_asm *d, char *str)
 
 	len = 0;
 	type = VOID;
-	if (str[len] == '\n')
+	if (str && str[len] == '\n')
 	{
 		add_token(d, str, 1, NEWLINE);
 		return (1);
 	}
-	else if (str[len] == SEPARATOR_CHAR)
+	else if (str && str[len] == SEPARATOR_CHAR)
 		return (add_token(d, str, 1, SEPARATOR));
 	else if (is_label(str, &len))
-	{
 		return (add_token(d, str, len, LABEL));
-	}
 	else if (is_op(str, &len))
 		return (add_token(d, str, len, OP));
 	else if (is_arg(d, str, &len, &type))
@@ -80,6 +78,7 @@ static void	add_token_helper(t_asm *d, t_oken *new, t_type type)
 		d->n_labels++;
 	new->next = NULL;
 	new->type = type;
+	new->str = NULL;
 	new->row = d->row;
 	new->col = d->col;
 }
@@ -102,8 +101,6 @@ int	add_token(t_asm *d, char *str, int len, t_type type)
 	new->str = ft_strnew((size_t)len);
 	if (!new->str)
 		memdel_exit_asm(d, new, MALLOC_ERR);
-	if (!new->str)
-		error_asm(d, NULL, MAL_ERR);
 	ft_strncpy(new->str, str, len);
 	if (d->tokens == NULL)
 	{
