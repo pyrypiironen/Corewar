@@ -50,7 +50,8 @@ fi
 hexdump -C tmp1.cor > org_hex.txt
 hexdump -C tmp2.cor > new_hex.txt
 DIFF=$(diff -u org_hex.txt new_hex.txt)
-if test $DIFF; then
+#echo $DIFF
+if [ "$DIFF" != "" ]; then
 	printf "$RED ERROR: bytecode did not match.$NC\n"
 else
 	printf "$GREEN\tPassed!\n$NC"
