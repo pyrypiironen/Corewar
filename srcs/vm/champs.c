@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   champs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 19:00:07 by ppiirone          #+#    #+#             */
-/*   Updated: 2023/01/12 19:00:10 by ppiirone         ###   ########.fr       */
+/*   Updated: 2023/03/13 14:06:05 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../includes/vm.h"
+# include "vm.h"
 
 // Check if the given argument (*argv) is valid champion and initialize it
 // if true. 

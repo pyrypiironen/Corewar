@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_ld.c                                            :+:      :+:    :+:   */
+/*   op_load.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 15:46:10 by ppiirone          #+#    #+#             */
-/*   Updated: 2023/01/30 15:46:11 by ppiirone         ###   ########.fr       */
+/*   Updated: 2023/03/13 14:07:44 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../includes/vm.h"
+#include "vm.h"
 
 static void	ld_actions(t_vm_data *d, t_carriage *carriage, int value, \
 unsigned char reg);

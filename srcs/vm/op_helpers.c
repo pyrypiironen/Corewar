@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   op_helpers.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 12:47:35 by ppiirone          #+#    #+#             */
-/*   Updated: 2023/01/27 12:47:36 by ppiirone         ###   ########.fr       */
+/*   Updated: 2023/03/13 14:07:19 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../includes/vm.h"
+#include "vm.h"
 
 // Check if given registry is valid (return 1) or invalid (return 0).
 int	is_valid_reg(int position, t_vm_data *d)

@@ -1,6 +1,6 @@
 
 
-#include "../../../includes/vm.h"
+#include "vm.h"
 
 void	print_winner(t_vm_data *d)
 {

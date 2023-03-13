@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   read_cor_2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 17:16:05 by ppiirone          #+#    #+#             */
-/*   Updated: 2023/01/19 17:16:07 by ppiirone         ###   ########.fr       */
+/*   Updated: 2023/03/13 14:08:09 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/vm.h"
+#include "vm.h"
 
 // Read execution code of champion from .cor file and check the validity.
 void	read_excode(t_player *champ, int fd)

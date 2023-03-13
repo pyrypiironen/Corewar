@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   op_bitwise.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mjokela <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 14:35:42 by mjokela           #+#    #+#             */
-/*   Updated: 2023/02/01 14:35:48 by mjokela          ###   ########.fr       */
+/*   Updated: 2023/03/13 14:07:11 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../includes/vm.h"
+#include "vm.h"
 
 static long long	get_first_arg(t_carriage *carriage, t_vm_data *d);
 static long long	get_second_arg(t_carriage *carriage, t_vm_data *d);

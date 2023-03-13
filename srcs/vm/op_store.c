@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_st.c                                            :+:      :+:    :+:   */
+/*   op_store.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:49:11 by ppiirone          #+#    #+#             */
-/*   Updated: 2023/01/30 17:49:14 by ppiirone         ###   ########.fr       */
+/*   Updated: 2023/03/13 14:12:16 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../includes/vm.h"
+#include "vm.h"
 
 static long long	get_second_arg(t_carriage *carriage, t_vm_data *d);
 static long long	get_third_arg(t_carriage *carriage, t_vm_data *d);
-static void			sti_actions(t_carriage *carriage, t_vm_data *d);
+//static void			sti_actions(t_carriage *carriage, t_vm_data *d);
 
 // Store.
 // This statement writes a value from the registry that was passed as the first 

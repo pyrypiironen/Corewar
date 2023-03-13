@@ -1,7 +1,7 @@
 
 
 
-# include "../../../includes/vm.h"
+#include "vm.h"
 
 static void	execute_statements(t_vm_data *d);
 static void	check_carriage(t_vm_data *d);

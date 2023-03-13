@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:58:10 by ppiirone          #+#    #+#             */
-/*   Updated: 2023/01/12 17:58:11 by ppiirone         ###   ########.fr       */
+/*   Updated: 2023/03/13 14:06:50 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/vm.h"
+#include "vm.h"
 
 static void	init_arena(t_vm_data *d);
 static void	init_data_vm(t_vm_data *d);

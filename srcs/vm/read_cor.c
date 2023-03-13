@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   read_cor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:56:30 by ppiirone          #+#    #+#             */
-/*   Updated: 2023/01/13 12:56:31 by ppiirone         ###   ########.fr       */
+/*   Updated: 2023/03/13 14:08:12 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/vm.h"
+#include "vm.h"
 
 // Read magic header from champions .cor file and check the validity.
 void	read_magic(int fd)
