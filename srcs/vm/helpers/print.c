@@ -12,15 +12,27 @@
 
 #include "../../../includes/vm.h"
 
-// Write error message to stderror. If usage is true, when funciton is called,
+// Write error message to stderror. If usage is true, when function is called,
 // then print usage too.
 void	print_error(char *str, int usage)
 {
-	write(2, "ERROR: ", 7);
+	if (usage == 0)
+		write(2, "ERROR: ", 7);
 	write(2, str, ft_strlen(str));
 	write(2, "\n", 1);
 	if (usage == 1)
-		ft_printf("Usage: ./corewar [-dump nbr] [-n nbr] champ1.cor ...\n");
+	{
+		ft_printf("Usage: ./corewar <flags> <champ1.cor> <champ2.cor> <...>\n");
+		ft_printf("* * * * * Flags * * * * *\n");
+		ft_printf("-a N	: Show cycles and operations. Dump after N cycles.\n");
+		ft_printf("-b	: Execute lld with same bug than original Corewar.\n");
+		ft_printf("-c N	: Dump data from carriages after N cycles.\n");
+		ft_printf("-d N	: Dump memory on same form than original Corewar \
+after N cycles.\n");
+		ft_printf("-dump N	: Dump memory on the form asked on the pdf after N \
+cycles.\n");
+		ft_printf("-n N	: Set the number of the next player.\n");
+	}
 	exit(1);
 }
 
