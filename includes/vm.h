@@ -43,6 +43,7 @@ typedef struct			s_vm_data
 	int					od_flag;
 	int					c_flag;
 	int					a_flag;
+	int					b_flag;
 }						t_vm_data;
 
 typedef struct			s_carriage
@@ -111,6 +112,9 @@ void	init_core(int argc, char **argv, t_vm_data *d);
 
 //		read_args.c
 void	read_champs(int	argc, char **argv, t_vm_data *d);
+
+//		read_args_2.c
+int		is_bare_flag(t_vm_data *d, char *argv);
 
 //		read_cor.c
 void	read_magic(int fd);

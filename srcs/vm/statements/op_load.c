@@ -69,8 +69,12 @@ void	op_lld(t_carriage *carriage, t_vm_data *d)
 	is_valid_reg((carriage->cursor + 4) % MEM_SIZE, d))
 	{
 		reg = d->arena[(carriage->cursor + 4) % MEM_SIZE] - 1;
-		value = get_4_byte_value(d, carriage->cursor + \
-		get_2_byte_value(d, (carriage->cursor + 2), 0));
+		if (d->b_flag)
+			value = get_2_byte_value(d, carriage->cursor + \
+			get_2_byte_value(d, (carriage->cursor + 2), 0), 0);
+		else
+			value = get_4_byte_value(d, carriage->cursor + \
+			get_2_byte_value(d, (carriage->cursor + 2), 0));
 		carriage->registrys[reg] = value;
 		lld_actions(d, carriage, value, reg);
 		carriage->cursor = (carriage->cursor + 5) % MEM_SIZE;

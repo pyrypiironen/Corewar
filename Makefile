@@ -31,6 +31,7 @@ PREREQUITES =	arena.c \
 				champs.c \
 				init.c \
 				read_args.c \
+				read_args_2.c \
 				read_cor.c \
 				read_cor_2.c
 
