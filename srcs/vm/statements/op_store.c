@@ -10,11 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../includes/vm.h"
+#include "../../../includes/vm.h"
 
+static void			st_reg_reg(t_vm_data *d, t_carriage *carriage, int first, \
+					int second);
 static long long	get_second_arg(t_carriage *carriage, t_vm_data *d);
 static long long	get_third_arg(t_carriage *carriage, t_vm_data *d);
-static void			sti_actions(t_carriage *carriage, t_vm_data *d);
 
 // Store.
 // This statement writes a value from the registry that was passed as the first 
@@ -32,14 +33,7 @@ void	op_st(t_carriage *carriage, t_vm_data *d)
 	second = (carriage->cursor + 3) % MEM_SIZE;
 	if (d->arena[(carriage->cursor + 1) % MEM_SIZE] == 0x50 && \
 	is_valid_reg(first, d) && is_valid_reg(second, d))
-	{
-		carriage->registrys[d->arena[second] - 1] = \
-		carriage->registrys[d->arena[first] - 1];
-		carriage->cursor = (carriage->cursor + 4) % MEM_SIZE;
-		if (d->a_flag != -2)
-			ft_printf("P      | st r%d %d\n", d->arena[first], \
-			d->arena[second]);
-	}
+		st_reg_reg(d, carriage, first, second);
 	else if (d->arena[(carriage->cursor + 1) % MEM_SIZE] == 0x70 && \
 	is_valid_reg(first, d))
 	{
@@ -56,6 +50,17 @@ void	op_st(t_carriage *carriage, t_vm_data *d)
 	else
 		carriage->cursor = (carriage->cursor \
 		+ count_jump_size(carriage, d, 4, 2)) % MEM_SIZE;
+}
+
+static void	st_reg_reg(t_vm_data *d, t_carriage *carriage, int first, int \
+second)
+{
+	carriage->registrys[d->arena[second] - 1] = \
+	carriage->registrys[d->arena[first] - 1];
+	carriage->cursor = (carriage->cursor + 4) % MEM_SIZE;
+	if (d->a_flag != -2)
+		ft_printf("P      | st r%d %d\n", d->arena[first], \
+		d->arena[second]);
 }
 
 // Store index.
@@ -97,7 +102,6 @@ static long long	get_second_arg(t_carriage *carriage, t_vm_data *d)
 
 	res = d->arena[(carriage->cursor + 1) % MEM_SIZE];
 	pos = (carriage->cursor + 3) % MEM_SIZE;
-	carriage->cursor_copy = carriage->cursor;
 	if ((res == 0x54 || res == 0x58) && is_valid_reg(pos, d))
 	{
 		carriage->cursor_copy = (pos + 1) % MEM_SIZE;

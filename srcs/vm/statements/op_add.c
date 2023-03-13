@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../includes/vm.h"
+#include "../../../includes/vm.h"
 
 static int	is_valid_add_sub(t_carriage *carriage, t_vm_data *d);
 
@@ -20,7 +20,7 @@ void	op_add(t_carriage *carriage, t_vm_data *d)
 {
 	int	first;
 	int	second;
-	int third;
+	int	third;
 
 	first = d->arena[(carriage->cursor + 2) % MEM_SIZE] - 1;
 	second = d->arena[(carriage->cursor + 3) % MEM_SIZE] - 1;
@@ -28,7 +28,7 @@ void	op_add(t_carriage *carriage, t_vm_data *d)
 	if (d->arena[(carriage->cursor + 1) % MEM_SIZE] == 0x54 && \
 	is_valid_add_sub(carriage, d))
 	{
-		carriage->registrys[third] = carriage->registrys[first] +\
+		carriage->registrys[third] = carriage->registrys[first] + \
 		carriage->registrys[second];
 		carriage->carry = update_carry(carriage->registrys[third]);
 		if (d->a_flag != -2)
@@ -47,15 +47,15 @@ void	op_sub(t_carriage *carriage, t_vm_data *d)
 {
 	int	first;
 	int	second;
-	int third;
+	int	third;
 
 	first = d->arena[(carriage->cursor + 2) % MEM_SIZE] - 1;
 	second = d->arena[(carriage->cursor + 3) % MEM_SIZE] - 1;
 	third = d->arena[(carriage->cursor + 4) % MEM_SIZE] - 1;
-	if (d->arena[(carriage->cursor + 1) % MEM_SIZE] == 0x54 &&\
+	if (d->arena[(carriage->cursor + 1) % MEM_SIZE] == 0x54 && \
 	is_valid_add_sub(carriage, d))
 	{
-		carriage->registrys[third] = carriage->registrys[first] -\
+		carriage->registrys[third] = carriage->registrys[first] - \
 		carriage->registrys[second];
 		carriage->carry = update_carry(carriage->registrys[third]);
 		if (d->a_flag != -2)

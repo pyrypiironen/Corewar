@@ -1,7 +1,7 @@
 ASSEMBLER = asm
 COREWAR = corewar
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+FLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
 LIBFT = ./libft/libft.a
 INCL = -I./includes/
 
@@ -31,6 +31,7 @@ PREREQUITES =	arena.c \
 				champs.c \
 				init.c \
 				read_args.c \
+				read_args_2.c \
 				read_cor.c \
 				read_cor_2.c
 
@@ -46,29 +47,25 @@ STATEMENTS =	op_add.c \
 				op_live.c \
 				op_store.c 
 
-#Delete when project is ready
-TESTS =			prerequite_tests.c
+VISUALIZER =	arena.c
 
 
 
-
+GAME_SRCS = $(addprefix srcs/vm/game/, $(GAME))
+HELPERS_SRCS = $(addprefix srcs/vm/helpers/, $(HELPERS))
 MAIN_SRCS = $(addprefix srcs/vm/main/, $(MAIN))
 PREREQUITES_SRCS = $(addprefix srcs/vm/prerequites/, $(PREREQUITES))
-HELPERS_SRCS = $(addprefix srcs/vm/helpers/, $(HELPERS))
-TESTS_SRCS = $(addprefix srcs/vm/tests/, $(TESTS))
 STATEMENT_SRCS = $(addprefix srcs/vm/statements/, $(STATEMENTS))
-GAME_SRCS = $(addprefix srcs/vm/game/, $(GAME))
+VISUALIZER_SRCS = $(addprefix srcs/vm/visualizer/, $(VISUALIZER))
 
 VM_SRC_FILES =	$(MAIN_SRCS) $(HELPERS_SRCS) \
-				$(PREREQUITES_SRCS) $(TESTS_SRCS) $(STATEMENT_SRCS) $(GAME_SRCS)
+				$(PREREQUITES_SRCS) $(VISUALIZER_SRCS) $(STATEMENT_SRCS) $(GAME_SRCS)
 
 VM_OBJ_DIR = ./srcs/objs/vm/
-VM_OBJ_FILES = $(VM_SRC_FILES:.c=.o)
-VM_OBJ = $(VM_OBJ_FILES)
-# $(addprefix $(VM_OBJ_DIR)
+VM_OBJ_FILES  = $(VM_SRC_FILES:.c=.o)
+
 
 all: $(ASSEMBLER) $(COREWAR)
-# Add Makefile as prerequisite for $(Corewar), change syntax which would compile with Makefile
 $(ASSEMBLER): $(ASM_OBJ) $(ASM_H) $(LIBFT) Makefile
 	@$(CC) -o $@ $(FLAGS) $(INCL) $(ASM_OBJ) $(LIBFT)
 	@echo "\033[0;33mAssembler compiled.\033[0m"
@@ -77,21 +74,20 @@ $(ASM_OBJ_DIR)%.o: $(ASM_SRC_DIR)%.c
 	@mkdir -p $(ASM_OBJ_DIR)
 	@$(CC) $(FLAGS) -c $< -o $@ $(INCL)
 
-$(COREWAR): $(VM_OBJ) $(LIBFT)
-		@mkdir -p $(VM_OBJ_DIR)
-		@$(CC) $(FLAGS) -o $@ $^
-		@echo "\033[0;33mVirtual machine compiled.\033[0m"
+$(COREWAR): $(VM_OBJ_FILES) $(LIBFT)
+	@$(CC) $(FLAGS) -o $@ $^
+	@mkdir -p $(VM_OBJ_DIR)
+	@echo "\033[0;33mVirtual machine compiled.\033[0m"
 
 $(LIBFT):
 	@$(MAKE) -C ./libft/
 	@echo "\033[0;33mLibft compiled.\033[0m"
 
 clean:
+	@rm -rf $(VM_OBJ_FILES)
 	@/bin/rm -rf ./srcs/objs
 	@$(MAKE) -C ./libft/ clean
-# Is following line with wildcats ok?
-#		@mv srcs/vm/*/*.o $(VM_OBJ_DIR)
-	@echo "\033[0;33mObjects folder deleted.\033[0m"
+	@echo "\033[0;33mObject files removed.\033[0m"
 
 fclean: clean
 	@$(MAKE) -C ./libft/ fclean
@@ -101,12 +97,8 @@ fclean: clean
 
 re: fclean all
 
-# Can remove before submit, not yet
 vm: $(COREWAR)
-	
-vm_clean:
-	@rm srcs/vm/*/*.o
-# * * * * 
 
 
-.PHONY: all clean fclean re
+
+.PHONY: all clean fclean re vm

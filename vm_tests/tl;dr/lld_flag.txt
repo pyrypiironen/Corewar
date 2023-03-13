@@ -1,0 +1,15 @@
+	// Testing
+	d->carriage_head->cursor = 0;
+	d->arena[0] = 0x0c;
+	d->arena[1] = 0xd0;
+	d->arena[2] = 0x00;
+	d->arena[3] = 0x0a;
+	d->arena [4] = 0x04;
+	d->arena[10] = 0x7f;
+	d->arena[11] = 0xff;
+	d->arena[12] = 0xff;
+	d->arena[13] = 0xff;
+	op_lld(d->carriage_head, d);
+	print_carriages(d);
+	exit(0);
+	// End of testing

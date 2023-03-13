@@ -28,6 +28,8 @@ void	read_champs(int argc, char **argv, t_vm_data *d)
 	{
 		if (is_flag(d, argv[i]) && i + 1 < argc)
 			read_flag(d, argv[++i]);
+		else if (is_bare_flag(d, argv[i]) && i < argc)
+			;
 		else if (is_champ(argv[i], d) == 1)
 			;
 		else

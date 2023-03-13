@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../includes/vm.h"
+#include "../../../includes/vm.h"
 
 // Live statement. Carriage which performs the live statement is alive.
 // Also if the number specified as an argument matches the number of the player,

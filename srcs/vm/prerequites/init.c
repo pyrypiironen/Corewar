@@ -57,5 +57,5 @@ static void	init_data_vm(t_vm_data *d)
 	d->od_flag = -2;
 	d->c_flag = -2;
 	d->a_flag = -2;
+	d->b_flag = 0;
 }
-

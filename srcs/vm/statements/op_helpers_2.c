@@ -10,21 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../includes/vm.h"
+#include "../../../includes/vm.h"
 
 // Count jump size based on argument types.
-int	count_jump_size(t_carriage *carriage, t_vm_data *d, int	dir_size, int args)
+int	count_jump_size(t_carriage *carriage, t_vm_data *d, int dir_size, int args)
 {
-	int	ret;
-	int	i;
+	int				ret;
+	int				i;
 	unsigned char	code;
 	unsigned char	tmp;
 
 	ret = 2;
 	i = 0;
-	code = d->arena[(carriage->cursor + 1)  % MEM_SIZE];
+	code = d->arena[(carriage->cursor + 1) % MEM_SIZE];
 	code = code >> (2 + 2 * (3 - args));
-	while(i < 3)
+	while (i < 3)
 	{
 		tmp = code & 3;
 		if (tmp == 1)

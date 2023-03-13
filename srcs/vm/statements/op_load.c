@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../includes/vm.h"
+#include "../../../includes/vm.h"
 
 static void	ld_actions(t_vm_data *d, t_carriage *carriage, int value, \
 unsigned char reg);
+static int	lld_bug_value(t_vm_data *d, t_carriage *carriage);
 static void	lld_actions(t_vm_data *d, t_carriage *carriage, int value, \
 unsigned char reg);
 
@@ -62,7 +63,6 @@ void	op_lld(t_carriage *carriage, t_vm_data *d)
 		reg = d->arena[(carriage->cursor + 6) % MEM_SIZE] - 1;
 		value = get_4_byte_value(d, carriage->cursor + 2);
 		carriage->registrys[reg] = value;
-		//carriage->carry = update_carry(value);
 		lld_actions(d, carriage, value, reg);
 		carriage->cursor = (carriage->cursor + 7) % MEM_SIZE;
 	}
@@ -70,16 +70,27 @@ void	op_lld(t_carriage *carriage, t_vm_data *d)
 	is_valid_reg((carriage->cursor + 4) % MEM_SIZE, d))
 	{
 		reg = d->arena[(carriage->cursor + 4) % MEM_SIZE] - 1;
-		value = get_4_byte_value(d, carriage->cursor + \
-		get_2_byte_value(d, (carriage->cursor + 2), 0));
+		value = lld_bug_value(d, carriage);
 		carriage->registrys[reg] = value;
-		// carriage->carry = update_carry(value);
 		lld_actions(d, carriage, value, reg);
 		carriage->cursor = (carriage->cursor + 5) % MEM_SIZE;
 	}
 	else
 		carriage->cursor = (carriage->cursor \
 		+ count_jump_size(carriage, d, 4, 2)) % MEM_SIZE;
+}
+
+static int	lld_bug_value(t_vm_data *d, t_carriage *carriage)
+{
+	int	value;
+
+	if (d->b_flag)
+		value = get_2_byte_value(d, carriage->cursor + \
+		get_2_byte_value(d, (carriage->cursor + 2), 0), 0);
+	else
+		value = get_4_byte_value(d, carriage->cursor + \
+		get_2_byte_value(d, (carriage->cursor + 2), 0));
+	return (value);
 }
 
 // Update carry to op_ld and print information of actions if -a flag is on.
