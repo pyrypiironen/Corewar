@@ -47,6 +47,7 @@ all: $(NAME)
 $(NAME):
 	@make -C ft_printf
 	@gcc $(FLAGS) -c $(SRC) $(GNL_SRC)
+	@mkdir $(OBJS_DIR)
 	@mv $(OBJ_FILES) $(OBJS_DIR)
 	@mv $(GNL_OBJ_FILE) $(OBJS_DIR)
 	@ar rc $(NAME) $(OBJS) $(GNL_OBJ) $(PFOBJS)
@@ -55,6 +56,7 @@ $(NAME):
 clean:
 	@make -C ft_printf clean
 	@/bin/rm -f $(OBJS) $(GNL_OBJ)
+	@/bin/rm -fd $(OBJS_DIR)
 
 fclean: clean
 	@make -C ft_printf fclean
