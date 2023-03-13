@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/03/10 15:54:06 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/13 19:15:33 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ static int	found_quote(t_asm *d, char *str, int *len)
 			d->row++;
 			d->col = 1;
 		}
-		if (str[tmplen] == 0)
-		{
-			d->i += tmplen;
-			set_error_pos(d, d->i, STX_ERR);
-		}
 		tmplen += 1;
 		d->col++;
+	}
+	if (str[tmplen] == 0)
+	{
+		d->i += tmplen;
+		set_error_pos(d, d->i, STX_ERR);
 	}
 	*len += tmplen;
 	*len += 1;

@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/03/10 15:36:51 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/13 19:23:38 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ static void	syntax_checker(t_asm *d)
 
 	tmp = d->tokens;
 	prev = NULL;
+	//ft_dprintf(2, "TAIL %u", d->tail_statement->valid);
 	while (tmp)
 	{
 		if (tmp->type == NAME || tmp->type == COMMENT)

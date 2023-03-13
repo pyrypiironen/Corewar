@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:26:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/03/10 15:21:45 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/13 19:17:24 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,9 @@ cur->col, label);
 
 static void	asm_syntax_error(t_asm *d, t_oken *cur)
 {
-	if (cur->type == OP)
+	if (!cur)
+		ft_dprintf(2, "Syntax error at [%03d:%03d]\n", d->row, d->col);
+	else if (cur->type == OP)
 		ft_dprintf(2, "Syntax error at token [TOKEN][%03d:%03d] INSTRUCTION \
 \"%s\"\n", cur->row, cur->col, cur->str);
 	else if (cur->type == REG)
@@ -66,8 +68,6 @@ static void	asm_syntax_error(t_asm *d, t_oken *cur)
 	else if (cur->type == NAME || cur->type == COMMENT)
 		ft_dprintf(2, "Syntax error at token [TOKEN][%03d:%03d] COMMAND %s\n", \
 cur->row, cur->col, cur->str);
-	else
-		ft_dprintf(2, "Syntax error at [%03d:%03d]\n", cur->row, cur->col);
 	if (!d)
 		exit(EXIT_FAILURE);
 }
