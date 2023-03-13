@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../includes/vm.h"
+#include "../../../includes/vm.h"
 
 // This statement takes a value from a registry that was passed as a single
 //argument. Converts it to type char. And displays as an ASCII character.
@@ -33,5 +33,4 @@ void	op_aff(t_carriage *carriage, t_vm_data *d)
 	else
 		carriage->cursor = (carriage->cursor \
 		+ count_jump_size(carriage, d, 4, 1)) % MEM_SIZE;
-
 }

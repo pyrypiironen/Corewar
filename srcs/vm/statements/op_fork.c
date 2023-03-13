@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../includes/vm.h"
+#include "../../../includes/vm.h"
 
 // The fork statement makes a copy of the carriage. And this copy is placed at
 // the address <first arg> % IDX_MOD.
@@ -34,7 +34,7 @@ void	op_fork(t_carriage *carriage, t_vm_data *d)
 		ft_printf("P    | fork %d (%d)\n", arg, \
 		(carriage->cursor + arg) % MEM_SIZE);
 	d->carriage_head->cursor = move_cursor(carriage, arg % IDX_MOD);
-	carriage->cursor = (carriage->cursor + 3) % MEM_SIZE; // Modified (was 3)
+	carriage->cursor = (carriage->cursor + 3) % MEM_SIZE;
 }
 
 // Long lfork statement. Same than fork statement, but can place new carriage

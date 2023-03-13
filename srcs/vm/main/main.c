@@ -15,7 +15,7 @@
 int	main(int argc, char **argv)
 {
 	t_vm_data	*d;
-	
+
 	d = (t_vm_data *)malloc(sizeof(t_vm_data));
 	if (d == NULL)
 		print_error("Malloc failed.", 0);

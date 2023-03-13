@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../includes/vm.h"
+#include "../../../includes/vm.h"
 
 static void	plant_excode(t_vm_data *d, int location);
 
@@ -18,7 +18,7 @@ static void	plant_excode(t_vm_data *d, int location);
 void	fill_arena(t_vm_data *d)
 {
 	int	location;
-	
+
 	location = MEM_SIZE / d->player_amount;
 	d->players = d->player_head;
 	while (d->players)

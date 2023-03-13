@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../includes/vm.h"
+#include "../../../includes/vm.h"
 
 static long long	get_first_arg(t_carriage *carriage, t_vm_data *d);
 static long long	get_second_arg(t_carriage *carriage, t_vm_data *d);
@@ -39,7 +39,7 @@ void	op_ldi(t_carriage *carriage, t_vm_data *d)
 		if (d->a_flag != -2)
 			ft_printf("P      | ldi %d %d r%d\n       | -> load from %d + %d = \
 %d (with pc and mod %d)\n", \
-	 		arg_1, arg_2, reg + 1, arg_1, arg_2, arg_1 + arg_2, pos);
+			arg_1, arg_2, reg + 1, arg_1, arg_2, arg_1 + arg_2, pos);
 	}
 	else
 		carriage->cursor = (carriage->cursor \
@@ -66,8 +66,8 @@ void	op_lldi(t_carriage *carriage, t_vm_data *d)
 		carriage->registrys[reg] = get_4_byte_value(d, pos);
 		carriage->cursor = (carriage->cursor_copy + 1) % MEM_SIZE;
 		if (d->a_flag != -2)
-		 ft_printf("P      | lldi %d %d r%d\n       | -> load from %d + %d = %d\
- (with pc %d)\n", arg_1, arg_2, reg + 1, arg_1, arg_2, arg_1 + arg_2, pos);
+			ft_printf("P      | lldi %d %d r%d\n       | -> load from %d + %d \
+= %d (with pc %d)\n", arg_1, arg_2, reg + 1, arg_1, arg_2, arg_1 + arg_2, pos);
 	}
 	else
 		carriage->cursor = (carriage->cursor \
@@ -84,8 +84,8 @@ static long long	get_first_arg(t_carriage *carriage, t_vm_data *d)
 	res = d->arena[(carriage->cursor + 1) % MEM_SIZE];
 	pos = (carriage->cursor + 2) % MEM_SIZE;
 	carriage->cursor_copy = carriage->cursor;
-	if (((res == 0x54 && is_valid_reg((pos + 1) % MEM_SIZE, d)) || res == 0x64)\
-		&& is_valid_reg(pos, d))
+	if (((res == 0x54 && is_valid_reg((pos + 1) % MEM_SIZE, d)) || \
+		res == 0x64) && is_valid_reg(pos, d))
 	{
 		carriage->cursor_copy = (carriage->cursor + 3) % MEM_SIZE;
 		return (carriage->registrys[d->arena[pos] - 1]);
@@ -127,3 +127,4 @@ static long long	get_second_arg(t_carriage *carriage, t_vm_data *d)
 	}
 	return (2147483648);
 }
+

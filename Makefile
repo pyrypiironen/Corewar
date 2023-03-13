@@ -78,7 +78,6 @@ $(ASM_OBJ_DIR)%.o: $(ASM_SRC_DIR)%.c
 	@$(CC) $(FLAGS) -c $< -o $@ $(INCL)
 
 $(COREWAR): $(VM_OBJ) $(LIBFT)
-		@mkdir -p $(VM_OBJ_DIR)
 		@$(CC) $(FLAGS) -o $@ $^
 		@echo "\033[0;33mVirtual machine compiled.\033[0m"
 
@@ -88,10 +87,9 @@ $(LIBFT):
 
 clean:
 	@/bin/rm -rf ./srcs/objs
+	@rm srcs/vm/*/*.o
 	@$(MAKE) -C ./libft/ clean
-# Is following line with wildcats ok?
-#		@mv srcs/vm/*/*.o $(VM_OBJ_DIR)
-	@echo "\033[0;33mObjects folder deleted.\033[0m"
+	@echo "\033[0;33mObject files deleted.\033[0m"
 
 fclean: clean
 	@$(MAKE) -C ./libft/ fclean
@@ -101,12 +99,8 @@ fclean: clean
 
 re: fclean all
 
-# Can remove before submit, not yet
 vm: $(COREWAR)
-	
-vm_clean:
-	@rm srcs/vm/*/*.o
-# * * * * 
 
 
-.PHONY: all clean fclean re
+
+.PHONY: all clean fclean re vm

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../includes/vm.h"
+#include "../../../includes/vm.h"
 
 static void	ld_actions(t_vm_data *d, t_carriage *carriage, int value, \
 unsigned char reg);
@@ -62,7 +62,6 @@ void	op_lld(t_carriage *carriage, t_vm_data *d)
 		reg = d->arena[(carriage->cursor + 6) % MEM_SIZE] - 1;
 		value = get_4_byte_value(d, carriage->cursor + 2);
 		carriage->registrys[reg] = value;
-		//carriage->carry = update_carry(value);
 		lld_actions(d, carriage, value, reg);
 		carriage->cursor = (carriage->cursor + 7) % MEM_SIZE;
 	}
@@ -73,7 +72,6 @@ void	op_lld(t_carriage *carriage, t_vm_data *d)
 		value = get_4_byte_value(d, carriage->cursor + \
 		get_2_byte_value(d, (carriage->cursor + 2), 0));
 		carriage->registrys[reg] = value;
-		// carriage->carry = update_carry(value);
 		lld_actions(d, carriage, value, reg);
 		carriage->cursor = (carriage->cursor + 5) % MEM_SIZE;
 	}

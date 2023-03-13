@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../includes/vm.h"
+#include "../../../includes/vm.h"
 
 // Check if the given argument (*argv) is valid champion and initialize it
 // if true. 
@@ -20,7 +20,7 @@ int	is_champ(char *argv, t_vm_data *d)
 	t_player	*champ;	
 
 	len = ft_strlen(argv);
-	if(ft_strcmp(&(argv[len - 4]), ".cor") != 0)
+	if (ft_strcmp(&(argv[len - 4]), ".cor") != 0)
 		return (0);
 	champ = (t_player *)malloc(sizeof(t_player));
 	if (champ == NULL)
@@ -33,7 +33,7 @@ int	is_champ(char *argv, t_vm_data *d)
 void	init_champ(t_vm_data *d, t_player *champ, char *file)
 {
 	int	fd;
-	
+
 	champ->id = d->n_flag;
 	d->n_flag = 0;
 	fd = open(file, O_RDONLY);
@@ -92,7 +92,7 @@ int	check_id(t_player *champ, int id)
 // Error checks for -n flag.
 void	id_error_check(t_vm_data *d)
 {
-	t_player *tmp;
+	t_player	*tmp;
 
 	if (d->player_amount > MAX_PLAYERS)
 		print_error("Wrong usage. Player number can't be bigger than \
@@ -112,5 +112,4 @@ MAX_PLAYERS.", 1);
 player amount.", 1);
 		d->players = d->players->next;
 	}
-
 }

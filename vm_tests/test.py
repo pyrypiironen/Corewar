@@ -16,7 +16,7 @@ def blue(text):
     return '\033[34m' + text + '\033[0m'
 
 # Make and copy new corewar to this folder.
-os.system('cd .. && make vm && make vm_clean && cp corewar ./vm_tests/corewar && cd vm_tests')
+os.system('cd .. && make vm && make clean && cp corewar ./vm_tests/corewar && cd vm_tests')
 
 # Set the starting cycle of comparing outputs of our corewar and the original corewar.
 # First difference: 

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../includes/vm.h"
+#include "../../../includes/vm.h"
 
 // Check if given registry is valid (return 1) or invalid (return 0).
 int	is_valid_reg(int position, t_vm_data *d)
@@ -56,7 +56,7 @@ int	get_2_byte_value(t_vm_data *d, int position, int idx)
 	unsigned char	first;
 	unsigned char	second;
 	short			value;
-	
+
 	if (position < 0)
 		position = position % MEM_SIZE + MEM_SIZE;
 	first = d->arena[(position + 0) % MEM_SIZE];
