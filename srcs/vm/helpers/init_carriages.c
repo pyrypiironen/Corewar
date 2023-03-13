@@ -41,7 +41,7 @@ void	init_carriages(t_vm_data *d)
 static void	fill_carriage(t_vm_data *d)
 {
 	int	i;
-	
+
 	i = 1;
 	d->carriage_head->id = d->players->id;
 	d->carriage_head->carry = 0;

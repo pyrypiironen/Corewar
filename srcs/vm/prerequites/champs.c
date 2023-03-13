@@ -55,6 +55,7 @@ void	init_champ(t_vm_data *d, t_player *champ, char *file)
 		print_error("Too many players. Max 4 players allowed.", 0);
 }
 
+// Initialize players IDs based on the -n flag and order of the palyers.
 void	init_ids(t_vm_data *d)
 {
 	int	id;
@@ -76,7 +77,7 @@ void	init_ids(t_vm_data *d)
 	}
 }
 
-
+// Check if the given id is already used or not.
 int	check_id(t_player *champ, int id)
 {
 	while (champ != NULL)
@@ -88,7 +89,7 @@ int	check_id(t_player *champ, int id)
 	return (0);
 }
 
-
+// Error checks for -n flag.
 void	id_error_check(t_vm_data *d)
 {
 	t_player *tmp;
@@ -107,11 +108,8 @@ MAX_PLAYERS.", 1);
 			tmp = tmp->next;
 		}
 		if (d->players->id > d->player_amount)
-		{
-			ft_printf("{red}id: %d || amount: %d\n", d->players->id, d->player_amount);
 			print_error("Wrong usage. Player number can't be bigger than \
 player amount.", 1);
-		}
 		d->players = d->players->next;
 	}
 

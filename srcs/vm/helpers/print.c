@@ -12,6 +12,8 @@
 
 #include "../../../includes/vm.h"
 
+// Write error message to stderror. If usage is true, when funciton is called,
+// then print usage too.
 void	print_error(char *str, int usage)
 {
 	write(2, "ERROR: ", 7);
@@ -22,13 +24,14 @@ void	print_error(char *str, int usage)
 	exit(1);
 }
 
+// Print dump for -dump flag on form asket by project pdf.
 void	print_dump(t_vm_data *d)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while(i < MEM_SIZE)
+	while (i < MEM_SIZE)
 	{
 		j = 0;
 		while (i < MEM_SIZE && j < 32)
@@ -44,13 +47,14 @@ void	print_dump(t_vm_data *d)
 	exit(0);
 }
 
+// Print dump like original version print when it run with -d flag (-o flag).
 void	print_replica_dump(t_vm_data *d)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while(i < MEM_SIZE)
+	while (i < MEM_SIZE)
 	{
 		ft_printf("0x%.4x : ", i);
 		j = 0;
@@ -66,14 +70,14 @@ void	print_replica_dump(t_vm_data *d)
 	exit(0);
 }
 
+// Print contestant in the order of player numbers.
 void	print_contestants(t_vm_data *d)
 {
 	int	i;
 
 	i = 1;
 	ft_printf("Introducing contestants...\n");
-	
-	while(i <= d->player_amount)
+	while (i <= d->player_amount)
 	{
 		d->players = d->player_head;
 		while (d->players->id != i)
@@ -86,6 +90,7 @@ void	print_contestants(t_vm_data *d)
 	}
 }
 
+// Print information of every living carriages (-c flag).
 void	dump_info(t_vm_data *d)
 {
 	int	i;

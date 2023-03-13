@@ -14,6 +14,7 @@
 
 static void	plant_excode(t_vm_data *d, int location);
 
+// Plant the contestants excodes on the arena.
 void	fill_arena(t_vm_data *d)
 {
 	int	location;
@@ -27,6 +28,7 @@ void	fill_arena(t_vm_data *d)
 	}
 }
 
+// Plant one players excode on the arena.
 static void	plant_excode(t_vm_data *d, int location)
 {
 	int	i;

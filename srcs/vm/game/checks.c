@@ -1,14 +1,28 @@
-# include "../../../includes/vm.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checks.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/13 13:13:58 by ppiirone          #+#    #+#             */
+/*   Updated: 2023/03/13 13:14:02 by ppiirone         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../../includes/vm.h"
 
 static void	remove_dead(t_vm_data *d);
 static int	is_dead(t_vm_data *d, t_carriage *carriage);
 
-// 
+// During this check, carriages that are dead are removed from the list.
+// Then if max amount of checks or live statements is called after last reset,
+// cycles to die will be reduced by CYCLE_DELTA.
 void	check(t_vm_data *d)
 {
 	remove_dead(d);
 	d->check_count += 1;
-	if(d->check_count == MAX_CHECKS || d->live_statements >= NBR_LIVE)
+	if (d->check_count == MAX_CHECKS || d->live_statements >= NBR_LIVE)
 	{
 		d->cycles_to_die -= CYCLE_DELTA;
 		if (d->a_flag != -2)
@@ -17,7 +31,6 @@ void	check(t_vm_data *d)
 	}
 	d->cycles_to_check = d->cycles_to_die;
 	d->live_statements = 0;
-	// Remove dead moved from here
 }
 
 // Run through the carriages and remove dead ones.
@@ -32,7 +45,7 @@ static void	remove_dead(t_vm_data *d)
 		free(d->carriage);
 		d->carriage = d->carriage_head;
 	}
-	while(d->carriage && d->carriage->next)
+	while (d->carriage && d->carriage->next)
 	{
 		if (is_dead(d, d->carriage->next))
 		{
@@ -48,7 +61,8 @@ static void	remove_dead(t_vm_data *d)
 // Check if carriage is dead. Return 1 if it is dead and 0 if it is alive.
 static int	is_dead(t_vm_data *d, t_carriage *carriage)
 {
-	if(carriage && (d->cycles_to_die <= d->current_cycle - carriage->last_live))
+	if (carriage && \
+	(d->cycles_to_die <= d->current_cycle - carriage->last_live))
 	{
 		if (d->a_flag != -2)
 			ft_printf("Process X hasn't lived for %d cycles (CTD %d)\n", \

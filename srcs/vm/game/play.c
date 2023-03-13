@@ -1,7 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   play.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/13 13:14:16 by ppiirone          #+#    #+#             */
+/*   Updated: 2023/03/13 13:14:18 by ppiirone         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-
-
-# include "../../../includes/vm.h"
+#include "../../../includes/vm.h"
 
 static void	execute_statements(t_vm_data *d);
 static void	check_carriage(t_vm_data *d);
@@ -44,26 +53,17 @@ static void	execute_statements(t_vm_data *d)
 
 // Read statement if there is no statement waiting to execute. If there is,
 // then countdown and execute the statement on right cycle.
-static void	check_carriage(t_vm_data *d) 
+static void	check_carriage(t_vm_data *d)
 {
 	d->carriage->to_execute -= 1;
 	if (d->carriage->to_execute < 0)
 		read_statement(d);
 	else if (d->carriage->to_execute == 0)
 	{
-		//ft_printf("Cycle: %d IN\n", d->current_cycle);
-		// if (d->current_cycle == 3861)
-		// {
-		// 	print_carriages(d);
-		// 	ft_printf("--------------\n");
-		// 	print_arena(d);
-		// 	sleep(1);
-		// }
 		g_dispatcher[d->carriage->statement](d->carriage, d);
 		if (d->a_flag != -2)
 			ft_printf("Carriage position: %d\n", d->carriage->cursor);
 	}
-	//ft_printf("Cycle: %d OUT\n", d->current_cycle);
 }
 
 // Read new statement and init all its necessary data to the carriage.
