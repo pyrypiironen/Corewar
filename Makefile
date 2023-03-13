@@ -76,8 +76,7 @@ $(ASM_OBJ_DIR)%.o: $(ASM_SRC_DIR)%.c
 
 $(COREWAR): $(VM_OBJ_FILES) $(LIBFT)
 	@$(CC) $(FLAGS) -o $@ $^
-	@mkdir $(VM_OBJ_DIR)
-	@mv $(VM_OBJ_FILES) $(VM_OBJ_DIR) 
+	@mkdir -p $(VM_OBJ_DIR)
 	@echo "\033[0;33mVirtual machine compiled.\033[0m"
 
 $(LIBFT):
@@ -85,9 +84,10 @@ $(LIBFT):
 	@echo "\033[0;33mLibft compiled.\033[0m"
 
 clean:
+	@rm -rf $(VM_OBJ_FILES)
 	@/bin/rm -rf ./srcs/objs
 	@$(MAKE) -C ./libft/ clean
-	@echo "\033[0;33mObjects folder removed.\033[0m"
+	@echo "\033[0;33mObject files removed.\033[0m"
 
 fclean: clean
 	@$(MAKE) -C ./libft/ fclean
