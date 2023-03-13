@@ -22,4 +22,3 @@ int	is_bare_flag(t_vm_data *d, char *argv)
 	}
 	return (0);
 }
-

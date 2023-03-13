@@ -180,11 +180,9 @@ void	op_sti(t_carriage *carriage, t_vm_data *d);
 
 
 
-//		* * * * * * * * TESTS * * * * * * * *
-//		prerequite_tests.c
-void	print_champs(t_vm_data *d);
+//		* * * * * * * * VISUALIZER * * * * * * * *
+//		arena.c
 void	print_arena(t_vm_data *d);
-void	print_carriages(t_vm_data *d);
 
 
 

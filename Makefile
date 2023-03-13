@@ -1,7 +1,7 @@
 ASSEMBLER = asm
 COREWAR = corewar
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+FLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
 LIBFT = ./libft/libft.a
 INCL = -I./includes/
 
@@ -47,29 +47,25 @@ STATEMENTS =	op_add.c \
 				op_live.c \
 				op_store.c 
 
-#Delete when project is ready
-TESTS =			prerequite_tests.c
+VISUALIZER =	arena.c
 
 
 
-
+GAME_SRCS = $(addprefix srcs/vm/game/, $(GAME))
+HELPERS_SRCS = $(addprefix srcs/vm/helpers/, $(HELPERS))
 MAIN_SRCS = $(addprefix srcs/vm/main/, $(MAIN))
 PREREQUITES_SRCS = $(addprefix srcs/vm/prerequites/, $(PREREQUITES))
-HELPERS_SRCS = $(addprefix srcs/vm/helpers/, $(HELPERS))
-TESTS_SRCS = $(addprefix srcs/vm/tests/, $(TESTS))
 STATEMENT_SRCS = $(addprefix srcs/vm/statements/, $(STATEMENTS))
-GAME_SRCS = $(addprefix srcs/vm/game/, $(GAME))
+VISUALIZER_SRCS = $(addprefix srcs/vm/visualizer/, $(VISUALIZER))
 
 VM_SRC_FILES =	$(MAIN_SRCS) $(HELPERS_SRCS) \
-				$(PREREQUITES_SRCS) $(TESTS_SRCS) $(STATEMENT_SRCS) $(GAME_SRCS)
+				$(PREREQUITES_SRCS) $(VISUALIZER_SRCS) $(STATEMENT_SRCS) $(GAME_SRCS)
 
 VM_OBJ_DIR = ./srcs/objs/vm/
-VM_OBJ_FILES = $(VM_SRC_FILES:.c=.o)
-VM_OBJ = $(VM_OBJ_FILES)
-# $(addprefix $(VM_OBJ_DIR)
+VM_OBJ_FILES  = $(VM_SRC_FILES:.c=.o)
+
 
 all: $(ASSEMBLER) $(COREWAR)
-# Add Makefile as prerequisite for $(Corewar), change syntax which would compile with Makefile
 $(ASSEMBLER): $(ASM_OBJ) $(ASM_H) $(LIBFT) Makefile
 	@$(CC) -o $@ $(FLAGS) $(INCL) $(ASM_OBJ) $(LIBFT)
 	@echo "\033[0;33mAssembler compiled.\033[0m"
@@ -78,9 +74,11 @@ $(ASM_OBJ_DIR)%.o: $(ASM_SRC_DIR)%.c
 	@mkdir -p $(ASM_OBJ_DIR)
 	@$(CC) $(FLAGS) -c $< -o $@ $(INCL)
 
-$(COREWAR): $(VM_OBJ) $(LIBFT)
-		@$(CC) $(FLAGS) -o $@ $^
-		@echo "\033[0;33mVirtual machine compiled.\033[0m"
+$(COREWAR): $(VM_OBJ_FILES) $(LIBFT)
+	@$(CC) $(FLAGS) -o $@ $^
+	@mkdir $(VM_OBJ_DIR)
+	@mv $(VM_OBJ_FILES) $(VM_OBJ_DIR) 
+	@echo "\033[0;33mVirtual machine compiled.\033[0m"
 
 $(LIBFT):
 	@$(MAKE) -C ./libft/
@@ -88,9 +86,8 @@ $(LIBFT):
 
 clean:
 	@/bin/rm -rf ./srcs/objs
-	@rm srcs/vm/*/*.o
 	@$(MAKE) -C ./libft/ clean
-	@echo "\033[0;33mObject files deleted.\033[0m"
+	@echo "\033[0;33mObjects folder removed.\033[0m"
 
 fclean: clean
 	@$(MAKE) -C ./libft/ fclean

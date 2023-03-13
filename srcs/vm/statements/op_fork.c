@@ -72,6 +72,7 @@ void	copy_carriage(t_carriage *carriage, t_vm_data *d)
 	d->carriage_head->statement = 0;
 	d->carriage_head->to_execute = -1;
 	d->carriage_head->jump_size = 0;
+	d->carriage_head->cursor_copy = 0;
 	while (i < REG_NUMBER)
 	{
 		d->carriage_head->registrys[i] = carriage->registrys[i];

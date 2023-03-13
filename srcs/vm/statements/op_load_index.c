@@ -83,7 +83,6 @@ static long long	get_first_arg(t_carriage *carriage, t_vm_data *d)
 
 	res = d->arena[(carriage->cursor + 1) % MEM_SIZE];
 	pos = (carriage->cursor + 2) % MEM_SIZE;
-	carriage->cursor_copy = carriage->cursor;
 	if (((res == 0x54 && is_valid_reg((pos + 1) % MEM_SIZE, d)) || \
 		res == 0x64) && is_valid_reg(pos, d))
 	{
@@ -127,4 +126,3 @@ static long long	get_second_arg(t_carriage *carriage, t_vm_data *d)
 	}
 	return (2147483648);
 }
-
