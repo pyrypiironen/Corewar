@@ -116,6 +116,15 @@ if result.returncode != 0 and "Wrong usage." in result.stderr.decode('utf-8'):
 else:
 	print(red('KO'))
 
+print((blue('-n flag without argument: ')), end='')
+result = subprocess.run(['./corewar', '-n', 'champs/Gagnant.cor', 'champs/turtle.cor'], capture_output=True)
+if result.returncode != 0 and "Wrong usage." in result.stderr.decode('utf-8'):
+	print(green('OK'))
+	if print_msg:
+		print(red(result.stderr.decode('utf-8')))
+else:
+	print(red('KO'))
+
 print((blue('-n flag at the end: ')), end='')
 result = subprocess.run(['./corewar', 'champs/Gagnant.cor', 'champs/turtle.cor', '-n', '2'], capture_output=True)
 if result.returncode != 0 and "Wrong usage." in result.stderr.decode('utf-8'):
