@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:26:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/03/13 19:17:24 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/15 16:36:38 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ cur->col, label);
 static void	asm_syntax_error(t_asm *d, t_oken *cur)
 {
 	if (!cur)
-		ft_dprintf(2, "Syntax error at [%03d:%03d]\n", d->row, d->col);
+		ft_dprintf(2, "Syntax error at line [%03d]\n", d->row);
 	else if (cur->type == OP)
 		ft_dprintf(2, "Syntax error at token [TOKEN][%03d:%03d] INSTRUCTION \
 \"%s\"\n", cur->row, cur->col, cur->str);
@@ -102,9 +102,11 @@ void	error_asm(t_asm *d, char *line, int status)
 	else if (status == STX_ERR)
 		asm_syntax_error(d, NULL);
 	else if (status == EOF_ERR)
-		ft_dprintf(2, "Syntax error at [%d:%d] EOF\n", d->row, d->col);
+		ft_dprintf(2, "Syntax error at [%03d:%03d] EOF\n", d->row, d->col);
 	else if (status == MAL_ERR)
 		ft_putstr_fd(MALLOC_ERR, STDERR_FILENO);
+	else if (status == ENDLINE_ERR)
+		ft_dprintf(2, "Syntax error at [%03d:%03d] ENDLINE\n", d->row, d->col);
 	if (line)
 		ft_strdel(&line);
 	free_asm(d);

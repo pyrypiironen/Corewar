@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:50:37 by abackman          #+#    #+#             */
-/*   Updated: 2023/03/13 19:15:33 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:35:48 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,18 @@ int	is_command(t_asm *d, char *str, int *len, t_type *type)
 	i = 0;
 	if (!is_valid_command_str(str, &i, type))
 		return (0);
-	while (str[i] && ft_iswhitespace((int)str[i]))
+	while (str[i] && ft_strchr(" \t\v", (int)str[i]))
 		i++;
 	if (str[i] == '"' && found_quote(d, &str[i], len))
 	{
 		d->i += i;
 		return (add_token(d, &str[i], *len, *type));
 	}
-	d->i += i;
+	else
+	{
+		d->i += i + *len;
+		error_asm(d, NULL, ENDLINE_ERR);
+	}
 	return (0);
 }
 
