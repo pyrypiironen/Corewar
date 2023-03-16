@@ -24,9 +24,9 @@ void	op_aff(t_carriage *carriage, t_vm_data *d)
 	is_valid_reg((carriage->cursor + 2) % MEM_SIZE, d))
 	{
 		printable = (char)carriage->registrys[value - 1];
-		if (printable > 32 && printable < 127)
-			ft_printf("%c\n", printable);
-		if (d->a_flag != -2)
+		if (d->b_flag == 0 && printable > 32 && printable < 127)
+			ft_printf("Aff: %c\n", printable);
+		else if (d->a_flag != -2)
 			ft_printf("Aff: %c\n", printable);
 		carriage->cursor = (carriage->cursor + 3) % MEM_SIZE;
 	}
