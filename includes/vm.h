@@ -17,7 +17,6 @@
 # include "../libft/libft.h"
 # include "op.h"
 # include <fcntl.h>
-# include <stdio.h> // DELETE, just for real printf
 
 static const char *color_tab[] = {
 	"", "\x1B[32m", "\x1B[33m", "\x1B[31m", "\x1B[35m"
@@ -71,7 +70,7 @@ typedef struct		s_player
 	struct s_player		*next;
 }					t_player;
 
-
+typedef void		(*t_op)(t_carriage *carriage, t_vm_data *d);
 
 void	init_carriages(t_vm_data *d);
 
@@ -174,41 +173,8 @@ void	op_lldi(t_carriage *carriage, t_vm_data *d);
 void	op_st(t_carriage *carriage, t_vm_data *d);
 void	op_sti(t_carriage *carriage, t_vm_data *d);
 
-
-
-
-
-
-
 //		* * * * * * * * VISUALIZER * * * * * * * *
 //		arena.c
 void	print_arena(t_vm_data *d);
-
-
-
-//		* * * * * * * * DISPATCH TABLE TO STATEMENTS * * * * * * * *
-typedef void		(*t_op)(t_carriage *carriage, t_vm_data *d);
-
-static const t_op	g_dispatcher[16] = {
-	op_live,
-	op_ld,
-	op_st,
-	op_add,
-	op_sub,
-	op_and,
-	op_or,
-	op_xor,
-	op_jump,
-	op_ldi,
-	op_sti,
-	op_fork,
-	op_lld,
-	op_lldi,
-	op_lfork,
-	op_aff
-};
-
-
-
 
 #endif

@@ -55,12 +55,16 @@ static void	execute_statements(t_vm_data *d)
 // then countdown and execute the statement on right cycle.
 static void	check_carriage(t_vm_data *d)
 {
+	static const t_op	dispatcher[16] = {op_live, op_ld, op_st, op_add, \
+	op_sub, op_and, op_or, op_xor, op_jump, op_ldi, op_sti, op_fork, op_lld, \
+	op_lldi, op_lfork, op_aff
+	};
 	d->carriage->to_execute -= 1;
 	if (d->carriage->to_execute < 0)
 		read_statement(d);
 	else if (d->carriage->to_execute == 0)
 	{
-		g_dispatcher[d->carriage->statement](d->carriage, d);
+		dispatcher[d->carriage->statement](d->carriage, d);
 		if (d->a_flag != -2)
 			ft_printf("Carriage position: %d\n", d->carriage->cursor);
 	}

@@ -1,9 +1,6 @@
 import os
 import subprocess
 
-
-
-
 # Define colors.
 def red(text):
     return '\033[31m' + text + '\033[0m'
@@ -24,6 +21,8 @@ n = len(all_champs)
 i = 0
 j = 0
 corewar = 'leaks --atExit -- ./corewar ' + champsDir + all_champs[i] + ' ' + champsDir + all_champs[j]
+
+# Do you want to print the output
 print_result = False
 
 
@@ -31,7 +30,10 @@ print_result = False
 while (i < n):
 	j = 0
 	while (j < n):
+		# Print contestants
 		print(blue(all_champs[i] + '   vs   ' + all_champs[j] + ' '), end='')
+
+		# Get output of the program and check if leaks were found
 		result = subprocess.run(corewar.split(), capture_output=True)
 		if ('0 leaks for 0 total leaked bytes' in result.stdout.decode('utf-8')):
 			print(green('OK'))
