@@ -1,13 +1,14 @@
 import subprocess
+import os
 
 # Do you want to print the error messages
-print_msg = True
+print_msg = False
 
 # Define the keyword to look for in error message
 error_txt = "ERROR:"
 
 # Make and copy new corewar to this folder.
-#os.system('cd .. && make && make clean && cp corewar ./vm_tests/corewar && cd vm_tests')
+os.system('cd .. && make && make clean && cp corewar ./vm_tests/corewar && cd vm_tests')
 
 def main():
 	global error_txt
@@ -21,7 +22,7 @@ def main():
 	print(yellow('\nTesting invalid input'))
 	error_txt = "Wrong usage."
 	test_error('Champ without .cor: ', './corewar champs/Gagnant')
-	test_error('Negative dump flag: ', './corewar champs/Gagnant.cor -dump -42 champs/turtle.cor')
+	test_error('Negative -dump flag: ', './corewar champs/Gagnant.cor -dump -42 champs/turtle.cor')
 	test_error('-dump flag without argument: ', './corewar -dump champs/Gagnant.cor champs/turtle.cor')
 	test_error('Two -dump flags: ', './corewar -dump 21 champs/Gagnant.cor -dump 42 champs/turtle.cor')
 	test_error('Same -n flag: ', './corewar -n 1 champs/Gagnant.cor -n 1 champs/turtle.cor')

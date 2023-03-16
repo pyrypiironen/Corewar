@@ -12,7 +12,7 @@
 
 #include "../../../includes/vm.h"
 
-static int	is_flag(t_vm_data *d, char *argv);
+static int	is_flag(t_vm_data *d, char *argv, int args_after);
 static int	is_flag_helper(t_vm_data *d, char *argv);
 static void	read_flag(t_vm_data *d, char *value);
 static int	core_atoi(t_vm_data *d, char *str);
@@ -26,7 +26,7 @@ void	read_champs(int argc, char **argv, t_vm_data *d)
 	i = 1;
 	while (i < argc)
 	{
-		if (is_flag(d, argv[i]) && i + 1 < argc)
+		if (is_flag(d, argv[i], argc - (i + 1)) && i + 1 < argc)
 			read_flag(d, argv[++i]);
 		else if (is_bare_flag(d, argv[i]) && i < argc)
 			;
@@ -41,9 +41,10 @@ void	read_champs(int argc, char **argv, t_vm_data *d)
 }
 
 // Return the information if there is the flag on command line input.
-static int	is_flag(t_vm_data *d, char *argv)
+static int	is_flag(t_vm_data *d, char *argv, int args_after)
 {
-	if (ft_strcmp(argv, "-n") == 0 && d->n_flag == 0)
+	
+	if (ft_strcmp(argv, "-n") == 0 && d->n_flag == 0 && args_after > 1)
 	{
 		d->n_flag = -1;
 		return (1);
