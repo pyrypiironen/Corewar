@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   vm.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:32:53 by ppiirone          #+#    #+#             */
-/*   Updated: 2023/01/12 15:32:54 by ppiirone         ###   ########.fr       */
+/*   Updated: 2023/03/17 12:03:32 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef VM_H
 # define VM_H
@@ -18,11 +17,13 @@
 # include "op.h"
 # include <fcntl.h>
 
-static const char *color_tab[] = {
+static const char	*g_color_tab[] = {
 	"", "\x1B[32m", "\x1B[33m", "\x1B[31m", "\x1B[35m"
 };
 
-typedef struct			s_vm_data
+typedef void		(*t_op)(t_carriage *carriage, t_vm_data *d);
+
+typedef struct s_vm_data
 {
 	unsigned char		arena[MEM_SIZE];
 	int					arena_color[MEM_SIZE];
@@ -43,13 +44,13 @@ typedef struct			s_vm_data
 	int					c_flag;
 	int					a_flag;
 	int					b_flag;
-}						t_vm_data;
+}	t_vm_data;
 
-typedef struct			s_carriage
+typedef struct s_carriage
 {
 	int					id;
 	int					carry;
-	int			 		cursor;
+	int					cursor;
 	int					cursor_copy;
 	int					last_live;
 	unsigned char		statement;
@@ -57,22 +58,18 @@ typedef struct			s_carriage
 	int					jump_size;
 	int					registrys[REG_NUMBER];
 	struct s_carriage	*next;
-}						t_carriage;
+}	t_carriage;
 
-typedef struct		s_player
+typedef struct s_player
 {
-	int				id;
-	char			name[PROG_NAME_LENGTH + 1];
-	char			comment[COMMENT_LENGTH + 1];
-	int				code_size;
-	unsigned char	*excode;
-	int				location;
+	int					id;
+	char				name[PROG_NAME_LENGTH + 1];
+	char				comment[COMMENT_LENGTH + 1];
+	int					code_size;
+	unsigned char		*excode;
+	int					location;
 	struct s_player		*next;
-}					t_player;
-
-typedef void		(*t_op)(t_carriage *carriage, t_vm_data *d);
-
-void	init_carriages(t_vm_data *d);
+}	t_player;
 
 //		* * * * * * * * THE GAME * * * * * * * *
 //		checks.c
@@ -110,7 +107,7 @@ void	id_error_check(t_vm_data *d);
 void	init_core(int argc, char **argv, t_vm_data *d);
 
 //		read_args.c
-void	read_champs(int	argc, char **argv, t_vm_data *d);
+void	read_champs(int argc, char **argv, t_vm_data *d);
 
 //		read_args_2.c
 int		is_bare_flag(t_vm_data *d, char *argv);
@@ -151,7 +148,7 @@ int		get_2_byte_value(t_vm_data *d, int position, int idx);
 void	int_to_arena(t_vm_data *d, int position, int value);
 
 //		op_helpers_2.c
-int		count_jump_size(t_carriage *carriage, t_vm_data *d, int	dir_size, \
+int		count_jump_size(t_carriage *carriage, t_vm_data *d, int dir_size, \
 		int args);
 int		move_cursor(t_carriage *carriage, int arg);
 
