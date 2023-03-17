@@ -20,7 +20,8 @@ all_champs = os.listdir(champsDir)
 n = len(all_champs)
 i = 0
 j = 0
-corewar = 'leaks --atExit -- ./corewar ' + champsDir + all_champs[i] + ' ' + champsDir + all_champs[j]
+
+corewar_text = './logs/corewar.txt'
 
 # Do you want to print the output
 print_result = False
@@ -31,16 +32,22 @@ while (i < n):
 	j = 0
 	while (j < n):
 		# Print contestants
+		corewar = 'leaks --atExit -- ./corewar ' + champsDir + all_champs[i] + ' ' + champsDir + all_champs[j]
 		print(blue(all_champs[i] + '   vs   ' + all_champs[j] + ' '), end='')
 
 		# Get output of the program and check if leaks were found
-		result = subprocess.run(corewar.split(), capture_output=True)
-		if ('0 leaks for 0 total leaked bytes' in result.stdout.decode('utf-8')):
+		with open(corewar_text, 'w') as f1:
+			subprocess.call(corewar, shell=True, stdout=f1)
+		with open(corewar_text, 'r') as f1:
+			output = f1.read()
+		if ('0 leaks for 0 total leaked bytes' in output):
 			print(green('OK'))
 			if (print_result):
-				print(result.stdout.decode('utf-8'))
+				print(output)
 		else:
 			print(red('KO'))
+			if (print_result):
+				print(output)
 		j +=1
 	i += 1
 

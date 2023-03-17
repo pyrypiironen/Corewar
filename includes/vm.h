@@ -6,7 +6,7 @@
 /*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:32:53 by ppiirone          #+#    #+#             */
-/*   Updated: 2023/03/17 12:03:32 by abackman         ###   ########.fr       */
+/*   Updated: 2023/03/17 12:07:56 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 static const char	*g_color_tab[] = {
 	"", "\x1B[32m", "\x1B[33m", "\x1B[31m", "\x1B[35m"
 };
-
-typedef void		(*t_op)(t_carriage *carriage, t_vm_data *d);
 
 typedef struct s_vm_data
 {
@@ -70,6 +68,8 @@ typedef struct s_player
 	int					location;
 	struct s_player		*next;
 }	t_player;
+
+typedef void		(*t_op)(t_carriage *carriage, t_vm_data *d);
 
 //		* * * * * * * * THE GAME * * * * * * * *
 //		checks.c

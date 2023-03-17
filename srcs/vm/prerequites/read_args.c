@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_champs.c                                      :+:      :+:    :+:   */
+/*   read_args.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 18:10:13 by ppiirone          #+#    #+#             */
-/*   Updated: 2023/01/12 18:10:14 by ppiirone         ###   ########.fr       */
+/*   Updated: 2023/03/17 13:12:59 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ void	read_champs(int argc, char **argv, t_vm_data *d)
 	}
 	init_ids(d);
 	id_error_check(d);
+	d->winner = d->player_amount;
 }
 
 // Return the information if there is the flag on command line input.
 static int	is_flag(t_vm_data *d, char *argv, int args_after)
 {
-	
 	if (ft_strcmp(argv, "-n") == 0 && d->n_flag == 0 && args_after > 1)
 	{
 		d->n_flag = -1;

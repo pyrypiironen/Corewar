@@ -20,15 +20,15 @@ os.system('cd .. && make vm && make clean && cp corewar ./vm_tests/corewar && cd
 
 # Set the starting cycle of comparing outputs of our corewar and the original corewar.
 # First difference: 
-cycle = 30000
+cycle = 990
 # Set the cycle to print info.
 info = 1062
 
 # Define champs
-champs = ' ./champs/Kitty_miaou.cor ./champs/tchupka.cor ./champs/dubo.cor ./champs/Gagnant.cor'
+champs = ' ./champs/Kitty_miaou.cor ./champs/tchupka.cor ./compiled/Kappa.cor' #./champs/dubo.cor #./champs/Gagnant.cor'
 
 # Define commands and log files
-corewar = './corewar' + champs + ' -d '
+corewar = './corewar -b' + champs + ' -d '
 corewar42 = './corewar42' + champs + ' -d '
 corewar_info = './corewar' + champs + ' -c '
 corewar_text = './logs/corewar.txt'
@@ -44,7 +44,7 @@ actions_text = './logs/actions.txt'
 
 
 
-while cycle < 30002:
+while cycle < 1000:
 	# Open text files, run the programs and write outputs to text files.
 	with open(corewar_text, 'w') as f1:
 		subprocess.run(corewar + str(cycle), shell=True, stdout=f1)

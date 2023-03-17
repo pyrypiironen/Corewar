@@ -14,23 +14,23 @@ Dieu est la plus belle invention.
 Tapis dans l'ombre, je veille
 - Minou") !
 * Player 2, weighing 247 bytes, "katch upper" ("do you like mirror ?") !
-* Player 3, weighing 71 bytes, "dubo" ("Tu veux du pain") !
-* Player 4, weighing 325 bytes, "Celebration Funebre v0.99pl42" ("Jour J") !
+* Player 3, weighing 682 bytes, "Kappa" ("AKA Kappa Sandwich.") !
+Aff: K
 
 Cycle: 1062
 Cycles to die: 1536
 Cycles to check: 474
-Live statements: 14
+Live statements: 2
 
 ID: 2
 Carry flag: 1
-Cursor location: 1052
+Cursor location: 903
 Statement: 0A
-To execute:								22
+To execute:								8
 Last live: 0
 Registry 1: 118164308
 Registry 2: 1409812230
-Registry 3: 0
+Registry 3: -32899137
 Registry 4: 118164308
 Registry 5: 1409484550
 Registry 6: 26
@@ -43,6 +43,29 @@ Registry 12: 23
 Registry 13: 252382036
 Registry 14: 1409486598
 Registry 15: -62
+Registry 16: 0
+
+ID: 3
+Carry flag: 0
+Cursor location: 3152
+Statement: 0B
+To execute:								580
+Last live: 842
+Registry 1: -3
+Registry 2: 0
+Registry 3: 0
+Registry 4: 0
+Registry 5: 0
+Registry 6: 0
+Registry 7: 0
+Registry 8: 0
+Registry 9: 0
+Registry 10: 0
+Registry 11: 0
+Registry 12: 0
+Registry 13: 75
+Registry 14: 0
+Registry 15: 0
 Registry 16: 0
 
 ID: 1
@@ -68,61 +91,38 @@ Registry 14: 6
 Registry 15: 61947
 Registry 16: 151737346
 
-ID: 4
-Carry flag: 0
-Cursor location: 3254
-Statement: 0B
-To execute:								8
-Last live: 205
-Registry 1: -4
-Registry 2: 0
-Registry 3: 0
-Registry 4: 1310720
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
-Registry 9: 0
-Registry 10: 5
-Registry 11: 1
-Registry 12: 917504
-Registry 13: 0
-Registry 14: 0
-Registry 15: 0
-Registry 16: 0
-
 ID: 3
 Carry flag: 0
-Cursor location: 3011
-Statement: FF
-To execute:								-892
-Last live: 150
+Cursor location: 2815
+Statement: 0B
+To execute:								630
+Last live: 842
 Registry 1: -3
 Registry 2: 0
 Registry 3: 0
 Registry 4: 0
-Registry 5: 0
-Registry 6: 0
-Registry 7: 0
-Registry 8: 0
-Registry 9: 0
+Registry 5: 880
+Registry 6: 50327043
+Registry 7: 1879310335
+Registry 8: 16777216
+Registry 9: 17432543
 Registry 10: 0
 Registry 11: 0
 Registry 12: 0
-Registry 13: 0
+Registry 13: 75
 Registry 14: 0
 Registry 15: 0
 Registry 16: 0
 
 ID: 2
 Carry flag: 1
-Cursor location: 1052
+Cursor location: 903
 Statement: 0A
-To execute:								22
+To execute:								8
 Last live: 0
 Registry 1: 252400644
 Registry 2: 84347915
-Registry 3: 0
+Registry 3: 33554431
 Registry 4: 252400653
 Registry 5: 235342859
 Registry 6: 22

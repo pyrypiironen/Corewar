@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   play.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 13:14:16 by ppiirone          #+#    #+#             */
-/*   Updated: 2023/03/13 13:14:18 by ppiirone         ###   ########.fr       */
+/*   Updated: 2023/03/17 12:04:56 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ static void	check_carriage(t_vm_data *d)
 	op_sub, op_and, op_or, op_xor, op_jump, op_ldi, op_sti, op_fork, op_lld, \
 	op_lldi, op_lfork, op_aff
 	};
+
 	d->carriage->to_execute -= 1;
 	if (d->carriage->to_execute < 0)
 		read_statement(d);

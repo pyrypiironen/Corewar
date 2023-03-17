@@ -1,0 +1,1359 @@
+Introducing contestants...
+* Player 1, weighing 578 bytes, "Kitty Miaou" ("Ma cherie
+Si tu voulais bien etre la bienvenue dans ma vie
+Vi vi c'est bien ce que j'ai dis
+Je ne penses plus qu'a toi
+Mes penses restent sans voix sans toi
+Dis moi es-tu la?
+Me veux-tu?
+Je serais l'esclave de tes desirs
+Aime le monde, pour toi, moi je desire tout le Monde avec toi
+J'aime bien le voir evoluer, et fleurir avec toi
+- Minou
+Dieu est la plus belle invention.
+Tapis dans l'ombre, je veille
+- Minou") !
+* Player 2, weighing 247 bytes, "katch upper" ("do you like mirror ?") !
+* Player 3, weighing 682 bytes, "Kappa" ("AKA Kappa Sandwich.") !
+It is now cycle 1
+It is now cycle 2
+It is now cycle 3
+It is now cycle 4
+It is now cycle 5
+P      | ld -508 r7
+Carriage position: 1372
+P      | ld 8 r13
+Carriage position: 7
+It is now cycle 6
+It is now cycle 7
+It is now cycle 8
+It is now cycle 9
+It is now cycle 10
+P      | ld -62 r15
+Carriage position: 1379
+P      | ld 6 r14
+Carriage position: 14
+It is now cycle 11
+It is now cycle 12
+It is now cycle 13
+It is now cycle 14
+It is now cycle 15
+P      | ld 0 r8
+Carriage position: 1386
+P      | ld 11 r10
+Carriage position: 21
+It is now cycle 16
+It is now cycle 17
+It is now cycle 18
+It is now cycle 19
+It is now cycle 20
+P      | ld 61947 r15
+Carriage position: 28
+It is now cycle 21
+It is now cycle 22
+It is now cycle 23
+It is now cycle 24
+It is now cycle 25
+P      | sti r1 456 1
+       | -> store to 456 + 1 = 457 (with pc and mod 3187)
+Carriage position: 2737
+It is now cycle 26
+It is now cycle 27
+It is now cycle 28
+It is now cycle 29
+It is now cycle 30
+P      | ld 75 r13
+Carriage position: 2744
+It is now cycle 31
+It is now cycle 32
+Aff: K
+Carriage position: 2747
+It is now cycle 33
+It is now cycle 34
+It is now cycle 35
+P      | zjmp 37 OK
+Carriage position: 1423
+It is now cycle 36
+It is now cycle 37
+It is now cycle 38
+It is now cycle 39
+It is now cycle 40
+It is now cycle 41
+It is now cycle 42
+It is now cycle 43
+It is now cycle 44
+It is now cycle 45
+It is now cycle 46
+It is now cycle 47
+It is now cycle 48
+It is now cycle 49
+It is now cycle 50
+It is now cycle 51
+It is now cycle 52
+It is now cycle 53
+It is now cycle 54
+It is now cycle 55
+It is now cycle 56
+It is now cycle 57
+It is now cycle 58
+It is now cycle 59
+It is now cycle 60
+It is now cycle 61
+It is now cycle 62
+It is now cycle 63
+It is now cycle 64
+It is now cycle 65
+It is now cycle 66
+It is now cycle 67
+It is now cycle 68
+It is now cycle 69
+It is now cycle 70
+It is now cycle 71
+It is now cycle 72
+It is now cycle 73
+It is now cycle 74
+It is now cycle 75
+It is now cycle 76
+It is now cycle 77
+It is now cycle 78
+It is now cycle 79
+It is now cycle 80
+It is now cycle 81
+It is now cycle 82
+It is now cycle 83
+It is now cycle 84
+It is now cycle 85
+It is now cycle 86
+It is now cycle 87
+It is now cycle 88
+It is now cycle 89
+It is now cycle 90
+It is now cycle 91
+It is now cycle 92
+It is now cycle 93
+It is now cycle 94
+It is now cycle 95
+It is now cycle 96
+It is now cycle 97
+It is now cycle 98
+It is now cycle 99
+It is now cycle 100
+It is now cycle 101
+It is now cycle 102
+It is now cycle 103
+It is now cycle 104
+It is now cycle 105
+It is now cycle 106
+It is now cycle 107
+It is now cycle 108
+It is now cycle 109
+It is now cycle 110
+It is now cycle 111
+It is now cycle 112
+It is now cycle 113
+It is now cycle 114
+It is now cycle 115
+It is now cycle 116
+It is now cycle 117
+It is now cycle 118
+It is now cycle 119
+It is now cycle 120
+It is now cycle 121
+It is now cycle 122
+It is now cycle 123
+It is now cycle 124
+It is now cycle 125
+It is now cycle 126
+It is now cycle 127
+It is now cycle 128
+It is now cycle 129
+It is now cycle 130
+It is now cycle 131
+It is now cycle 132
+It is now cycle 133
+It is now cycle 134
+It is now cycle 135
+It is now cycle 136
+It is now cycle 137
+It is now cycle 138
+It is now cycle 139
+It is now cycle 140
+It is now cycle 141
+It is now cycle 142
+It is now cycle 143
+It is now cycle 144
+It is now cycle 145
+It is now cycle 146
+It is now cycle 147
+It is now cycle 148
+It is now cycle 149
+It is now cycle 150
+It is now cycle 151
+It is now cycle 152
+It is now cycle 153
+It is now cycle 154
+It is now cycle 155
+It is now cycle 156
+It is now cycle 157
+It is now cycle 158
+It is now cycle 159
+It is now cycle 160
+It is now cycle 161
+It is now cycle 162
+It is now cycle 163
+It is now cycle 164
+It is now cycle 165
+It is now cycle 166
+It is now cycle 167
+It is now cycle 168
+It is now cycle 169
+It is now cycle 170
+It is now cycle 171
+It is now cycle 172
+It is now cycle 173
+It is now cycle 174
+It is now cycle 175
+It is now cycle 176
+It is now cycle 177
+It is now cycle 178
+It is now cycle 179
+It is now cycle 180
+It is now cycle 181
+It is now cycle 182
+It is now cycle 183
+It is now cycle 184
+It is now cycle 185
+It is now cycle 186
+It is now cycle 187
+It is now cycle 188
+It is now cycle 189
+It is now cycle 190
+It is now cycle 191
+It is now cycle 192
+It is now cycle 193
+It is now cycle 194
+It is now cycle 195
+It is now cycle 196
+It is now cycle 197
+It is now cycle 198
+It is now cycle 199
+It is now cycle 200
+It is now cycle 201
+It is now cycle 202
+It is now cycle 203
+It is now cycle 204
+It is now cycle 205
+It is now cycle 206
+It is now cycle 207
+It is now cycle 208
+It is now cycle 209
+It is now cycle 210
+It is now cycle 211
+It is now cycle 212
+It is now cycle 213
+It is now cycle 214
+It is now cycle 215
+It is now cycle 216
+It is now cycle 217
+It is now cycle 218
+It is now cycle 219
+It is now cycle 220
+It is now cycle 221
+It is now cycle 222
+It is now cycle 223
+It is now cycle 224
+It is now cycle 225
+It is now cycle 226
+It is now cycle 227
+It is now cycle 228
+It is now cycle 229
+It is now cycle 230
+It is now cycle 231
+It is now cycle 232
+It is now cycle 233
+It is now cycle 234
+It is now cycle 235
+It is now cycle 236
+It is now cycle 237
+It is now cycle 238
+It is now cycle 239
+It is now cycle 240
+It is now cycle 241
+It is now cycle 242
+It is now cycle 243
+It is now cycle 244
+It is now cycle 245
+It is now cycle 246
+It is now cycle 247
+It is now cycle 248
+It is now cycle 249
+It is now cycle 250
+It is now cycle 251
+It is now cycle 252
+It is now cycle 253
+It is now cycle 254
+It is now cycle 255
+It is now cycle 256
+It is now cycle 257
+It is now cycle 258
+It is now cycle 259
+It is now cycle 260
+It is now cycle 261
+It is now cycle 262
+It is now cycle 263
+It is now cycle 264
+It is now cycle 265
+It is now cycle 266
+It is now cycle 267
+It is now cycle 268
+It is now cycle 269
+It is now cycle 270
+It is now cycle 271
+It is now cycle 272
+It is now cycle 273
+It is now cycle 274
+It is now cycle 275
+It is now cycle 276
+It is now cycle 277
+It is now cycle 278
+It is now cycle 279
+It is now cycle 280
+It is now cycle 281
+It is now cycle 282
+It is now cycle 283
+It is now cycle 284
+It is now cycle 285
+It is now cycle 286
+It is now cycle 287
+It is now cycle 288
+It is now cycle 289
+It is now cycle 290
+It is now cycle 291
+It is now cycle 292
+It is now cycle 293
+It is now cycle 294
+It is now cycle 295
+It is now cycle 296
+It is now cycle 297
+It is now cycle 298
+It is now cycle 299
+It is now cycle 300
+It is now cycle 301
+It is now cycle 302
+It is now cycle 303
+It is now cycle 304
+It is now cycle 305
+It is now cycle 306
+It is now cycle 307
+It is now cycle 308
+It is now cycle 309
+It is now cycle 310
+It is now cycle 311
+It is now cycle 312
+It is now cycle 313
+It is now cycle 314
+It is now cycle 315
+It is now cycle 316
+It is now cycle 317
+It is now cycle 318
+It is now cycle 319
+It is now cycle 320
+It is now cycle 321
+It is now cycle 322
+It is now cycle 323
+It is now cycle 324
+It is now cycle 325
+It is now cycle 326
+It is now cycle 327
+It is now cycle 328
+It is now cycle 329
+It is now cycle 330
+It is now cycle 331
+It is now cycle 332
+It is now cycle 333
+It is now cycle 334
+It is now cycle 335
+It is now cycle 336
+It is now cycle 337
+It is now cycle 338
+It is now cycle 339
+It is now cycle 340
+It is now cycle 341
+It is now cycle 342
+It is now cycle 343
+It is now cycle 344
+It is now cycle 345
+It is now cycle 346
+It is now cycle 347
+It is now cycle 348
+It is now cycle 349
+It is now cycle 350
+It is now cycle 351
+It is now cycle 352
+It is now cycle 353
+It is now cycle 354
+It is now cycle 355
+It is now cycle 356
+It is now cycle 357
+It is now cycle 358
+It is now cycle 359
+It is now cycle 360
+It is now cycle 361
+It is now cycle 362
+It is now cycle 363
+It is now cycle 364
+It is now cycle 365
+It is now cycle 366
+It is now cycle 367
+It is now cycle 368
+It is now cycle 369
+It is now cycle 370
+It is now cycle 371
+It is now cycle 372
+It is now cycle 373
+It is now cycle 374
+It is now cycle 375
+It is now cycle 376
+It is now cycle 377
+It is now cycle 378
+It is now cycle 379
+It is now cycle 380
+It is now cycle 381
+It is now cycle 382
+It is now cycle 383
+It is now cycle 384
+It is now cycle 385
+It is now cycle 386
+It is now cycle 387
+It is now cycle 388
+It is now cycle 389
+It is now cycle 390
+It is now cycle 391
+It is now cycle 392
+It is now cycle 393
+It is now cycle 394
+It is now cycle 395
+It is now cycle 396
+It is now cycle 397
+It is now cycle 398
+It is now cycle 399
+It is now cycle 400
+It is now cycle 401
+It is now cycle 402
+It is now cycle 403
+It is now cycle 404
+It is now cycle 405
+It is now cycle 406
+It is now cycle 407
+It is now cycle 408
+It is now cycle 409
+It is now cycle 410
+It is now cycle 411
+It is now cycle 412
+It is now cycle 413
+It is now cycle 414
+It is now cycle 415
+It is now cycle 416
+It is now cycle 417
+It is now cycle 418
+It is now cycle 419
+It is now cycle 420
+It is now cycle 421
+It is now cycle 422
+It is now cycle 423
+It is now cycle 424
+It is now cycle 425
+It is now cycle 426
+It is now cycle 427
+It is now cycle 428
+It is now cycle 429
+It is now cycle 430
+It is now cycle 431
+It is now cycle 432
+It is now cycle 433
+It is now cycle 434
+It is now cycle 435
+It is now cycle 436
+It is now cycle 437
+It is now cycle 438
+It is now cycle 439
+It is now cycle 440
+It is now cycle 441
+It is now cycle 442
+It is now cycle 443
+It is now cycle 444
+It is now cycle 445
+It is now cycle 446
+It is now cycle 447
+It is now cycle 448
+It is now cycle 449
+It is now cycle 450
+It is now cycle 451
+It is now cycle 452
+It is now cycle 453
+It is now cycle 454
+It is now cycle 455
+It is now cycle 456
+It is now cycle 457
+It is now cycle 458
+It is now cycle 459
+It is now cycle 460
+It is now cycle 461
+It is now cycle 462
+It is now cycle 463
+It is now cycle 464
+It is now cycle 465
+It is now cycle 466
+It is now cycle 467
+It is now cycle 468
+It is now cycle 469
+It is now cycle 470
+It is now cycle 471
+It is now cycle 472
+It is now cycle 473
+It is now cycle 474
+It is now cycle 475
+It is now cycle 476
+It is now cycle 477
+It is now cycle 478
+It is now cycle 479
+It is now cycle 480
+It is now cycle 481
+It is now cycle 482
+It is now cycle 483
+It is now cycle 484
+It is now cycle 485
+It is now cycle 486
+It is now cycle 487
+It is now cycle 488
+It is now cycle 489
+It is now cycle 490
+It is now cycle 491
+It is now cycle 492
+It is now cycle 493
+It is now cycle 494
+It is now cycle 495
+It is now cycle 496
+It is now cycle 497
+It is now cycle 498
+It is now cycle 499
+It is now cycle 500
+It is now cycle 501
+It is now cycle 502
+It is now cycle 503
+It is now cycle 504
+It is now cycle 505
+It is now cycle 506
+It is now cycle 507
+It is now cycle 508
+It is now cycle 509
+It is now cycle 510
+It is now cycle 511
+It is now cycle 512
+It is now cycle 513
+It is now cycle 514
+It is now cycle 515
+It is now cycle 516
+It is now cycle 517
+It is now cycle 518
+It is now cycle 519
+It is now cycle 520
+It is now cycle 521
+It is now cycle 522
+It is now cycle 523
+It is now cycle 524
+It is now cycle 525
+It is now cycle 526
+It is now cycle 527
+It is now cycle 528
+It is now cycle 529
+It is now cycle 530
+It is now cycle 531
+It is now cycle 532
+It is now cycle 533
+It is now cycle 534
+It is now cycle 535
+It is now cycle 536
+It is now cycle 537
+It is now cycle 538
+It is now cycle 539
+It is now cycle 540
+It is now cycle 541
+It is now cycle 542
+It is now cycle 543
+It is now cycle 544
+It is now cycle 545
+It is now cycle 546
+It is now cycle 547
+It is now cycle 548
+It is now cycle 549
+It is now cycle 550
+It is now cycle 551
+It is now cycle 552
+It is now cycle 553
+It is now cycle 554
+It is now cycle 555
+It is now cycle 556
+It is now cycle 557
+It is now cycle 558
+It is now cycle 559
+It is now cycle 560
+It is now cycle 561
+It is now cycle 562
+It is now cycle 563
+It is now cycle 564
+It is now cycle 565
+It is now cycle 566
+It is now cycle 567
+It is now cycle 568
+It is now cycle 569
+It is now cycle 570
+It is now cycle 571
+It is now cycle 572
+It is now cycle 573
+It is now cycle 574
+It is now cycle 575
+It is now cycle 576
+It is now cycle 577
+It is now cycle 578
+It is now cycle 579
+It is now cycle 580
+It is now cycle 581
+It is now cycle 582
+It is now cycle 583
+It is now cycle 584
+It is now cycle 585
+It is now cycle 586
+It is now cycle 587
+It is now cycle 588
+It is now cycle 589
+It is now cycle 590
+It is now cycle 591
+It is now cycle 592
+It is now cycle 593
+It is now cycle 594
+It is now cycle 595
+It is now cycle 596
+It is now cycle 597
+It is now cycle 598
+It is now cycle 599
+It is now cycle 600
+It is now cycle 601
+It is now cycle 602
+It is now cycle 603
+It is now cycle 604
+It is now cycle 605
+It is now cycle 606
+It is now cycle 607
+It is now cycle 608
+It is now cycle 609
+It is now cycle 610
+It is now cycle 611
+It is now cycle 612
+It is now cycle 613
+It is now cycle 614
+It is now cycle 615
+It is now cycle 616
+It is now cycle 617
+It is now cycle 618
+It is now cycle 619
+It is now cycle 620
+It is now cycle 621
+It is now cycle 622
+It is now cycle 623
+It is now cycle 624
+It is now cycle 625
+It is now cycle 626
+It is now cycle 627
+It is now cycle 628
+It is now cycle 629
+It is now cycle 630
+It is now cycle 631
+It is now cycle 632
+It is now cycle 633
+It is now cycle 634
+It is now cycle 635
+It is now cycle 636
+It is now cycle 637
+It is now cycle 638
+It is now cycle 639
+It is now cycle 640
+It is now cycle 641
+It is now cycle 642
+It is now cycle 643
+It is now cycle 644
+It is now cycle 645
+It is now cycle 646
+It is now cycle 647
+It is now cycle 648
+It is now cycle 649
+It is now cycle 650
+It is now cycle 651
+It is now cycle 652
+It is now cycle 653
+It is now cycle 654
+It is now cycle 655
+It is now cycle 656
+It is now cycle 657
+It is now cycle 658
+It is now cycle 659
+It is now cycle 660
+It is now cycle 661
+It is now cycle 662
+It is now cycle 663
+It is now cycle 664
+It is now cycle 665
+It is now cycle 666
+It is now cycle 667
+It is now cycle 668
+It is now cycle 669
+It is now cycle 670
+It is now cycle 671
+It is now cycle 672
+It is now cycle 673
+It is now cycle 674
+It is now cycle 675
+It is now cycle 676
+It is now cycle 677
+It is now cycle 678
+It is now cycle 679
+It is now cycle 680
+It is now cycle 681
+It is now cycle 682
+It is now cycle 683
+It is now cycle 684
+It is now cycle 685
+It is now cycle 686
+It is now cycle 687
+It is now cycle 688
+It is now cycle 689
+It is now cycle 690
+It is now cycle 691
+It is now cycle 692
+It is now cycle 693
+It is now cycle 694
+It is now cycle 695
+It is now cycle 696
+It is now cycle 697
+It is now cycle 698
+It is now cycle 699
+It is now cycle 700
+It is now cycle 701
+It is now cycle 702
+It is now cycle 703
+It is now cycle 704
+It is now cycle 705
+It is now cycle 706
+It is now cycle 707
+It is now cycle 708
+It is now cycle 709
+It is now cycle 710
+It is now cycle 711
+It is now cycle 712
+It is now cycle 713
+It is now cycle 714
+It is now cycle 715
+It is now cycle 716
+It is now cycle 717
+It is now cycle 718
+It is now cycle 719
+It is now cycle 720
+It is now cycle 721
+It is now cycle 722
+It is now cycle 723
+It is now cycle 724
+It is now cycle 725
+It is now cycle 726
+It is now cycle 727
+It is now cycle 728
+It is now cycle 729
+It is now cycle 730
+It is now cycle 731
+It is now cycle 732
+It is now cycle 733
+It is now cycle 734
+It is now cycle 735
+It is now cycle 736
+It is now cycle 737
+It is now cycle 738
+It is now cycle 739
+It is now cycle 740
+It is now cycle 741
+It is now cycle 742
+It is now cycle 743
+It is now cycle 744
+It is now cycle 745
+It is now cycle 746
+It is now cycle 747
+It is now cycle 748
+It is now cycle 749
+It is now cycle 750
+It is now cycle 751
+It is now cycle 752
+It is now cycle 753
+It is now cycle 754
+It is now cycle 755
+It is now cycle 756
+It is now cycle 757
+It is now cycle 758
+It is now cycle 759
+It is now cycle 760
+It is now cycle 761
+It is now cycle 762
+It is now cycle 763
+It is now cycle 764
+It is now cycle 765
+It is now cycle 766
+It is now cycle 767
+It is now cycle 768
+It is now cycle 769
+It is now cycle 770
+It is now cycle 771
+It is now cycle 772
+It is now cycle 773
+It is now cycle 774
+It is now cycle 775
+It is now cycle 776
+It is now cycle 777
+It is now cycle 778
+It is now cycle 779
+It is now cycle 780
+It is now cycle 781
+It is now cycle 782
+It is now cycle 783
+It is now cycle 784
+It is now cycle 785
+It is now cycle 786
+It is now cycle 787
+It is now cycle 788
+It is now cycle 789
+It is now cycle 790
+It is now cycle 791
+It is now cycle 792
+It is now cycle 793
+It is now cycle 794
+It is now cycle 795
+It is now cycle 796
+It is now cycle 797
+It is now cycle 798
+It is now cycle 799
+It is now cycle 800
+It is now cycle 801
+It is now cycle 802
+It is now cycle 803
+It is now cycle 804
+It is now cycle 805
+It is now cycle 806
+It is now cycle 807
+It is now cycle 808
+It is now cycle 809
+It is now cycle 810
+It is now cycle 811
+It is now cycle 812
+It is now cycle 813
+It is now cycle 814
+It is now cycle 815
+It is now cycle 816
+It is now cycle 817
+It is now cycle 818
+It is now cycle 819
+It is now cycle 820
+P    | fork 107 (135)
+Carriage position: 31
+It is now cycle 821
+It is now cycle 822
+It is now cycle 823
+It is now cycle 824
+It is now cycle 825
+P      | st r1 -9
+Carriage position: 140
+P      | st r8 104
+Carriage position: 36
+It is now cycle 826
+It is now cycle 827
+It is now cycle 828
+It is now cycle 829
+It is now cycle 830
+P      | ld 4 r8
+Carriage position: 147
+P      | ld -62636 r5
+Carriage position: 41
+It is now cycle 831
+It is now cycle 832
+P    | fork 400 (3147)
+Carriage position: 2750
+It is now cycle 833
+It is now cycle 834
+It is now cycle 835
+P      | ld 151737346 r7
+Carriage position: 154
+P    | fork 96 (1519)
+Carriage position: 1426
+P      | ld 190054664 r7
+Carriage position: 48
+It is now cycle 836
+It is now cycle 837
+It is now cycle 838
+It is now cycle 839
+It is now cycle 840
+P      | st r1 -111
+Carriage position: 1524
+P      | ld 218234879 r4
+Carriage position: 161
+P      | st r1 -10
+Carriage position: 1431
+P      | ld 134877312 r1
+Carriage position: 55
+It is now cycle 841
+It is now cycle 842
+P      | live 42
+Carriage position: 3152
+P      | live 1337
+Carriage position: 2755
+It is now cycle 843
+It is now cycle 844
+It is now cycle 845
+P      | st r8 -4
+Carriage position: 1529
+P      | ld 507 r9
+Carriage position: 168
+P      | st r8 -4
+Carriage position: 1436
+P      | st r13 9
+Carriage position: 59
+It is now cycle 846
+It is now cycle 847
+P      | ld 880 r5
+Carriage position: 2762
+It is now cycle 848
+It is now cycle 849
+It is now cycle 850
+P      | ld -32899137 r3
+Carriage position: 1534
+P      | ld 151737348 r2
+Carriage position: 175
+P      | ld 33554431 r8
+Carriage position: 1441
+P      | ld 190055176 r2
+Carriage position: 66
+It is now cycle 851
+It is now cycle 852
+P      | ld 50327043 r6
+Carriage position: 2769
+It is now cycle 853
+It is now cycle 854
+It is now cycle 855
+P      | ld -32899583 r8
+Carriage position: 1539
+P      | ld 252645135 r1
+Carriage position: 182
+P      | ld 33554431 r3
+Carriage position: 1446
+P      | ld 134877312 r3
+Carriage position: 73
+It is now cycle 856
+It is now cycle 857
+P      | ld 1879310335 r7
+Carriage position: 2776
+It is now cycle 858
+It is now cycle 859
+It is now cycle 860
+P      | ld 20 r11
+Carriage position: 1546
+P      | ld 101191179 r5
+Carriage position: 189
+P      | ld 16 r11
+Carriage position: 1453
+P      | ld 190055688 r4
+Carriage position: 80
+It is now cycle 861
+It is now cycle 862
+P      | ld 16777216 r8
+Carriage position: 2783
+It is now cycle 863
+It is now cycle 864
+It is now cycle 865
+P      | ld 23 r12
+Carriage position: 1553
+P      | ld 190058504 r6
+Carriage position: 196
+P      | ld 19 r12
+Carriage position: 1460
+P      | ld 1410009100 r6
+Carriage position: 87
+It is now cycle 866
+It is now cycle 867
+P      | ld 17432543 r9
+Carriage position: 2790
+It is now cycle 868
+It is now cycle 869
+It is now cycle 870
+P      | ld 26 r6
+Carriage position: 1560
+P      | st r1 11
+Carriage position: 200
+P      | ld 22 r6
+Carriage position: 1467
+P      | ld 168853504 r11
+Carriage position: 94
+It is now cycle 871
+It is now cycle 872
+P      | st r5 -80
+Carriage position: 2795
+It is now cycle 873
+It is now cycle 874
+It is now cycle 875
+P      | ld 118164308 r1
+Carriage position: 1567
+P      | st r9 12
+Carriage position: 204
+P      | ld 252400644 r1
+Carriage position: 1474
+P      | ld 9 r12
+Carriage position: 101
+It is now cycle 876
+It is now cycle 877
+P      | st r6 -81
+Carriage position: 2800
+It is now cycle 878
+It is now cycle 879
+It is now cycle 880
+P      | ld 1409812230 r2
+Carriage position: 1574
+P      | ld 151737346 r16
+Carriage position: 211
+P      | ld 84347915 r2
+Carriage position: 1481
+P      | ld 190054664 r16
+Carriage position: 108
+It is now cycle 881
+It is now cycle 882
+P      | st r7 -82
+Carriage position: 2805
+It is now cycle 883
+It is now cycle 884
+It is now cycle 885
+P      | ld 118164308 r4
+Carriage position: 1581
+P      | ld 0 r3
+Carriage position: 218
+P      | ld 252400653 r4
+Carriage position: 1488
+P      | ld 0 r8
+Carriage position: 115
+It is now cycle 886
+It is now cycle 887
+P      | st r8 -83
+Carriage position: 2810
+It is now cycle 888
+It is now cycle 889
+It is now cycle 890
+P      | ld 1409484550 r5
+Carriage position: 1588
+P      | ld 235342859 r5
+Carriage position: 1495
+It is now cycle 891
+It is now cycle 892
+P      | st r9 -84
+Carriage position: 2815
+It is now cycle 893
+It is now cycle 894
+It is now cycle 895
+P      | ld 252382036 r13
+Carriage position: 1595
+P      | ld 252400653 r13
+Carriage position: 1502
+It is now cycle 896
+It is now cycle 897
+It is now cycle 898
+It is now cycle 899
+It is now cycle 900
+P      | ld 1409486598 r14
+Carriage position: 1602
+P      | ld 235867147 r14
+Carriage position: 1509
+It is now cycle 901
+It is now cycle 902
+It is now cycle 903
+It is now cycle 904
+It is now cycle 905
+P      | ld 0 r16
+Carriage position: 1609
+P      | zjmp 338 OK
+Carriage position: 556
+P      | ld 0 r16
+Carriage position: 1516
+P      | zjmp 419 OK
+Carriage position: 534
+It is now cycle 906
+It is now cycle 907
+It is now cycle 908
+It is now cycle 909
+It is now cycle 910
+P      | ld 252248566 r3
+Carriage position: 563
+P      | ld 190056200 r8
+Carriage position: 541
+It is now cycle 911
+It is now cycle 912
+It is now cycle 913
+It is now cycle 914
+It is now cycle 915
+P      | st r3 493
+Carriage position: 568
+P      | st r8 511
+Carriage position: 546
+It is now cycle 916
+It is now cycle 917
+It is now cycle 918
+It is now cycle 919
+It is now cycle 920
+P      | ld 0 r3
+Carriage position: 575
+P      | ld 0 r8
+Carriage position: 553
+It is now cycle 921
+It is now cycle 922
+It is now cycle 923
+It is now cycle 924
+It is now cycle 925
+P      | zjmp -220 OK
+Carriage position: 1389
+P      | zjmp -127 OK
+Carriage position: 1389
+It is now cycle 926
+It is now cycle 927
+It is now cycle 928
+It is now cycle 929
+It is now cycle 930
+It is now cycle 931
+It is now cycle 932
+It is now cycle 933
+It is now cycle 934
+It is now cycle 935
+It is now cycle 936
+It is now cycle 937
+It is now cycle 938
+It is now cycle 939
+It is now cycle 940
+P      | zjmp 477 OK
+Carriage position: 1052
+P      | zjmp 499 OK
+Carriage position: 1052
+It is now cycle 941
+It is now cycle 942
+It is now cycle 943
+It is now cycle 944
+It is now cycle 945
+It is now cycle 946
+It is now cycle 947
+It is now cycle 948
+It is now cycle 949
+It is now cycle 950
+P      | sti r1 -508 20
+       | -> store to -508 + 20 = -488 (with pc and mod 901)
+Carriage position: 1394
+P      | sti r1 -508 16
+       | -> store to -508 + 16 = -492 (with pc and mod 897)
+Carriage position: 1394
+It is now cycle 951
+It is now cycle 952
+It is now cycle 953
+It is now cycle 954
+It is now cycle 955
+It is now cycle 956
+It is now cycle 957
+It is now cycle 958
+It is now cycle 959
+It is now cycle 960
+It is now cycle 961
+It is now cycle 962
+It is now cycle 963
+It is now cycle 964
+It is now cycle 965
+P      | sti r7 4 61947
+       | -> store to 4 + 61947 = 61951 (with pc and mod 1563)
+Carriage position: 1057
+P      | sti r7 0 61947
+       | -> store to 0 + 61947 = 61947 (with pc and mod 1559)
+Carriage position: 1057
+It is now cycle 966
+It is now cycle 967
+It is now cycle 968
+It is now cycle 969
+It is now cycle 970
+It is now cycle 971
+It is now cycle 972
+It is now cycle 973
+It is now cycle 974
+It is now cycle 975
+P      | sti r2 -508 23
+       | -> store to -508 + 23 = -485 (with pc and mod 909)
+Carriage position: 1399
+P      | sti r2 -508 19
+       | -> store to -508 + 19 = -489 (with pc and mod 905)
+Carriage position: 1399
+It is now cycle 976
+It is now cycle 977
+It is now cycle 978
+It is now cycle 979
+It is now cycle 980
+It is now cycle 981
+It is now cycle 982
+It is now cycle 983
+It is now cycle 984
+It is now cycle 985
+P      | zjmp 502 OK
+Carriage position: 1559
+P      | zjmp 502 OK
+Carriage position: 1559
+It is now cycle 986
+It is now cycle 987
+It is now cycle 988
+It is now cycle 989
+It is now cycle 990
+It is now cycle 991
+It is now cycle 992
+It is now cycle 993
+It is now cycle 994
+It is now cycle 995
+It is now cycle 996
+It is now cycle 997
+It is now cycle 998
+It is now cycle 999
+It is now cycle 1000
+P      | sti r8 -508 26
+       | -> store to -508 + 26 = -482 (with pc and mod 917)
+Carriage position: 1404
+P      | sti r8 -508 22
+       | -> store to -508 + 22 = -486 (with pc and mod 913)
+Carriage position: 1404
+It is now cycle 1001
+02 90 00 00 00 08 0d 02 90 00 00 00 06 0e 02 90 00 00 00 0b 0a 02 90 00 00 f1 fb 0f 0c 00 6b 03
+70 08 00 68 02 d0 00 5c 05 02 90 0b 54 01 08 07 02 90 08 0a 10 80 01 03 50 0d 09 02 90 0b 54 03
+08 02 02 90 08 0a 10 80 03 02 90 0b 54 05 08 04 02 90 54 0b 08 0c 06 02 90 0a 10 80 00 0b 02 90
+00 00 00 09 0c 02 90 0b 54 01 08 10 02 90 00 00 00 00 08 09 01 a3 0f 00 00 0f 00 00 0f 00 ff ff
+ff ff 0b 54 0a 0a 0a 00 00 00 00 f7 02 90 00 00 00 04 08 02 90 09 0b 54 02 07 02 90 0d 01 ff ff
+04 02 90 00 00 01 fb 09 02 90 09 0b 54 04 02 02 90 0f 0f 0f 0f 01 02 90 06 08 0e 0b 05 02 90 0b
+54 10 08 06 03 50 01 0b 03 50 09 0c 02 90 09 0b 54 02 10 02 90 00 00 00 00 03 09 01 52 0f 0f 0f
+0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f
+0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f
+0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f
+0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f
+0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f
+0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f
+0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f
+0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f
+0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f
+0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 0f 01 00 00 00 2a 01 00 00 00 2a 02 90 0b 54 07 08 08 03 70 08
+01 ff 02 90 00 00 00 00 08 09 01 f3 02 90 0f 09 01 f6 03 03 70 03 01 ed 02 90 00 00 00 00 03 09
+01 dd 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 0f 0b 54 04 07 0b 0b 54 05 07 0c 0b 54 08 07 06 01 ff ff ff fe 09 fe 01 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0b 54 07 08
+0f 09 01 f6 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 90 ff ff fe 04 07 02 90 ff ff
+ff c2 0f 02 90 00 00 00 00 08 09 00 25 0b 54 01 07 0b 0b 54 02 07 0c 0b 54 08 07 06 09 fe 06 01
+ff ff ff fe 09 ff bf 01 ff ff ff fe 09 fe 01 0c 00 60 03 00 00 00 00 03 70 08 ff fc 02 d0 ff eb
+08 02 d0 ff e6 03 02 90 00 00 00 10 0b 02 90 00 00 00 13 0c 02 90 00 00 00 16 06 02 90 0f 0b 54
+04 01 02 90 05 07 0c 0b 02 02 90 0f 0b 54 0d 04 02 90 0e 07 0c 0b 05 02 90 0f 0b 54 0d 0d 02 90
+0e 0f 0c 0b 0e 02 90 00 00 00 00 10 09 ff 81 03 00 00 00 00 03 70 08 ff fc 02 d0 ff 8a 03 02 d0
+ff 8d 08 02 90 00 00 00 14 0b 02 90 00 00 00 17 0c 02 90 00 00 00 1a 0b 54 01 08 09 0b 54 02 02
+90 54 08 07 06 02 02 90 07 0b 0b 54 04 02 90 54 03 07 06 05 02 90 0f 0b 0b 54 0d 02 90 54 03 0f
+06 0e 02 90 00 00 00 00 10 09 ff 24 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 03 70 02 ff ee 03 70 03
+ff ff 01 00 00 00 01 09 ff df 0b 68 01 01 c8 00 01 02 90 00 00 00 4b 0d 10 40 0d 0c 01 90 01 00
+00 05 39 02 90 00 00 03 70 05 02 90 02 ff ee 03 06 02 90 70 03 ff ff 07 02 90 01 00 00 00 08 02
+90 01 09 ff df 09 03 70 05 ff b0 03 70 06 ff af 03 70 07 ff ae 03 70 08 ff ad 03 70 09 ff ac 0c
+00 f8 01 00 00 00 2a 0c 00 ac 01 00 00 00 2a 0c 00 6a 01 00 00 00 2a 0c 00 35 01 00 00 00 2a 0c
+00 0d 02 90 00 00 00 00 02 09 01 22 02 90 03 70 02 ff 02 02 90 f2 03 70 03 03 02 90 00 00 00 00
+04 01 00 00 00 2a 0c ff fb 09 ff 4f 01 00 00 00 2a 02 90 ee 03 70 03 02 02 90 f6 03 70 03 03 07
+54 0c 0c 0c 02 90 00 00 00 00 04 0c 01 07 01 00 00 00 2a 0c ff fb 09 ff 22 01 00 00 00 2a 02 90
+ff ff 01 00 02 02 90 f9 03 70 03 03 07 54 0c 0c 0c 07 54 0c 0c 0c 02 90 00 00 00 00 04 0c 00 d5
+01 00 00 00 2a 0c 00 cd 01 00 00 00 2a 0c ff fb 09 fe e8 01 00 00 00 2a 03 50 01 02 02 90 fd 03
+70 03 03 07 54 0c 0c 0c 07 54 0c 0c 0c 07 54 0c 0c 0c 02 90 00 00 00 00 04 0c 00 99 01 00 00 00
+2a 0c 00 91 01 00 00 00 2a 0c 00 89 01 00 00 00 2a 0c ff fb 09 fe a4 01 00 00 00 2a 02 90 09 ff
+df 03 02 02 90 ee 03 70 03 03 07 54 0c 0c 0c 07 54 0c 0c 0c 07 54 0c 0c 0c 07 54 0c 0c 0c 02 90
+00 00 00 00 04 0c 00 4d 01 00 00 00 2a 0c 00 45 01 00 00 00 2a 0c 00 3d 01 00 00 00 2a 0c 00 35
+01 00 00 00 2a 0c ff fb 09 fe 50 01 00 00 00 2a 0c 00 b1 01 00 00 00 2a 0c 00 6f 01 00 00 00 2a
+0c 00 3a 01 00 00 00 2a 0c 00 12 02 90 00 00 00 00 02 01 ff ff ff fd 09 ff fb 02 90 03 70 02 00
+02 02 90 13 03 70 03 03 02 90 00 00 00 00 04 01 00 00 00 2a 0c ff fb 09 00 ae 01 00 00 00 2a 02
+90 0f 03 70 03 02 02 90 17 03 70 03 03 07 54 0c 0c 0c 02 90 00 00 00 00 04 0c ff b9 01 00 00 00
+2a 0c ff fb 09 00 81 01 00 00 00 2a 02 90 ff ff 01 00 02 02 90 1a 03 70 03 03 07 54 0c 0c 0c 07
+54 0c 0c 0c 02 90 00 00 00 00 04 0c ff 87 01 00 00 00 2a 0c ff 7f 01 00 00 00 2a 0c ff fb 09 00
+47 01 00 00 00 2a 03 50 01 02 02 90 0f 03 70 03 03 07 54 0c 0c 0c 07 54 0c 0c 0c 07 54 0c 0c 0c
+02 90 00 00 00 00 04 0c ff 4b 01 00 00 00 2a 0c ff 43 01 00 00 00 2a 0c ff 3b 01 00 00 00 2a 0c
+ff fb 09 00 03 03 70 02 00 0f 03 70 03 ff ff 01 00 00 05 39 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00

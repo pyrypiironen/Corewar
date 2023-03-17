@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abackman <abackman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:58:10 by ppiirone          #+#    #+#             */
-/*   Updated: 2023/01/12 17:58:11 by ppiirone         ###   ########.fr       */
+/*   Updated: 2023/03/17 13:12:17 by abackman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ static void	init_data_vm(t_vm_data *d)
 	d->player_head = NULL;
 	d->carriage_head = NULL;
 	d->player_amount = 0;
-	d->winner = 0;
 	d->current_cycle = 0;
 	d->cycles_to_die = CYCLE_TO_DIE;
 	d->cycles_to_check = d->cycles_to_die;
