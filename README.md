@@ -89,7 +89,6 @@ fork %999
 live %0
 fork %999
 live %0
-
 fork %999
 live %0
 fork %999
@@ -103,6 +102,7 @@ fork %999
 </details>
 <details>
 <summary>Click here to see original Hans Moleman.</summary>
-![hans](https://user-images.githubusercontent.com/93189576/226182249-a9eba58c-1eb8-4e3d-946e-e54ddb8c172d.png)
+	<p>
+<img src="https://user-images.githubusercontent.com/93189576/226182249-a9eba58c-1eb8-4e3d-946e-e54ddb8c172d.png" alt="1">
+	</p>
 </details>
-
