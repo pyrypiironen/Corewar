@@ -28,7 +28,7 @@ The project has three mandatory parts:
 - The Virtual Machine
 - The Champion
 
-The full assignment [PDF]not uploaded yet.
+The full assignment [PDF](https://github.com/pyrypiironen/Corewar/blob/main/corewar.pdf).
 
 ## The Assembler
 
