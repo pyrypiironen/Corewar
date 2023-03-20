@@ -15,7 +15,7 @@ This project was the last part of [Hive Helsinki](https://www.hive.fi/en/) ([Sch
 
 ## Description
 
-Corewar is the implementation of 1984 created programming game [Core war](https://en.wikipedia.org/wiki/Core_War).
+Corewar is the implementation of a 1984-created programming game [Core war](https://en.wikipedia.org/wiki/Core_War).
 
 > <em> In Core war, two or more battle programs (called "warriors") compete for control of a virtual computer.
 These battle programs are written in an abstract assembly language called Redcode. The standards for the language and the virtual machine
